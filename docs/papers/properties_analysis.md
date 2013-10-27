@@ -19,7 +19,8 @@ Glosario:
 
 La web "normal" se organiza en torno al contenido. 
 La web 2.0 (SNS) se organiza en torno a los usuarios  
-¿por qué? son los usuarios los que publican su perfil y los generadores de contenido, pero sobre todo, crean links a otros usuarios con los que se asocian. 
+¿por qué? son los usuarios los que publican su perfil y los generadores de contenido, pero sobre todo, crean links a 
+otros usuarios con los que se asocian. 
 
 ¿Qué podemos sacar de esto?  
 Podemos encontrar usuarios con intereses similares y encontrar contendio (conocimiento) que ya ha sido contrastado por otros usuarios. 
