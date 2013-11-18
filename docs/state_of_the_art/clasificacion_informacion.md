@@ -31,32 +31,30 @@ Definimos 3 niveles de clasificación para la información
 
 ***
 
-| Información 									| Categorías 						| Nivel procesamiento 	| Modelo 			 |
-|:------------									|:-----------						|:--------------------	|:-------			 |
-| Tweets posteados por el usuario 				| contenido, social 				| RAW 					| Tweet				 |
-| Mensajes directos por y para el usuario 		| Contenido, social 				| RAW 					| Tweet 			 |
-| Tweets del usuario retweeteados 				| contenido, social, interés 		| RAW 					| Tweet, Actividad 	 |
-| Tweets marcados como favoritos por el usuario | contenido, social, interés 		| RAW 					| Tweet, Actividad   |
-| Listas a las que está suscrito un usuario 	| social, interés 					| RAW 					| Actividad 		 |
-| Usuarios que han retweetado un tweet 			| social, interés 					| RAW 					| Tweet, Usuario 	 |
-| Buscar tweets por términos que contiene 		| contenido, interés 				| PROCESSED 			| Tweet 			 |
-| Buscar usuarios recomendados para una cate. 	| social, interés 					| PROCESSED 			| Usuario, Actividad |
-| Descripción de un usuario (modelo User)				|
-| Número de veces marcado como favorito (modelo User)				|
-| Tweets publicados por un usuario (modelo User)				|
-| Url publicada por el usuario (modelo User)				|
-| Tweets con usl (sensitive) (modelo Tweet)				|
-| Usuarios bloqueados (dos niveles de bloqueo)				|
-| Lista de amigos del usuario (following)				|
-| Lista de followers				|
-| Relación entre dos usuarios (following, followed_by, none)				|
-| Buscar tweets por menciones a otros usuarios - popularidad				|
-| Número de followers - friends (modelo User)				|
-| Cadena de tweets (respuestas) (modelo Tweet)				|
-| time zone y language del usuario (modelos User)				|
-| Buscar tweets en un radio (geo)				|
-| Top 10 de trending topics en un radio (geo) **Temporal**				|
-| localización de un Tweet (modelo Tweet)				|
-| Timeline de un usuario				|
-| Buscar tweets en un rango de fechas				|
-| Top 10 de trending topics en un radio (geo) **Localización**				|
+| Información 									| Categorías 						| Nivel procesamiento 	| Modelo 			 	|
+|:------------									|:-----------						|:--------------------	|:-------			 	|
+| Tweets posteados por el usuario 				| contenido, social 				| RAW 					| Tweet				 	|
+| Mensajes directos por y para el usuario 		| Contenido, social 				| RAW 					| Tweet 			 	|
+| Tweets del usuario retweeteados 				| contenido, social, interés 		| RAW 					| Tweet, Actividad 	 	|
+| Tweets marcados como favoritos por el usuario | contenido, social, interés 		| RAW 					| Tweet, Actividad   	|
+| Listas a las que está suscrito un usuario 	| social, interés 					| RAW 					| Actividad 		 	|
+| Usuarios que han retweetado un tweet 			| social, interés 			 		| RAW 					| Tweet, Usuario 	 	|
+| Buscar tweets por términos que contiene 		| contenido, interés 				| PROCESSED 			| Tweet 			 	|
+| Buscar usuarios recomendados para una cate. 	| social, interés, temporal 		| PROCESSED 			| Usuario, Actividad 	|
+| Descripción de un usuario (User)				| perfil 							| RAW 					| Usuario 			 	|
+| Número de veces marcado como favorito (User)	| social, interés 					| RAW 					| Usuario, Actividad 	| 
+| Url publicada por el usuario (User)			| perfil, 							| RAW 					| Usuario 			 	|
+| Tweets con contenido "sensitive" (Tweet)		| contenido 						| RAW 					| Tweet 			 	| 
+| Usuarios bloqueados (dos niveles de bloqueo)	| social, interés 					| RAW 					| Usuario, Actividad 	|
+| Lista de amigos del usuario (following)		| social, interés, 	 				| RAW 					| Usuario, Actividad 	|
+| Lista de followers							| social, interés,  				| RAW 					| usuario, Actividad 	|
+| Relación entre dos usuarios 					| social , interés, 				| RAW 					| Usuario, Actividad 	|
+| Buscar tweets por menciones a otros usuarios  | contenido, social 				| RAW 					| Usuario, Tweet, Actividad |
+| Número de followers - friends (User)			| social, interés 					| RAW 					| Usuario 				|
+| Cadena de tweets (respuestas) (Tweet)			| social, interés 					| RAW 					| Tweet, Actividad 		|
+| time zone y language del usuario (User)		| Perfil, geo 						| RAW 					| Usuario 				|
+| Buscar tweets en un radio (geo)				| contenido, geo 					| RAW 					| Tweet 				|
+| Top 10 de trending topics en un radio (geo) 	| social, interés, geo, temporal 	| PROCESSED 			| Tweet, Actividad 		|
+| localización de un Tweet (Tweet)				| contenido, geo 					| RAW 					| Tweet 				|
+| Timeline de un usuario						| contenido, social, temporal 		| RAW 					| Tweet, Actividad 		|
+| Buscar tweets en un rango de fechas			| contenido, temporal 				| PROCESSEd 			| Tweet 				|
