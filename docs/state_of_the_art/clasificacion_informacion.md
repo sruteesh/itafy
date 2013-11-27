@@ -111,9 +111,9 @@ Análisis de webs
   - Tweets
   - Authors
   - Gender
-  - Sentiment
+  - **Sentiment**
   - Timeline activity
-  - Key terms (popular terms) in social netwroks (word cloud)
+  - **Key terms (popular terms) in social netwroks (word cloud)**
   - Top @mentions
   - hashtags
 
@@ -135,13 +135,13 @@ Análisis de webs
   - listas
   - seguidores / siguiendo
 
-  2. Interacciones generadas (porcentajes)
+  2. **Interacciones generadas** (porcentajes)
 
-   - Informativas
-   - Contendio propio
-   - Sectorial
-   - Respuestas
-   - Sugerencias
+   - Informativas: tweets sobre un hecho
+   - Contendio propio: Posiblmenete busque términos cómo I've just created (está a 0) 
+   - Sectorial: ¿?
+   - Respuestas: tweets como respuestas
+   - Sugerencias: ¿?
 
   3. Variaciones en el tiempo (tracking)
 
@@ -162,12 +162,54 @@ Análisis de webs
  - Following, 
  - Lists, 
  - Mentions
- - Keywords comparing over time and Twitter sentiment.
+ - **Keywords comparing over time and Twitter sentiment**
 
 ### [Follower wonk](https://followerwonk.com)
 
 1. Twitter bios
-2. Compare users
+ 
+ - Search users looking for exact match words in their bio.
+
+2. **Compare users**
+
+ - Me gusta mucho esta idea. Para 3 usuarios, cogemos sus followeers y hacemos el gráfico de discreta.
+
 3. Analyze followers
+ 
+ - Mapped locations of users who follow / are followed by the user
+ - **Social Authority** (rating of a user's influence and engagement on Twitter). It ranges from 1 to 100, where higher scores indicate a person with greater influential activity.
+ - Gender percentage of useres who follow / are followed by the user.
+ - Number of followers for those users who follow / are followed by the user
+ - Number of following for those users who follow / are followes by the user
+ - Number of tweets for those users...
+ - account ages of users...
+ - Last time the users... use them account
+ - Langugaes of users...
+ - percentage of tweets of users...
+ - Retweets as a percent of timelines of users...
+ - Tweets with @contact as a percent of timeline of users...
+ - Most active hours for users...
+ - **Most frequency words as a cloud**
+ - **Most frequency two-words as a cloud**
+ - **Most frequency location-word as a cloud**
+
 4. Track Followers
+ - No interesante
+
 5. Sort Followers
+ - Es un index
+
+
+***
+
+#### wonk social authority 
+
+ - Basado en retweets
+ - **Accesible via SDK** => [social authority SDK](https://github.com/seomoz/Social-Authority-SDK)
+ - Explicación detallada de cómo se calcula =>  [Cómo calcula la social authority](http://moz.com/blog/social-authority)
+
+En resumen, tiene en cuenta
+
+ 1. *The retweet rate* of a few hundred of the measured user’s last non-@mention tweets
+ 2. *Recency of those tweets*: A time decay to favor recent activity versus ancient history
+ 3. Other data for each user (such as follower count, friend count, and so on) that are optimized via a *regression model* trained to retweet rate
