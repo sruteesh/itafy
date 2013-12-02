@@ -1,9 +1,20 @@
 Clasificación de información
 ===========
 
+Índice
+-----
+
+> [1 - Niveles de clasificación de la información](title-1)  
+> [2 - Tabla clasificatoria](title-2)  
+> [3 - Análisis de webs](title-3)  
+> [4 - wonk social authority](title-4)  
+
+<a name="title-1">1 - Niveles de clasificación de la información</a>
+-------------------
+
 Definimos 3 niveles de clasificación para la información
 
-1) Clasificación categórica de la información 
+1) Clasificación categórica de la información (categorías no excluyentes)
 
  - **Contenido**
  - **Social**
@@ -12,101 +23,99 @@ Definimos 3 niveles de clasificación para la información
  - **Interés - Actividad**
  - **Perfil de usuario**
 
-> Nota: la clasificación por categorías no es excluyente.
-
-2) Clasificación por nivel de procesamiento de la información
+2) Clasificación por nivel de procesamiento de la información (excluyente)
 
  - **Raw data**
  - **Processed data**
 
-> Nota: la clasificación por nivel de procesamiento sí es excluyente.
-
-3) Clasificación según el modelo al que pertence
+3) Clasificación según el modelo al que pertence (categorías no excluyentes)
 
  - **Usuario**
  - **Tweet**
  - **Actividad (relación)**
 
-> Nota: La clasificación por nivel de procesamiento no es excluyente.
 
-***
+<a name="title-2">2 - Tabla clasificatoria</a>
+----------------
 
-| Información 									| Categorías 						| Nivel procesamiento 	| Modelo 			 	|
-|:------------									|:-----------						|:--------------------	|:-------			 	|
-| Tweets posteados por el usuario 				| contenido, social 				| RAW 					| Tweet				 	|
-| Mensajes directos por y para el usuario 		| Contenido, social 				| RAW 					| Tweet 			 	|
-| Tweets del usuario retweeteados 				| contenido, social, interés 		| RAW 					| Tweet, Actividad 	 	|
-| Tweets marcados como favoritos por el usuario | contenido, social, interés 		| RAW 					| Tweet, Actividad   	|
-| Listas a las que está suscrito un usuario 	| social, interés 					| RAW 					| Actividad 		 	|
-| Usuarios que han retweetado un tweet 			| social, interés 			 		| RAW 					| Tweet, Usuario 	 	|
-| Buscar tweets por términos que contiene 		| contenido, interés 				| PROCESSED 			| Tweet 			 	|
-| Buscar usuarios recomendados para una cate. 	| social, interés, temporal 		| PROCESSED 			| Usuario, Actividad 	|
-| Descripción de un usuario (User)				| perfil 							| RAW 					| Usuario 			 	|
-| Número de veces marcado como favorito (User)	| social, interés 					| RAW 					| Usuario, Actividad 	| 
-| Url publicada por el usuario (User)			| perfil, 							| RAW 					| Usuario 			 	|
-| Tweets con contenido "sensitive" (Tweet)		| contenido 						| RAW 					| Tweet 			 	| 
-| Usuarios bloqueados (dos niveles de bloqueo)	| social, interés 					| RAW 					| Usuario, Actividad 	|
-| Lista de amigos del usuario (following)		| social, interés, 	 				| RAW 					| Usuario, Actividad 	|
-| Lista de followers							| social, interés,  				| RAW 					| usuario, Actividad 	|
-| Relación entre dos usuarios 					| social , interés, 				| RAW 					| Usuario, Actividad 	|
-| Buscar tweets por menciones a otros usuarios  | contenido, social 				| RAW 					| Usuario, Tweet, Actividad |
-| Número de followers - friends (User)			| social, interés 					| RAW 					| Usuario 				|
-| Cadena de tweets (respuestas) (Tweet)			| social, interés 					| RAW 					| Tweet, Actividad 		|
-| time zone y language del usuario (User)		| Perfil, geo 						| RAW 					| Usuario 				|
-| Buscar tweets en un radio (geo)				| contenido, geo 					| RAW 					| Tweet 				|
-| Top 10 de trending topics en un radio (geo) 	| social, interés, geo, temporal 	| PROCESSED 			| Tweet, Actividad 		|
-| localización de un Tweet (Tweet)				| contenido, geo 					| RAW 					| Tweet 				|
-| Timeline de un usuario						| contenido, social, temporal 		| RAW 					| Tweet, Actividad 		|
-| Buscar tweets en un rango de fechas			| contenido, temporal 				| PROCESSEd 			| Tweet 				|
+Clasificación de las 25 llamadas estudiadas a la API de twitter según los 3 niveles de clasificación contemplados
 
-***
+| # | Información 									| Categorías 						| Nivel procesamiento 	| Modelo 			 	|
+|:--:  |:------------									|:-----------						|:--------------------	|:-------			 	|
+| 1 | Tweets posteados por el usuario 				| contenido, social 				| RAW 					| Tweet				 	|
+| 2 | Mensajes directos por y para el usuario 		| Contenido, social 				| RAW 					| Tweet 			 	|
+| 3 | Tweets del usuario retweeteados 				| contenido, social, interés 		| RAW 					| Tweet, Actividad 	 	|
+| 4 | Tweets marcados como favoritos por el usuario | contenido, social, interés 		| RAW 					| Tweet, Actividad   	|
+| 5 | Listas a las que está suscrito un usuario 	| social, interés 					| RAW 					| Actividad 		 	|
+| 6 | Usuarios que han retweetado un tweet 			| social, interés 			 		| RAW 					| Tweet, Usuario 	 	|
+| 7 | Buscar tweets por términos que contiene 		| contenido, interés 				| PROCESSED 			| Tweet 			 	|
+| 8 | Buscar usuarios recomendados para una cate. 	| social, interés, temporal 		| PROCESSED 			| Usuario, Actividad 	|
+| 9 | Descripción de un usuario (User)				| perfil 							| RAW 					| Usuario 			 	|
+| 10 | Número de veces marcado como favorito (User)	| social, interés 					| RAW 					| Usuario, Actividad 	|
+| 11 | Url publicada por el usuario (User)			| perfil, 							| RAW 					| Usuario 			 	|
+| 12 | Tweets con contenido "sensitive" (Tweet)		| contenido 						| RAW 					| Tweet 			 	|
+| 13 | Usuarios bloqueados (dos niveles de bloqueo)	| social, interés 					| RAW 					| Usuario, Actividad 	|
+| 14 | Lista de amigos del usuario (following)		| social, interés, 	 				| RAW 					| Usuario, Actividad 	|
+| 15 | Lista de followers							| social, interés,  				| RAW 					| usuario, Actividad 	|
+| 16 | Relación entre dos usuarios 					| social , interés, 				| RAW 					| Usuario, Actividad 	|
+| 17 | Buscar tweets por menciones a otros usuarios  | contenido, social 				| RAW 					| Usuario, Tweet, Actividad |
+| 18 | Número de followers - friends (User)			| social, interés 					| RAW 					| Usuario 				|
+| 19 | Cadena de tweets (respuestas) (Tweet)			| social, interés 					| RAW 					| Tweet, Actividad 		|
+| 20 | time zone y language del usuario (User)		| Perfil, geo 						| RAW 					| Usuario 				|
+| 21 | Buscar tweets en un radio (geo)				| contenido, geo 					| RAW 					| Tweet 				|
+| 22 | Top 10 de trending topics en un radio (geo) 	| social, interés, geo, temporal 	| PROCESSED 			| Tweet, Actividad 		|
+| 23 | localización de un Tweet (Tweet)				| contenido, geo 					| RAW 					| Tweet 				|
+| 24 | Timeline de un usuario						| contenido, social, temporal 		| RAW 					| Tweet, Actividad 		|
+| 25 | Buscar tweets en un rango de fechas			| contenido, temporal 				| PROCESSED 			| Tweet 				|
 
-Análisis de webs
+<a name="title-3">3 - Análisis de webs</a>
 -----------
 
-### [secondsync](http://secondsync.com/)
+Para los siguientes 5 servicios, hacemos un análisis de las funciones que ofrecen; las funciones que no son "directas" se marcan en negrita
+
+### 1) [Secondsync](http://secondsync.com/)
 
 > [Data provided by secondsync](http://secondsync.com/services/how-we-work-with-you.html)
- 
- 1. Transmission metrics
 
- - Total Tweet volume
- - Unique users	
- - Tweets per minute
- - Average TPM
- - Peak TPM	
- - Share by time
- - Share by day	
- - Potential impressions
- - Gender		
- - Twitter client		
- - Hashtag analysis		
- - Verified accounts		
- - Tweet data
+1 Transmission metrics
 
-2. Series metrics
+  - Total Tweet volume
+  - Unique users
+  - Tweets per minute
+  - Average TPM
+  - Peak TPM
+  - Share by time
+  - Share by day
+  - Potential impressions
+  - Gender
+  - Twitter client
+  - Hashtag analysis
+  - Verified accounts
+  - Tweet data
 
- - Total tweet volume
- - Average TX Volume
- - Tweets per day
- - Tweets per TX
- - Average TPM
- - Peak TPM
- - Avarage peak TPM
- - Average gender
+2 Series metrics
 
-3. Channel metrics
+  - Total tweet volume
+  - Average TX Volume
+  - Tweets per day
+  - Tweets per TX
+  - Average TPM
+  - Peak TPM
+  - Avarage peak TPM
+  - Average gender
 
- - Average daily volume
- - Average TPM
- - Peak TPM
- - Tweets per day
- - Average gender
- - Transmissions
+3 Channel metrics
 
-### [Blue fin labs](https://bluefinlabs.com/solutions/network/)
+  - Average daily volume
+  - Average TPM
+  - Peak TPM
+  - Tweets per day
+  - Average gender
+  - Transmissions
 
- 1. Measure the social activity of any TV show
+### 2) [Blue fin labs](https://bluefinlabs.com/solutions/network/)
+
+1 Measure the social activity of any TV show
 
   - Tweets
   - Authors
@@ -117,16 +126,16 @@ Análisis de webs
   - Top @mentions
   - hashtags
 
-  2. Gráficos interesante sobre gustos a modo de "sistema solar"
+2 Gráficos interesante sobre gustos a modo de "sistema solar"
 
-   - People who tweet about Glee also socually engage with...
-   - List of lifestyle affinites for this show. Lifestyle - show
+  - People who tweet about Glee also socually engage with...
+  - List of lifestyle affinites for this show. Lifestyle - show
 
-### [BrandRiders](http://blog.thebrandriders.com/)
+### 3) [BrandRiders](http://blog.thebrandriders.com/)
 
 > [Caputa de pantalla](http://blog.thebrandriders.com/es/wp-content/uploads/2013/11/Analitica.png)
 
- 1. Estatus general 
+1 Estatus general
 
   - Siguiendo
   - Seguidores
@@ -135,81 +144,92 @@ Análisis de webs
   - listas
   - seguidores / siguiendo
 
-  2. **Interacciones generadas** (porcentajes)
+2 **Interacciones generadas** (porcentajes)
 
-   - Informativas: tweets sobre un hecho
-   - Contendio propio: Posiblmenete busque términos cómo I've just created (está a 0) 
-   - Sectorial: ¿?
-   - Respuestas: tweets como respuestas
-   - Sugerencias: ¿?
+  - Informativas: tweets sobre un hecho
+  - Contendio propio: Posiblmenete busque términos cómo I've just created (está a 0)
+  - Sectorial: ¿?
+  - Respuestas: tweets como respuestas
+  - Sugerencias: ¿?
 
-  3. Variaciones en el tiempo (tracking)
+3 Variaciones en el tiempo (tracking)
 
-   - Seguidores
-   - Siguiendo
-   - Audencia potencial
-   - Menciones
-   - Retweets
-   - Tweets
+  - Seguidores
+  - Siguiendo
+  - Audencia potencial
+  - Menciones
+  - Retweets
+  - Tweets
 
-### [Hoot Suite](https://hootsuite.com/)
+### 4) [Hoot Suite](https://hootsuite.com/)
 
- > [hootsuite features](https://hootsuite.com/features/custom-analytics)
+> [Features de la aplicación](https://hootsuite.com/features/custom-analytics)
 
- 1. Tracking 
+1 Tracking
 
- - Followers, 
- - Following, 
- - Lists, 
- - Mentions
- - **Keywords comparing over time and Twitter sentiment**
+  - Followers,
+  - Following,
+  - Lists,
+  - Mentions
+  - **Keywords comparing over time and Twitter sentiment**
 
-### [Follower wonk](https://followerwonk.com)
+### 5) [Follower wonk](https://followerwonk.com)
 
-1. Twitter bios
- 
- - Search users looking for exact match words in their bio.
+1 Twitter bios
 
-2. **Compare users**
+  - Search users looking for exact match words in their bio.
 
- - Me gusta mucho esta idea. Para 3 usuarios, cogemos sus followeers y hacemos el gráfico de discreta.
+2 **Compare users**
 
-3. Analyze followers
- 
- - Mapped locations of users who follow / are followed by the user
- - **Social Authority** (rating of a user's influence and engagement on Twitter). It ranges from 1 to 100, where higher scores indicate a person with greater influential activity.
- - Gender percentage of useres who follow / are followed by the user.
- - Number of followers for those users who follow / are followed by the user
- - Number of following for those users who follow / are followes by the user
- - Number of tweets for those users...
- - account ages of users...
- - Last time the users... use them account
- - Langugaes of users...
- - percentage of tweets of users...
- - Retweets as a percent of timelines of users...
- - Tweets with @contact as a percent of timeline of users...
- - Most active hours for users...
- - **Most frequency words as a cloud**
- - **Most frequency two-words as a cloud**
- - **Most frequency location-word as a cloud**
+  - Me gusta mucho esta idea. Para 3 usuarios, cogemos sus followeers y hacemos el gráfico de discreta.
 
-4. Track Followers
- - No interesante
+3 Analyze followers
 
-5. Sort Followers
- - Es un index
+  - Mapped locations of users who follow / are followed by the user
+  - ***Social Authority***: it ranges from 1 to 100, where higher scores indicate a person with greater influential activity.
+  - Gender percentage of useres who follow / are followed by the user.
+  - Number of followers for those users who follow / are followed by the user
+  - Number of following for those users who follow / are followes by the user
+  - Number of tweets for those users...
+  - account ages of users...
+  - Last time the users... use them account
+  - Langugaes of users...
+  - percentage of tweets of users...
+  - Retweets as a percent of timelines of users...
+  - Tweets with @contact as a percent of timeline of users...
+  - Most active hours for users...
+  - **Most frequency words as a cloud**
+  - **Most frequency two-words as a cloud**
+  - **Most frequency location-word as a cloud**
 
+4 Track Followers
+
+  - No interesante
+
+5 Sort Followers
+
+  - No interesante, es un index
+
+<a name="title-4">4 - wonk social authority</a>
+---------------------------
+
+  - Basado en retweets
+  - Accesible via SDK => [social authority SDK](https://github.com/seomoz/Social-Authority-SDK)
+  - Explicación detallada de cómo se calcula =>  [Cómo calcula la social authority](http://moz.com/blog/social-authority)
+
+### ¿Cómo se calcula?
+
+  1. **Tasa de retweets**: se utilizan aproximadamente los 100 últimos tweets del usuario que no contengan *@mention* a otros usuarios. La razón por la que se filtran los tweets con menciones es que existe una gran correlación entre el número de retweets que consigue un usuario con la tasa de menciones (en torno al 80%).  
+ Otro dato interesante en este punto es la relación entre la tasa de tweets retweteados y los tweets que contienen URLs - entorno al 70%.
+
+  2. **Lo reciente que es el retweet**: Se favorece a los tweets a corto plazo contra tweets antigüos. Lo que se intenta es destacar el contenido que tiene impacto en twitter en cada instante.  
+  Se define la vida media de un tweet en 18 minutos.
+
+  3. **Número de followers** Este tercer factor es el que menos peso tiene y se optimiza mediante un modelo de regresión "trained to retweet rate"; el objetivo de este modelo es suavizar los picos ocasionales de retweets de un usuario y, además, tiene en cuenta que hay una relación directa entre el número de seguidores y el porcetage de tweets retweeteados. Hasta el punto que a partir de los 10.000 seguidores se consigue una tasa de retweets del 25%
 
 ***
 
-#### wonk social authority 
+Extracto del blog de *moz* defendiendo el varemo de social authority en retweets mejor que en followers (tratado)
 
- - Basado en retweets
- - **Accesible via SDK** => [social authority SDK](https://github.com/seomoz/Social-Authority-SDK)
- - Explicación detallada de cómo se calcula =>  [Cómo calcula la social authority](http://moz.com/blog/social-authority)
+> @autocorrects is retweeted 7% more than @BarackObama, yet has 14 times fewer followers! As you can see, Social Authority surfaces a completely different set of top users: those that are extremely effective in engaging their followers. (…) They’ve discovered (these accounts) content that gets their audiences’ attention, whether we like it or not, and prompts action in terms of retweets and traffic.
 
-En resumen, tiene en cuenta
-
- 1. *The retweet rate* of a few hundred of the measured user’s last non-@mention tweets
- 2. *Recency of those tweets*: A time decay to favor recent activity versus ancient history
- 3. Other data for each user (such as follower count, friend count, and so on) that are optimized via a *regression model* trained to retweet rate
