@@ -85,7 +85,16 @@ Clasificación de las 25 llamadas estudiadas a la API de twitter según los 3 ni
 
 Para los siguientes 5 servicios, hacemos un análisis de las funciones que ofrecen; las funciones que no son "directas" se marcan en negrita
 
-### 1) [Secondsync](http://secondsync.com/)
+### 1) [SecondSync](http://secondsync.com/)
+
+SecondSync es una empresa británica especializada en el análisis de Twitter enfocada únicamente a la televisión (la llamada "Social TV"). Su servicio consiste en un dashboard dónde las cadenas de televisión o similares pueden ver un análisis detallado de sus programas, ya sea por emisión, o en general. En este análisis las empresas pueden no solo consultar datos relativos al volumen de tweets que generan sus programas, sino también si lo que se dice de ellos es bueno o malo, el perfil medio de quién lo comenta, y saber qué perfiles influyentes de Twitter han hablado sobre ellos.
+
+Dicho análisis está basado sobretodo en la categoría de contenido, ya que está basado en la cantidad de tweets que se han generado sobre la televisión social, y qué se dice en ellos. Estos tweets son extraídos por SecondSync mediante la Twitter Streaming API o mediante opciones más avanzadas (y de pago) como algún proveedor autorizado de Twitter, o la Twitter Firehose.
+
+Después de recopilar estos tweets y analizarlos para ofrecer las estadísticas básicas de audiencia social, SecondSync se apoya en algunas de las otras categorías que hemos definido para ofrecer algunas estadísticas adicionales:
+
+  - **Perfil del usuario.** Usado junto con el contenido de los tweets para ofrecer estadísticas relativas al sexo de la audiencia. Además, el saber si es una cuenta verificada les permite detectar perfiles muy influyentes.
+  - **Social.** Usado principalmente para extraer información sobre las impresiones potenciales generadas por los tweets que hablan de los programas analizados, pero también útil para reconocer perfiles influyentes que estén hablando de estos.
 
 > [Data provided by secondsync](http://secondsync.com/services/how-we-work-with-you.html)
 
@@ -113,7 +122,7 @@ Para los siguientes 5 servicios, hacemos un análisis de las funciones que ofrec
   - Tweets per TX
   - Average TPM
   - Peak TPM
-  - Avarage peak TPM
+  - Average peak TPM
   - Average gender
 
 3 Channel metrics
@@ -125,7 +134,11 @@ Para los siguientes 5 servicios, hacemos un análisis de las funciones que ofrec
   - Average gender
   - Transmissions
 
-### 2) [Blue fin labs](https://bluefinlabs.com/solutions/network/)
+### 2) [Bluefin labs](https://bluefinlabs.com/solutions/network/)
+
+Bluefin se centra en la televisión, pero con un enfoque diferente al de SecondSync. Si bien SecondSync se centraba básicamente en el contenido para ofrecer una serie de estadísticas, Bluefin se centra en intentar saber qué dice la gente sobre un programa o un anuncio de la televisión, y cómo afecta a estos. Es decir, no solo ofrecen datos cuantitativos sobre los programas o anuncios, sino que relacionan estos datos con otros para ofrecer estadísticas sobre rendimiento de campañas publicitarias, listas de términos más repetidos, relaciones del tipo "a los usuarios que les gusta este programa le gusta este otro", etc.
+
+Para realizar este tipo de análisis, Bluefin está también centrada en la categoría contenido con pequeñas pinceladas de perfil y social, pero a diferencia de SecondSync, los datos que ofrece están más procesados, y no se centran en ofrecer estadísticas de volúmenes y ratios, sino que usan machine learning para ir un paso más allá.
 
 1 Measure the social activity of any TV show
 
@@ -145,7 +158,19 @@ Para los siguientes 5 servicios, hacemos un análisis de las funciones que ofrec
 
 ### 3) [BrandRiders](http://blog.thebrandriders.com/)
 
-> [Caputa de pantalla](http://blog.thebrandriders.com/es/wp-content/uploads/2013/11/Analitica.png)
+BrandRiders es una empresa española que ofrece una herramienta para gestionar una o más redes sociales a la vez. Si bien está pensada tanto para Facebook como para Twitter, y además incorpora un analizador de feeds RSS, nosotros nos centraremos en su motor de fidelización y sus informes, todo ello centrado en Twitter.
+
+Su motor de fidelización consiste en una serie de sugerencias de acciones dentro de Twitter que ellos te proponen porque piensan que son beneficiosas para tu cuenta de Twitter: puede ser porque es muy probable que esa acción conlleve un retweet, o porque alguien te puede empezar a seguir por ello. Para ello, se basan en cálculos de afinidad entre cuentas, en el ratio de "followback" que tienen esas cuentas, y en categorización de contenido.
+
+Esta sección está basada en el contenido, ya que te dice qué acciones tienes que hacer sobre qué contenido, pero por otro lado está enfocada a conseguir mejoras en la categoría de social.
+
+[Captura motor de fidelización](http://blog.thebrandriders.com/es/wp-content/uploads/2013/11/Engagement.png)
+
+Por otro lado, la herramienta también tiene una sección de analítica y reportes. En esta sección se puede ver información cuantitativa sobre la cuenta de Twitter que se esté monitorizando, como número de seguidores y amigos, historial de interacciones de generadas o audiencia potencial.
+
+Esta sección está basada en las categorías social e interés, ya que se basa en cómo esa cuenta de Twitter está relacionada con el resto de usuarios de su red, y cómo ha cambiado en el tiempo.
+
+> [Captura de pantalla analítica](http://blog.thebrandriders.com/es/wp-content/uploads/2013/11/Analitica.png)
 
 1 Estatus general
 
