@@ -1,91 +1,211 @@
-# Clasificación de información
-
 ## Índice
 
-> [1 - Niveles de clasificación de la información](title-1)
-> [2 - Tabla clasificatoria](title-2)
-> [3 - Análisis de webs](title-3)
-> [4 - wonk social authority](title-4)
+> [1 Niveles de clasificación de la información](title-1)  
+>  [1.1 Clasificación categórica](title-1-1)
+>  [1.2 Clasificación por nivel de procesamiento](title-1-2)
+>  [1.3 Clasificación por modelo](title1-3) 
+> [2 Información extraíble de twitter](title-2)  
+> [3 Clasificación de la información extraíble de twitter](title-3)  
+> [4 Análisis de webs](title-4) 
+>  [4.1 SecondSync](title-4-1)
+>  [4.2 Bluefin Labs](title-4-2)
+>  [4.3 Brand Riders](title-4-3)
+>  [4.4 Hoot Suite](title-4-4) 
+>  [4.5 Follower Wonk](title-4-5)
+ 
+## <a name="title-1"/> 1 Niveles de clasificación de la información
 
-## 1 - Niveles de clasificación de la información
+Definimos tres niveles de clasificación para la información: por categoría, por nivel de procesamiento y por modelo al que pertenece dicha información.
 
-Definimos 3 niveles de clasificación para la información: por categoria, por nivel de procesamiento y por modelo al que
-pertenece
+### <a name="title-1-1"> 1.1 Clasificación categórica de la información 
 
-### Clasificación categórica de la información (categorías no excluyentes)
+Definimos las siguientes cinco posibles categorías:
 
- - **Contenido**. Aquella información que es introducida por los usuarios voluntariamente, ya sea textual o audiovisual.
- Ejemplos: un tweet, un mensaje directo.
- - **Social**. Aquella información que está que está relacionada de alguna forma con otra información, generando una red
- social alrededor de un contenido o de un usuario. Ejemplos: un tweet que contiene una mención, los miembros de una lista.
- - **Localización**. Aquella información de la que disponemos de datos geográficos. Habitualmente estos datos serán
- relativos al lugar de creación de dicha información, pero también está la posibilidad de obtener diferentes datos
- procesados según la ubicación. Ejemplos: tweet con geolocalizado, trending topics por ubicación.
- - **Temporal**. Aquella información que puede cambiar según el momento en el cual sea consultada. Obviamente la gran
- mayoría de la información es susceptible de cambiar (listas o tweets añadidos o borrados, relaciones creadas o destruidas,
-  etc.), pero solo la categorizamos como temporal si este cambio es por definición. Ejemplo: recomendaciones de Twitter,
-  trending topis.
- - **Interés - Actividad**. Aquella información que incluye datos sobre la relevancia de ésta ya sea dentro de toda la
- red o para cierto número de personas. Ejemplos: número de retweets o favoritos de un tweet.
- - **Perfil de usuario**. Aquella información relativa a la biografía del usuario, que ha sido introducida por el propio
- usuario. Ejemplo: web del usuario, o su foto.
+ 1. **Contenido**. Aquella información que es introducida por los usuarios voluntariamente, ya sea textual o audiovisual.  
+ Ejemplos: un tweet, un mensaje directo.  
+ Anotación: la información de perfil relativa a la biografía introducida por el propio usuario también se incluye en esta clasificación.
+ 2. **Social**. Aquella información que está que está relacionada de alguna forma con otra información, generando una red social alrededor de un contenido o de un usuario.  
+ Ejemplos: un tweet que contiene una mención, los miembros de una lista.
+ 3. **Localización**. Aquella información de la que disponemos de datos geográficos. Habitualmente estos datos serán relativos al lugar de creación de dicha información, pero también está la posibilidad de obtener diferentes datos procesados según la ubicación.  
+ Ejemplos: tweet con geolocalizado, trending topics por ubicación.
+ 4. **Temporal**. Aquella información que puede cambiar según el momento en el cual sea consultada. Obviamente la gran mayoría de la información es susceptible de cambiar (listas o tweets añadidos o borrados, relaciones creadas o destruidas, etc.), pero sólo la categorizamos como temporal si este cambio es por definición.  
+ Ejemplos: recomendaciones de Twitter, trending topis.
+ 5. **Interés - Actividad**. Aquella información que incluye datos sobre la relevancia de ésta ya sea dentro de toda la red o para cierto número de personas.  
+ Ejemplos: número de retweets o favoritos de un tweet.
 
-### Clasificación por nivel de procesamiento de la información (categorías excluyentes)
+> Nota: estas categorías no son excluyentes.
 
- - **Raw data**. Información que Twitter nos devuelve sin procesar, solamente nos la sirve. Constituye la gran mayoría
- de la información que nos ofrece.
- - **Processed data**. Información que Twitter nos devuelve una vez que ha sido generada, como por ejemplo los Trending
- Topic y las recomendaciones. A diferencia de la información sin procesar, no sabemos de qué forma la obtiene, y por lo
- tanto no sabemos su fiabilidad o precisión.
+### <a name="title-1-2"/> Clasificación por nivel de procesamiento de la información 
 
-### Clasificación según el modelo al que pertence (categorías no excluyentes)
+Existen dos posibles niveles de procesamiento de la información:
 
- - **Usuario**. Integrante de la red que tiene una identidad, y que puede generar contenido y relacionarse con el resto
- de usuarios. El usuario no tiene porqué ser una persona física: un usuario puede ser la representación de una empresa o
- de un producto, por ejemplo.
- - **Tweet**. Unidad básica de contenido de Twitter, formada por hasta un máximo de 140 caracteres, y que puede contener
- texto, información audiovisual o enlaces externos o internos a Twitter.
- - **Actividad (relación)**. Definimos como actividad aquella información que establece una relación dentro de Twitter.
- Por ejemplo: una mención, un retweet o un favorito.
+ 1. **Raw data**. Información que Twitter nos devuelve sin procesar, solamente nos la sirve. Constituye la gran mayoría de la información que nos ofrece.
+ 2. **Processed data**. Información que Twitter nos devuelve una vez que ha sido generada, como por ejemplo los *Trending Topic* y las recomendaciones.
+ A diferencia de la información sin procesar, no sabemos de qué forma la obtiene, y por lo tanto no sabemos su fiabilidad o precisión.
+
+> Nota: estas categorías son excluyentes.
+
+### <a name="title-1-3"/> Clasificación según el modelo al que pertence
+
+Abstractamente definimos tres modelos de información.
+
+ 1. **Usuario**. Integrante de la red que tiene una identidad, y que puede generar contenido y relacionarse con el resto de usuarios. El usuario no tiene porqué ser una persona física: un usuario puede ser la representación de una empresa o de un producto, por ejemplo.
+ 2. **Tweet**. Unidad básica de contenido de Twitter, formada por hasta un máximo de 140 caracteres, y que puede contener texto, información audiovisual o enlaces externos o internos a Twitter.
+ 3. **Actividad (relación)**. Definimos como actividad aquella información que establece una relación dentro de Twitter. Por ejemplo: una mención, un retweet o marcar un tweet como favorito.
+
+> Nota: los tres modelos son no excluyentes.
+
+## <a name="title-2"/> 2 - Información extraíble de Twitter
+
+***Incluir aquí archivo + breve explicación (POR HACER)***
+
+## <a name="title-3"/> 3- Clasificación de la información según los 3 niveles contemplados
+
+1. **Tweets posteados por el usuario**: pertenece exclusivamente a la categoría de *contenido*; abstraemos el hecho de que sea posible que existan retweets, menciones y tweets marcados como favoritos en la lista de tweets (determinando así que no incluímos las categorías social e interés o actividad). Abstraemos también que el volumen de tweets cambie a lo largo del tiempo (no pertenecerá a la categoría temporal) y la posibilidad de que estos tweets sean geolocalizados al existir una llamda (23) para tratar expresamente este asunto (no pertenecerá tampoco a la categoría localización).   
+Es información sin procesar por parte de Twitter y pertenece al modelo Tweet.
+
+> Ver: [tweets del usuario](https://dev.twitter.com/docs/api/1.1/get/statuses/user_timeline)
+
+2. **Mensajes directos por y para el usuario**: el hecho de mandar/recibir un mensaje directo a/de otro usuario, establece implícitamente una relación *social* entre A y B. El mensaje en sí mismo lo categorizamos como *contenido*, por lo tanto, pertenece a las categoráis *contenido* y *social*.  
+La información no está procesada por parte de Twitter y, salvando las distancias, consideramos a los mensajes privados pertenecientes al modelo Tweet.
+ 
+> Ver: [mensajes enviados](https://dev.twitter.com/docs/api/1.1/get/direct_messages/sent); [mensajes recibidos](https://dev.twitter.com/docs/api/1.1/get/direct_messages)
+
+3. **Tweets del usuario retweeteados**: a pesar de que el objeto sobre el que estamos interactuando es un tweet (y por tanto estamos hablando de contenido), consideramos que un retweet no genera nuevo contenido a la red, sino que establece una relación de interés o actividad. Al igual que para el punto (1), abstraemos una serie de puntos: la posibilidad de menciones a otros usuarios, el cambio de volumen temporal y la geolocalización. Por ello pertenece únicamente a la categoría *interés - actividad*.  
+La información no está procesada por parte de Twitter y existen dos modelos actuando sobre esta relación: Tweet y Actividad.
+ 
+> Ver: [tweets retweeteados](https://dev.twitter.com/docs/api/1.1/get/statuses/retweets_of_me)
+
+4. **Tweets marcados como favoritos por parte del usuario**: podemos aplicar los mismos criterios que el punto anterior (3); el objetivo central de este punto es la relevancia con la que ha dotado un usuario a un cierto contenido, por lo que la categoría será *interés - actividad*.  
+La información no está procesada por parte de Twitter y los dos modelos que actúan son Tweet y Actividad. 
+
+> Ver: [favoritos](https://dev.twitter.com/docs/api/1.1/get/favorites/list)
+
+5. **Listas a las que está suscrito un usuario**: las categorías involucradas son *social* ya que partiendo del usuario podemos establecer una red alrededor del usuario, y *interés - actividad* al tratarse de una relación dentro de Twitter. 
+La información no está pre procesada y los modelos que actúan son Tweet y Actividad. 
+
+> Ver: [listas](https://dev.twitter.com/docs/api/1/get/lists)
+
+6. **Usuarios que han retweeteado un tweet**: el razonamiento volverá a ser parecido que en el punto (3); a pesar de que los objetos sobre los que interactuamos son tweets (contenido) y usuarios (relación directa con información de perfil), la información principal de este punto es de *interés o actividad* por parte de N usuarios sobre 1 contenido concreto.   
+La información no está procesada por parte de Twitter y considereamos los tres modelos involucrados: Usuario, Tweet y Actividad
+
+> Ver: [usuarios interesados en un tweet](https://dev.twitter.com/docs/api/1.1/get/statuses/retweeters/ids)
+
+7. **Buscar tweets**: Twitter permite un abanico muy grande de criterios de búsqueda de tweets; antes de determinar las categorías que podemos aplicar, diremos que algunas de las posibildiades a la hora de formular la query cuentan con un alto grado de procesamiento por parte de Twitter. Los puntos más destacables para las búsquedas son:
+
+ - contienen una lista de términos (&&, ||)
+ - contienen exáctamente una cadena
+ - contienen texto con una actitud positiva
+ - contienen texto con una actitud negativa
+ - contienen una pregunta
+ - lengua en la que están escritos
+ - contienen un hashtag
+ - contienen un @screen_name (una mención a otro usuario)
+ - contienen contenido "sensitive" (contienen alguna URL)
+ - son "populares" (no explica qué es popular)
+ - publicados hasta una fecha
+ - publicados antes de una fecha
+ - son "recientes" en el tiempo
+ - fueron publicados en un área concreta (geolocalización)
+
+Debido a estas posibildiades, hemos decidido dividir la búsqueda de tweets en varios puntos.
+
+> Ver: [búsqueda de tweets](https://dev.twitter.com/docs/api/1.1/get/search/tweets); [búsqueda avanzada](https://dev.twitter.com/docs/using-search)
+
+7. A) **Buscar tweets por contenido** engloba las posibildiades de búsqueda relacionadas con el *contenido*: lista de términos, cadena exacta, texto con actitud positiva, negativa, contienen una pregunta, lengua en la que están escritos.
+
+7. B) **Buscar tweets por interacción social** engloba las posibilidades de búsqueda relacionadas con las interacciones *sociales*: contienen un hashtag, contienen una mención a otro usuario, contienen alguna URL, son "populares".
+
+7. C) **Buscar tweets por temporalidad** engloba las posibilidades de búsqueda relacionadas con la *temporalidad* de los tweets: publicados hasta / antes de una fecha, son "recientes" en el tiempo.
+
+7. D) **Buscar tweets por localización** engloba las posiblidades de búsqueda relacionadas con la *localización* de los tweets: área geográfica de publicación
+
+8. **Buscar usuarios recomendados (general)**: Sistema de recomendación de usuarios de Twitter. Pertenece a la categoría *interés - actividad* ya que las recomendaciones están hechas en función de los intereses mostrados por los usuarios. Tal y como explica en la documentación de Twitter, esta información tiene una fuerte dependencia *temporal*.  
+La información está pre-procesada por Twitter y considera al modelo usuario
+
+> Ver: [usuarios recomendados](https://dev.twitter.com/docs/api/1.1/get/users/suggestions)
+
+8. **Buscar usuarios recomendados para una categoría**: Twitter determina ciertos usuarios claves para una serie de categorías definidas previamente por el propio Twitter; estamos hablando de información procesada por Twitter. Pertence principalmente a la categoría *interés - actividad* ya que se supone que estos usuarios son "lideres" en su ámbito; sin embargo esta vez determinamos que pertenece también a la categoría *temporal* ya que este "status de liderazgo" es completamente temporal tal y como se expresa en la documentación de twitter.  
+Pertenece únicamente al modelo usuario.
+ 
+> Ver: [usuarios recomendados por categoría](https://dev.twitter.com/docs/api/1/get/users/suggestions/%3Aslug)
+
+9. **Biografía y descripción de un usuario**: la información de perfil relativa a la biografía introducida por el propio usuario, *contenido*.  
+La información no está procesada por Twitter. El modelo abstracto de datos es el usuario
+
+> Ver: [información extraible de un usuario](https://dev.twitter.com/docs/platform-objects/users)
+
+11. **Url publicada por el usuario**: información de perfil introducida por el propio usuario. El motivo por el que hemos separado la información extraíble de un usuario (usuario entendido como entidad definida por Twitter) es que podemos clasificar distintos campos con diferentes categorías. La url publicada por el usuario pertenece a la categoría *social* en cuanto a que está creando una pequeña red de información externa en torno al usuario.  
+La información no está procesada. El modelo es actividad.
+
+> Ver: [información extraible de un usuario](https://dev.twitter.com/docs/platform-objects/users)
+
+10. **Número de veces marcado como favorito**: Número de veces que los tweets publicados por el usuario han sido marcados como favoritos. Esta información puede ser entendida como un reflejo de la relevancia o *interés* que este usuario suscita dentro de la red.  
+Es información sin procesar y consideramos a los modelos usuario y actividad. 
+ 
+> Ver: [información extraible de un usuario](https://dev.twitter.com/docs/platform-objects/users)
+
+12. **Tweets con contenido "sensitive"** (información extraída del propio modelo Tweet): 
+
+13. **Usuario bloqueados (varios niveles)**
+
+14. **Lista de amigos del usuario**
+
+15. **Lista de followers**
+
+16. **Relación entre dos usuarios**
+
+18. **Número de followers - friends**
+
+19. **Cadena de respuestas a un tweet**
+
+> Ver: [Información extraíble de un tweet](https://dev.twitter.com/docs/platform-objects/tweets)
 
 
-## 2 - Tabla clasificatoria
+22. **Trending topics geográficamente**
 
-Clasificación de las 25 llamadas estudiadas a la API de twitter según los 3 niveles de clasificación contemplados
+> Ver: [lista de trending topics por área](https://dev.twitter.com/docs/api/1.1/get/trends/place); 
 
-| # | Información 									| Categorías 						| Nivel procesamiento 	| Modelo 			 	|
-|:--:  |:------------								|:-----------						|:--------------------	|:-------			 	|
-| 1 | Tweets posteados por el usuario 				| contenido, social 				| RAW 					| Tweet				 	|
-| 2 | Mensajes directos por y para el usuario 		| Contenido, social 				| RAW 					| Tweet 			 	|
-| 3 | Tweets del usuario retweeteados 				| contenido, social, interés 		| RAW 					| Tweet, Actividad 	 	|
-| 4 | Tweets marcados como favoritos por el usuario | contenido, social, interés 		| RAW 					| Tweet, Actividad   	|
-| 5 | Listas a las que está suscrito un usuario 	| social, interés 					| RAW 					| Actividad 		 	|
-| 6 | Usuarios que han retweetado un tweet 			| social, interés 			 		| RAW 					| Tweet, Usuario 	 	|
-| 7 | Buscar tweets por términos que contiene 		| contenido, interés 				| RAW       			| Tweet 			 	|
-| 8 | Buscar usuarios recomendados para una cate. 	| social, interés, temporal 		| PROCESSED 			| Usuario, Actividad 	|
-| 9 | Descripción de un usuario (User)				| perfil 							| RAW 					| Usuario 			 	|
-| 10 | Número de veces marcado como favorito (User)	| social, interés 					| RAW 					| Usuario, Actividad 	|
-| 11 | Url publicada por el usuario (User)			| perfil 							| RAW 					| Usuario 			 	|
-| 12 | Tweets con contenido "sensitive" (Tweet)		| contenido 						| RAW 					| Tweet 			 	|
-| 13 | Usuarios bloqueados (dos niveles de bloqueo)	| social, interés 					| RAW 					| Usuario, Actividad 	|
-| 14 | Lista de amigos del usuario (following)		| social, interés  	 				| RAW 					| Usuario, Actividad 	|
-| 15 | Lista de followers							| social, interés   				| RAW 					| usuario, Actividad 	|
-| 16 | Relación entre dos usuarios 					| social, interés   				| RAW 					| Usuario, Actividad 	|
-| 17 | Buscar tweets por menciones a otros usuarios | contenido, social 				| RAW 					| Usuario, Tweet, Actividad |
-| 18 | Número de followers - friends (User)			| social, interés 					| RAW 					| Usuario 				|
-| 19 | Cadena de tweets (respuestas) (Tweet)		| social, interés 					| RAW 					| Tweet, Actividad 		|
-| 20 | time zone y language del usuario (User)		| Perfil, geo 						| RAW 					| Usuario 				|
-| 21 | Buscar tweets en un radio (geo)				| contenido, geo 					| RAW 					| Tweet 				|
-| 22 | Trending Topics curados por persona o sitio 	| social, interés, geo, temporal 	| PROCESSED 			| Tweet, Actividad 		|
-| 23 | localización de un Tweet (Tweet)				| contenido, geo 					| RAW 					| Tweet 				|
-| 24 | Timeline de un usuario						| contenido, social, temporal 		| RAW 					| Tweet, Actividad 		|
-| 25 | Buscar tweets en un rango de fechas			| contenido, temporal 				| RAW         			| Tweet 				|
+23. **Localización de un tweet**
 
-## 3 - Análisis de webs
+24. **Timeline de un usuario**
+
+A continuación, expresamos de forma concisa la clasificación según los tres niveles.
+
+| #   | Información 								| Categorías 				  | Procesamiento | Modelo 			 		|
+|:---:|:------------								|:-----------				  |:------------- |:-------			 		|
+| 1   | Tweets posteados por el usuario 			| contenido 				  | RAW 		  | Tweet				 	|
+| 2   | Mensajes directos por y para el usuario 	| contenido, social 		  | RAW 		  | Tweet 			 		|
+| 3   | Tweets del usuario retweeteados 			| interés - actividad 		  | RAW 		  | Tweet, Actividad 	 	|
+| 4   | Tweets marcados como favoritos 				| interés - actividad		  | RAW 		  | Tweet, Actividad   		|
+| 5   | Listas a las que está suscrito un usuario 	| social, interés - actividad | RAW 		  | Usuario, Actividad 		|
+| 6   | Usuarios que han retweetado un tweet 		| interés - actividad 		  | RAW 		  | Tweet, Usuario, Actividad |
+| 7 A | Búsqueda de Tweets por contenido 			| contenido 				  | PROCESSED     | Tweet 			 		|
+| 7 B | Búsqueda de Tweets por interacción social   | social 					  | PROCESSED     | Tweet, Actividad 		|
+| 7 C | Búsqueda de Tweets por temporalidad 		| temporal 					  | PROCESSED     | Tweet 			 		|
+| 7 D | Búsqueda de Tweets por localización 		| localización 				  | PROCESSED     | Tweet 			 		|
+| 8   | Usuarios recomendados (general) 			| interés, temporal 		  | PROCESSED 	  | Usuario  				|
+| 8   | Usuarios recomendados para una categoría 	| interés, temporal 		  | PROCESSED 	  | Usuario  				| 
+| 9   | Biografía y descripción de un Usuario 		| contenido 				  | RAW 		  | Usuario 			 	|
+| 10  | Número de veces marcado como favorito 		| interés - actividad 		  | RAW 		  | Usuario, Actividad 		|
+| 11  | Url publicada por el usuario 				| social 		 			  | RAW 		  | Actividad 			 	|
+
+| 12  | Tweets con contenido "sensitive" 			| social 					| RAW 		  	| Actividad 			 	|
+| 13  | Usuarios bloqueados (varios niveles)		| social, interés 			| RAW 		  	| Usuario, Actividad 	|
+| 14  | Lista de amigos del usuario 				| social, interés  	 		| RAW 			| Usuario, Actividad 	|
+| 15  | Lista de followers							| social, interés   		| RAW 			| usuario, Actividad 	|
+| 16  | Relación entre dos usuarios 				| social, interés   		| RAW 			| Usuario, Actividad 	|
+| 18  | Número de followers - friends (User)		| social, interés 			| RAW 			| Usuario 				|
+| 19  | Cadena de respuestas a un Tweet				| social, interés 			| RAW 			| Tweet, Actividad 		|
+| 22  | Trending Topics geográficamente 			| social, interés, geo, temporal | PROCESSED 	| Tweet, Actividad 		|
+| 23  | localización de un Tweet (Tweet)			| contenido, geo 				| RAW 			| Tweet 				|
+| 24  | Timeline de un usuario						| contenido, social, temporal 	| RAW 			| Tweet, Actividad 		|
+
+## <a name="title-4"/> 4 - Análisis de webs
 
 Para los siguientes 5 servicios, hacemos un análisis de las funciones que ofrecen; las funciones que no son "directas" se marcan en negrita
 
-### 1) [SecondSync](http://secondsync.com/)
+### <a name="title-4-1"/> 4.1 [SecondSync](http://secondsync.com/)
 
 SecondSync es una empresa británica especializada en el análisis de Twitter enfocada únicamente a la televisión (la llamada "Social TV"). Su servicio consiste en un dashboard dónde las cadenas de televisión o similares pueden ver un análisis detallado de sus programas, ya sea por emisión, o en general. En este análisis las empresas pueden no solo consultar datos relativos al volumen de tweets que generan sus programas, sino también si lo que se dice de ellos es bueno o malo, el perfil medio de quién lo comenta, y saber qué perfiles influyentes de Twitter han hablado sobre ellos.
 
@@ -134,7 +254,7 @@ Después de recopilar estos tweets y analizarlos para ofrecer las estadísticas 
   - Average gender
   - Transmissions
 
-### 2) [Bluefin labs](https://bluefinlabs.com/solutions/network/)
+### <a name="title-4-2"/> 4.2 [Bluefin labs](https://bluefinlabs.com/solutions/network/)
 
 Bluefin se centra en la televisión, pero con un enfoque diferente al de SecondSync. Si bien SecondSync se centraba básicamente en el contenido para ofrecer una serie de estadísticas, Bluefin se centra en intentar saber qué dice la gente sobre un programa o un anuncio de la televisión, y cómo afecta a estos. Es decir, no solo ofrecen datos cuantitativos sobre los programas o anuncios, sino que relacionan estos datos con otros para ofrecer estadísticas sobre rendimiento de campañas publicitarias, listas de términos más repetidos, relaciones del tipo "a los usuarios que les gusta este programa le gusta este otro", etc.
 
@@ -156,7 +276,7 @@ Para realizar este tipo de análisis, Bluefin está también centrada en la cate
   - People who tweet about Glee also socually engage with...
   - List of lifestyle affinites for this show. Lifestyle - show
 
-### 3) [BrandRiders](http://blog.thebrandriders.com/)
+### <a name="title-4-3"/> 4.3 [BrandRiders](http://blog.thebrandriders.com/)
 
 BrandRiders es una empresa española que ofrece una herramienta para gestionar una o más redes sociales a la vez. Si bien está pensada tanto para Facebook como para Twitter, y además incorpora un analizador de feeds RSS, nosotros nos centraremos en su motor de fidelización y sus informes, todo ello centrado en Twitter.
 
@@ -198,7 +318,7 @@ Esta sección está basada en las categorías social e interés, ya que se basa 
   - Retweets
   - Tweets
 
-### 4) [Hoot Suite](https://hootsuite.com/)
+### <a name="title-4-4"/> 4.4 [Hoot Suite](https://hootsuite.com/)
 
 > [Features de la aplicación](https://hootsuite.com/features/custom-analytics)
 
@@ -210,7 +330,7 @@ Esta sección está basada en las categorías social e interés, ya que se basa 
   - Mentions
   - **Keywords comparing over time and Twitter sentiment**
 
-### 5) [Follower wonk](https://followerwonk.com)
+### <a name="title-4-5"/> 4.5 [Follower wonk](https://followerwonk.com)
 
 1 Twitter bios
 
@@ -247,22 +367,21 @@ Esta sección está basada en las categorías social e interés, ya que se basa 
 
   - No interesante, es un index
 
-<a name="title-4">4 - wonk social authority</a>
----------------------------
+### wonk social authority
 
-  - Basado en retweets
-  - Accesible via SDK => [social authority SDK](https://github.com/seomoz/Social-Authority-SDK)
-  - Explicación detallada de cómo se calcula =>  [Cómo calcula la social authority](http://moz.com/blog/social-authority)
+ - Basado en retweets
+ - Accesible via SDK => [social authority SDK](https://github.com/seomoz/Social-Authority-SDK)
+ - Explicación detallada de cómo se calcula =>  [Cómo calcula la social authority](http://moz.com/blog/social-authority)
 
-### ¿Cómo se calcula?
+**¿Cómo se calcula?**
 
-  1. **Tasa de retweets**: se utilizan aproximadamente los 100 últimos tweets del usuario que no contengan *@mention* a otros usuarios. La razón por la que se filtran los tweets con menciones es que existe una gran correlación entre el número de retweets que consigue un usuario con la tasa de menciones (en torno al 80%).
- Otro dato interesante en este punto es la relación entre la tasa de tweets retweteados y los tweets que contienen URLs - entorno al 70%.
+1. **Tasa de retweets**: se utilizan aproximadamente los 100 últimos tweets del usuario que no contengan *@mention* a otros usuarios. La razón por la que se filtran los tweets con menciones es que existe una gran correlación entre el número de retweets que consigue un usuario con la tasa de menciones (en torno al 80%).
+Otro dato interesante en este punto es la relación entre la tasa de tweets retweteados y los tweets que contienen URLs - entorno al 70%.
 
-  2. **Lo reciente que es el retweet**: Se favorece a los tweets a corto plazo contra tweets antigüos. Lo que se intenta es destacar el contenido que tiene impacto en twitter en cada instante.
-  Se define la vida media de un tweet en 18 minutos.
+2. **Lo reciente que es el retweet**: Se favorece a los tweets a corto plazo contra tweets antigüos. Lo que se intenta es destacar el contenido que tiene impacto en twitter en cada instante.
+Se define la vida media de un tweet en 18 minutos.
 
-  3. **Número de followers** Este tercer factor es el que menos peso tiene y se optimiza mediante un modelo de regresión "trained to retweet rate"; el objetivo de este modelo es suavizar los picos ocasionales de retweets de un usuario y, además, tiene en cuenta que hay una relación directa entre el número de seguidores y el porcetage de tweets retweeteados. Hasta el punto que a partir de los 10.000 seguidores se consigue una tasa de retweets del 25%
+3. **Número de followers** Este tercer factor es el que menos peso tiene y se optimiza mediante un modelo de regresión "trained to retweet rate"; el objetivo de este modelo es suavizar los picos ocasionales de retweets de un usuario y, además, tiene en cuenta que hay una relación directa entre el número de seguidores y el porcetage de tweets retweeteados. Hasta el punto que a partir de los 10.000 seguidores se consigue una tasa de retweets del 25%
 
 ***
 
