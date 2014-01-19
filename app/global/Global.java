@@ -1,3 +1,4 @@
+package global;
 import java.util.concurrent.TimeUnit;
 
 import play.Application;

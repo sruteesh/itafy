@@ -5,23 +5,29 @@ import java.util.Date;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 
+import twitter4j.GeoLocation;
+
+/**
+ * 
+ * @author manutero, raulmarcosl
+ */
 public class Word
 {
   private String    text;
-  private long      latitude;
-  private long      longitude;
+  private double      latitude;
+  private double      longitude;
   private Date      created_at;
   private Category  category;
   @Id
   @ObjectId
   private String id;
-  
-  
+
+
   // -------------- //
   //    Factory     //
   // -------------- //
-  
-  private Word(String text, Coordenate c) 
+
+  private Word(String text, GeoLocation c)
   {
     this.text =       text;
     this.latitude =   c.getLatitude();
@@ -30,27 +36,27 @@ public class Word
     this.category =   null;
     // id
   }
-  
-  public static Word createWordWithCoordenate(String name, Coordenate c)
+
+  public static Word createWordWithGeoLocation(String name, GeoLocation geoLocation)
   {
-    return new Word(name, c);
+    return new Word(name, geoLocation);
   }
-  
+
   //-------------- //
   //    Getters    //
   // ------------- //
-  
+
   public String getText()
   {
     return text;
   }
-  
-  public long getLatitude()
+
+  public double getLatitude()
   {
     return latitude;
   }
 
-  public long getLongitude()
+  public double getLongitude()
   {
     return longitude;
   }

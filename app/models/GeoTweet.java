@@ -5,25 +5,30 @@ import java.util.Date;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 
+import twitter4j.GeoLocation;
 
+/**
+ * 
+ * @author manutero, raulmarcosl
+ */
 public class GeoTweet
 {
-  private long      latitude;
-  private long      longitude;
+  private double    latitude;
+  private double    longitude;
   private Date      createdAt;
   private long      twitter_id;
   private Category  category;
   @Id
   @ObjectId
   private String id;
-  
-  
+
+
   // -------------- //
   //    Factory     //
   // -------------- //
-  
-  private GeoTweet(long twitter_id, Coordenate c)
-  { 
+
+  private GeoTweet(long twitter_id, GeoLocation c)
+  {
     this.latitude =   c.getLatitude();
     this.longitude =  c.getLongitude();
     this.createdAt =  new Date();
@@ -31,23 +36,23 @@ public class GeoTweet
     this.twitter_id = twitter_id;
     // id
   }
-  
-  public static GeoTweet createTweetWithCoordenates(long twitter_id, Coordenate c)
+
+  public static GeoTweet createTweetWithGeoLocations(long twitter_id, GeoLocation geoLocation)
   {
-    return new GeoTweet(twitter_id, c);
+    return new GeoTweet(twitter_id, geoLocation);
   }
-  
-  
+
+
   // -------------- //
   //    Getters     //
   // -------------- //
-  
-  public long getLatitude()
+
+  public double getLatitude()
   {
     return latitude;
   }
 
-  public long getLongitude()
+  public double getLongitude()
   {
     return longitude;
   }
@@ -71,5 +76,5 @@ public class GeoTweet
   {
     return id;
   }
-  
+
 } //GeoTweet

@@ -5,6 +5,10 @@ import twitter4j.TwitterFactory;
 import twitter4j.TwitterStream;
 import twitter4j.TwitterStreamFactory;
 
+/**
+ * 
+ * @author manutero, raulmarcosl
+ */
 public class TwitterConnectionHandler {
 
 	private static Twitter apiRest = null;

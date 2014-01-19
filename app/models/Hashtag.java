@@ -5,24 +5,30 @@ import java.util.Date;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 
+import twitter4j.GeoLocation;
+
+/**
+ * 
+ * @author manutero, raulmarcosl
+ */
 public class Hashtag
 {
   private String    name;
-  private long      latitude;
-  private long      longitude;
+  private double    latitude;
+  private double    longitude;
   private Date      createdAt;
   private Category  category;
   @Id
   @ObjectId
   private String id;
-  
-  
+
+
   // -------------- //
   //    Factory     //
   // -------------- //
-  
-  private Hashtag(String name, Coordenate c)
-  { 
+
+  private Hashtag(String name, GeoLocation c)
+  {
     this.latitude =   c.getLatitude();
     this.longitude =  c.getLongitude();
     this.createdAt =  new Date();
@@ -30,23 +36,23 @@ public class Hashtag
     this.name =       name;
     // id
   }
-  
-  public static Hashtag createHashtagWithCoordenates(String hashtag, Coordenate c)
+
+  public static Hashtag createHashtagWithGeoLocations(String hashtag, GeoLocation geoLocation)
   {
-    return new Hashtag(hashtag, c);
+    return new Hashtag(hashtag, geoLocation);
   }
-  
-  
+
+
   // -------------- //
   //    Getters     //
   // -------------- //
-  
-  public long getLatitude()
+
+  public double getLatitude()
   {
     return latitude;
   }
 
-  public long getLongitude()
+  public double getLongitude()
   {
     return longitude;
   }
@@ -70,5 +76,5 @@ public class Hashtag
   {
     return id;
   }
-  
+
 } // Hashtag

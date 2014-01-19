@@ -1,28 +1,32 @@
 package models.data;
 
-import models.Coordenate;
 import models.GeoTweet;
 
 import org.jongo.MongoCollection;
 
+import twitter4j.GeoLocation;
 import controllers.db.NameDBs;
 
-public class GeoTweetData extends EntityData
+/**
+ * 
+ * @author manutero, raulmarcosl
+ */
+public class GeoTweetData extends ModelData
 {
   private static final MongoCollection tweet_collection = jongo.getCollection(NameDBs.GEO_TWEETS);
 
-  public GeoTweetData() {}
-  
-  
+  public GeoTweetData() { }
+
+
   // --------------------- //
   //    Classs methods     //
   // --------------------- //
-  
-  public static GeoTweet saveGeoTweet(long twitter_id, Coordenate coordenate)
+
+  public static GeoTweet saveGeoTweet(long twitter_id, GeoLocation GeoLocation)
   {
-    GeoTweet tweet = GeoTweet.createTweetWithCoordenates(twitter_id, coordenate);
+    GeoTweet tweet = GeoTweet.createTweetWithGeoLocations(twitter_id, GeoLocation);
     tweet_collection.save(tweet);
     return tweet;
   }
-  
+
 } // GeoTweetData

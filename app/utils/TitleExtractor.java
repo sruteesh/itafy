@@ -13,8 +13,9 @@ import java.util.regex.Pattern;
 /**
  * web url ==> title
  * 
- * 
  * See: gotoquiz.com/web-coding/programming/java-programming/how-to-extract-titles-from-web-pages-in-java/
+ * 
+ * @author manutero, raulmarcosl
  */
 public class TitleExtractor {
   /* the CASE_INSENSITIVE flag accounts for

@@ -6,29 +6,34 @@ import java.util.Date;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 
+import twitter4j.GeoLocation;
 import utils.TitleExtractor;
 
+/**
+ * 
+ * @author manutero, raulmarcosl
+ */
 public class Link
 {
   private String    url;
   private String    title;
-  private long      latitude;
-  private long      longitude;
+  private double      latitude;
+  private double      longitude;
   private Date      createdAt;
   private Category  category;
   @Id
   @ObjectId
   private String id;
-  
-  
+
+
   // -------------- //
   //    Factory     //
   // -------------- //
-  
-  private Link(String url, Coordenate c)
-  { 
-    this.latitude = c.getLatitude();
-    this.longitude = c.getLongitude();
+
+  private Link(String url, GeoLocation location)
+  {
+    this.latitude = location.getLatitude();
+    this.longitude = location.getLongitude();
     this.createdAt = new Date();
     this.category = null;
     this.url = url;
@@ -40,23 +45,23 @@ public class Link
     }
     // id
   }
-  
-  public static Link createLinkWithCoordenates(String url, Coordenate c)
+
+  public static Link createLinkWithGeoLocations(String url, GeoLocation geoLocation)
   {
-    return new Link(url, c);
+    return new Link(url, geoLocation);
   }
-  
-  
+
+
   // -------------- //
   //    Getters     //
   // -------------- //
-  
-  public long getLatitude()
+
+  public double getLatitude()
   {
     return latitude;
   }
 
-  public long getLongitude()
+  public double getLongitude()
   {
     return longitude;
   }
@@ -75,7 +80,7 @@ public class Link
   {
     return title;
   }
-  
+
   public Category getCategory()
   {
     return category;
@@ -85,5 +90,5 @@ public class Link
   {
     return id;
   }
-  
+
 } //GeoTweet
