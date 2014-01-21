@@ -13,67 +13,49 @@ import twitter4j.GeoLocation;
  */
 public class Word
 {
-  private String    text;
-  private double      latitude;
-  private double      longitude;
-  private Date      created_at;
-  private Category  category;
-  @Id
-  @ObjectId
-  private String id;
+	private final String text;
+	private final double latitude;
+	private final double longitude;
+	private final Date createdAt;
+	private final Category category;
+	@Id
+	@ObjectId
+	private String id;
 
+	private Word(String text, GeoLocation c) {
+		this.text = text;
+		this.latitude = c.getLatitude();
+		this.longitude = c.getLongitude();
+		this.createdAt = new Date();
+		this.category = null;
+	}
 
-  // -------------- //
-  //    Factory     //
-  // -------------- //
+	public static Word createWordWithGeoLocation(String name, GeoLocation geoLocation) {
+		return new Word(name, geoLocation);
+	}
 
-  private Word(String text, GeoLocation c)
-  {
-    this.text =       text;
-    this.latitude =   c.getLatitude();
-    this.longitude =  c.getLongitude();
-    this.created_at = new Date();
-    this.category =   null;
-    // id
-  }
+	public String getText() {
+		return text;
+	}
 
-  public static Word createWordWithGeoLocation(String name, GeoLocation geoLocation)
-  {
-    return new Word(name, geoLocation);
-  }
+	public double getLatitude() {
+		return latitude;
+	}
 
-  //-------------- //
-  //    Getters    //
-  // ------------- //
+	public double getLongitude() {
+		return longitude;
+	}
 
-  public String getText()
-  {
-    return text;
-  }
+	public Date getCreatedAt() {
+		return createdAt;
+	}
 
-  public double getLatitude()
-  {
-    return latitude;
-  }
+	public Category getCategory() {
+		return category;
+	}
 
-  public double getLongitude()
-  {
-    return longitude;
-  }
+	public String getId() {
+		return id;
+	}
 
-  public Date getCreated_at()
-  {
-    return created_at;
-  }
-
-  public Category getCategory()
-  {
-    return category;
-  }
-
-  public String getId()
-  {
-    return id;
-  }
-
-} // Word
+}

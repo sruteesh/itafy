@@ -13,20 +13,20 @@ import controllers.db.NameDBs;
  */
 public class GeoTweetData extends ModelData
 {
-  private static final MongoCollection tweet_collection = jongo.getCollection(NameDBs.GEO_TWEETS);
+	private static final MongoCollection tweet_collection = jongo.getCollection(NameDBs.GEO_TWEETS);
 
-  public GeoTweetData() { }
+	public GeoTweetData() {
+	}
 
+	// --------------------- //
+	// Classs methods //
+	// --------------------- //
 
-  // --------------------- //
-  //    Classs methods     //
-  // --------------------- //
-
-  public static GeoTweet saveGeoTweet(long twitter_id, GeoLocation GeoLocation)
-  {
-    GeoTweet tweet = GeoTweet.createTweetWithGeoLocations(twitter_id, GeoLocation);
-    tweet_collection.save(tweet);
-    return tweet;
-  }
+	public static GeoTweet saveGeoTweet(long twitter_id, GeoLocation GeoLocation)
+	{
+		GeoTweet tweet = GeoTweet.createTweetWithGeoLocations(twitter_id, GeoLocation);
+		tweet_collection.save(tweet);
+		return tweet;
+	}
 
 } // GeoTweetData

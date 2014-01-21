@@ -13,20 +13,20 @@ import controllers.db.NameDBs;
  */
 public class LinkData extends ModelData
 {
-  private static final MongoCollection tweet_collection = jongo.getCollection(NameDBs.GEO_TWEETS);
+	private static final MongoCollection tweet_collection = jongo.getCollection(NameDBs.GEO_TWEETS);
 
-  public LinkData() {}
+	public LinkData() {
+	}
 
+	// --------------------- //
+	// Classs methods //
+	// --------------------- //
 
-  // --------------------- //
-  //    Classs methods     //
-  // --------------------- //
-
-  public static Link saveLink(String url, GeoLocation GeoLocation)
-  {
-    Link link = Link.createLinkWithGeoLocations(url, GeoLocation);
-    tweet_collection.save(link);
-    return link;
-  }
+	public static Link saveLink(String url, GeoLocation GeoLocation)
+	{
+		Link link = Link.createLinkWithGeoLocations(url, GeoLocation);
+		tweet_collection.save(link);
+		return link;
+	}
 
 } // LinkData

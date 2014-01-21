@@ -13,82 +13,69 @@ import utils.TitleExtractor;
  * 
  * @author manutero, raulmarcosl
  */
-public class Link
-{
-  private String    url;
-  private String    title;
-  private double      latitude;
-  private double      longitude;
-  private Date      createdAt;
-  private Category  category;
-  @Id
-  @ObjectId
-  private String id;
+public class Link {
+	private final String url;
+	private String title;
+	private final double latitude;
+	private final double longitude;
+	private final Date createdAt;
+	private final Category category;
+	@Id
+	@ObjectId
+	private String id;
 
+	private Link(String url, GeoLocation location) {
+		this.latitude = location.getLatitude();
+		this.longitude = location.getLongitude();
+		this.createdAt = new Date();
+		this.category = null;
+		this.url = url;
+		try {
+			this.title = TitleExtractor.getPageTitle(url);
+		} catch (IOException e) {
+			this.title = null;
+			e.printStackTrace();
+		}
+	}
 
-  // -------------- //
-  //    Factory     //
-  // -------------- //
+	public static Link createLinkWithGeoLocations(String url, GeoLocation geoLocation)
+	{
+		return new Link(url, geoLocation);
+	}
 
-  private Link(String url, GeoLocation location)
-  {
-    this.latitude = location.getLatitude();
-    this.longitude = location.getLongitude();
-    this.createdAt = new Date();
-    this.category = null;
-    this.url = url;
-    try {
-      this.title = TitleExtractor.getPageTitle(url);
-    } catch (IOException e) {
-      this.title = null;
-      e.printStackTrace();
-    }
-    // id
-  }
+	public double getLatitude()
+	{
+		return latitude;
+	}
 
-  public static Link createLinkWithGeoLocations(String url, GeoLocation geoLocation)
-  {
-    return new Link(url, geoLocation);
-  }
+	public double getLongitude()
+	{
+		return longitude;
+	}
 
+	public Date getCreatedAt()
+	{
+		return createdAt;
+	}
 
-  // -------------- //
-  //    Getters     //
-  // -------------- //
+	public String getUrl()
+	{
+		return url;
+	}
 
-  public double getLatitude()
-  {
-    return latitude;
-  }
+	public String getTitle()
+	{
+		return title;
+	}
 
-  public double getLongitude()
-  {
-    return longitude;
-  }
+	public Category getCategory()
+	{
+		return category;
+	}
 
-  public Date getCreatedAt()
-  {
-    return createdAt;
-  }
+	public String getId()
+	{
+		return id;
+	}
 
-  public String getUrl()
-  {
-    return url;
-  }
-
-  public String getTitle()
-  {
-    return title;
-  }
-
-  public Category getCategory()
-  {
-    return category;
-  }
-
-  public String getId()
-  {
-    return id;
-  }
-
-} //GeoTweet
+}

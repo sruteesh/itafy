@@ -10,10 +10,11 @@ import controllers.db.NameDBs;
  */
 public class UserData extends ModelData
 {
-  private static final MongoCollection tweet_collection = jongo.getCollection(NameDBs.USERS);
+	private static final MongoCollection tweet_collection = jongo.getCollection(NameDBs.USERS);
 
-  public UserData() {}
-  
-  //TODO
-  
+	public UserData() {
+	}
+
+	// TODO
+
 } // UerData

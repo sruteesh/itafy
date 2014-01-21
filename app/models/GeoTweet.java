@@ -13,68 +13,61 @@ import twitter4j.GeoLocation;
  */
 public class GeoTweet
 {
-  private double    latitude;
-  private double    longitude;
-  private Date      createdAt;
-  private long      twitter_id;
-  private Category  category;
-  @Id
-  @ObjectId
-  private String id;
+	private final double latitude;
+	private final double longitude;
+	private final Date createdAt;
+	private final long twitterId;
+	private final Category category;
+	@Id
+	@ObjectId
+	private String id;
 
+	// -------------- //
+	// Factory //
+	// -------------- //
 
-  // -------------- //
-  //    Factory     //
-  // -------------- //
+	private GeoTweet(long twitterId, GeoLocation c)
+	{
+		this.latitude = c.getLatitude();
+		this.longitude = c.getLongitude();
+		this.createdAt = new Date();
+		this.category = null;
+		this.twitterId = twitterId;
+	}
 
-  private GeoTweet(long twitter_id, GeoLocation c)
-  {
-    this.latitude =   c.getLatitude();
-    this.longitude =  c.getLongitude();
-    this.createdAt =  new Date();
-    this.category =   null;
-    this.twitter_id = twitter_id;
-    // id
-  }
+	public static GeoTweet createTweetWithGeoLocations(long twitterId, GeoLocation geoLocation)
+	{
+		return new GeoTweet(twitterId, geoLocation);
+	}
 
-  public static GeoTweet createTweetWithGeoLocations(long twitter_id, GeoLocation geoLocation)
-  {
-    return new GeoTweet(twitter_id, geoLocation);
-  }
+	public double getLatitude()
+	{
+		return latitude;
+	}
 
+	public double getLongitude()
+	{
+		return longitude;
+	}
 
-  // -------------- //
-  //    Getters     //
-  // -------------- //
+	public Date getCreatedAt()
+	{
+		return createdAt;
+	}
 
-  public double getLatitude()
-  {
-    return latitude;
-  }
+	public long getTwitterId()
+	{
+		return twitterId;
+	}
 
-  public double getLongitude()
-  {
-    return longitude;
-  }
+	public Category getCategory()
+	{
+		return category;
+	}
 
-  public Date getCreatedAt()
-  {
-    return createdAt;
-  }
+	public String getId()
+	{
+		return id;
+	}
 
-  public long getTwitter_id()
-  {
-    return twitter_id;
-  }
-
-  public Category getCategory()
-  {
-    return category;
-  }
-
-  public String getId()
-  {
-    return id;
-  }
-
-} //GeoTweet
+}

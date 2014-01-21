@@ -13,20 +13,20 @@ import controllers.db.NameDBs;
  */
 public class WordsData extends ModelData
 {
-  private static final MongoCollection tweet_collection = jongo.getCollection(NameDBs.WORDS);
+	private static final MongoCollection tweet_collection = jongo.getCollection(NameDBs.WORDS);
 
-  public WordsData() {}
+	public WordsData() {
+	}
 
+	// --------------------- //
+	// Classs methods //
+	// --------------------- //
 
-  // --------------------- //
-  //    Classs methods     //
-  // --------------------- //
-
-  public static Word saveWord(String text, GeoLocation GeoLocation)
-  {
-    Word word = Word.createWordWithGeoLocation(text, GeoLocation);
-    tweet_collection.save(word);
-    return word;
-  }
+	public static Word saveWord(String text, GeoLocation GeoLocation)
+	{
+		Word word = Word.createWordWithGeoLocation(text, GeoLocation);
+		tweet_collection.save(word);
+		return word;
+	}
 
 } // WordsData

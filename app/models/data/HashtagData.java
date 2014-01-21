@@ -13,20 +13,20 @@ import controllers.db.NameDBs;
  */
 public class HashtagData extends ModelData
 {
-  private static final MongoCollection tweet_collection = jongo.getCollection(NameDBs.HASHTAGS);
+	private static final MongoCollection tweet_collection = jongo.getCollection(NameDBs.HASHTAGS);
 
-  public HashtagData() {}
-  
-  
-  // --------------------- //
-  //    Classs methods     //
-  // --------------------- //
+	public HashtagData() {
+	}
 
-  public static Hashtag saveHashtag(String text, GeoLocation geoLocation)
-  {
-    Hashtag hashtag = Hashtag.createHashtagWithGeoLocations(text, geoLocation);
-    tweet_collection.save(hashtag);
-    return hashtag;
-  }
-  
+	// --------------------- //
+	// Classs methods //
+	// --------------------- //
+
+	public static Hashtag saveHashtag(String text, GeoLocation geoLocation)
+	{
+		Hashtag hashtag = Hashtag.createHashtagWithGeoLocations(text, geoLocation);
+		tweet_collection.save(hashtag);
+		return hashtag;
+	}
+
 } // HashtagData

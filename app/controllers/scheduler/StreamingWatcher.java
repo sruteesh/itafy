@@ -9,7 +9,7 @@ public class StreamingWatcher extends UntypedActor {
 	{
 		Logger.info("[ON RECEIVE] TwitterStreamingWatcher");
 
-		if (! StreamingExtractor.isRunning()) {
+		if (!StreamingExtractor.isRunning()) {
 			StreamingExtractor.initialize();
 		}
 	}
