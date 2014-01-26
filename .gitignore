@@ -26,3 +26,6 @@ target
 # Play
 logs
 RUNNING_PID
+
+# Amazon
+*.pem
