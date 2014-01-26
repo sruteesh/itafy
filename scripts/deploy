@@ -1,0 +1,26 @@
+#!/bin/bash
+
+play dist
+echo "[LOCAL DIST ZIP] Created!"
+
+SSH='ssh ubuntu@54.213.21.104 -i /Users/raul/GitHub/itafy/AmazonMicro1.pem'
+PEM_FILE='/Users/raul/GitHub/itafy/AmazonMicro1.pem'
+DIST_FOLDER='/Users/raul/GitHub/itafy/dist/itafy-0.1.zip'
+REMOTE_FOLDER='ubuntu@54.213.21.104:/home/ubuntu'
+
+$SSH "rm itafy-0.1.zip"
+echo "[OLD REMOTE DIST ZIP] Deleted or inexistent!"
+
+$SSH "rm -rf itafy-0.1_OLD/"
+echo "[OLD REMOTE DIST FOLDER] Deleted or inexistent!"
+
+$SSH "mv itafy-0.1/ itafy-0.1_OLD"
+
+scp -r -i $PEM_FILE $DIST_FOLDER $REMOTE_FOLDER
+echo "[REMOTE DIST ZIP] Copied!"
+
+$SSH "unzip itafy-0.1.zip"
+echo "[REMOTE DIST ZIP] Unzipped!"
+
+$SSH "mv twitter4.properties itafy-0.1/"
+echo "[TWITTER4J CONFIG FILE] Moved!"
