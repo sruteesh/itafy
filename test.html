@@ -33,7 +33,7 @@
         window.supermap = L.mapbox.map('map', 'raulmarcosl.h2di3h3g');
         window.supermap.addControl(L.mapbox.geocoderControl('map', 'raulmarcosl.h2di3h3g'));
 
-        var webSocket = new WebSocket("ws://localhost:9000/onlive");
+        var webSocket = new WebSocket("ws://54.213.21.104:9000/onlive");
         webSocket.onmessage = function (event) {
 
             var tweet = JSON.parse(event.data);
