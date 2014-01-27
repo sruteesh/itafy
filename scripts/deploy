@@ -22,5 +22,5 @@ echo "[REMOTE DIST ZIP] Copied!"
 $SSH "unzip itafy-0.1.zip"
 echo "[REMOTE DIST ZIP] Unzipped!"
 
-$SSH "mv twitter4.properties itafy-0.1/"
-echo "[TWITTER4J CONFIG FILE] Moved!"
+$SSH "cp twitter4.properties itafy-0.1/"
+echo "[TWITTER4J CONFIG FILE] Copied!"
