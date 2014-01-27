@@ -29,3 +29,6 @@ RUNNING_PID
 
 # Amazon
 *.pem
+
+# Twitter4j configuration file
+twitter4j.properties
