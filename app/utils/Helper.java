@@ -2,6 +2,9 @@ package utils;
 
 import java.util.ArrayList;
 
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.map.ObjectMapper;
+
 /**
  * Auxiliar class which defines possible useful common methods.
  * 
@@ -25,9 +28,12 @@ public final class Helper
   }
 
   /**
+   * Converts collection of Mongo's results into ArrayList.
    * 
-   * @param collection
-   * @return
+   * Note: parameter type T is meant to be one of the possible models.
+   * 
+   * @param collection result of a "find()" query into the DB.
+   * @return (ArrayList) intances as generic "Object" objects
    */
   public static <T> ArrayList<Object> asArrayList(Iterable<T> collection) {
     ArrayList<Object> tagList = new ArrayList<Object>();
@@ -36,4 +42,28 @@ public final class Helper
     }
     return tagList;
   }
+
+  /** useful for JSON manipulation */
+  private static final ObjectMapper mapper = new ObjectMapper();
+
+  /**
+   * Converts the parameter object to JSON.
+   * 
+   * @param object expected instance of any model
+   * @return (JsonNode)
+   */
+  public static JsonNode asJson(Object object) {
+    return mapper.valueToTree(object);
+  }
+
+  /**
+   * Returns an empty JSON "{}"
+   * 
+   * @return (JsonNode) empty JSON
+   */
+  public static JsonNode emptyJson() {
+    ArrayList<Object> emptyArray = new ArrayList<Object>();
+    return mapper.valueToTree(emptyArray);
+  }
+
 }
