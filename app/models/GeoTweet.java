@@ -8,66 +8,66 @@ import org.jongo.marshall.jackson.oid.ObjectId;
 import twitter4j.GeoLocation;
 
 /**
+ * Model definition: GeoTweet
  * 
- * @author manutero, raulmarcosl
+ * | field     | class    |
+ * |:-----     |:------   |
+ * | latitude  | double   |
+ * | longitude | double   |
+ * | twitterId | long     |
+ * | category  | category |
+ * 
+ * @author martero@ucm.es & raul.marcos@ucm.es
  */
-public class GeoTweet
-{
-	private final double latitude;
-	private final double longitude;
-	private final Date createdAt;
-	private final long twitterId;
-	private final Category category;
-	@Id
-	@ObjectId
-	private String id;
+public class GeoTweet {
+  @Id
+  @ObjectId private String id;
 
-	// -------------- //
-	// Factory //
-	// -------------- //
+  private final double latitude;
+  private final double longitude;
+  private final long twitterId;
+  private Category category;
 
-	private GeoTweet(long twitterId, GeoLocation c)
-	{
-		this.latitude = c.getLatitude();
-		this.longitude = c.getLongitude();
-		this.createdAt = new Date();
-		this.category = null;
-		this.twitterId = twitterId;
-	}
+  private final Date createdAt;
+  private Date updatedAt;
 
-	public static GeoTweet createTweetWithGeoLocations(long twitterId, GeoLocation geoLocation)
-	{
-		return new GeoTweet(twitterId, geoLocation);
-	}
+  private GeoTweet(long twitterId, GeoLocation c) {
+    this.twitterId = twitterId;
+    this.latitude = c.getLatitude();
+    this.longitude = c.getLongitude();
+    this.category = null;
+    this.createdAt = new Date();
+    this.updatedAt = createdAt;
+  }
 
-	public double getLatitude()
-	{
-		return latitude;
-	}
+  /**
+   * Factory.
+   * 
+   * @param twitterId defines this tweet by Twitter.
+   * @param geoLocation coordenates.
+   * @return (GeoTweet) new instance.
+   */
+  public static GeoTweet createTweetWithGeoLocation(long twitterId, GeoLocation geoLocation) {
+    return new GeoTweet(twitterId, geoLocation);
+  }
 
-	public double getLongitude()
-	{
-		return longitude;
-	}
+  public void setCategory(Category category) {
+    this.category = category;
+    this.updatedAt = new Date();
+  }
 
-	public Date getCreatedAt()
-	{
-		return createdAt;
-	}
+  public double getLatitude() { return latitude; }
 
-	public long getTwitterId()
-	{
-		return twitterId;
-	}
+  public double getLongitude() { return longitude; }
 
-	public Category getCategory()
-	{
-		return category;
-	}
+  public Date getCreatedAt() { return createdAt; }
 
-	public String getId()
-	{
-		return id;
-	}
+  public Date getUpdatedAt() { return updatedAt; }
+
+  public long getTwitterId() { return twitterId; }
+
+  public Category getCategory() { return category; }
+
+  public String getId() { return id; }
 
 }

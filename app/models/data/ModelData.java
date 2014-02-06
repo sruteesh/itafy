@@ -10,11 +10,11 @@ import controllers.db.NameDBs;
 
 /**
  * 
- * @author manutero, raulmarcosl
+ * @author martero@ucm.es & raul.marcos@ucm.es
  */
 public abstract class ModelData
 {
-	protected static final MongoClient mongo = MongoDBHandler.getMongoClient();;
-	protected static final DB db = mongo.getDB(NameDBs.DB_ITAFY);;
-	protected static final Jongo jongo = new Jongo(db);
+  protected static final MongoClient mongo = MongoDBHandler.getMongoClient();;
+  protected static final DB db = mongo.getDB(NameDBs.DB_ITAFY);;
+  protected static final Jongo jongo = new Jongo(db);
 }

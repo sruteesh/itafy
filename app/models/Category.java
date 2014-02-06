@@ -1,10 +1,12 @@
 package models;
 
 /**
+ * enum definition: Category
  * 
- * @author manutero, raulmarcosl
+ * TODO
+ * 
+ * @author martero@ucm.es & raul.marcos@ucm.es
  */
-public class Category
-{
-	// TODO
+public enum Category {
+  POLITICA, ECONOMIA, DEPORTES, CULTURA
 }
