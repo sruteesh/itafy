@@ -4,7 +4,13 @@
 
 # Home page
 # ~~~~
-GET     /                 controllers.TwitterController.testAction()
-GET     /onlive           controllers.TwitterController.onLive()
-GET     /demo/index       controllers.Assets.at(path="/public/html", file="index-demo.html")
-GET     /demo/localindex  controllers.Assets.at(path="/public/html", file="index-localdemo.html")
+GET   /                     controllers.TwitterController.testAction()
+GET   /onlive               controllers.TwitterController.onLive()
+GET   /demo/index           controllers.Assets.at(path="/public/html", file="index-demo.html")
+GET   /demo/localindex      controllers.Assets.at(path="/public/html", file="index-localdemo.html")
+
+# API
+# ~~~~
+GET   /api/geotweets/index        controllers.api.GeoTweetController.index()
+GET   /api/geotweets/area/:area   controllers.api.GeoTweetController.area(area: String)
+GET   /api/geotweets/show/:id     controllers.api.GeoTweetController.show(id: String)

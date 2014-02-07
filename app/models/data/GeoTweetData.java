@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import models.Category;
 import models.GeoTweet;
+import models.definitions.Location;
 
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
@@ -59,6 +60,31 @@ public class GeoTweetData extends ModelData
     if (records == null) {
       return new ArrayList<Object>();
     }
+    return Helper.asArrayList(records);
+  }
+
+  /**
+   * Read: returns geoTweets in the desired location as generic "Object" instances.
+   * 
+   * @param area known location.
+   * @return (ArrayList) all geoTweets in location or empty list otherwise.
+   */
+  public static ArrayList<Object> getAllGeoTweets(String area) {
+    Location location = Location.createLocation(area);
+
+    if (location == null) {
+      return new ArrayList<Object>();
+    }
+
+    String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
+    Iterable<GeoTweet> records = geoTweetCollection
+        .find(query, location.getMaxLatitude(), location.getMinLatitude(), location.getMaxLongitude(), location.getMinLongitude())
+        .as(GeoTweet.class);
+
+    if (records == null) {
+      return new ArrayList<Object>();
+    }
+
     return Helper.asArrayList(records);
   }
 

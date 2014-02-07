@@ -7,6 +7,9 @@ import org.jongo.marshall.jackson.oid.ObjectId;
 
 import twitter4j.GeoLocation;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Model definition: GeoTweet
  * 
@@ -23,13 +26,19 @@ public class GeoTweet {
   @Id
   @ObjectId private String id;
 
-  private final double latitude;
-  private final double longitude;
-  private final long twitterId;
+  private double latitude;
+  private double longitude;
+  private long twitterId;
   private Category category;
 
-  private final Date createdAt;
+  private Date createdAt;
   private Date updatedAt;
+
+  @JsonCreator
+  public GeoTweet() {
+    this.createdAt = new Date();
+    this.updatedAt = createdAt;
+  }
 
   private GeoTweet(long twitterId, GeoLocation c) {
     this.twitterId = twitterId;
@@ -56,18 +65,25 @@ public class GeoTweet {
     this.updatedAt = new Date();
   }
 
+  @JsonProperty("latitude")
   public double getLatitude() { return latitude; }
 
+  @JsonProperty("longitude")
   public double getLongitude() { return longitude; }
 
+  @JsonProperty("created_at")
   public Date getCreatedAt() { return createdAt; }
 
+  @JsonProperty("updated_at")
   public Date getUpdatedAt() { return updatedAt; }
 
+  @JsonProperty("twitter_id")
   public long getTwitterId() { return twitterId; }
 
+  @JsonProperty("category")
   public Category getCategory() { return category; }
 
+  @JsonProperty("_id")
   public String getId() { return id; }
 
 }

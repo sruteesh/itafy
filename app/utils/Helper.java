@@ -36,11 +36,11 @@ public final class Helper
    * @return (ArrayList) intances as generic "Object" objects
    */
   public static <T> ArrayList<Object> asArrayList(Iterable<T> collection) {
-    ArrayList<Object> tagList = new ArrayList<Object>();
-    for (T tag : collection) {
-      tagList.add(tag);
+    ArrayList<Object> list = new ArrayList<Object>();
+    for (T object : collection) {
+      list.add(object);
     }
-    return tagList;
+    return list;
   }
 
   /** useful for JSON manipulation */
