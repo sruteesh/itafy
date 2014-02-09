@@ -3,8 +3,10 @@ package models.data;
 import java.util.ArrayList;
 
 import models.Category;
+import models.Category.AvaibleCategories;
 import models.GeoTweet;
-import models.definitions.Location;
+import models.Location;
+import models.Location.AvaibleLocations;
 
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
@@ -69,7 +71,7 @@ public class GeoTweetData extends ModelData
    * @param area known location.
    * @return (ArrayList) all geoTweets in location or empty list otherwise.
    */
-  public static ArrayList<Object> getAllGeoTweets(String area) {
+  public static ArrayList<Object> getAllGeoTweets(AvaibleLocations area) {
     Location location = Location.createLocation(area);
 
     if (location == null) {
@@ -79,6 +81,30 @@ public class GeoTweetData extends ModelData
     String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
     Iterable<GeoTweet> records = geoTweetCollection
         .find(query, location.getMaxLatitude(), location.getMinLatitude(), location.getMaxLongitude(), location.getMinLongitude())
+        .as(GeoTweet.class);
+
+    if (records == null) {
+      return new ArrayList<Object>();
+    }
+
+    return Helper.asArrayList(records);
+  }
+
+  /**
+   * Read: returns geoTweets with the desired category as generic "Object" instances.
+   * 
+   * @param cat known category.
+   * @return (ArrayList) all geoTweets with category or empty list otherwise.
+   */
+  public static ArrayList<Object> getAllGeoTweets(AvaibleCategories cat) {
+    Category category = Category.createCategory(cat);
+
+    if (category == null) {
+      return new ArrayList<Object>();
+    }
+
+    Iterable<GeoTweet> records = geoTweetCollection
+        .find("{category: #}", category.getName())
         .as(GeoTweet.class);
 
     if (records == null) {
@@ -107,7 +133,7 @@ public class GeoTweetData extends ModelData
    */
   public static ArrayList<Object> getGeoTweetsByCategory(Category category) {
     Iterable<GeoTweet> records = geoTweetCollection
-        .find("{category: #}", category.name())
+        .find("{category: #}", category.getName())
         .as(GeoTweet.class);
 
     if (records == null) {

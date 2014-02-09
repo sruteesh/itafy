@@ -2,9 +2,10 @@ package controllers.api;
 
 import java.util.ArrayList;
 
+import models.Category.AvaibleCategories;
 import models.GeoTweet;
+import models.Location.AvaibleLocations;
 import models.data.GeoTweetData;
-import models.definitions.Location;
 
 import org.codehaus.jackson.JsonNode;
 
@@ -31,26 +32,6 @@ public class GeoTweetController extends Controller {
   }
 
   /**
-   * GET /apo/geoTweets/area/:area
-   * 
-   * @param area which area
-   * @return (Result) JSON format
-   */
-  public static Result area(String area) {
-    JsonNode response;
-
-    if (isKnownLocation(area)) {
-      ArrayList<Object> geoTweets = GeoTweetData.getAllGeoTweets(area);
-      response = Helper.asJson(geoTweets);
-    } else {
-      ArrayList<String> avaibleLocations = Location.avaibleLocations();
-      response = Helper.asJson(avaibleLocations);
-    }
-
-    return ok(response);
-  }
-
-  /**
    * GET /api/geotweets/show/:id
    * 
    * @param id which geoTweet
@@ -62,11 +43,70 @@ public class GeoTweetController extends Controller {
     return ok(response);
   }
 
-  private static boolean isKnownLocation(String queryArea) {
-    if (Location.avaibleLocations().contains(queryArea)) {
-      return true;
+  /**
+   * GET /api/geoTweets/area/:area
+   * 
+   * @param area which area
+   * @return (Result) JSON format
+   */
+  public static Result area(String area) {
+    JsonNode response;
+    AvaibleLocations trustedArea = AvaibleLocations.asLocation(area);
+
+    if (isKnownLocation(trustedArea)) {
+      ArrayList<Object> geoTweets = GeoTweetData.getAllGeoTweets(trustedArea);
+      response = Helper.asJson(geoTweets);
+    } else {
+      ArrayList<String> avaibleLocations = avaibleLocations();
+      response = Helper.asJson(avaibleLocations);
     }
-    return false;
+
+    return ok(response);
+  }
+
+  /**
+   * GET /api/geoTweets/category/:category
+   * 
+   * @param category which category
+   * @return (Result) JSON format
+   */
+  public static Result category(String category) {
+    JsonNode response;
+    AvaibleCategories trustedCategory = AvaibleCategories.asCategory(category);
+
+    if (isKnownCategory(trustedCategory)) {
+      ArrayList<Object> geoTweets = GeoTweetData.getAllGeoTweets(trustedCategory);
+      response = Helper.asJson(geoTweets);
+    } else {
+      ArrayList<String> avaibleCategories = avaibleCategories();
+      response = Helper.asJson(avaibleCategories);
+    }
+
+    return ok(response);
+  }
+
+
+  private static boolean isKnownLocation(AvaibleLocations location) {
+    return location != null;
+  }
+
+  private static ArrayList<String> avaibleLocations() {
+    ArrayList<String> avaibleLocations = new ArrayList<String>();
+    avaibleLocations.add("madrid");
+    return avaibleLocations;
+  }
+
+  private static boolean isKnownCategory(AvaibleCategories category) {
+    return category != null;
+  }
+
+  private static ArrayList<String> avaibleCategories() {
+    ArrayList<String> avaibleCategories = new ArrayList<String>();
+    avaibleCategories.add("politica");
+    avaibleCategories.add("economia");
+    avaibleCategories.add("deportes");
+    avaibleCategories.add("cultura");
+    return avaibleCategories;
   }
 }
 

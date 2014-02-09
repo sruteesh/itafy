@@ -1,19 +1,38 @@
-package models.definitions;
+package models;
 
-import java.util.ArrayList;
+
+
 
 /**
- * https://developers.google.com/maps/documentation/geocoding/?hl=es&csw=1
- * http://itouchmap.com/latlong.html
+ * Location model & enum definition: AvaibleLocations
+ * 
+ * @see
+ *  - https://developers.google.com/maps/documentation/geocoding/?hl=es&csw=1
+ *  - http://itouchmap.com/latlong.html
+ *  - Stackoverflow #1750435
+ * 
+ *  @author martero@ucm.es & raul.marcos@ucm.es
  */
 public class Location
 {
-  public static final String MADRID = "madrid";
 
-  public static ArrayList<String> avaibleLocations() {
-    ArrayList<String> avaibleLocations = new ArrayList<String>();
-    avaibleLocations.add(MADRID);
-    return avaibleLocations;
+  public enum AvaibleLocations {
+    MADRID;
+
+    /**
+     * Converts the input String into a known location defined on Location.AvaibleLocations.
+     * Will return null if unkown String given.
+     * 
+     * @param location String we want to convert
+     * @return (Location.AvaibleLocations) known location or null if unkown String given.
+     */
+    public static AvaibleLocations asLocation(String location) {
+      if (location.equals("madrid")) {
+        return MADRID;
+      } else {
+        return null;
+      }
+    }
   }
 
   /*   MADRID
@@ -47,11 +66,22 @@ public class Location
   /**
    * Factory.
    * 
-   * @param location
+   * @param location must be checked if is trusted location
    * @return (Location) new Location isntance or null.
    */
   public static Location createLocation(String location) {
-    if (location.equals(MADRID)) {
+    AvaibleLocations trustedLocation = AvaibleLocations.asLocation(location);
+    return createLocation(trustedLocation);
+  }
+
+  /**
+   * Factory.
+   * 
+   * @param trustedLocation
+   * @return (Location) new Location instance or null.
+   */
+  public static Location createLocation(AvaibleLocations trustedLocation) {
+    if (trustedLocation == AvaibleLocations.MADRID) {
       return new Location(
           MADRID_MAX_LATITUDE, MADRID_MAX_LONGITUDE,MADRID_MIN_LATITUDE, MADRID_MIN_LONGITUDE);
     } else {

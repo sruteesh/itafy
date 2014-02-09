@@ -11,6 +11,7 @@ GET   /demo/localindex      controllers.Assets.at(path="/public/html", file="ind
 
 # API
 # ~~~~
-GET   /api/geotweets/index        controllers.api.GeoTweetController.index()
-GET   /api/geotweets/area/:area   controllers.api.GeoTweetController.area(area: String)
-GET   /api/geotweets/show/:id     controllers.api.GeoTweetController.show(id: String)
+GET   /api/geotweets/index               controllers.api.GeoTweetController.index()
+GET   /api/geotweets/area/:area          controllers.api.GeoTweetController.area(area: String)
+GET   /api/geoTweets/category/:category  controllers.api.GeoTweetController.category(category: String)
+GET   /api/geotweets/show/:id            controllers.api.GeoTweetController.show(id: String)
