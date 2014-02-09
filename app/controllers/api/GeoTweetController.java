@@ -9,43 +9,55 @@ import models.data.GeoTweetData;
 
 import org.codehaus.jackson.JsonNode;
 
-import play.mvc.Controller;
 import play.mvc.Result;
 import utils.Helper;
 
 /**
- * API definition for GeoTweets
- * 
+ * API definition for geoTweets.
+ *
+ * Inherited methods
+ *  - boolean isKnownLocation(AvaibleLocations location)
+ *  - ArrayList avaibleLocations()
+ *  - isKnownCategory(AvaibleCategories category)
+ *  - ArrayList avaibleCategories()
+ *
+ * @see confg/routes
  * @author martero@ucm.es & raul.marcos@ucm.es
  */
-public class GeoTweetController extends Controller {
+public class GeoTweetController extends ApiController {
 
   /**
-   * GET /api/geotweets/index
-   * 
+   * GET /api/geotweets/
+   *
+   * @return (Result) index page
+   */
+  public static Result index(){
+    return redirect("/api/geotweets/help");
+  }
+
+  /**
+   * GET /api/geotweets/help
+   *
+   * @return (Result) static help page
+   */
+  public static Result help() {
+    return TODO;
+  }
+
+  /**
+   * GET /api/geotweets/all
+   *
    * @return (Result) JSON format
    */
-  public static Result index() {
+  public static Result listAll() {
     ArrayList<Object> geoTweets = GeoTweetData.getAllGeoTweets();
     JsonNode response = Helper.asJson(geoTweets);
     return ok(response);
   }
 
   /**
-   * GET /api/geotweets/show/:id
-   * 
-   * @param id which geoTweet
-   * @return (Result) JSON format
-   */
-  public static Result show(String id) {
-    GeoTweet geoTweet = GeoTweetData.getGeoTweetById(id);
-    JsonNode response = Helper.asJson(geoTweet);
-    return ok(response);
-  }
-
-  /**
    * GET /api/geoTweets/area/:area
-   * 
+   *
    * @param area which area
    * @return (Result) JSON format
    */
@@ -66,7 +78,7 @@ public class GeoTweetController extends Controller {
 
   /**
    * GET /api/geoTweets/category/:category
-   * 
+   *
    * @param category which category
    * @return (Result) JSON format
    */
@@ -85,28 +97,16 @@ public class GeoTweetController extends Controller {
     return ok(response);
   }
 
-
-  private static boolean isKnownLocation(AvaibleLocations location) {
-    return location != null;
+  /**
+   * GET /api/geotweets/show/:id
+   *
+   * @param id which geoTweet
+   * @return (Result) JSON format
+   */
+  public static Result show(String id) {
+    GeoTweet geoTweet = GeoTweetData.getGeoTweetById(id);
+    JsonNode response = Helper.asJson(geoTweet);
+    return ok(response);
   }
 
-  private static ArrayList<String> avaibleLocations() {
-    ArrayList<String> avaibleLocations = new ArrayList<String>();
-    avaibleLocations.add("madrid");
-    return avaibleLocations;
-  }
-
-  private static boolean isKnownCategory(AvaibleCategories category) {
-    return category != null;
-  }
-
-  private static ArrayList<String> avaibleCategories() {
-    ArrayList<String> avaibleCategories = new ArrayList<String>();
-    avaibleCategories.add("politica");
-    avaibleCategories.add("economia");
-    avaibleCategories.add("deportes");
-    avaibleCategories.add("cultura");
-    return avaibleCategories;
-  }
 }
-
