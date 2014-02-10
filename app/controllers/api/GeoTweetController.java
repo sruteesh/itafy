@@ -14,15 +14,19 @@ import utils.Helper;
 
 /**
  * API definition for geoTweets.
- *
+ * <p>
  * Inherited methods
- *  - boolean isKnownLocation(AvaibleLocations location)
- *  - ArrayList avaibleLocations()
- *  - isKnownCategory(AvaibleCategories category)
- *  - ArrayList avaibleCategories()
- *
- * @see confg/routes
- * @author martero@ucm.es & raul.marcos@ucm.es
+ * <ul>
+ *  <li> <code>boolean isKnownLocation(AvaibleLocations)</code>
+ *  <li> <code>ArrayList avaibleLocations()</code>
+ *  <li> <code>isKnownCategory(AvaibleCategories)</code>
+ *  <li> <code>ArrayList avaibleCategories()</code>
+ * </ul>
+ * 
+ * @author martero@ucm.es
+ * @author raul.marcos@ucm.es
+ * @see config/routes
+ * @see ApiController
  */
 public class GeoTweetController extends ApiController {
 

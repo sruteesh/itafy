@@ -82,7 +82,7 @@ public class LinkData extends ModelData
    */
   public static ArrayList<Object> getLinksByCategory(Category category) {
     Iterable<Link> records = linkCollection
-        .find("{category: #}", category.name())
+        .find("{category: #}", category.getName())
         .as(Link.class);
 
     if (records == null) {

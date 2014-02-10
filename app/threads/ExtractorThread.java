@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import models.Hashtag;
-import models.Link;
 import models.data.GeoTweetData;
 import models.data.HashtagData;
 import models.data.LinkData;
@@ -71,8 +70,8 @@ public class ExtractorThread implements Runnable
   {
     for (URLEntity urlEntity : urlsEntities) {
       String url = urlEntity.getExpandedURL(); // see javadoc
-      Link link = LinkData.saveLink(url, location);
-      printResultsToLog(link);
+      String linkId = LinkData.saveLink(url, location);
+      printResultsToLog(linkId);
     }
   }
 
