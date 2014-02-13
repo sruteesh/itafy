@@ -56,17 +56,28 @@ public class Index {
 	 * just index (time) the status - not the mongo's id - and only save (space) the id.
 	 *
 	 * @param tweet (Tweet)
-	 * @throws IOException caused by <code>writer.addDocument(document)</code>
 	 */
-	public void addTweet(Tweet tweet) throws IOException {
+	public void addTweet(Tweet tweet) {
 		if (initialized) {
-			// FIXME check this, store and index
-			Document doc = new Document();
-			doc.add(new TextField(TEXT, tweet.getStatus(), Field.Store.NO));
-			doc.add(new TextField(INDEX, tweet.getId(), Field.Store.YES));
-			writer.addDocument(doc);
-			writer.close();
+			try {
+				// FIXME check this, store and index
+				Document doc = new Document();
+				doc.add(new TextField(TEXT, tweet.getStatus(), Field.Store.NO));
+				doc.add(new TextField(INDEX, tweet.getId(), Field.Store.YES));
+				writer.addDocument(doc);
+			} catch (IOException e) {
+				Logger.error("EXCEPTION: utils.textSearch.Index.addTweet("+tweet.toString()+")");
+				e.printStackTrace();
+			}
 		}
 	}
 
+	public void closeWriter() {
+		try {
+			writer.close();
+		} catch (IOException e) {
+			Logger.error("EXCEPTION: utils.textSearch.Index.closeWriter()");
+			e.printStackTrace();
+		}
+	}
 }

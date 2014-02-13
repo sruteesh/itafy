@@ -34,6 +34,12 @@ public class Tweet {
 		// TODO
 	}
 
+	// Example main class, do delete
+	public Tweet(String status) {
+		this.status = status;
+		this.id = String.valueOf(Math.random());
+	}
+
 	@JsonProperty("_id")
 	public String getId() { return id; }
 
