@@ -30,7 +30,8 @@ public class StreamingExtractor extends UntypedActor {
 		FilterQuery filterQuery = new FilterQuery();
 		filterQuery.language(new String[] { "es" });
 		filterQuery.locations(new double[][] { { -180, -90 }, { 180, 90 } });
-		filterQuery.track(new String[] { "test" });
+		String[] keywordsToTrack = { "python", "java", "php" };
+		filterQuery.track(keywordsToTrack);
 		streaming.filter(filterQuery);
 	}
 
