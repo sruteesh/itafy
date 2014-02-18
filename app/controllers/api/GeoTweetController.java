@@ -11,33 +11,26 @@ import utils.Helper;
 
 /**
  * API definition for geoTweets.
- * <p>
- * Inherited methods
- * <ul>
- *  <li> <code>boolean isKnownLocation(AvaibleLocations)</code>
- *  <li> <code>ArrayList avaibleLocations()</code>
- *  <li> <code>isKnownCategory(AvaibleCategories)</code>
- *  <li> <code>ArrayList avaibleCategories()</code>
- * </ul>
  *
  * @author martero@ucm.es
- * @author raul.marcos@ucm.es
+ * @author raulmarcosl@gmail.com
+ * 
  * @see config/routes
  * @see ApiController
  */
 public class GeoTweetController extends ApiController {
 
-  /**
-   * GET /api/geotweets/
-   *
-   * Possible queries
-   * <ul>
-   *  <li> area
-   *  <li> category
-   * </ul>
-   *
-   * @return (Result) index page
-   */
+	/**
+	 * GET /api/geotweets/
+	 *
+	 * Possible queries
+	 * <ul>
+	 *  <li> area
+	 *  <li> category
+	 * </ul>
+	 *
+	 * @return (Result) index page
+	 */
 	public static Result index(){
 		AvaibleLocations trustedArea = isKnownLocation(request().getQueryString("area"));
 		AvaibleCategories trustedCategory = isKnownCategory(request().getQueryString("category"));
@@ -69,7 +62,7 @@ public class GeoTweetController extends ApiController {
 	/**
 	 * GET /api/geotweets/show/:id
 	 *
-	 * @param id which geoTweet
+	 * @param id (String) which geoTweet
 	 * @return (Result) JSON format
 	 */
 	public static Result show(String id) {

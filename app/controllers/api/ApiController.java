@@ -13,6 +13,9 @@ import play.mvc.Controller;
 public abstract class ApiController extends Controller {
 
 	protected static AvaibleLocations isKnownLocation(String location) {
+		if (location == null) {
+			return null;
+		}
 		return AvaibleLocations.asLocation(location);
 	}
 
@@ -23,6 +26,9 @@ public abstract class ApiController extends Controller {
 	}
 
 	protected static AvaibleCategories isKnownCategory(String category) {
+		if (category == null) {
+			return null;
+		}
 		return AvaibleCategories.asCategory(category);
 	}
 
