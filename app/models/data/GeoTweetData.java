@@ -136,10 +136,6 @@ public class GeoTweetData extends ModelData
 		Iterable<GeoTweet> records = geoTweetCollection
 				.find("{category: #}", category.getName())
 				.as(GeoTweet.class);
-
-		if (records == null) {
-			return new ArrayList<Object>();
-		}
 		return Helper.asArrayList(records);
 	}
 
