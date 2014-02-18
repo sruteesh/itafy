@@ -2,82 +2,85 @@ package models;
 
 import java.io.IOException;
 import java.util.Date;
-
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
-
 import twitter4j.GeoLocation;
 import utils.TitleExtractor;
 
 /**
  * Model definition: Link
- * 
+ *
+ * <pre>
  * | field     | class    |
- * |:-----     |:----     |
+ * |:--------- |:-------- |
  * | latitude  | double   |
  * | longitude | double   |
  * | title     | String   |
  * | url       | String   |
  * | category  | Category |
- * 
- * @author martero@ucm.es & raul.marcos@ucm.es
+ * </pre>
+ *
+ * @author martero@ucm.es
+ * @author raul.marcos@ucm.es
  */
 public class Link {
-  @Id
-  @ObjectId private String id;
 
-  private final double latitude;
-  private final double longitude;
-  private String title;
-  private final String url;
-  private Category category;
+	@Id
+	@ObjectId private String id;
 
-  private final Date createdAt;
-  private Date updatedAt;
+	private final double latitude;
+	private final double longitude;
+	private String title;
+	private final String url;
+	private Category category;
 
-  private Link(String url, GeoLocation location) {
-    this.latitude = location.getLatitude();
-    this.longitude = location.getLongitude();
-    this.createdAt = new Date();
-    this.category = null;
-    this.url = url;
-    try {
-      this.title = TitleExtractor.getPageTitle(url);
-    } catch (IOException e) {
-      this.title = null;
-      e.printStackTrace();
-    }
-  }
+	private final Date createdAt;
+	private Date updatedAt;
 
-  /**
-   * Factory.
-   * 
-   * @param url the link itself.
-   * @param geoLocation coordenates.
-   * @return (Link) new instance.
-   */
-  public static Link createLinkWithGeoLocations(String url, GeoLocation geoLocation) {
-    return new Link(url, geoLocation);
-  }
+	private Link(String url, GeoLocation location) {
+		this.latitude = location.getLatitude();
+		this.longitude = location.getLongitude();
+		this.title = null;
+		this.url = url;
+		this.category = null;
+		this.createdAt = new Date();
+		this.updatedAt = createdAt;
+	}
 
-  public void setCategory(Category category) {
-    this.category = category;
-    this.updatedAt = new Date();
-  }
+	/**
+	 * Factory.
+	 *
+	 * @param url the link itself.
+	 * @param geoLocation coordenates.
+	 * @return (Link) new instance.
+	 */
+	public static Link createLinkWithGeoLocations(String url, GeoLocation geoLocation) {
+		return new Link(url, geoLocation);
+	}
 
-  public double getLatitude() { return latitude; }
+	public void completeTitle() throws IOException {
+		this.title = TitleExtractor.getPageTitle(this.url);
+	}
 
-  public double getLongitude() { return longitude; }
+	public void setCategory(Category category) {
+		this.category = category;
+		this.updatedAt = new Date();
+	}
 
-  public String getUrl() { return url; }
+	public double getLatitude() { return latitude; }
 
-  public String getTitle() { return title; }
+	public double getLongitude() { return longitude; }
 
-  public Category getCategory() { return category; }
+	public String getUrl() { return url; }
 
-  public Date getCreatedAt() { return createdAt; }
+	public String getTitle() { return title; }
 
-  public Date getUpdatedAt() { return updatedAt; }
+	public Category getCategory() { return category; }
 
-  public String getId() { return id; }
+	public Date getCreatedAt() { return createdAt; }
+
+	public Date getUpdatedAt() { return updatedAt; }
+
+	public String getId() { return id; }
+
 }

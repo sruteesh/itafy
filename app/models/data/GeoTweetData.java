@@ -1,176 +1,177 @@
 package models.data;
 
 import java.util.ArrayList;
-
 import models.Category;
 import models.Category.AvaibleCategories;
 import models.GeoTweet;
 import models.Location;
 import models.Location.AvaibleLocations;
-
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
-
 import twitter4j.GeoLocation;
 import utils.Helper;
 import controllers.db.NameDBs;
 
 /**
  * CRUD (create, read, update and destroy) for GeoTweet model in the DB.
- * 
+ *
  * @author martero@ucm.es & raul.marcos@ucm.es
  */
 public class GeoTweetData extends ModelData
 {
-  private static final MongoCollection geoTweetCollection = jongo.getCollection(NameDBs.GEO_TWEETS);
+	private static final MongoCollection geoTweetCollection = jongo.getCollection(NameDBs.GEO_TWEETS);
 
-  public GeoTweetData() { }
+	public GeoTweetData() { }
 
+	/**
+	 * Create: saves the geoTweet instance into the DB.
+	 *
+	 * @param geoTweet instance going to be saved.
+	 * @return (String) Mongo's ObjectId as String.
+	 */
+	public static String saveGeoTweet(GeoTweet geoTweet) {
+		geoTweetCollection.save(geoTweet);
+		return geoTweet.getId();
+	}
 
-  /**
-   * Create: saves the geoTweet instance into the DB.
-   * 
-   * @param geoTweet instance going to be saved.
-   * @return (String) Mongo's ObjectId as String.
-   */
-  public static String saveGeoTweet(GeoTweet geoTweet) {
-    geoTweetCollection.save(geoTweet);
-    return geoTweet.getId();
-  }
+	/**
+	 * Create: creates and saves a new geoTweet instance in the DB.
+	 *
+	 * @param twitterId id defines this tweet by Twitter.
+	 * @param geoLocation coordenates for this tweet (latitude & longitude).
+	 * @return (String) Mongo's ObjectId as String.
+	 */
+	public static String saveGeoTweet(long twitterId, GeoLocation geoLocation) {
+		GeoTweet geoTweet = GeoTweet.createTweetWithGeoLocation(twitterId, geoLocation);
+		geoTweetCollection.save(geoTweet);
+		return geoTweet.getId();
+	}
 
-  /**
-   * Create: creates and saves a new GeoTweet instance in the DB.
-   * 
-   * @param twitterId id defines this tweet by Twitter.
-   * @param geoLocation coordenates for this tweet (latitude & longitude).
-   * @return (String) Mongo's ObjectId as String.
-   */
-  public static String saveGeoTweet(long twitterId, GeoLocation geoLocation) {
-    GeoTweet geoTweet = GeoTweet.createTweetWithGeoLocation(twitterId, geoLocation);
-    geoTweetCollection.save(geoTweet);
-    return geoTweet.getId();
-  }
+	/**
+	 * Read: returns all the geoTweets in the DB as generic "Object" instances; casting expected.
+	 *
+	 * @return (ArrayList) all geoTweets or empty list otherwise.
+	 */
+	public static ArrayList<Object> getAllGeoTweets() {
+		Iterable<GeoTweet> records = geoTweetCollection.find().as(GeoTweet.class);
+		return Helper.asArrayList(records);
+	}
 
-  /**
-   * Read: returns all the geoTweets in the DB as generic "Object" instances; casting expected.
-   * 
-   * @return (ArrayList) all geoTweets or empty list otherwise.
-   */
-  public static ArrayList<Object> getAllGeoTweets() {
-    Iterable<GeoTweet> records = geoTweetCollection.find().as(GeoTweet.class);
+	/**
+	 * Read: returns geoTweets in the desired location as generic "Object"
+	 * instances.
+	 *
+	 * @param location known location.
+	 * @return (ArrayList) all geoTweets in location or empty list otherwise.
+	 */
+	public static ArrayList<Object> getAllGeoTweets(AvaibleLocations location) {
+		Location area = Location.createLocation(location);
 
-    if (records == null) {
-      return new ArrayList<Object>();
-    }
-    return Helper.asArrayList(records);
-  }
+		if (area == null) {
+			return new ArrayList<Object>();
+		}
 
-  /**
-   * Read: returns geoTweets in the desired location as generic "Object" instances.
-   * 
-   * @param area known location.
-   * @return (ArrayList) all geoTweets in location or empty list otherwise.
-   */
-  public static ArrayList<Object> getAllGeoTweets(AvaibleLocations area) {
-    Location location = Location.createLocation(area);
+		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
+		Iterable<GeoTweet> records = geoTweetCollection
+				.find(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
+				.as(GeoTweet.class);
 
-    if (location == null) {
-      return new ArrayList<Object>();
-    }
+		return Helper.asArrayList(records);
+	}
 
-    String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
-    Iterable<GeoTweet> records = geoTweetCollection
-        .find(query, location.getMaxLatitude(), location.getMinLatitude(), location.getMaxLongitude(), location.getMinLongitude())
-        .as(GeoTweet.class);
+	/**
+	 * Read: returns geoTweets with the desired category as generic "Object" instances.
+	 *
+	 * @param cat known category.
+	 * @return (ArrayList) all geoTweets with category or empty list otherwise.
+	 */
+	public static ArrayList<Object> getAllGeoTweets(AvaibleCategories cat) {
+		Category category = Category.createCategory(cat);
 
-    if (records == null) {
-      return new ArrayList<Object>();
-    }
+		if (category == null) {
+			return new ArrayList<Object>();
+		}
 
-    return Helper.asArrayList(records);
-  }
+		Iterable<GeoTweet> records = geoTweetCollection
+				.find("{category: #}", category.getName())
+				.as(GeoTweet.class);
 
-  /**
-   * Read: returns geoTweets with the desired category as generic "Object" instances.
-   * 
-   * @param cat known category.
-   * @return (ArrayList) all geoTweets with category or empty list otherwise.
-   */
-  public static ArrayList<Object> getAllGeoTweets(AvaibleCategories cat) {
-    Category category = Category.createCategory(cat);
+		return Helper.asArrayList(records);
+	}
 
-    if (category == null) {
-      return new ArrayList<Object>();
-    }
+	public static ArrayList<Object> getAllGeoTweets(AvaibleLocations loc, AvaibleCategories cat) {
+		Location area = Location.createLocation(loc);
+		Category category = Category.createCategory(cat);
 
-    Iterable<GeoTweet> records = geoTweetCollection
-        .find("{category: #}", category.getName())
-        .as(GeoTweet.class);
+		if ((area == null) || (category == null)) {
+			return new ArrayList<Object>();
+		}
 
-    if (records == null) {
-      return new ArrayList<Object>();
-    }
+		String query = "{category: #, latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
+		Iterable<GeoTweet> records = geoTweetCollection
+				.find(query, category.getName(), area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
+				.as(GeoTweet.class);
 
-    return Helper.asArrayList(records);
-  }
+		return Helper.asArrayList(records);
+	}
 
-  /**
-   * Read: returns the found geoTweet by id.
-   * 
-   * @param id Mongo's ObjectId as String.
-   * @return (GeoTweet) found geoTweet or null otherwise.
-   */
-  public static GeoTweet getGeoTweetById(String id) {
-    GeoTweet geoTweet = geoTweetCollection.findOne(new ObjectId(id)).as(GeoTweet.class);
-    return geoTweet;
-  }
+	/**
+	 * Read: returns the found geoTweet by id.
+	 *
+	 * @param id Mongo's ObjectId as String.
+	 * @return (GeoTweet) found geoTweet or null otherwise.
+	 */
+	public static GeoTweet getGeoTweetById(String id) {
+		GeoTweet geoTweet = geoTweetCollection.findOne(new ObjectId(id)).as(GeoTweet.class);
+		return geoTweet;
+	}
 
-  /**
-   * Read: returns geoTweets with this category as generic "Object" instances; casting expected.
-   * 
-   * @param category
-   * @return (ArrayList) found geoTweets or empty list otherwise.
-   */
-  public static ArrayList<Object> getGeoTweetsByCategory(Category category) {
-    Iterable<GeoTweet> records = geoTweetCollection
-        .find("{category: #}", category.getName())
-        .as(GeoTweet.class);
+	/**
+	 * Read: returns geoTweets with this category as generic "Object" instances; casting expected.
+	 *
+	 * @param category
+	 * @return (ArrayList) found geoTweets or empty list otherwise.
+	 */
+	public static ArrayList<Object> getGeoTweetsByCategory(Category category) {
+		Iterable<GeoTweet> records = geoTweetCollection
+				.find("{category: #}", category.getName())
+				.as(GeoTweet.class);
 
-    if (records == null) {
-      return new ArrayList<Object>();
-    }
-    return Helper.asArrayList(records);
-  }
+		if (records == null) {
+			return new ArrayList<Object>();
+		}
+		return Helper.asArrayList(records);
+	}
 
-  /**
-   * Update: change the category to an existing geoTweet. If the geoTweet does not exist in the DB
-   * this function will not create any geoTweet and will return false.
-   * 
-   * @param id GeoTweet id.
-   * @param category new category.
-   * @return (boolean) true if the geoTweet has been actualized; false otherwise.
-   */
-  public static boolean updateCategoryToGeoTweet(String id, Category category) {
-    GeoTweet foundTweet = geoTweetCollection
-        .findOne(new ObjectId(id))
-        .as(GeoTweet.class);
+	/**
+	 * Update: change the category to an existing geoTweet. If the geoTweet does not exist in the DB
+	 * this function will not create any geoTweet and will return false.
+	 *
+	 * @param id GeoTweet id.
+	 * @param category new category.
+	 * @return (boolean) true if the geoTweet has been actualized; false otherwise.
+	 */
+	public static boolean updateCategoryToGeoTweet(String id, Category category) {
+		GeoTweet foundTweet = geoTweetCollection
+				.findOne(new ObjectId(id))
+				.as(GeoTweet.class);
 
-    if (foundTweet == null) {
-      return false;
-    }
+		if (foundTweet == null) {
+			return false;
+		}
 
-    foundTweet.setCategory(category);
-    geoTweetCollection.save(foundTweet);
-    return true;
-  }
+		foundTweet.setCategory(category);
+		geoTweetCollection.save(foundTweet);
+		return true;
+	}
 
-  /**
-   * Destroy: remove a GeoTweet from the DB.
-   * @param id Mongo's ObjectId as String.
-   */
-  public static void destroyGeoTweet(String id) {
-    geoTweetCollection.remove(new ObjectId(id));
-    return;
-  }
+	/**
+	 * Destroy: remove a GeoTweet from the DB.
+	 * @param id Mongo's ObjectId as String.
+	 */
+	public static void destroyGeoTweet(String id) {
+		geoTweetCollection.remove(new ObjectId(id));
+		return;
+	}
 
 }

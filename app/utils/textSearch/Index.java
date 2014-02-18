@@ -62,7 +62,7 @@ public class Index {
 			try {
 				// FIXME check this, store and index
 				Document doc = new Document();
-				doc.add(new TextField(TEXT, tweet.getStatus(), Field.Store.NO));
+				doc.add(new TextField(TEXT, tweet.getText(), Field.Store.NO));
 				doc.add(new TextField(INDEX, tweet.getId(), Field.Store.YES));
 				writer.addDocument(doc);
 			} catch (IOException e) {

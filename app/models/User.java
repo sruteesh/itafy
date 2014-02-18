@@ -1,22 +1,49 @@
 package models;
 
+import java.util.Date;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
+ * Model definition: User
  * 
- * @author manutero, raulmarcosl
+ * <pre>
+ * | field          | class    |
+ * |:------------   |:-------- |
+ * | userName       | String   |
+ * | userId         | long     |
+ * | verified       | boolean  |
+ * | locationText   | String   |
+ * | followersCount | int      |
+ * | followingCount | int      |
+ * | followersRatio | double   |
+ * </pre>
+ * 
+ * @author martero@ucm.es
+ * @author raulmarcosl@gmail.com
  */
 public class User {
-	private final String userName;
-	private final long userId;
-	private final boolean verified;
-	private final String locationText;
-	private final int followersCount;
-	private final int followingCount;
+
 	@Id
-	@ObjectId
-	private String id;
+	@ObjectId private String id;
+
+	private String userName;
+	private long userId;
+	private boolean verified;
+	private String locationText;
+	private int followersCount;
+	private int followingCount;
+
+	private Date createdAt;
+	private Date updatedAt;
+
+	@JsonCreator
+	public User() {
+		this.createdAt = new Date();
+		this.updatedAt = createdAt;
+	}
 
 	public User(String userName, long userId, boolean verified, String location, int followersCount, int followingCount) {
 		this.userName = userName;
@@ -25,39 +52,40 @@ public class User {
 		this.locationText = location;
 		this.followersCount = followersCount;
 		this.followingCount = followingCount;
+		this.createdAt = new Date();
+		this.updatedAt = createdAt;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
+	@JsonProperty("user_name")
+	public String getUserName() { return userName; }
 
-	public long getUserId() {
-		return userId;
-	}
+	@JsonProperty("user_id")
+	public long getUserId() { return userId; }
 
-	public boolean isVerified() {
-		return verified;
-	}
+	@JsonProperty("verified")
+	public boolean isVerified() { return verified; }
 
-	public String getLocationText() {
-		return locationText;
-	}
+	@JsonProperty("location_text")
+	public String getLocationText() { return locationText; }
 
-	public int getFollowersCount() {
-		return followersCount;
-	}
+	@JsonProperty("followers_count")
+	public int getFollowersCount() { return followersCount; }
 
-	public int getFollowingCount() {
-		return followingCount;
-	}
+	@JsonProperty("following_count")
+	public int getFollowingCount() { return followingCount; }
 
-	public String getId() {
-		return id;
-	}
-
-	public double getFollowersRatio()
-	{
+	@JsonProperty("followers_ratio")
+	public double getFollowersRatio() {
 		return followersCount / followingCount;
 	}
+
+	@JsonProperty("_id")
+	public String getId() { return id; }
+
+	@JsonProperty("created_at")
+	public Date getCreatedAt() { return createdAt; }
+
+	@JsonProperty("updated_at")
+	public Date getUpdatedAt() { return updatedAt; }
 
 }

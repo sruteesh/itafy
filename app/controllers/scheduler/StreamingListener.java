@@ -1,13 +1,21 @@
 package controllers.scheduler;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-
+import models.GeoTweet;
+import models.Hashtag;
+import models.Link;
+import models.User;
+import models.data.GeoTweetData;
+import models.data.HashtagData;
+import models.data.LinkData;
 import play.Logger;
 import twitter4j.GeoLocation;
 import twitter4j.HashtagEntity;
 import twitter4j.StallWarning;
 import twitter4j.StatusDeletionNotice;
 import twitter4j.StatusListener;
+import twitter4j.URLEntity;
 import utils.StreamingWebSocket;
 
 /**
@@ -44,23 +52,10 @@ public class StreamingListener implements StatusListener
 
 	@Override
 	public void onStatus(twitter4j.Status status) {
-
-		sendTweetToWebSocket(status);
-
-		HashtagEntity[] hashtagEntities = status.getHashtagEntities();
-
-		Logger.info("Tweet text: " + status.getText());
-
-		for (int i = 0; i < hashtagEntities.length; i++) {
-			String hashtag = "#" + hashtagEntities[i].getText();
-			hashtag = hashtag.toLowerCase();
-
-			Logger.info("HT recognized: " + hashtag);
+		if (status.getGeoLocation() != null) {
+			sendTweetToWebSocket(status);
+			saveStatusToDB(status);
 		}
-
-		// ExtractorThread.tasks.add(status);
-		// Logger.info("[ON STATUS] added new task; " +
-		// ExtractorThread.tasks.size());
 	}
 
 	private void sendTweetToWebSocket(twitter4j.Status status) {
@@ -72,6 +67,76 @@ public class StreamingListener implements StatusListener
 			webSocketData.put("longitude", geoLocation.getLongitude());
 			StreamingWebSocket.sendHashMap(webSocketData);
 		}
+	}
+
+	private void saveStatusToDB(twitter4j.Status status) {
+		GeoLocation location = status.getGeoLocation();
+
+		String geoTweetId = saveGeoTweet(status.getId(), location);
+		ArrayList<String> hashtagIds = saveHashtags(status.getHashtagEntities(), location);
+		ArrayList<String> linkIds = saveLinks(status.getURLEntities(), location);
+		String userId = saveUser(status.getUser(), location);
+		ArrayList<String> wordIds = saveWords(status.getText(), location);
+
+		saveTweet(geoTweetId, hashtagIds, linkIds, userId, wordIds);
+
+		//Logger.info("AAAAA: " + status.getText());
+		// ExtractorThread.tasks.add(status);
+		// Logger.info("[ON STATUS] added new task; " +
+		// ExtractorThread.tasks.size());
+	}
+
+	private String saveGeoTweet(long twitterId, GeoLocation location) {
+		GeoTweet geoTweet = GeoTweet.createTweetWithGeoLocation(twitterId, location);
+		String geoTweetId = GeoTweetData.saveGeoTweet(geoTweet);
+		Logger.info("Tweet: " + geoTweet.getTwitterId());
+		return geoTweetId;
+	}
+
+	private ArrayList<String> saveHashtags(HashtagEntity[] hashtagEntities, GeoLocation location) {
+		ArrayList<String> hashtagIds = new ArrayList<String>();
+
+		for (HashtagEntity hashtagEntity : hashtagEntities) {
+			String text = hashtagEntity.getText().toLowerCase();
+			Hashtag hashtag = Hashtag.createHashtagWithGeoLocations(text, location);
+			String hashtagId = HashtagData.saveHashtag(hashtag);
+			hashtagIds.add(hashtagId);
+			Logger.info("HT: " + hashtag.getName());
+		}
+
+		return hashtagIds;
+	}
+
+	private ArrayList<String> saveLinks(URLEntity[] urlEntities, GeoLocation location) {
+		ArrayList<String> linkIds = new ArrayList<String>();
+
+		for (URLEntity urlEntity : urlEntities) {
+			String url = urlEntity.getExpandedURL();
+			Link link = Link.createLinkWithGeoLocations(url, location);
+			String linkId = LinkData.saveLink(link);
+			linkIds.add(linkId);
+			Logger.info("Link: " + link.getUrl());
+		}
+
+		return linkIds;
+	}
+
+	private String saveUser(twitter4j.User twitterUser, GeoLocation location) {
+		//TODO
+		User user = null;
+		String userId = "";
+		return userId;
+	}
+
+	private ArrayList<String> saveWords(String tweetText, GeoLocation location) {
+		ArrayList<String> wordIds = new ArrayList<String>();
+		// TODO
+		return wordIds;
+	}
+
+	private void saveTweet(String geoTweetId, ArrayList<String> hashtagIds, ArrayList<String> linkIds, String userId, ArrayList<String> wordIds) {
+		//TODO
+		return;
 	}
 
 }

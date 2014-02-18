@@ -14,11 +14,6 @@ GET  /api/help            controllers.api.HelpController.help()
 # --------
 GET  /api/geotweets/                   controllers.api.GeoTweetController.index()
 GET  /api/geotweets/help               controllers.api.GeoTweetController.help()
-GET  /api/geotweets/all                controllers.api.GeoTweetController.listAll()
-GET  /api/geotweets/area               controllers.api.HelpController.listAreas()
-GET  /api/geotweets/area/:area         controllers.api.GeoTweetController.area(area: String)
-GET  /api/geotweets/category           controllers.api.HelpController.listCategories()
-GET  /api/geotweets/category/:category controllers.api.GeoTweetController.category(category: String)
 GET  /api/geotweets/show/:id           controllers.api.GeoTweetController.show(id: String)
 
 # Hashtag

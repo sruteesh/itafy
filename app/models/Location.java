@@ -3,14 +3,15 @@ package models;
 
 
 
+
 /**
  * Location model & enum definition: AvaibleLocations
- * 
+ *
  * @see
  *  - https://developers.google.com/maps/documentation/geocoding/?hl=es&csw=1
  *  - http://itouchmap.com/latlong.html
  *  - Stackoverflow #1750435
- * 
+ *
  *  @author martero@ucm.es & raul.marcos@ucm.es
  */
 public class Location
@@ -19,24 +20,26 @@ public class Location
   public enum AvaibleLocations {
     MADRID;
 
-    /**
-     * Converts the input String into a known location defined on Location.AvaibleLocations.
-     * Will return null if unkown String given.
-     * 
-     * @param location String we want to convert
-     * @return (Location.AvaibleLocations) known location or null if unkown String given.
-     */
-    public static AvaibleLocations asLocation(String location) {
-      if (location.equals("madrid")) {
-        return MADRID;
-      } else {
-        return null;
-      }
-    }
-  }
+		/**
+		 * Converts the input String into a known location defined on
+		 * Location.AvaibleLocations. Will return null if unkown String given.
+		 *
+		 * @param location String we want to convert
+		 * @return (Location.AvaibleLocations) known location or null if unkown
+		 * String given.
+		 */
+		public static AvaibleLocations asLocation(String location) {
+			if (location.equals("madrid")) {
+				return MADRID;
+				} else {
+					return null;
+				}
+		}
+
+	}
 
   /*   MADRID
-   * 
+   *
    *      40.6
    *    |-------|
    *    |       |
@@ -65,7 +68,7 @@ public class Location
 
   /**
    * Factory.
-   * 
+   *
    * @param location must be checked if is trusted location
    * @return (Location) new Location isntance or null.
    */
@@ -76,7 +79,7 @@ public class Location
 
   /**
    * Factory.
-   * 
+   *
    * @param trustedLocation
    * @return (Location) new Location instance or null.
    */
@@ -89,12 +92,12 @@ public class Location
     }
   }
 
-  public double getMaxLatitude() { return maxLatitude; }
+  public double getMaxLat() { return maxLatitude; }
 
-  public double getMaxLongitude() { return maxLongitude; }
+  public double getMaxLong() { return maxLongitude; }
 
-  public double getMinLatitude() { return minLatitude; }
+  public double getMinLat() { return minLatitude; }
 
-  public double getMinLongitude() { return minLongitude; }
+  public double getMinLong() { return minLongitude; }
 
 }

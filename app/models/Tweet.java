@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -11,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author martero@ucm.es
  * @author raul.marcos@ucm.es
+ * 
  * @see GeoTweet
  * @see Hashtag
  * @see Link
@@ -22,12 +24,12 @@ public class Tweet {
 	@Id
 	@ObjectId private String id;
 
-	private String status;
+	private String text;
 	@ObjectId private String geoTweetId;
-	@ObjectId private String hashtagId;
-	@ObjectId private String linkId;
+	private ArrayList<String> hashtagIds;
+	private ArrayList<String> linkIds;
 	@ObjectId private String userId;
-	@ObjectId private String wordId;
+	private ArrayList<String> wordIds;
 
 	@JsonCreator
 	public Tweet() {
@@ -35,30 +37,30 @@ public class Tweet {
 	}
 
 	// Example main class, do delete
-	public Tweet(String status) {
-		this.status = status;
+	public Tweet(String text) {
+		this.text = text;
 		this.id = String.valueOf(Math.random());
 	}
 
 	@JsonProperty("_id")
 	public String getId() { return id; }
 
-	@JsonProperty("status")
-	public String getStatus() {return status;}
+	@JsonProperty("text")
+	public String getText() {return text;}
 
-	@JsonProperty("geo_tweet_id")
+	@JsonProperty("geotweet_id")
 	public String getGeoTweetId() { return geoTweetId; }
 
-	@JsonProperty("hashtag_id")
-	public String getHashtagId() { return hashtagId; }
+	@JsonProperty("hashtag_ids")
+	public ArrayList<String> getHashtagIds() { return hashtagIds; }
 
-	@JsonProperty("link_id")
-	public String getLinkId() { return linkId; }
+	@JsonProperty("link_ids")
+	public ArrayList<String> getLinkIds() { return linkIds; }
 
 	@JsonProperty("user_id")
 	public String getUserId() { return userId; }
 
-	@JsonProperty("word_id")
-	public String getWordId() { return wordId; }
+	@JsonProperty("word_ids")
+	public ArrayList<String> getWordIds() { return wordIds; }
 
 }
