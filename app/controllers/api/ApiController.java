@@ -1,18 +1,19 @@
 package controllers.api;
 
 import java.util.ArrayList;
-import models.Category.AvaibleCategories;
-import models.Location.AvaibleLocations;
+import models.categories.AvaibleCategories;
+import models.geoLocation.AvaibleLocations;
 import play.mvc.Controller;
 
 /**
- * Common logic for controllers
+ * Common logic for controllers of the public api
  *
- * @author martero@ucm.es & raul.marcos@ucm.es
+ * @author martero@ucm.es
+ * @author raulmarcosl@gmail.com
  */
 public abstract class ApiController extends Controller {
 
-	protected static AvaibleLocations isKnownLocation(String location) {
+	protected static AvaibleLocations translateToKnownLocation(String location) {
 		if (location == null) {
 			return null;
 		}
@@ -25,7 +26,7 @@ public abstract class ApiController extends Controller {
 		return avaibleLocations;
 	}
 
-	protected static AvaibleCategories isKnownCategory(String category) {
+	protected static AvaibleCategories translateToKnownCategory(String category) {
 		if (category == null) {
 			return null;
 		}

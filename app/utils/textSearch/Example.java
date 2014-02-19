@@ -1,7 +1,7 @@
 package utils.textSearch;
 
 import java.util.HashMap;
-import models.Tweet;
+import models.entities.Tweet;
 
 
 public class Example {

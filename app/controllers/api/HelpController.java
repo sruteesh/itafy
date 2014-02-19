@@ -3,50 +3,56 @@ package controllers.api;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+/**
+ * API definition for static help pages.
+ * 
+ * @author martero@ucm.es
+ * @author raulmarcosl@gmail.com
+ */
 public class HelpController extends Controller {
 
-  /**
-   * GET /api/
-   *
-   * @return (Result) index page
-   */
-  public static Result index() {
-    return redirect("/api/help");
-  }
+	/**
+	 * GET /api/
+	 *
+	 * @return (Result) index page
+	 */
+	public static Result index() {
+		return redirect("/api/help");
+	}
 
-  /**
-   * GET /api/help
-   *
-   * @return (Result) static help page
-   */
-  public static Result help() {
-    return TODO;
-  }
+	/**
+	 * GET /api/help
+	 *
+	 * @return (Result) static help page
+	 */
+	public static Result help() {
+		return TODO;
+	}
 
-  /**
-   * GET /api/geotweets/area
-   * GET /api/hashtags/area
-   * GET /api/links/area
-   * GET /api/users/area
-   * GET /api/words/area
-   *
-   * @return (Result) static help page
-   */
-  public static Result listAreas() {
-    return TODO;
-  }
+	/**
+	 * GET /api/geotweets/areas
+	 * GET /api/hashtags/areas
+	 * GET /api/links/areas
+	 * GET /api/users/areas
+	 * GET /api/words/areas
+	 *
+	 * @return (Result) static help page
+	 */
+	public static Result listAreas() {
+		return TODO;
+	}
 
-  /**
-   * GET /api/geotweets/category
-   * GET /api/hashtags/category
-   * GET /api/links/category
-   * GET /api/users/category
-   * GET /api/words/category
-   *
-   * @return (Result) static help page
-   */
-  public static Result listCategories() {
-    return TODO;
-  }
+	/**
+	 * GET /api/geotweets/categories
+	 * GET /api/hashtags/categories
+	 * GET /api/links/categories
+	 * GET /api/users/categories
+	 * GET /api/words/categories
+	 *
+	 * @return (Result) static help page
+	 */
+	public static Result listCategories() {
+		return TODO;
+	}
 
 }

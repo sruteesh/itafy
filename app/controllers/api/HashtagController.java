@@ -1,6 +1,12 @@
 package controllers.api;
 
+import java.util.ArrayList;
+import models.categories.AvaibleCategories;
+import models.data.HashtagData;
+import models.geoLocation.AvaibleLocations;
+import org.codehaus.jackson.JsonNode;
 import play.mvc.Result;
+import utils.Helper;
 
 
 /**
@@ -10,17 +16,37 @@ import play.mvc.Result;
  * @author raulmarcosl@gmail.com
  * 
  * @see ApiController
- * @see conf/routes
  */
 public class HashtagController extends ApiController {
 
 	/**
 	 * GET /api/hashtags/
-	 *
+	 * 
+	 * Possible queries
+	 * <ul>
+	 *  <li> area
+	 *  <li> category
+	 * </ul>
+	 * 
 	 * @return (Result) index page
 	 */
 	public static Result index() {
-		return redirect("/api/hashtags/help");
+		AvaibleLocations trustedArea = translateToKnownLocation(request().getQueryString("area"));
+		AvaibleCategories trustedCategory = translateToKnownCategory(request().getQueryString("category"));
+
+		ArrayList<Object> hashtags;
+		if ((trustedArea != null) && (trustedCategory != null)) {
+			hashtags = HashtagData.getAllHashtags(trustedArea, trustedCategory);
+		} else if (trustedArea != null) {
+			hashtags = HashtagData.getAllHashtags(trustedArea);
+		} else if (trustedCategory != null) {
+			hashtags = HashtagData.getAllHashtags(trustedCategory);
+		} else {
+			hashtags = HashtagData.getAllHashtags();
+		}
+
+		JsonNode response = Helper.asJson(hashtags);
+		return ok(response);
 	}
 
 	/**

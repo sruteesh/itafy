@@ -9,53 +9,30 @@ GET  /demo/localindex     controllers.Assets.at(path="/public/html", file="index
 # ===
 GET  /api/                controllers.api.HelpController.index()
 GET  /api/help            controllers.api.HelpController.help()
+GET  /api/areas           controllers.api.HelpController.listAreas()
+GET  /api/categories      controllers.api.HelpController.listCategories()
 
 # GeoTweet
 # --------
-GET  /api/geotweets/                   controllers.api.GeoTweetController.index()
-GET  /api/geotweets/help               controllers.api.GeoTweetController.help()
-GET  /api/geotweets/show/:id           controllers.api.GeoTweetController.show(id: String)
+GET  /api/geotweets/      controllers.api.GeoTweetController.index()
+GET  /api/geotweets/:id   controllers.api.GeoTweetController.show(id: String)
 
 # Hashtag
 # -------
-GET  /api/hashtags/                    controllers.api.HashtagController.index()
-GET  /api/hashtags/help                controllers.api.HashtagController.help()
-GET  /api/hashtags/all                 controllers.api.HashtagController.listAll()
-GET  /api/hashtags/area                controllers.api.HelpController.listAreas()
-GET  /api/hashtags/area/:area          controllers.api.HashtagController.area(area: String)
-GET  /api/hashtags/category            controllers.api.HelpController.listCategories()
-GET  /api/hashtags/category/:category  controllers.api.HashtagController.category(category: String)
-GET  /api/hashtags/show/:id            controllers.api.HashtagController.show(id: String)
+GET  /api/hashtags/       controllers.api.HashtagController.index()
+GET  /api/hashtags/:id    controllers.api.HashtagController.show(id: String)
 
 # Link
 # ----
-GET  /api/links/                       controllers.api.LinkController.index()
-GET  /api/links/help                   controllers.api.LinkController.help()
-GET  /api/links/all                    controllers.api.LinkController.listAll()
-GET  /api/links/area                   controllers.api.HelpController.listAreas()
-GET  /api/links/area/:area             controllers.api.LinkController.area(area: String)
-GET  /api/links/category               controllers.api.HelpController.listCategories()
-GET  /api/links/category/:category     controllers.api.LinkController.category(category: String)
-GET  /api/links/show/:id               controllers.api.LinkController.show(id: String)
+GET  /api/links/          controllers.api.LinkController.index()
+GET  /api/links/:id       controllers.api.LinkController.show(id: String)
 
 # User
 # -----
-GET  /api/users/                       controllers.api.UserController.index()
-GET  /api/users/help                   controllers.api.UserController.help()
-GET  /api/users/all                    controllers.api.UserController.listAll()
-GET  /api/users/area                   controllers.api.HelpController.listAreas()
-GET  /api/users/area/:area             controllers.api.UserController.area(area: String)
-GET  /api/users/category               controllers.api.HelpController.listCategories()
-GET  /api/users/category/:category     controllers.api.UserController.category(category: String)
-GET  /api/users/show/:id               controllers.api.UserController.show(id: String)
+GET  /api/users/          controllers.api.UserController.index()
+GET  /api/users/:id       controllers.api.UserController.show(id: String)
 
 # Word
 # -----
-GET  /api/words/                       controllers.api.WordController.index()
-GET  /api/words/help                   controllers.api.WordController.help()
-GET  /api/words/all                    controllers.api.WordController.listAll()
-GET  /api/words/area                   controllers.api.HelpController.listAreas()
-GET  /api/words/area/:area             controllers.api.WordController.area(area: String)
-GET  /api/words/category               controllers.api.HelpController.listCategories()
-GET  /api/words/category/:category     controllers.api.WordController.category(category: String)
-GET  /api/words/show/:id               controllers.api.WordController.show(id: String)
+GET  /api/words/          controllers.api.WordController.index()
+GET  /api/words/:id       controllers.api.WordController.show(id: String)

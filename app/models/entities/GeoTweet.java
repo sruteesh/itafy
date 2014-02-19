@@ -1,6 +1,7 @@
-package models;
+package models.entities;
 
 import java.util.Date;
+import models.categories.Category;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 import twitter4j.GeoLocation;

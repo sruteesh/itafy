@@ -1,10 +1,10 @@
 package controllers.api;
 
 import java.util.ArrayList;
-import models.Category.AvaibleCategories;
-import models.GeoTweet;
-import models.Location.AvaibleLocations;
+import models.categories.AvaibleCategories;
 import models.data.GeoTweetData;
+import models.entities.GeoTweet;
+import models.geoLocation.AvaibleLocations;
 import org.codehaus.jackson.JsonNode;
 import play.mvc.Result;
 import utils.Helper;
@@ -15,7 +15,6 @@ import utils.Helper;
  * @author martero@ucm.es
  * @author raulmarcosl@gmail.com
  * 
- * @see config/routes
  * @see ApiController
  */
 public class GeoTweetController extends ApiController {
@@ -31,9 +30,9 @@ public class GeoTweetController extends ApiController {
 	 *
 	 * @return (Result) index page
 	 */
-	public static Result index(){
-		AvaibleLocations trustedArea = isKnownLocation(request().getQueryString("area"));
-		AvaibleCategories trustedCategory = isKnownCategory(request().getQueryString("category"));
+	public static Result index() {
+		AvaibleLocations trustedArea = translateToKnownLocation(request().getQueryString("area"));
+		AvaibleCategories trustedCategory = translateToKnownCategory(request().getQueryString("category"));
 
 		ArrayList<Object> geoTweets;
 		if ((trustedArea != null) && (trustedCategory != null)) {
@@ -48,15 +47,6 @@ public class GeoTweetController extends ApiController {
 
 		JsonNode response = Helper.asJson(geoTweets);
 		return ok(response);
-	}
-
-	/**
-	 * GET /api/geotweets/help
-	 *
-	 * @return (Result) static help page
-	 */
-	public static Result help() {
-		return TODO;
 	}
 
 	/**

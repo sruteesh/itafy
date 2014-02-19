@@ -2,13 +2,13 @@ package controllers.scheduler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import models.GeoTweet;
-import models.Hashtag;
-import models.Link;
-import models.User;
 import models.data.GeoTweetData;
 import models.data.HashtagData;
 import models.data.LinkData;
+import models.entities.GeoTweet;
+import models.entities.Hashtag;
+import models.entities.Link;
+import models.entities.User;
 import play.Logger;
 import twitter4j.GeoLocation;
 import twitter4j.HashtagEntity;

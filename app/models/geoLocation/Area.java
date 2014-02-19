@@ -1,7 +1,4 @@
-package models;
-
-
-
+package models.geoLocation;
 
 
 /**
@@ -14,30 +11,7 @@ package models;
  *
  *  @author martero@ucm.es & raul.marcos@ucm.es
  */
-public class Location
-{
-
-	public enum AvaibleLocations {
-		MADRID;
-
-		/**
-		 * Converts the input String into a known location defined on
-		 * Location.AvaibleLocations. Will return null if unkown String given.
-		 *
-		 * @param location String we want to convert
-		 * @return (Location.AvaibleLocations) known location or null if unkown
-		 * String given.
-		 */
-		public static AvaibleLocations asLocation(String location) {
-			if (location != null) {
-				if (location.equals("madrid")) {
-					return MADRID;
-				}
-			}
-			return null;
-		}
-
-	}
+public class Area {
 
 	/*   MADRID
 	 *
@@ -51,16 +25,32 @@ public class Location
 	 */
 
 	public static final double MADRID_MAX_LATITUDE = 40.6;
-	public static final double MADRID_MIN_LONGITUDE = -4;
+	public static final double MADRID_MIN_LONGITUDE = -4.0;
 	public static final double MADRID_MAX_LONGITUDE = -3.3;
 	public static final double MADRID_MIN_LATITUDE = 40.2;
+
+	/*     BARCELONA
+	 *
+	 *        41.5
+	 *     |-------|
+	 *     |       |
+	 * 2.0 |       | 2.4
+	 *     |       |
+	 *     |-------|
+	 *        41.2
+	 */
+
+	public static final double BARCELONA_MAX_LATITUDE = 41.5;
+	public static final double BARCELONA_MIN_LONGITUDE = 2.0;
+	public static final double BARCELONA_MAX_LONGITUDE = 2.4;
+	public static final double BARCELONA_MIN_LATITUDE = 41.2;
 
 	private double maxLatitude;
 	private double maxLongitude;
 	private double minLatitude;
 	private double minLongitude;
 
-	private Location(double maxLat, double maxLon, double minLat, double minLon) {
+	private Area(double maxLat, double maxLon, double minLat, double minLon) {
 		this.maxLatitude = maxLat;
 		this.maxLongitude = maxLon;
 		this.minLatitude = minLat;
@@ -73,7 +63,7 @@ public class Location
 	 * @param location must be checked if is trusted location
 	 * @return (Location) new Location isntance or null.
 	 */
-	public static Location createLocation(String location) {
+	public static Area createLocation(String location) {
 		AvaibleLocations trustedLocation = AvaibleLocations.asLocation(location);
 		return createLocation(trustedLocation);
 	}
@@ -84,9 +74,9 @@ public class Location
 	 * @param trustedLocation
 	 * @return (Location) new Location instance or null.
 	 */
-	public static Location createLocation(AvaibleLocations trustedLocation) {
+	public static Area createLocation(AvaibleLocations trustedLocation) {
 		if (trustedLocation == AvaibleLocations.MADRID) {
-			return new Location(
+			return new Area(
 					MADRID_MAX_LATITUDE, MADRID_MAX_LONGITUDE,MADRID_MIN_LATITUDE, MADRID_MIN_LONGITUDE);
 		} else {
 			return null;

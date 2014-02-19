@@ -1,6 +1,6 @@
 package models.data;
 
-import models.Word;
+import models.entities.Word;
 import org.jongo.MongoCollection;
 import twitter4j.GeoLocation;
 import controllers.db.NameDBs;

@@ -1,7 +1,7 @@
 package utils.textSearch;
 
 import java.io.IOException;
-import models.Tweet;
+import models.entities.Tweet;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;

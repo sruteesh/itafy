@@ -1,11 +1,11 @@
 package models.data;
 
 import java.util.ArrayList;
-import models.Category;
-import models.Category.AvaibleCategories;
-import models.Link;
-import models.Location;
-import models.Location.AvaibleLocations;
+import models.categories.AvaibleCategories;
+import models.categories.Category;
+import models.entities.Link;
+import models.geoLocation.Area;
+import models.geoLocation.AvaibleLocations;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import twitter4j.GeoLocation;
@@ -67,7 +67,7 @@ public class LinkData extends MongoClientData {
 	 * @return (ArrayList) all links in location or empty list otherwise.
 	 */
 	public static ArrayList<Object> getAllLinks(AvaibleLocations location) {
-		Location area = Location.createLocation(location);
+		Area area = Area.createLocation(location);
 		if (area == null) {
 			return new ArrayList<Object>();
 		}
@@ -109,7 +109,7 @@ public class LinkData extends MongoClientData {
 	 * @return (ArrayList) all links in location and categorized or empty list otherwise.
 	 */
 	public static ArrayList<Object> getAllLinks(AvaibleLocations location, AvaibleCategories category) {
-		Location loc = Location.createLocation(location);
+		Area loc = Area.createLocation(location);
 		Category cat = Category.createCategory(category);
 		if ((loc == null) || (cat == null)) {
 			return new ArrayList<Object>();
