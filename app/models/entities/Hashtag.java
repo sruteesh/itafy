@@ -9,8 +9,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * 
- * @author manutero, raulmarcosl
+ * Model definition: Hashtag
+ *
+ * <pre>
+ * | field     | class    |
+ * |:--------- |:-------- |
+ * | name      | String   |
+ * | latitude  | double   |
+ * | longitude | double   |
+ * | category  | Category |
+ * </pre>
+ *
+ * @author martero@ucm.es
+ * @author raulmarcosl@gmail.com
  */
 public class Hashtag {
 	@Id
@@ -25,6 +36,11 @@ public class Hashtag {
 	private Date updatedAt;
 
 	@JsonCreator
+	public Hashtag() {
+		this.createdAt = new Date();
+		this.updatedAt = createdAt;
+	}
+
 	private Hashtag(String name, GeoLocation c) {
 		this.latitude = c.getLatitude();
 		this.longitude = c.getLongitude();
@@ -44,20 +60,23 @@ public class Hashtag {
 		return new Hashtag(hashtag, geoLocation);
 	}
 
+	@JsonProperty("name")
+	public String getName() { return name; }
+
 	@JsonProperty("latitude")
 	public double getLatitude() { return latitude; }
 
 	@JsonProperty("longitude")
 	public double getLongitude() { return longitude; }
 
+	@JsonProperty("category")
+	public Category getCategory() { return category; }
+
 	@JsonProperty("created_at")
 	public Date getCreatedAt() { return createdAt; }
 
-	@JsonProperty("name")
-	public String getName() { return name; }
-
-	@JsonProperty("category")
-	public Category getCategory() { return category; }
+	@JsonProperty("updated_at")
+	public Date getUpdatedAt() { return updatedAt; }
 
 	@JsonProperty("_id")
 	public String getId() { return id; }

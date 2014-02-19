@@ -7,6 +7,8 @@ import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 import twitter4j.GeoLocation;
 import utils.TitleExtractor;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Model definition: Link
@@ -25,18 +27,23 @@ import utils.TitleExtractor;
  * @author raul.marcos@ucm.es
  */
 public class Link {
-
 	@Id
 	@ObjectId private String id;
 
-	private final double latitude;
-	private final double longitude;
+	private double latitude;
+	private double longitude;
 	private String title;
-	private final String url;
+	private String url;
 	private Category category;
 
-	private final Date createdAt;
+	private Date createdAt;
 	private Date updatedAt;
+
+	@JsonCreator
+	public Link() {
+		this.createdAt = new Date();
+		this.updatedAt = createdAt;
+	}
 
 	private Link(String url, GeoLocation location) {
 		this.latitude = location.getLatitude();
@@ -61,6 +68,7 @@ public class Link {
 
 	public void completeTitle() throws IOException {
 		this.title = TitleExtractor.getPageTitle(this.url);
+		this.updatedAt = new Date();
 	}
 
 	public void setCategory(Category category) {
@@ -68,20 +76,28 @@ public class Link {
 		this.updatedAt = new Date();
 	}
 
+	@JsonProperty("latitude")
 	public double getLatitude() { return latitude; }
 
+	@JsonProperty("longitude")
 	public double getLongitude() { return longitude; }
 
+	@JsonProperty("url")
 	public String getUrl() { return url; }
 
+	@JsonProperty("title")
 	public String getTitle() { return title; }
 
+	@JsonProperty("category")
 	public Category getCategory() { return category; }
 
+	@JsonProperty("created_at")
 	public Date getCreatedAt() { return createdAt; }
 
+	@JsonProperty("updated_at")
 	public Date getUpdatedAt() { return updatedAt; }
 
+	@JsonProperty("_id")
 	public String getId() { return id; }
 
 }
