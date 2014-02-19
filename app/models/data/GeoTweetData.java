@@ -13,13 +13,15 @@ import utils.Helper;
 import controllers.db.NameDBs;
 
 /**
- * CRUD (create, read, update and destroy) for GeoTweet model in the DB.
+ * CRUD (create, read, update and destroy) for <code>GeoTweet</code> model in the DB.
  *
- * @author martero@ucm.es & raul.marcos@ucm.es
+ * @author martero@ucm.es
+ * @author raulmarcosl@gmail.com
+ * @see GeoTweet
  */
-public class GeoTweetData extends ModelData
-{
-	private static final MongoCollection geoTweetCollection = jongo.getCollection(NameDBs.GEO_TWEETS);
+public class GeoTweetData extends MongoClientData {
+
+	protected static final MongoCollection geoTweetCollection = jongo.getCollection(NameDBs.GEO_TWEETS);
 
 	public GeoTweetData() { }
 
@@ -48,7 +50,8 @@ public class GeoTweetData extends ModelData
 	}
 
 	/**
-	 * Read: returns all the geoTweets in the DB as generic "Object" instances; casting expected.
+	 * Read: returns all the geoTweets in the DB as generic <code>Object</code> instances;
+	 * casting expected.
 	 *
 	 * @return (ArrayList) all geoTweets or empty list otherwise.
 	 */
@@ -58,15 +61,14 @@ public class GeoTweetData extends ModelData
 	}
 
 	/**
-	 * Read: returns geoTweets in the desired location as generic "Object"
-	 * instances.
-	 *
-	 * @param location known location.
+	 * Read: returns geoTweets in the desired location as generic <code>Object</code> instances;
+	 * casting expected.
+	 * 
+	 * @param location (Enum) known location.
 	 * @return (ArrayList) all geoTweets in location or empty list otherwise.
 	 */
 	public static ArrayList<Object> getAllGeoTweets(AvaibleLocations location) {
 		Location area = Location.createLocation(location);
-
 		if (area == null) {
 			return new ArrayList<Object>();
 		}
@@ -80,14 +82,14 @@ public class GeoTweetData extends ModelData
 	}
 
 	/**
-	 * Read: returns geoTweets with the desired category as generic "Object" instances.
-	 *
-	 * @param cat known category.
+	 * Read: returns geoTweets with the desired category as generic <code>Object</code> instances;
+	 * casting expected.
+	 * 
+	 * @param cat (Enum) known category.
 	 * @return (ArrayList) all geoTweets with category or empty list otherwise.
 	 */
 	public static ArrayList<Object> getAllGeoTweets(AvaibleCategories cat) {
 		Category category = Category.createCategory(cat);
-
 		if (category == null) {
 			return new ArrayList<Object>();
 		}
@@ -99,17 +101,24 @@ public class GeoTweetData extends ModelData
 		return Helper.asArrayList(records);
 	}
 
-	public static ArrayList<Object> getAllGeoTweets(AvaibleLocations loc, AvaibleCategories cat) {
-		Location area = Location.createLocation(loc);
-		Category category = Category.createCategory(cat);
-
-		if ((area == null) || (category == null)) {
+	/**
+	 * Read: returns geoTweets with the desired category and location as <code>Object</code> instances;
+	 * casting expected.
+	 * 
+	 * @param location (Enum) known location.
+	 * @param category (Enum) known category.
+	 * @return (ArrayList) all geotweets in location and categorized or empty list otherwise.
+	 */
+	public static ArrayList<Object> getAllGeoTweets(AvaibleLocations location, AvaibleCategories category) {
+		Location loc = Location.createLocation(location);
+		Category cat = Category.createCategory(category);
+		if ((loc == null) || (cat == null)) {
 			return new ArrayList<Object>();
 		}
 
 		String query = "{category: #, latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		Iterable<GeoTweet> records = geoTweetCollection
-				.find(query, category.getName(), area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
+				.find(query, cat.getName(), loc.getMaxLat(), loc.getMinLat(), loc.getMaxLong(), loc.getMinLong())
 				.as(GeoTweet.class);
 
 		return Helper.asArrayList(records);
@@ -118,25 +127,12 @@ public class GeoTweetData extends ModelData
 	/**
 	 * Read: returns the found geoTweet by id.
 	 *
-	 * @param id Mongo's ObjectId as String.
+	 * @param id (String) Mongo's ObjectId as String.
 	 * @return (GeoTweet) found geoTweet or null otherwise.
 	 */
 	public static GeoTweet getGeoTweetById(String id) {
 		GeoTweet geoTweet = geoTweetCollection.findOne(new ObjectId(id)).as(GeoTweet.class);
 		return geoTweet;
-	}
-
-	/**
-	 * Read: returns geoTweets with this category as generic "Object" instances; casting expected.
-	 *
-	 * @param category
-	 * @return (ArrayList) found geoTweets or empty list otherwise.
-	 */
-	public static ArrayList<Object> getGeoTweetsByCategory(Category category) {
-		Iterable<GeoTweet> records = geoTweetCollection
-				.find("{category: #}", category.getName())
-				.as(GeoTweet.class);
-		return Helper.asArrayList(records);
 	}
 
 	/**

@@ -7,7 +7,7 @@ import controllers.db.NameDBs;
  * 
  * @author manutero, raulmarcosl
  */
-public class UserData extends ModelData
+public class UserData extends MongoClientData
 {
 	private static final MongoCollection user_collection = jongo.getCollection(NameDBs.USERS);
 
