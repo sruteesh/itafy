@@ -1,77 +1,64 @@
 package controllers.api;
 
+import java.util.ArrayList;
+import models.categories.AvaibleCategories;
+import models.data.LinkData;
+import models.entities.Link;
+import models.geoLocation.AvaibleLocations;
+import org.codehaus.jackson.JsonNode;
+import play.mvc.Controller;
 import play.mvc.Result;
+import utils.Helper;
 
 
 /**
  * API definition for links
  *
- * Inherited methods
- *  - boolean isKnownLocation(AvaibleLocations location)
- *  - ArrayList avaibleLocations()
- *  - isKnownCategory(AvaibleCategories category)
- *  - ArrayList avaibleCategories()
- *
- * @see conf/routes
- * @author martero@ucm.es & raul.maarcos@ucm.es
+ * @author martero@ucm.es
+ * @author raulmarcosl@gmail.com
  */
-public class LinkController extends ApiController {
+public class LinkController extends Controller {
 
-  /**
-   * GET /api/links/
-   *
-   * @return (Result) index page
-   */
-  public static Result index() {
-    return redirect("/api/links/help");
-  }
+	/**
+	 * GET /api/links/
+	 * 
+	 * Possible queries
+	 * <ul>
+	 *  <li> area
+	 *  <li> category
+	 * </ul>
+	 * 
+	 * @return (Result) index page
+	 */
+	public static Result index() {
+		AvaibleLocations trustedArea = AvaibleLocations.asLocation(request().getQueryString("area"));
+		AvaibleCategories trustedCategory = AvaibleCategories.asCategory(request().getQueryString("category"));
 
-  /**
-   * GET /api/links/help
-   *
-   * @return (Result) static help page
-   */
-  public static Result help() {
-    return TODO;
-  }
+		ArrayList<Object> links;
+		if ((trustedArea != null) && (trustedCategory != null)) {
+			links = LinkData.getAllLinks(trustedArea, trustedCategory);
+		} else if (trustedArea != null) {
+			links = LinkData.getAllLinks(trustedArea);
+		} else if (trustedCategory != null) {
+			links = LinkData.getAllLinks(trustedCategory);
+		} else {
+			links = LinkData.getAllLinks();
+		}
 
-  /**
-   * GET /api/links/all
-   *
-   * @return (Result) JSON format
-   */
-  public static Result listAll() {
-    return TODO;
-  }
+		JsonNode response = Helper.asJson(links);
+		return ok(response);
+	}
 
-  /**
-   * GET /api/links/area/:area
-   *
-   * @param area which area
-   * @return (Result) JSON format
-   */
-  public static Result area(String area) {
-    return TODO;
-  }
-
-  /**
-   * GET /api/links/category/:category
-   *
-   * @param category which category
-   * @return (Result) JSON format
-   */
-  public static Result category(String category) {
-    return TODO;
-  }
-
-  /**
-   * GET /api/links/show/:id
-   *
-   * @param id which geoTweet
-   * @return (Result) JSON format
-   */
-  public static Result show(String id) {
-    return TODO;
-  }
+	/**
+	 * GET /api/links/:id
+	 *
+	 * @param id (String) which link
+	 * @return (Result) JSON format
+	 */
+	public static Result show(String id) {
+		Link link = LinkData.getLinkById(id);
+		JsonNode response = Helper.asJson(link);
+		return ok(response);
+	}
 
 }

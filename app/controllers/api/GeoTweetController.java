@@ -6,6 +6,7 @@ import models.data.GeoTweetData;
 import models.entities.GeoTweet;
 import models.geoLocation.AvaibleLocations;
 import org.codehaus.jackson.JsonNode;
+import play.mvc.Controller;
 import play.mvc.Result;
 import utils.Helper;
 
@@ -17,7 +18,7 @@ import utils.Helper;
  * 
  * @see ApiController
  */
-public class GeoTweetController extends ApiController {
+public class GeoTweetController extends Controller {
 
 	/**
 	 * GET /api/geotweets/
@@ -31,8 +32,8 @@ public class GeoTweetController extends ApiController {
 	 * @return (Result) index page
 	 */
 	public static Result index() {
-		AvaibleLocations trustedArea = translateToKnownLocation(request().getQueryString("area"));
-		AvaibleCategories trustedCategory = translateToKnownCategory(request().getQueryString("category"));
+		AvaibleLocations trustedArea = AvaibleLocations.asLocation(request().getQueryString("area"));
+		AvaibleCategories trustedCategory = AvaibleCategories.asCategory(request().getQueryString("category"));
 
 		ArrayList<Object> geoTweets;
 		if ((trustedArea != null) && (trustedCategory != null)) {

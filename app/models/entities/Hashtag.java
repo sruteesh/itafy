@@ -5,23 +5,27 @@ import models.categories.Category;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 import twitter4j.GeoLocation;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * 
  * @author manutero, raulmarcosl
  */
-public class Hashtag
-{
-	private final String name;
-	private final double latitude;
-	private final double longitude;
-	private final Date createdAt;
-	private final Category category;
+public class Hashtag {
 	@Id
 	@ObjectId private String id;
 
-	private Hashtag(String name, GeoLocation c)
-	{
+	private String name;
+	private double latitude;
+	private double longitude;
+	private Category category;
+
+	private Date createdAt;
+	private Date updatedAt;
+
+	@JsonCreator
+	private Hashtag(String name, GeoLocation c) {
 		this.latitude = c.getLatitude();
 		this.longitude = c.getLongitude();
 		this.createdAt = new Date();
@@ -29,39 +33,33 @@ public class Hashtag
 		this.name = name;
 	}
 
-	public static Hashtag createHashtagWithGeoLocations(String hashtag, GeoLocation geoLocation)
-	{
+	/**
+	 * Factory.
+	 * 
+	 * @param hashtag
+	 * @param geoLocation
+	 * @return
+	 */
+	public static Hashtag createHashtagWithGeoLocations(String hashtag, GeoLocation geoLocation) {
 		return new Hashtag(hashtag, geoLocation);
 	}
 
-	public double getLatitude()
-	{
-		return latitude;
-	}
+	@JsonProperty("latitude")
+	public double getLatitude() { return latitude; }
 
-	public double getLongitude()
-	{
-		return longitude;
-	}
+	@JsonProperty("longitude")
+	public double getLongitude() { return longitude; }
 
-	public Date getCreatedAt()
-	{
-		return createdAt;
-	}
+	@JsonProperty("created_at")
+	public Date getCreatedAt() { return createdAt; }
 
-	public String getName()
-	{
-		return name;
-	}
+	@JsonProperty("name")
+	public String getName() { return name; }
 
-	public Category getCategory()
-	{
-		return category;
-	}
+	@JsonProperty("category")
+	public Category getCategory() { return category; }
 
-	public String getId()
-	{
-		return id;
-	}
+	@JsonProperty("_id")
+	public String getId() { return id; }
 
 }

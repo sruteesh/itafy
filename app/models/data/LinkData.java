@@ -129,7 +129,7 @@ public class LinkData extends MongoClientData {
 	 * @param id Mongo's ObjectId as String.
 	 * @return (GeoTweet) found link or null otherwise.
 	 */
-	public static Link getGeoTweetById(String id) {
+	public static Link getLinkById(String id) {
 		Link link = linkCollection.findOne(new ObjectId(id)).as(Link.class);
 		return link;
 	}

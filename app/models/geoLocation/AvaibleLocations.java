@@ -1,5 +1,7 @@
 package models.geoLocation;
 
+import java.util.ArrayList;
+
 public enum AvaibleLocations {
 	MADRID, BARCELONA;
 
@@ -21,6 +23,13 @@ public enum AvaibleLocations {
 			}
 		}
 		return null;
+	}
+
+	public static ArrayList<String> avaibleLocations() {
+		ArrayList<String> avaibleLocations = new ArrayList<String>();
+		avaibleLocations.add("madrid");
+		avaibleLocations.add("barcelona");
+		return avaibleLocations;
 	}
 
 }

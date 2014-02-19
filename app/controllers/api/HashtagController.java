@@ -5,6 +5,7 @@ import models.categories.AvaibleCategories;
 import models.data.HashtagData;
 import models.geoLocation.AvaibleLocations;
 import org.codehaus.jackson.JsonNode;
+import play.mvc.Controller;
 import play.mvc.Result;
 import utils.Helper;
 
@@ -14,10 +15,8 @@ import utils.Helper;
  *
  * @author martero@ucm.es
  * @author raulmarcosl@gmail.com
- * 
- * @see ApiController
  */
-public class HashtagController extends ApiController {
+public class HashtagController extends Controller {
 
 	/**
 	 * GET /api/hashtags/
@@ -31,8 +30,8 @@ public class HashtagController extends ApiController {
 	 * @return (Result) index page
 	 */
 	public static Result index() {
-		AvaibleLocations trustedArea = translateToKnownLocation(request().getQueryString("area"));
-		AvaibleCategories trustedCategory = translateToKnownCategory(request().getQueryString("category"));
+		AvaibleLocations trustedArea = AvaibleLocations.asLocation(request().getQueryString("area"));
+		AvaibleCategories trustedCategory = AvaibleCategories.asCategory(request().getQueryString("category"));
 
 		ArrayList<Object> hashtags;
 		if ((trustedArea != null) && (trustedCategory != null)) {
@@ -50,18 +49,9 @@ public class HashtagController extends ApiController {
 	}
 
 	/**
-	 * GET /api/hashtags/help
+	 * GET /api/hashtags/:id
 	 *
-	 * @return (Result) static help page
-	 */
-	public static Result help() {
-		return TODO;
-	}
-
-	/**
-	 * GET /api/hashtags/show/:id
-	 *
-	 * @param id which geoTweet
+	 * @param id (String) which geoTweet
 	 * @return (Result) JSON format
 	 */
 	public static Result show(String id) {

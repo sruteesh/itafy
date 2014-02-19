@@ -5,7 +5,6 @@ import models.data.GeoTweetData;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import controllers.api.ApiController;
 import controllers.api.GeoTweetController;
 
 
