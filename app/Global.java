@@ -1,5 +1,3 @@
-import java.util.concurrent.TimeUnit;
-
 import play.Application;
 import play.GlobalSettings;
 import play.Logger;
@@ -27,8 +25,6 @@ public class Global extends GlobalSettings {
 	/**
 	 * Initialize the Twitter library in order to be able to use the Twitter API
 	 * Rest and the Twitter Streaming
-	 * 
-	 * @author Raúl Marcos Lorenzo <raul@vuqio.com>
 	 */
 	private void initializeTwitterConnectionHandler() {
 		new TwitterConnectionHandler();
@@ -40,9 +36,9 @@ public class Global extends GlobalSettings {
 
 		Akka.system()
 				.scheduler()
-				.schedule(
+				.scheduleOnce(
 						Duration.Zero(),
-						Duration.create(10, TimeUnit.MINUTES),
+						// Duration.create(10, TimeUnit.MINUTES),
 						twitterStreamingWatcherActor,
 						"twitter_streaming_watcher_actor",
 						Akka.system().dispatcher()
