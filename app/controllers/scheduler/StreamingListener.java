@@ -1,14 +1,22 @@
 package controllers.scheduler;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+
 import models.data.GeoTweetData;
 import models.data.HashtagData;
 import models.data.LinkData;
 import models.entities.GeoTweet;
 import models.entities.Hashtag;
 import models.entities.Link;
+import models.entities.Location;
+import models.entities.TwitterName;
 import models.entities.User;
+
+import org.jongo.Jongo;
+import org.jongo.MongoCollection;
+
 import play.Logger;
 import twitter4j.GeoLocation;
 import twitter4j.HashtagEntity;
@@ -18,12 +26,23 @@ import twitter4j.StatusListener;
 import twitter4j.URLEntity;
 import utils.StreamingWebSocket;
 
+import com.mongodb.DB;
+import com.mongodb.MongoClient;
+
+import controllers.db.MongoDBHandler;
+import controllers.db.NameDBs;
+
 /**
  * 
  * @author manutero, raulmarcosl
  */
-public class StreamingListener implements StatusListener
-{
+public class StreamingListener implements StatusListener {
+
+	private static final MongoClient mongo = MongoDBHandler.getMongoClient();
+	private static final DB dbItafyBenchmarks = mongo.getDB(NameDBs.DB_ITAFY_BENCHMARKS);
+	private static final Jongo jongoEpg = new Jongo(dbItafyBenchmarks);
+	private static final MongoCollection twitterNamesCollection = jongoEpg.getCollection(NameDBs.TWITTER_NAMES);
+
 	@Override
 	public void onDeletionNotice(StatusDeletionNotice arg0) {
 		Logger.warn("[ON DELETION NOTICE] StatusId: " + arg0.getStatusId());
@@ -52,9 +71,45 @@ public class StreamingListener implements StatusListener
 
 	@Override
 	public void onStatus(twitter4j.Status status) {
+
+		saveTwitterName(status);
+
 		if (status.getGeoLocation() != null) {
-			sendTweetToWebSocket(status);
-			saveStatusToDB(status);
+			// sendTweetToWebSocket(status);
+			// saveStatusToDB(status);
+		}
+	}
+
+	private void saveTwitterName(twitter4j.Status status) {
+		twitter4j.User user = status.getUser();
+		String name = user.getName();
+		String screenName = user.getScreenName();
+		String lang = user.getLang();
+
+		TwitterName twitterName = twitterNamesCollection.findOne("{name: #, lang: #}", name, lang)
+				.as(TwitterName.class);
+
+		if (twitterName == null) {
+			twitterName = new TwitterName();
+
+			twitterName.setName(name);
+			twitterName.setScreenName(screenName);
+			twitterName.setLanguage(lang);
+			twitterName.setCreatedAt(new Date());
+
+			GeoLocation geoLocation = status.getGeoLocation();
+			if (geoLocation != null) {
+				double longitude = status.getGeoLocation().getLongitude();
+				double latitude = status.getGeoLocation().getLatitude();
+
+				Location location = new Location(longitude, latitude);
+				twitterName.setLocation(location);
+				twitterName.setSpain(Location.isInSpain(longitude, latitude));
+			}
+
+			twitterNamesCollection.save(twitterName);
+			Logger.info(user.getScreenName());
+			Logger.info("[TwitterName] " + name + "\t @" + screenName + "\t" + lang);
 		}
 	}
 
@@ -63,8 +118,8 @@ public class StreamingListener implements StatusListener
 		webSocketData.put("text", status.getText());
 		GeoLocation geoLocation = status.getGeoLocation();
 		if (geoLocation != null) {
-			webSocketData.put("latitude", geoLocation.getLatitude());
 			webSocketData.put("longitude", geoLocation.getLongitude());
+			webSocketData.put("latitude", geoLocation.getLatitude());
 			StreamingWebSocket.sendHashMap(webSocketData);
 		}
 	}
@@ -79,11 +134,6 @@ public class StreamingListener implements StatusListener
 		ArrayList<String> wordIds = saveWords(status.getText(), location);
 
 		saveTweet(geoTweetId, hashtagIds, linkIds, userId, wordIds);
-
-		//Logger.info("AAAAA: " + status.getText());
-		// ExtractorThread.tasks.add(status);
-		// Logger.info("[ON STATUS] added new task; " +
-		// ExtractorThread.tasks.size());
 	}
 
 	private String saveGeoTweet(long twitterId, GeoLocation location) {
@@ -122,7 +172,7 @@ public class StreamingListener implements StatusListener
 	}
 
 	private String saveUser(twitter4j.User twitterUser, GeoLocation location) {
-		//TODO
+		// TODO
 		User user = null;
 		String userId = "";
 		return userId;
@@ -134,8 +184,9 @@ public class StreamingListener implements StatusListener
 		return wordIds;
 	}
 
-	private void saveTweet(String geoTweetId, ArrayList<String> hashtagIds, ArrayList<String> linkIds, String userId, ArrayList<String> wordIds) {
-		//TODO
+	private void saveTweet(String geoTweetId, ArrayList<String> hashtagIds, ArrayList<String> linkIds, String userId,
+			ArrayList<String> wordIds) {
+		// TODO
 		return;
 	}
 
