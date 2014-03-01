@@ -20,7 +20,7 @@ import controllers.db.NameDBs;
  * @see Link
  */
 public class LinkData extends MongoClientData {
-	protected static final MongoCollection linkCollection = jongo.getCollection(NameDBs.LINKS);
+	protected static final MongoCollection linkCollection = jongoItafy.getCollection(NameDBs.LINKS);
 
 	public LinkData() {}
 

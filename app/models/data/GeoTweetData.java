@@ -21,7 +21,7 @@ import controllers.db.NameDBs;
  */
 public class GeoTweetData extends MongoClientData {
 
-	protected static final MongoCollection geoTweetCollection = jongo.getCollection(NameDBs.GEO_TWEETS);
+	protected static final MongoCollection geoTweetCollection = jongoItafy.getCollection(NameDBs.GEO_TWEETS);
 
 	public GeoTweetData() { }
 

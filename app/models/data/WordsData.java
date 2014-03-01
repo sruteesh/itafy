@@ -11,7 +11,7 @@ import controllers.db.NameDBs;
  */
 public class WordsData extends MongoClientData {
 
-	private static final MongoCollection words_collection = jongo.getCollection(NameDBs.WORDS);
+	private static final MongoCollection words_collection = jongoItafy.getCollection(NameDBs.WORDS);
 
 	public WordsData() {}
 

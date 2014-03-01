@@ -21,7 +21,7 @@ import controllers.db.NameDBs;
  * @see Hashtag
  */
 public class HashtagData extends MongoClientData {
-	protected static final MongoCollection hashtagCollection = jongo.getCollection(NameDBs.HASHTAGS);
+	protected static final MongoCollection hashtagCollection = jongoItafy.getCollection(NameDBs.HASHTAGS);
 
 	public HashtagData() {}
 
