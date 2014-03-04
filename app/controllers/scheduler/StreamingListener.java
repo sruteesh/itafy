@@ -85,8 +85,9 @@ public class StreamingListener implements StatusListener {
 		String name = user.getName();
 		String screenName = user.getScreenName();
 		String lang = user.getLang();
+		String description = user.getDescription();
 
-		TwitterName twitterName = twitterNamesCollection.findOne("{name: #, lang: #}", name, lang)
+		TwitterName twitterName = twitterNamesCollection.findOne("{name: #, description: #}", name, description)
 				.as(TwitterName.class);
 
 		if (twitterName == null) {
@@ -94,6 +95,8 @@ public class StreamingListener implements StatusListener {
 
 			twitterName.setName(name);
 			twitterName.setScreenName(screenName);
+			twitterName.setDescription(description);
+			twitterName.setProfileImageUrl(user.getProfileBackgroundImageURL());
 			twitterName.setLanguage(lang);
 			twitterName.setCreatedAt(new Date());
 

@@ -1,6 +1,16 @@
 package benchmarks;
 
 import java.text.Normalizer;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import models.data.MongoClientData;
 import models.entities.TwitterName;
@@ -23,23 +33,47 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 	private static int malesC = 0;
 	private static int femalesC = 0;
 
+	private static Map<String, Integer> nameCandidatesPending = new HashMap<String, Integer>();
+	private static Map<String, Integer> descriptionCandidatesPending = new HashMap<String, Integer>();
+
 	public static void main(String[] args) {
 		startBenchmarks();
+
+		// int i = 0;
+		// for (String name : sortByValues(nameCandidatesPending).keySet()) {
+		// System.out.println(name + "\t" + nameCandidatesPending.get(name));
+		// if (i++ > 200) {
+		// return;
+		// }
+		// }
+
+		// int j = 0;
+		// for (String name :
+		// sortByValues(descriptionCandidatesPending).keySet()) {
+		// if (j > 1000 && j <= 3000) {
+		// System.out.println(name);
+		// } else if (j > 3000) {
+		// return;
+		// }
+		//
+		// j++;
+		// }
 	}
 
 	private static void startBenchmarks() {
 		Iterable<TwitterName> twitterNames = twitterNamesCollection
 				.find()
-				.limit(5000)
+				.limit(50000)
 				.as(TwitterName.class);
 
 		int count = 0;
 		for (TwitterName twitterName : twitterNames) {
 			String name = twitterName.getName();
-
-			algorithmA(name);
-			algorithmB(name);
-			algorithmC(name);
+			String description = twitterName.getDescription();
+			boolean verbose = false;
+			algorithmA(name, verbose);
+			// algorithmB(name, verbose);
+			algorithmC(name, description, verbose);
 			count++;
 		}
 
@@ -58,39 +92,34 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 	 * Sample: 5k. Males: 1056 (21%) Females: 858 (17%)
 	 */
 
-	private static void algorithmA(String name) {
-
+	private static void algorithmA(String name, boolean verbose) {
 		name = normalize(name);
-
-		String[] candidates = getCandidates(name);
-
-		// comment this line to measure the improvement of remove non alphabetic
-		// chars
-		name = removeNonAlphabeticChars(name);
 
 		boolean male = false;
 		boolean female = false;
+		HashSet<String> candidates = getCandidates(name);
 		for (String candidate : candidates) {
-			male |= SpainNames.topMaleNamesContainsSingleName(candidate);
-			female |= SpainNames.topFemaleNamesContainsSingleName(candidate);
+			male |= NamesUtils.topMaleNamesContainsSingleName(candidate);
+			female |= NamesUtils.topFemaleNamesContainsSingleName(candidate);
 
 			for (String candidateAux : candidates) {
-				male |= SpainNames.topMaleNamesContainsCompoundName(candidate, candidateAux);
-				female |= SpainNames.topFemaleNamesContainsCompoundName(candidate, candidateAux);
+				male |= NamesUtils.topMaleNamesContainsCompoundName(candidate, candidateAux);
+				female |= NamesUtils.topFemaleNamesContainsCompoundName(candidate, candidateAux);
 			}
 		}
 
 		if (male) {
 			malesA++;
-			System.out.println("[A] MALE -\t " + name);
 		} else if (female) {
 			femalesA++;
-			System.out.println("[A] FEMALE -\t " + name);
+		}
 
-		} else if (male && female) {
-			System.out.println("[A] **[BOTH]** -\t " + name);
-		} else {
-			System.out.println("[A] -\t " + name);
+		if (verbose) {
+			if (male && female) {
+				System.out.println("[A] **[BOTH]** -\t " + name);
+			} else if (!male || !female) {
+				System.out.println("[A] -\t " + name);
+			}
 		}
 	}
 
@@ -101,24 +130,24 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 	 * 
 	 * Sample: 5k. Males: 1941 (38%) Females: 916 (18%)
 	 */
-	private static void algorithmB(String name) {
-
+	private static void algorithmB(String name, boolean verbose) {
 		name = normalize(name);
 
-		boolean male = SpainNames.nameContainsTopMaleName(name);
-		boolean female = SpainNames.nameContainsTopFemaleName(name);
+		boolean male = NamesUtils.nameContainsTopMaleName(name);
+		boolean female = NamesUtils.nameContainsTopFemaleName(name);
 
 		if (male) {
 			malesB++;
-			System.out.println("[B] MALE -\t " + name);
 		} else if (female) {
 			femalesB++;
-			System.out.println("[B] FEMALE -\t " + name);
+		}
 
-		} else if (male && female) {
-			System.out.println("[B] **[BOTH]** -\t " + name);
-		} else {
-			System.out.println("[B] -\t " + name);
+		if (verbose) {
+			if (male && female) {
+				System.out.println("[B] **[BOTH]** -\t " + name);
+			} else if (!male || !female) {
+				System.out.println("[B] -\t " + name);
+			}
 		}
 	}
 
@@ -129,41 +158,82 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 	 * 
 	 * Sample: 5k. Males: 1138 (22%) Females: 966 (19%)
 	 */
-	private static void algorithmC(String name) {
+	private static void algorithmC(String name, String description, boolean verbose) {
 
 		name = normalize(name);
-
-		String[] candidates = getCandidates(name);
+		HashSet<String> nameCandidates = getCandidates(name);
+		HashSet<String> descriptionCandidates = null;
+		if (description != null) {
+			description = normalize(description);
+			descriptionCandidates = getCandidates(description);
+		}
 
 		boolean male = false;
 		boolean female = false;
-		for (String candidate : candidates) {
+		for (String candidate : nameCandidates) {
 
-			male |= SpainNames.topMaleNamesContainsSingleName(candidate)
-					|| SpainNames.manualMaleNamesContainsSingleName(candidate)
-					|| SpainNames.maleIdentifiersContainsSingleName(candidate);
+			male |= NamesUtils.topMaleNamesContainsSingleName(candidate)
+					|| NamesUtils.manualMaleNamesContainsSingleName(candidate)
+					|| NamesUtils.maleIdentifiersContainsSingleName(candidate);
 
-			female |= SpainNames.topFemaleNamesContainsSingleName(candidate)
-					|| SpainNames.manualFemaleNamesContainsSingleName(candidate)
-					|| SpainNames.femaleIdentifiersContainsSingleName(candidate);
+			female |= NamesUtils.topFemaleNamesContainsSingleName(candidate)
+					|| NamesUtils.manualFemaleNamesContainsSingleName(candidate)
+					|| NamesUtils.femaleIdentifiersContainsSingleName(candidate);
 
-			for (String candidateAux : candidates) {
-				male |= SpainNames.topMaleNamesContainsCompoundName(candidate, candidateAux);
-				female |= SpainNames.topFemaleNamesContainsCompoundName(candidate, candidateAux);
+			for (String candidateAux : nameCandidates) {
+				male |= NamesUtils.topMaleNamesContainsCompoundName(candidate, candidateAux);
+				female |= NamesUtils.topFemaleNamesContainsCompoundName(candidate, candidateAux);
+			}
+		}
+
+		if (!male && !female && description != null) {
+			for (String candidate : descriptionCandidates) {
+				male |= DescriptionsUtils.manualMaleDescriptionsContains(candidate);
+				female |= DescriptionsUtils.manualFemaleDescriptionsContains(candidate);
+			}
+		}
+
+		if (!male && !female) {
+			addNameCandidatesForAnalysis(nameCandidates);
+			if (description != null) {
+				addDescriptionCandidatesForAnalysis(descriptionCandidates);
 			}
 		}
 
 		if (male) {
 			malesC++;
-			System.out.println("[C] MALE -\t " + name);
 		} else if (female) {
 			femalesC++;
-			System.out.println("[C] FEMALE -\t " + name);
+		}
 
-		} else if (male && female) {
-			System.out.println("[C] **[BOTH]** -\t " + name);
-		} else {
-			System.out.println("[C] -\t " + name);
+		if (verbose) {
+			if (male && female) {
+				System.out.println("[C] **[BOTH]** -\t " + name);
+			} else if (!male || !female) {
+				System.out.println("[C] -\t " + name);
+			}
+		}
+	}
+
+	private static void addNameCandidatesForAnalysis(HashSet<String> candidates) {
+		for (String candidate : candidates) {
+			Integer candidateValue = nameCandidatesPending.get(candidate);
+			if (candidateValue == null) {
+				nameCandidatesPending.put(candidate, 1);
+			} else {
+				nameCandidatesPending.put(candidate, candidateValue + 1);
+			}
+		}
+	}
+
+	private static void addDescriptionCandidatesForAnalysis(HashSet<String> candidates) {
+		for (String candidate : candidates) {
+			Integer candidateValue = descriptionCandidatesPending.get(candidate);
+			if (candidateValue == null) {
+				descriptionCandidatesPending.put(candidate, 1);
+			} else {
+				descriptionCandidatesPending.put(candidate, candidateValue + 1);
+			}
 		}
 	}
 
@@ -199,7 +269,43 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 		return name.replaceAll("[^a-zA-Z]", " ");
 	}
 
-	private static String[] getCandidates(String name) {
-		return name.split("\\s+");
+	private static HashSet<String> getCandidates(String stringToAnalyze) {
+		HashSet<String> candidates = new HashSet<String>(Arrays.asList(stringToAnalyze.split("\\s+")));
+		HashSet<String> result = new HashSet<String>();
+
+		for (String candidate : candidates) {
+			if (candidate.length() > 1) {
+				result.add(candidate);
+			}
+		}
+
+		return result;
+	}
+
+	/*
+	 * Java method to sort Map in Java by value e.g. HashMap or Hashtable throw
+	 * NullPointerException if Map contains null values It also sort values even
+	 * if they are duplicates
+	 */
+	public static <K extends Comparable, V extends Comparable> Map<K, V> sortByValues(Map<K, V> map) {
+		List<Map.Entry<K, V>> entries = new LinkedList<Map.Entry<K, V>>(map.entrySet());
+
+		Collections.sort(entries, new Comparator<Map.Entry<K, V>>() {
+
+			@Override
+			public int compare(Entry<K, V> o1, Entry<K, V> o2) {
+				return o2.getValue().compareTo(o1.getValue());
+			}
+		});
+
+		// LinkedHashMap will keep the keys in the order they are inserted
+		// which is currently sorted on natural ordering
+		Map<K, V> sortedMap = new LinkedHashMap<K, V>();
+
+		for (Map.Entry<K, V> entry : entries) {
+			sortedMap.put(entry.getKey(), entry.getValue());
+		}
+
+		return sortedMap;
 	}
 }

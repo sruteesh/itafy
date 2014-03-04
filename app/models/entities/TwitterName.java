@@ -10,16 +10,20 @@ public class TwitterName {
 
 	public static final String NAME = "name";
 	public static final String SCREEN_NAME = "screen_name";
+	public static final String DESCRIPTION = "description";
+	public static final String PROFILE_IMAGE_URL = "profile_image_url";
 	public static final String LANGUAGE = "language";
 	public static final String LOCATION = "location";
 	public static final String SPAIN = "spain";
-	public static final String CREATED_AT = "created_at";
+	public static final String CREATED_AT = "createdAt";
 
 	@Id
 	@ObjectId
 	private String id;
 	private String name;
 	private String screenName;
+	private String description;
+	private String profileImageUrl;
 	private String language;
 	private Location location;
 	private boolean spain;
@@ -45,6 +49,24 @@ public class TwitterName {
 
 	public void setScreenName(String screenName) {
 		this.screenName = screenName;
+	}
+
+	@JsonProperty(DESCRIPTION)
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@JsonProperty(PROFILE_IMAGE_URL)
+	public String getProfileImageUrl() {
+		return profileImageUrl;
+	}
+
+	public void setProfileImageUrl(String profileImageUrl) {
+		this.profileImageUrl = profileImageUrl;
 	}
 
 	@JsonProperty(LOCATION)
