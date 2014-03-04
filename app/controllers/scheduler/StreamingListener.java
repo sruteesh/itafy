@@ -107,7 +107,6 @@ public class StreamingListener implements StatusListener {
 
 				Location location = new Location(longitude, latitude);
 				twitterName.setLocation(location);
-				twitterName.setSpain(Location.isInSpain(longitude, latitude));
 			}
 
 			twitterNamesCollection.save(twitterName);

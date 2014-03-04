@@ -1,0 +1,36 @@
+a: {x: -2.241211, y: 43.644026},
+b: {x: -9.580078, y: 44.182204},
+c: {x: -10.371094, y: 36.985003},
+d: {x: -7.382813, y: 36.315125},
+e: {x: -18.588867, y: 28.729130},
+f: {x: -18.720703, y: 26.706360},
+g: {x: -14.589844, y: 27.176469},
+h: {x: -12.788086, y: 28.613459},
+i: {x: -7.075195, y: 35.924645},
+j: {x: -3.603516, y: 35.817813},
+k: {x: 0.263672, y: 37.544577},
+l: {x: 0.747070, y: 38.134557},
+m: {x: 4.350586, y: 38.959409},
+n: {x: 4.746094, y: 40.245992},
+o: {x: 3.647461, y: 40.713956},
+p: {x: 3.779297, y: 42.714732},
+q: {x: -2.241211, y: 43.644026}
+
+spainPolygon.add(new Double[][]{-2.241211, 43.644026});
+spainPolygon.add(new Double[][]{-9.580078, 44.182204});
+spainPolygon.add(new Double[][]{-10.371094, 36.985003});
+spainPolygon.add(new Double[][]{-7.382813, 36.315125});
+spainPolygon.add(new Double[][]{-18.588867, 28.729130});
+spainPolygon.add(new Double[][]{-18.720703, 26.706360});
+spainPolygon.add(new Double[][]{-14.589844, 27.176469});
+spainPolygon.add(new Double[][]{-12.788086, 28.613459});
+spainPolygon.add(new Double[][]{-7.075195, 35.924645});
+spainPolygon.add(new Double[][]{-3.603516, 35.817813});
+spainPolygon.add(new Double[][]{0.263672, 37.544577});
+spainPolygon.add(new Double[][]{0.747070, 38.134557});
+spainPolygon.add(new Double[][]{4.350586, 38.959409});
+spainPolygon.add(new Double[][]{4.746094, 40.245992});
+spainPolygon.add(new Double[][]{3.647461, 40.713956});
+spainPolygon.add(new Double[][]{3.779297, 42.714732});
+spainPolygon.add(new Double[][]{-2.241211, 43.644026});
+

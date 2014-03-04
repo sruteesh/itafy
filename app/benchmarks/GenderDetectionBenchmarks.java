@@ -1,6 +1,7 @@
 package benchmarks;
 
 import java.text.Normalizer;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -61,9 +62,30 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 	}
 
 	private static void startBenchmarks() {
+
+		// polygon obtained using http://www.birdtheme.org/useful/v3tool.html
+		List<Double[]> spainPolygon = new ArrayList<Double[]>();
+		spainPolygon.add(new Double[] { -2.241211, 43.644026 });
+		spainPolygon.add(new Double[] { -9.580078, 44.182204 });
+		spainPolygon.add(new Double[] { -10.371094, 36.985003 });
+		spainPolygon.add(new Double[] { -7.382813, 36.315125 });
+		spainPolygon.add(new Double[] { -18.588867, 28.729130 });
+		spainPolygon.add(new Double[] { -18.720703, 26.706360 });
+		spainPolygon.add(new Double[] { -14.589844, 27.176469 });
+		spainPolygon.add(new Double[] { -12.788086, 28.613459 });
+		spainPolygon.add(new Double[] { -7.075195, 35.924645 });
+		spainPolygon.add(new Double[] { -3.603516, 35.817813 });
+		spainPolygon.add(new Double[] { 0.263672, 37.544577 });
+		spainPolygon.add(new Double[] { 0.747070, 38.134557 });
+		spainPolygon.add(new Double[] { 4.350586, 38.959409 });
+		spainPolygon.add(new Double[] { 4.746094, 40.245992 });
+		spainPolygon.add(new Double[] { 3.647461, 40.713956 });
+		spainPolygon.add(new Double[] { 3.779297, 42.714732 });
+		spainPolygon.add(new Double[] { -2.241211, 43.644026 });
+
 		Iterable<TwitterName> twitterNames = twitterNamesCollection
-				.find()
-				.limit(50000)
+				.find("{location: {$within: {$polygon: #}}}", spainPolygon)
+				.limit(20000)
 				.as(TwitterName.class);
 
 		int count = 0;
