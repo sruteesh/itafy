@@ -30,7 +30,7 @@ import com.mongodb.DB;
 import com.mongodb.MongoClient;
 
 import controllers.db.MongoDBHandler;
-import controllers.db.NameDBs;
+import controllers.db.DbNames;
 
 /**
  * 
@@ -39,9 +39,9 @@ import controllers.db.NameDBs;
 public class StreamingListener implements StatusListener {
 
 	private static final MongoClient mongo = MongoDBHandler.getMongoClient();
-	private static final DB dbItafyBenchmarks = mongo.getDB(NameDBs.DB_ITAFY_BENCHMARKS);
+	private static final DB dbItafyBenchmarks = mongo.getDB(DbNames.DB_ITAFY_BENCHMARKS);
 	private static final Jongo jongoEpg = new Jongo(dbItafyBenchmarks);
-	private static final MongoCollection twitterNamesCollection = jongoEpg.getCollection(NameDBs.TWITTER_NAMES);
+	private static final MongoCollection twitterNamesCollection = jongoEpg.getCollection(DbNames.TWITTER_NAMES);
 
 	@Override
 	public void onDeletionNotice(StatusDeletionNotice arg0) {

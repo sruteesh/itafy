@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,21 +19,24 @@ import models.entities.TwitterName;
 
 import org.jongo.MongoCollection;
 
-import controllers.db.NameDBs;
+import controllers.db.DbNames;
 
 public class GenderDetectionBenchmarks extends MongoClientData {
 
 	protected static final MongoCollection twitterNamesCollection = jongoItafyBenchmarks
-			.getCollection(NameDBs.TWITTER_NAMES);
+			.getCollection(DbNames.TWITTER_NAMES);
 
 	private static int malesA = 0;
 	private static int femalesA = 0;
+	private static int bothA = 0;
 
 	private static int malesB = 0;
 	private static int femalesB = 0;
+	private static int bothB = 0;
 
 	private static int malesC = 0;
 	private static int femalesC = 0;
+	private static int bothC = 0;
 
 	private static Map<String, Integer> nameCandidatesPending = new HashMap<String, Integer>();
 	private static Map<String, Integer> descriptionCandidatesPending = new HashMap<String, Integer>();
@@ -84,6 +88,7 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 		spainPolygon.add(new Double[] { -2.241211, 43.644026 });
 
 		Iterable<TwitterName> twitterNames = twitterNamesCollection
+				// .find()
 				.find("{location: {$within: {$polygon: #}}}", spainPolygon)
 				.limit(20000)
 				.as(TwitterName.class);
@@ -94,18 +99,20 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 			String description = twitterName.getDescription();
 			boolean verbose = false;
 			algorithmA(name, verbose);
-			// algorithmB(name, verbose);
+			algorithmB(name, verbose);
 			algorithmC(name, description, verbose);
 			count++;
 		}
 
-		System.out.println();
 		System.out.println("A MALES: " + malesA + "\t" + (malesA * 100) / count + "%");
 		System.out.println("A FEMALES: " + femalesA + "\t" + (femalesA * 100) / count + "%");
+		System.out.println("A BOTH: " + bothA + "\t" + (bothA * 100) / count + "%");
 		System.out.println("B MALES: " + malesB + "\t" + (malesB * 100) / count + "%");
 		System.out.println("B FEMALES: " + femalesB + "\t" + (femalesB * 100) / count + "%");
+		System.out.println("B BOTH: " + bothB + "\t" + (bothB * 100) / count + "%");
 		System.out.println("C MALES: " + malesC + "\t" + (malesC * 100) / count + "%");
 		System.out.println("C FEMALES: " + femalesC + "\t" + (femalesC * 100) / count + "%");
+		System.out.println("C BOTH: " + bothC + "\t" + (bothC * 100) / count + "%");
 	}
 
 	/**
@@ -119,8 +126,10 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 
 		boolean male = false;
 		boolean female = false;
-		HashSet<String> candidates = getCandidates(name);
-		for (String candidate : candidates) {
+		ArrayList<String> candidates = getCandidates(name);
+		Iterator<String> iterator = candidates.iterator();
+		while (iterator.hasNext() && !male && !female) {
+			String candidate = iterator.next();
 			male |= NamesUtils.topMaleNamesContainsSingleName(candidate);
 			female |= NamesUtils.topFemaleNamesContainsSingleName(candidate);
 
@@ -130,7 +139,9 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 			}
 		}
 
-		if (male) {
+		if (male && female) {
+			bothA++;
+		} else if (male) {
 			malesA++;
 		} else if (female) {
 			femalesA++;
@@ -139,7 +150,7 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 		if (verbose) {
 			if (male && female) {
 				System.out.println("[A] **[BOTH]** -\t " + name);
-			} else if (!male || !female) {
+			} else if (!male && !female) {
 				System.out.println("[A] -\t " + name);
 			}
 		}
@@ -158,7 +169,9 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 		boolean male = NamesUtils.nameContainsTopMaleName(name);
 		boolean female = NamesUtils.nameContainsTopFemaleName(name);
 
-		if (male) {
+		if (male && female) {
+			bothB++;
+		} else if (male) {
 			malesB++;
 		} else if (female) {
 			femalesB++;
@@ -167,7 +180,7 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 		if (verbose) {
 			if (male && female) {
 				System.out.println("[B] **[BOTH]** -\t " + name);
-			} else if (!male || !female) {
+			} else if (!male && !female) {
 				System.out.println("[B] -\t " + name);
 			}
 		}
@@ -181,19 +194,20 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 	 * Sample: 5k. Males: 1138 (22%) Females: 966 (19%)
 	 */
 	private static void algorithmC(String name, String description, boolean verbose) {
+		boolean male = false;
+		boolean female = false;
 
 		name = normalize(name);
-		HashSet<String> nameCandidates = getCandidates(name);
-		HashSet<String> descriptionCandidates = null;
+		ArrayList<String> nameCandidates = getCandidates(name);
+		ArrayList<String> descriptionCandidates = null;
 		if (description != null) {
 			description = normalize(description);
 			descriptionCandidates = getCandidates(description);
 		}
 
-		boolean male = false;
-		boolean female = false;
-		for (String candidate : nameCandidates) {
-
+		Iterator<String> iterator = nameCandidates.iterator();
+		while (iterator.hasNext() && !male && !female) {
+			String candidate = iterator.next();
 			male |= NamesUtils.topMaleNamesContainsSingleName(candidate)
 					|| NamesUtils.manualMaleNamesContainsSingleName(candidate)
 					|| NamesUtils.maleIdentifiersContainsSingleName(candidate);
@@ -216,13 +230,15 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 		}
 
 		if (!male && !female) {
-			addNameCandidatesForAnalysis(nameCandidates);
+			addNameCandidatesForAnalysis(new HashSet<String>(nameCandidates));
 			if (description != null) {
-				addDescriptionCandidatesForAnalysis(descriptionCandidates);
+				addDescriptionCandidatesForAnalysis(new HashSet<String>(descriptionCandidates));
 			}
 		}
 
-		if (male) {
+		if (male && female) {
+			bothC++;
+		} else if (male) {
 			malesC++;
 		} else if (female) {
 			femalesC++;
@@ -231,8 +247,8 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 		if (verbose) {
 			if (male && female) {
 				System.out.println("[C] **[BOTH]** -\t " + name);
-			} else if (!male || !female) {
-				System.out.println("[C] -\t " + name);
+			} else if (!male && !female) {
+				System.out.println("[C] -\t " + Arrays.toString(nameCandidates.toArray(new String[0])));
 			}
 		}
 	}
@@ -291,17 +307,36 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 		return name.replaceAll("[^a-zA-Z]", " ");
 	}
 
-	private static HashSet<String> getCandidates(String stringToAnalyze) {
-		HashSet<String> candidates = new HashSet<String>(Arrays.asList(stringToAnalyze.split("\\s+")));
-		HashSet<String> result = new HashSet<String>();
+	private static ArrayList<String> getCandidates(String stringToAnalyze) {
+		ArrayList<String> candidates = new ArrayList<String>(Arrays.asList(stringToAnalyze.split("\\s+")));
+		ArrayList<String> result = new ArrayList<String>();
 
 		for (String candidate : candidates) {
 			if (candidate.length() > 1) {
-				result.add(candidate);
+				if (!result.contains(candidate)) {
+					result.add(candidate);
+				}
+				String curatedCandidate = removeDuplicatedLetters(candidate);
+				if (!result.contains(curatedCandidate)) {
+					result.add(curatedCandidate);
+				}
 			}
 		}
 
 		return result;
+	}
+
+	private static String removeDuplicatedLetters(String name) {
+		StringBuilder sb = new StringBuilder();
+		Character last = 0;
+		for (Character character : name.toCharArray()) {
+			if (character != last) {
+				sb.append(character);
+			}
+			last = character;
+		}
+
+		return sb.toString();
 	}
 
 	/*

@@ -11,7 +11,7 @@ import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import twitter4j.GeoLocation;
 import utils.Helper;
-import controllers.db.NameDBs;
+import controllers.db.DbNames;
 
 /**
  * CRUD (create, read, update, and destroy) for <code>Hashtag</code> model in the DB.
@@ -21,7 +21,7 @@ import controllers.db.NameDBs;
  * @see Hashtag
  */
 public class HashtagData extends MongoClientData {
-	protected static final MongoCollection hashtagCollection = jongoItafy.getCollection(NameDBs.HASHTAGS);
+	protected static final MongoCollection hashtagCollection = jongoItafy.getCollection(DbNames.HASHTAGS);
 
 	public HashtagData() {}
 

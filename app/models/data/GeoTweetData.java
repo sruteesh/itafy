@@ -10,7 +10,7 @@ import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import twitter4j.GeoLocation;
 import utils.Helper;
-import controllers.db.NameDBs;
+import controllers.db.DbNames;
 
 /**
  * CRUD (create, read, update and destroy) for <code>GeoTweet</code> model in the DB.
@@ -21,7 +21,7 @@ import controllers.db.NameDBs;
  */
 public class GeoTweetData extends MongoClientData {
 
-	protected static final MongoCollection geoTweetCollection = jongoItafy.getCollection(NameDBs.GEO_TWEETS);
+	protected static final MongoCollection geoTweetCollection = jongoItafy.getCollection(DbNames.GEO_TWEETS);
 
 	public GeoTweetData() { }
 

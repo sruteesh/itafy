@@ -1,7 +1,6 @@
 package controllers.db;
 
-public class NameDBs
-{
+public class DbNames {
 	// DBs names
 	public static final String DB_ITAFY = "itafy";
 	public static final String DB_ITAFY_BENCHMARKS = "itafy-benchmarks";

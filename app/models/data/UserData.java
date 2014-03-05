@@ -1,7 +1,7 @@
 package models.data;
 
 import org.jongo.MongoCollection;
-import controllers.db.NameDBs;
+import controllers.db.DbNames;
 
 /**
  * 
@@ -9,7 +9,7 @@ import controllers.db.NameDBs;
  */
 public class UserData extends MongoClientData
 {
-	private static final MongoCollection user_collection = jongoItafy.getCollection(NameDBs.USERS);
+	private static final MongoCollection user_collection = jongoItafy.getCollection(DbNames.USERS);
 
 	public UserData() {}
 

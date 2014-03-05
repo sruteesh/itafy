@@ -3,7 +3,7 @@ package models.data;
 import models.entities.Word;
 import org.jongo.MongoCollection;
 import twitter4j.GeoLocation;
-import controllers.db.NameDBs;
+import controllers.db.DbNames;
 
 /**
  * 
@@ -11,7 +11,7 @@ import controllers.db.NameDBs;
  */
 public class WordsData extends MongoClientData {
 
-	private static final MongoCollection words_collection = jongoItafy.getCollection(NameDBs.WORDS);
+	private static final MongoCollection words_collection = jongoItafy.getCollection(DbNames.WORDS);
 
 	public WordsData() {}
 

@@ -10,7 +10,7 @@ import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import twitter4j.GeoLocation;
 import utils.Helper;
-import controllers.db.NameDBs;
+import controllers.db.DbNames;
 
 /**
  * CRUD (create, read, update, and destroy) for <code>Link</code> model in the DB.
@@ -20,7 +20,7 @@ import controllers.db.NameDBs;
  * @see Link
  */
 public class LinkData extends MongoClientData {
-	protected static final MongoCollection linkCollection = jongoItafy.getCollection(NameDBs.LINKS);
+	protected static final MongoCollection linkCollection = jongoItafy.getCollection(DbNames.LINKS);
 
 	public LinkData() {}
 
