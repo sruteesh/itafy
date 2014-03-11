@@ -32,3 +32,6 @@ RUNNING_PID
 
 # Twitter4j configuration file
 twitter4j.properties
+
+# Node
+*/node_modules
