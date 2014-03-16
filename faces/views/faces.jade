@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Faces
+  - for (var i = 0; i < 10; ++i) {
+  faces[i].twittername, id
+    li  #{faces[i].description}
+    input(type="checkbox", class="checkbox " + i)
+  - }
+
+script
+  $('checkbox ');
+  parent.

@@ -9,7 +9,31 @@ var bodyParser = require('body-parser');
 var routes = require('./routes');
 var users = require('./routes/user');
 
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+mongoose.connect("mongodb://127.0.0.1/itafy-benchmarks");
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "Connection error: "));
+
+
+
+var twitterNameSchema = new Schema({
+    name: String,
+    screenName: String,
+    description: String,
+    language: String,
+    location: {
+        longitude: Number,
+        latitude: Number
+    },
+    spain: Boolean,
+    created_at: Date,
+});
+var TwitterName = mongoose.model("twitter_names", twitterNameSchema);
+
+
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,8 +48,21 @@ app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
-app.get('/', routes.index);
+app.get('/', function(req, res) {
+    TwitterName
+    .find({})
+    .limit(10)
+    .exec(function(err, faces) {
+        res.render('faces', {faces: faces});
+    });
+});
 app.get('/users', users.list);
+
+app.post('/saveGender', function(req, res) {
+    var gender = req.body.gender;
+
+    TwitterName.save()
+});
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
