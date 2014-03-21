@@ -2,34 +2,36 @@
 
 ## <a name="index-state-of-the-art"></a> Índice
 
-> 1. [Estado del arte](#state-of-the-art)</>
->   1.1. [Abstracto](#abstract)</br>
->   1.2. [Introducción](#intro)</br>
->   1.3. [Análisis de otros proyectos](#other-projects-analysis)</br>
->     1.3.1. [Twittomender](#twittomender)</br>
->     1.3.2. [Twitter properties analysis](#twitter-properties-analysis)</br>
->     1.3.3. [Buzzer](#buzzer)</br>
->     1.3.4. [Influential users](#influential-users)</br>
->     1.3.5. [Homophily in social networks](#homophily-in-social-networks)</br>
->     1.3.6. [Conclusiones](#other-projects-conclutions)</br>
->   1.4. [Clasificación de la información](#info-clasification) </br>
->     1.4.1. [Información extraíble de tiwtter](#info-from-twitter)</br>
->     1.4.2. [Niveles de clasificación de la información](#info-levels-definition)</br>
->       1.4.2.1. [Clasificación categórica](#info-category)</br>
->       1.4.2.2. [Clasificación por nivel de procesamiento](#info-level-of-prepoces)</br>
->       1.4.2.3. [Clasificación por modelo](#info-model-definition)</br>
->     1.4.3. [Clasificación de la información extraíble de Twitter](#info-last-clasification)</br>
->   1.5. [Análisis de aplicaciones relacionadas](#related-apps-analysis)</br>
->     1.5.1. [SecondSync](#secondsync)
->     1.5.2. [Bluefin Labs](#bluefin-labs)
->     1.5.3. [Brand Riders](#brand-riders)
->     1.5.4. [Follower Wonk](#follower-wonk)
+```
+1. [Estado del arte](#state-of-the-art)
+  1.1. [Abstracto](#abstract)
+  1.2. [Introducción](#intro)
+  1.3. [Análisis de otros proyectos](#other-projects-analysis)
+    1.3.1. [Twittomender](#twittomender)
+    1.3.2. [Twitter properties analysis](#twitter-properties-analysis)
+    1.3.3. [Buzzer](#buzzer)
+    1.3.4. [Influential users](#influential-users)
+    1.3.5. [Homophily in social networks](#homophily-in-social-networks)
+    1.3.6. [Conclusiones](#other-projects-conclutions)
+  1.4. [Clasificación de la información](#info-clasification) 
+    1.4.1. [Información extraíble de tiwtter](#info-from-twitter)
+    1.4.2. [Niveles de clasificación de la información](#info-levels-definition)
+      1.4.2.1. [Clasificación categórica](#info-category)
+      1.4.2.2. [Clasificación por nivel de procesamiento](#info-level-of-prepoces)
+      1.4.2.3. [Clasificación por modelo](#info-model-definition)
+      1.4.3. [Clasificación de la información extraíble de Twitter](#info-last-clasification)
+  1.5. [Análisis de aplicaciones relacionadas](#related-apps-analysis)</br>
+    1.5.1. [SecondSync](#secondsync)
+    1.5.2. [Bluefin Labs](#bluefin-labs)
+    1.5.3. [Brand Riders](#brand-riders)
+    1.5.4. [Follower Wonk](#follower-wonk)
+```
 
 ***
 
 ## 1.1. <a name="abstract"></a> Abstracto
 
-  La información disponible en la web está evolucionando hacia la posibilidad de acceder a ella en tiempo real. Los ejemplos más claros de ello son las redes sociales, y en concreto Twitter[^Twitter] y Facebook[^Facebook]. Creemos que estos medios proporcionan un gran potencial para la extración de información en tiempo real.
+  La información disponible en la web está evolucionando hacia la posibilidad de acceder a ella en tiempo real. Los ejemplos más claros de ello son las redes sociales, y en concreto Twitter [^Twitter] y Facebook [^Facebook]. Creemos que estos medios proporcionan un gran potencial para la extración de información en tiempo real.
 
   Este proyecto se centra en la creación de una herramienta capaz de extraer *datos* publicados en la red social [^Twitter] y en la conversión de esos datos en información procesada; la *información* será accesible a través de la propia aplicación. </br>
   Por último, se desarrollará un aplicación web como ejemplo de un posible cliente de la herramienta principal.
@@ -68,7 +70,7 @@
   - http://thenextweb.com/2010/01/15/twitter-geofail-023-tweets-geotagged/
 
 
-## 1.3. <a name="other-projects"> Otros proyectos
+## 1.3. <a name="other-projects"></a> Otros proyectos
 
   En esta sección hacemos un análisis de papers de interés para el proyecto. En cada apartado, destacamos los puntos de interés, las herramientas utilizadas y los datos de entrada utilizados en esos proyectos.
 
@@ -93,7 +95,7 @@
   - **Perfil de usuario** documento para indexar con Lucene => genera un vector con pesos {word: weight}
   - **Datos de entrada** Tweets + ers + ers.tweets + ees + ees.tweets
 
-  #### Puntos interesantes
+  **Puntos interesantes**
 
    1. El peso de cada término en el documento para el perfilado de usuarios es el **TF-IDF** propocionado por Lucene: proporcional a la frecuencia de aparición en el perfil del usuario e inversamente propocional a la frecuencia en el resto de perfiles; un peso alto implica que se trata de algo común en el perfil del usuario pero inusual en el resto de la población.
 
@@ -104,7 +106,7 @@
 
    3. Falla la medida de acierto (sólo se considera buena solución si ya era un folowee)
 
-  #### Cifras concretas
+  **Cifras concretas**
 
    - "Últimos tweets del usuario" => últimos 100 tweets
    - Trainig set de usuarios: 19.000
@@ -123,7 +125,7 @@
   - **Topología** Usuarios = Nodos ; Relaciones = Aristas dirigidas (contrarías al flujo de información).
   - **Datos de entrada** Tweets + ers + ees
 
-  #### Puntos interesantes
+  **Puntos interesantes**
 
   1. Dos términos interesantes: ***Dynamics of the network*** (cambios en la estructura) y ***Dynamics on the network*** (interacción entre nodos y condicionamiento por vecinos)
 
@@ -141,7 +143,7 @@
 
   5. **Rapidez en recibir la información** 30% le llegará la información en periodo t (casi instantáneo). La media está entre 0.22 y 0.3 de closeness
 
-  #### Cifras concretas
+  **Cifras concretas**
 
   - Recrea el grafo con más de 14.000 nodos (usuarios)
   - 80% usuarios han hecho 1500 tweets. La media es 9Tweets / día / persona
@@ -159,7 +161,7 @@
   - **RSS** Identificar en twitter los breaking events para modificar una RSS
   - **Datos de entrada** Últimos tweets generados
 
-  #### Puntos de interés
+  **Puntos de interés**
 
   1. Decripción detallada de la arquitectura y el funcionamiento de buzzer:
 
@@ -173,7 +175,7 @@
 
   2. Estado del arte de Buzzer: *Digg.com* ; *Krakatoa Chronicle* ; *News dude*
 
-  #### Cifras concretas
+  **Cifras concretas**
 
   1. Usuarios reales para las pruebas: 10
 
@@ -185,7 +187,7 @@
   - **resumen** técnicas para localizar los usuarios influyentes
   - **Técnica usada Latent Dirichlet Allocation (LDA) Model** Partimos de una bolsa de palabras. each topic is represented as a probabil- ity distribution over a number of words; cada documento es un vector-conteo de palabras.  each document is represented as a probability distribution over some topics
 
-  #### Puntos interesantes
+  **Puntos interesantes**
 
   1. El 72% de los usuarios cumplen que el 80% de sus ees son debido a la reciprocidad.
 
@@ -205,7 +207,7 @@
 
   [^paper-homophily]: [Homophily in social networks](http://www.jstor.org/discover/10.2307/2678628?uid=3737952&uid=2134&uid=2475461167&uid=2&uid=70&uid=3&uid=60&uid=2475461157&sid=21102809388337.com)
 
-  #### Puntos de interés
+  **Puntos de interés***
 
   1. La información en la red se queda concentra en ciertos sub-grafos.
 
@@ -223,14 +225,10 @@
   - *status*: race, ethnicity, sex, age, religion, education, occupation & social class.
   - *values, attitudes and beliefs*: internal states presumed to shape our orientation toward futurre behaviour
 
-  #### Cifras concretas
 
-  1. Ninguna (teórico)
+### 1.3.6. <a name="other-projects-conclutions"></a> Conclusiones
 
-
-### 1.3.6. <a name="other-projects-conclutions"> Conclusiones
-
-  Ni siquiera sé si este apartado tiene que existir; tal vez se pueda mover aquí la tabla de 1.3; "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  Ni siquiera sé si este apartado tiene que existir; tal vez se pueda mover aquí la tabla de 1.3; "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 
 ## 1.4. <a name="abstract"></a>Clasificación de la información
