@@ -15,6 +15,7 @@ public class TwitterName {
 	public static final String LANGUAGE = "language";
 	public static final String LOCATION = "location";
 	public static final String SPAIN = "spain";
+	public static final String GENRE = "genre";
 	public static final String CREATED_AT = "createdAt";
 
 	@Id
@@ -27,6 +28,7 @@ public class TwitterName {
 	private String language;
 	private Location location;
 	private boolean spain;
+	private String genre;
 	private Date createdAt;
 
 	public TwitterName() {
@@ -98,6 +100,11 @@ public class TwitterName {
 
 	public void setLanguage(String language) {
 		this.language = language;
+	}
+
+	@JsonProperty(GENRE)
+	public String getGenre() {
+		return genre;
 	}
 
 	@JsonProperty(CREATED_AT)
