@@ -1,6 +1,6 @@
 # Home page
 # =========
-GET  /                    controllers.TwitterController.testAction()
+#GET  /                    controllers.TwitterController.testAction()
 GET  /onlive              controllers.TwitterController.onLive()
 GET  /demo/index          controllers.Assets.at(path="/public/html", file="index-demo.html")
 GET  /demo/localindex     controllers.Assets.at(path="/public/html", file="index-localdemo.html")
@@ -36,3 +36,15 @@ GET  /api/users/:id       controllers.api.UserController.show(id: String)
 # -----
 GET  /api/words/          controllers.api.WordController.index()
 GET  /api/words/:id       controllers.api.WordController.show(id: String)
+
+
+
+# test javascript
+
+GET    /                               controllers.Application.index() 
+GET    /plus                           controllers.Application.plus(num1: String, num2: String)
+GET    /minus                          controllers.Application.minus(num1: String, num2: String)
+# Javascript routing
+GET    /assets/javascripts/routes      controllers.Application.javascriptRoutes()
+# Map static resources from the /public folder to the /assets URL path
+GET    /assets/*file                   controllers.Assets.at(path="/public", file)
