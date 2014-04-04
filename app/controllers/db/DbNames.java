@@ -3,7 +3,7 @@ package controllers.db;
 public class DbNames {
 	// DBs names
 	public static final String DB_ITAFY = "itafy";
-	public static final String DB_ITAFY_BENCHMARKS = "itafy-benchmarks";
+	public static final String DB_ITAFY_BENCHMARKS = "itafy-benchmarks-manu";
 
 	// collections names
 	public static final String USERS = "users";

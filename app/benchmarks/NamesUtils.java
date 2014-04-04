@@ -512,7 +512,7 @@ public class NamesUtils {
 			"inigo", "arturito", "nachito", "marcus", "chemita", "miki", "danielito", "jhony", "jhonny", "billie",
 			"alecs", "sebastiano", "koke", "santy", "josemi", "juanmi", "josele", "pablito", "juanito", "isma",
 			"pedrito", "migue", "nico", "lolo", "juanje", "juanfran", "pakito", "chema", "pako", "miguelito", "chechu",
-			"danie", "jorgito"));
+			"danie", "jorgito", "jack", "yeyo"));
 
 	private static final HashSet<String> manualFemaleNames = new HashSet<String>(
 			Arrays.asList("tere", "sofi", "alby", "martita", "ale", "isa", "liz", "marifer", "cristi", "dianita",
@@ -525,16 +525,16 @@ public class NamesUtils {
 					"albita", "marita", "miry", "inma", "inesita", "cuqui", "miri", "jesy", "jesi", "nere", "meri",
 					"rosita", "paqui", "jeni", "pili", "carmencita", "patry", "sari", "conchi", "carmenchu", "sole",
 					"cari", "ele", "begona", "lauri", "susi", "susi", "ire", "albi", "marivi", "marilo", "elenita",
-					"kris", "marinita"));
+					"kris", "marinita", "janine", "lolita", "loli"));
 
 	private static final HashSet<String> maleIdentifiers = new HashSet<String>(Arrays.asList("boy", "el", "sr", "king",
 			"hermano", "mr", "senor", "amo", "rey", "sir", "principe", "duque", "prince", "jr", "don", "rubio", "tio",
-			"jm", "hijo", "san", "loco"));
+			"jm", "hijo", "san", "loco", "catolico", "casado", "padre", "papa"));
 
 	private static final HashSet<String> femaleIdentifiers = new HashSet<String>(Arrays.asList("girl", "srta",
 			"loca", "pequena", "miss", "mrs", "senorita", "ama", "lady", "reina", "queen", "princesa", "duquesa",
 			"princess", "dona", "rubia", "peliroja", "pelirroja", "enana", "bitch", "sra", "ms", "una", "chica",
-			"lesbiana", "tia", "hija", "santa", "loca"));
+			"lesbiana", "tia", "hija", "santa", "loca", "casada", "madre", "mama"));
 
 	public static boolean topMaleNamesContainsSingleName(String name) {
 		return topMaleNames.contains(name);

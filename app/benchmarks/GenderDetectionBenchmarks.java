@@ -42,7 +42,9 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 	private static Map<String, Integer> descriptionCandidatesPending = new HashMap<String, Integer>();
 
 	public static void main(String[] args) {
-		startBenchmarks();
+		// startBenchmarks();
+
+		startEvaluation();
 
 		// int i = 0;
 		// for (String name : sortByValues(nameCandidatesPending).keySet()) {
@@ -66,30 +68,9 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 	}
 
 	private static void startBenchmarks() {
-
-		// polygon obtained using http://www.birdtheme.org/useful/v3tool.html
-		List<Double[]> spainPolygon = new ArrayList<Double[]>();
-		spainPolygon.add(new Double[] { -2.241211, 43.644026 });
-		spainPolygon.add(new Double[] { -9.580078, 44.182204 });
-		spainPolygon.add(new Double[] { -10.371094, 36.985003 });
-		spainPolygon.add(new Double[] { -7.382813, 36.315125 });
-		spainPolygon.add(new Double[] { -18.588867, 28.729130 });
-		spainPolygon.add(new Double[] { -18.720703, 26.706360 });
-		spainPolygon.add(new Double[] { -14.589844, 27.176469 });
-		spainPolygon.add(new Double[] { -12.788086, 28.613459 });
-		spainPolygon.add(new Double[] { -7.075195, 35.924645 });
-		spainPolygon.add(new Double[] { -3.603516, 35.817813 });
-		spainPolygon.add(new Double[] { 0.263672, 37.544577 });
-		spainPolygon.add(new Double[] { 0.747070, 38.134557 });
-		spainPolygon.add(new Double[] { 4.350586, 38.959409 });
-		spainPolygon.add(new Double[] { 4.746094, 40.245992 });
-		spainPolygon.add(new Double[] { 3.647461, 40.713956 });
-		spainPolygon.add(new Double[] { 3.779297, 42.714732 });
-		spainPolygon.add(new Double[] { -2.241211, 43.644026 });
-
 		Iterable<TwitterName> twitterNames = twitterNamesCollection
 				// .find()
-				.find("{location: {$within: {$polygon: #}}}", spainPolygon)
+				.find("{location: {$within: {$polygon: #}}}", getSpainPolygon())
 				.limit(20000)
 				.as(TwitterName.class);
 
@@ -115,13 +96,71 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 		System.out.println("C BOTH: " + bothC + "\t" + (bothC * 100) / count + "%");
 	}
 
+	private static void startEvaluation() {
+		Iterable<TwitterName> twitterNames = twitterNamesCollection
+				// .find()
+				// .find("{genre: {$exists: true}, location: {$within: {$polygon: #}}}",
+				// getSpainPolygon())
+				.find("{genre: {$exists: true}}")
+				.limit(1000)
+				.as(TwitterName.class);
+
+		int responseA;
+		int detected = 0, undetected = 0, falsePositives = 0;
+		for (TwitterName twitterName : twitterNames) {
+			String name = twitterName.getName();
+			String screenName = twitterName.getScreenName();
+			String description = twitterName.getDescription();
+			String genre = twitterName.getGenre();
+			boolean verbose = false;
+			responseA = algorithmC(name, description, verbose);
+			if ((responseA == 1 && genre.equals("MALE")) || (responseA == 2 && genre.equals("FEMALE"))) {
+				detected++;
+			} else if (responseA == 0) {
+				undetected++;
+			} else {
+				System.out.println("name: " + name + "\t" + screenName);
+				System.out.println("description: " + description);
+				System.out.println(genre + " " + responseA);
+				falsePositives++;
+			}
+		}
+
+		System.out.println("DETECTED: " + detected);
+		System.out.println("UNDETECTED: " + undetected);
+		System.out.println("FALSE POSITIVES: " + falsePositives);
+	}
+
+	private static List<Double[]> getSpainPolygon() {
+		// polygon obtained using http://www.birdtheme.org/useful/v3tool.html
+		List<Double[]> spainPolygon = new ArrayList<Double[]>();
+		spainPolygon.add(new Double[] { -2.241211, 43.644026 });
+		spainPolygon.add(new Double[] { -9.580078, 44.182204 });
+		spainPolygon.add(new Double[] { -10.371094, 36.985003 });
+		spainPolygon.add(new Double[] { -7.382813, 36.315125 });
+		spainPolygon.add(new Double[] { -18.588867, 28.729130 });
+		spainPolygon.add(new Double[] { -18.720703, 26.706360 });
+		spainPolygon.add(new Double[] { -14.589844, 27.176469 });
+		spainPolygon.add(new Double[] { -12.788086, 28.613459 });
+		spainPolygon.add(new Double[] { -7.075195, 35.924645 });
+		spainPolygon.add(new Double[] { -3.603516, 35.817813 });
+		spainPolygon.add(new Double[] { 0.263672, 37.544577 });
+		spainPolygon.add(new Double[] { 0.747070, 38.134557 });
+		spainPolygon.add(new Double[] { 4.350586, 38.959409 });
+		spainPolygon.add(new Double[] { 4.746094, 40.245992 });
+		spainPolygon.add(new Double[] { 3.647461, 40.713956 });
+		spainPolygon.add(new Double[] { 3.779297, 42.714732 });
+		spainPolygon.add(new Double[] { -2.241211, 43.644026 });
+
+		return spainPolygon;
+	}
+
 	/**
 	 * Basic algorithm
 	 * 
 	 * Sample: 5k. Males: 1056 (21%) Females: 858 (17%)
 	 */
-
-	private static void algorithmA(String name, boolean verbose) {
+	private static int algorithmA(String name, boolean verbose) {
 		name = normalize(name);
 
 		boolean male = false;
@@ -154,6 +193,14 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 				System.out.println("[A] -\t " + name);
 			}
 		}
+
+		if (male && !female) {
+			return 1;
+		} else if (female && !male) {
+			return 2;
+		} else {
+			return 0;
+		}
 	}
 
 	/**
@@ -163,7 +210,7 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 	 * 
 	 * Sample: 5k. Males: 1941 (38%) Females: 916 (18%)
 	 */
-	private static void algorithmB(String name, boolean verbose) {
+	private static int algorithmB(String name, boolean verbose) {
 		name = normalize(name);
 
 		boolean male = NamesUtils.nameContainsTopMaleName(name);
@@ -184,6 +231,14 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 				System.out.println("[B] -\t " + name);
 			}
 		}
+
+		if (male && !female) {
+			return 1;
+		} else if (female && !male) {
+			return 2;
+		} else {
+			return 0;
+		}
 	}
 
 	/**
@@ -193,7 +248,7 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 	 * 
 	 * Sample: 5k. Males: 1138 (22%) Females: 966 (19%)
 	 */
-	private static void algorithmC(String name, String description, boolean verbose) {
+	private static int algorithmC(String name, String description, boolean verbose) {
 		boolean male = false;
 		boolean female = false;
 
@@ -250,6 +305,14 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 			} else if (!male && !female) {
 				System.out.println("[C] -\t " + Arrays.toString(nameCandidates.toArray(new String[0])));
 			}
+		}
+
+		if (male && !female) {
+			return 1;
+		} else if (female && !male) {
+			return 2;
+		} else {
+			return 0;
 		}
 	}
 
