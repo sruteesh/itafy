@@ -23,7 +23,8 @@ public class GeoTweetData extends MongoClientData {
 
 	protected static final MongoCollection geoTweetCollection = jongoItafy.getCollection(DbNames.GEO_TWEETS);
 
-	public GeoTweetData() { }
+	/* No need to instanciate a <code>GeoTweetData</code> object */
+	private GeoTweetData() {}
 
 	/**
 	 * Create: saves the geoTweet instance into the DB.
@@ -79,6 +80,23 @@ public class GeoTweetData extends MongoClientData {
 				.as(GeoTweet.class);
 
 		return Helper.asArrayList(records);
+	}
+
+	/**
+	 * Query: returns how many geoTweets in the desired location.
+	 * 
+	 * @param location (Enum) known location.
+	 * @return (long) count of geoTweets in the location; -1 if unknown location
+	 */
+	public static long countGeoTweets(AvaibleLocations location) {
+		Area area = Area.createLocation(location);
+		if (area == null) {
+			return -1;
+		}
+
+		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
+		long count = geoTweetCollection.count(query);
+		return count;
 	}
 
 	/**

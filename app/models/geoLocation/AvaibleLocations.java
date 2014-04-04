@@ -32,4 +32,12 @@ public enum AvaibleLocations {
 		return avaibleLocations;
 	}
 
+	public static String asString(AvaibleLocations location) {
+		switch (location) {
+			case MADRID: return "madrid";
+			case BARCELONA: return "barcelona";
+			default: return null;
+		}
+	}
+
 }
