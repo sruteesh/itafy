@@ -2,9 +2,15 @@
  
 @import helper._
 @import controllers.routes.javascript._
- 
+
+<html>
+ <head>
+  <title>"Welcome to Play 2.0"</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script type="text/javascript" src="@routes.Application.javascriptRoutes"></script>
- 
+  </head>
+  <body>
+  
   <input type='text' id='num1'/>
   <input type='text' id='num2'/>
   </br>
@@ -12,6 +18,8 @@
   <input type='button' value='-' id='minusBtn' />
   <br />
   <div id="result" />
+ 	
+  </body>
  
   <script type="text/javascript" charset="utf-8">
     var plus = function() {
@@ -46,3 +54,4 @@
     $('#minusBtn').click(minus);
   </script>
  
+</html>
