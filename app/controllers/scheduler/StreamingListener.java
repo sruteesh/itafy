@@ -3,7 +3,6 @@ package controllers.scheduler;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-
 import models.data.GeoTweetData;
 import models.data.HashtagData;
 import models.data.LinkData;
@@ -13,10 +12,8 @@ import models.entities.Link;
 import models.entities.Location;
 import models.entities.TwitterName;
 import models.entities.User;
-
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
-
 import play.Logger;
 import twitter4j.GeoLocation;
 import twitter4j.HashtagEntity;
@@ -25,10 +22,8 @@ import twitter4j.StatusDeletionNotice;
 import twitter4j.StatusListener;
 import twitter4j.URLEntity;
 import utils.StreamingWebSocket;
-
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
-
 import controllers.db.DbNames;
 import controllers.db.MongoDBHandler;
 
@@ -72,7 +67,7 @@ public class StreamingListener implements StatusListener {
 	@Override
 	public void onStatus(twitter4j.Status status) {
 
-		saveTwitterName(status);
+		// saveTwitterName(status);
 
 		if (status.getGeoLocation() != null) {
 			// sendTweetToWebSocket(status);
