@@ -1,8 +1,11 @@
 package models.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import models.data.TweetsData;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
+import utils.Helper;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -15,14 +18,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * | userName       | String   |
  * | userId         | long     |
  * | verified       | boolean  |
- * | locationText   | String   |
  * | followersCount | int      |
  * | followingCount | int      |
  * | followersRatio | double   |
+ * | genre          | String   |
  * </pre>
  * 
- * @author martero@ucm.es
- * @author raulmarcosl@gmail.com
+ * @author m.artero@ucm.es
+ * @author raul.marcos.l@gmail.com
  */
 public class User {
 
@@ -32,9 +35,9 @@ public class User {
 	private String userName;
 	private long userId;
 	private boolean verified;
-	private String locationText;
 	private int followersCount;
 	private int followingCount;
+	private String genre;
 
 	private Date createdAt;
 	private Date updatedAt;
@@ -45,15 +48,52 @@ public class User {
 		this.updatedAt = createdAt;
 	}
 
-	public User(String userName, long userId, boolean verified, String location, int followersCount, int followingCount) {
+	private User(String userName, long userId, boolean verified, int followersCount, int followingCount) {
 		this.userName = userName;
 		this.userId = userId;
 		this.verified = verified;
-		this.locationText = location;
 		this.followersCount = followersCount;
 		this.followingCount = followingCount;
+		this.genre = null;
 		this.createdAt = new Date();
 		this.updatedAt = createdAt;
+	}
+
+	/**
+	 * Factory.
+	 * 
+	 * @param userId defines this user by twitter
+	 * @param userName
+	 * @param followers number of followers this user has
+	 * @param following number of people this user is following
+	 * @return new <code>User</code> instance
+	 */
+	public static User createUserWithNameAndFollowersRatio(long userId, String userName, int followers, int following) {
+		return new User(userName, userId, false, followers, following);
+	}
+
+	/**
+	 * Factory.
+	 * 
+	 * @param userId defines this user by twitter
+	 * @param userName
+	 * @param followers number of followers this user has
+	 * @param following number of people this user is following
+	 * @return new <code>User</code> instance with the flag <code>verified</code> set to true
+	 */
+	public static User createVerifiedUserWithNameAndFollowersRatio(long userId, String userName, int followers, int following) {
+		return new User(userName, userId, true, followers, following);
+	}
+
+	// TODO genre as enum instead of String
+	public void setGenre(String genre) {
+		this.genre = genre;
+		this.updatedAt = new Date();
+	}
+
+	public ArrayList<Tweet> getTweets() {
+		ArrayList<Object> tweets = TweetsData.getTweetsWithUser(this.id);
+		return Helper.castEeachElementToTweet(tweets);
 	}
 
 	@JsonProperty("user_name")
@@ -65,9 +105,6 @@ public class User {
 	@JsonProperty("verified")
 	public boolean isVerified() { return verified; }
 
-	@JsonProperty("location_text")
-	public String getLocationText() { return locationText; }
-
 	@JsonProperty("followers_count")
 	public int getFollowersCount() { return followersCount; }
 
@@ -78,6 +115,9 @@ public class User {
 	public double getFollowersRatio() {
 		return followersCount / followingCount;
 	}
+
+	@JsonProperty("genre")
+	public String getGenre() { return genre; }
 
 	@JsonProperty("_id")
 	public String getId() { return id; }
