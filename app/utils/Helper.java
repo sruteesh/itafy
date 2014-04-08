@@ -1,6 +1,7 @@
 package utils;
 
 import java.util.ArrayList;
+import models.entities.Tweet;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 
@@ -66,6 +67,27 @@ public final class Helper {
 	public static JsonNode emptyJson() {
 		ArrayList<Object> emptyArray = new ArrayList<Object>();
 		return mapper.valueToTree(emptyArray);
+	}
+
+	/**
+	 * Returns the same collection but each element casted to <code>Tweet</code> class
+	 * 
+	 * @param collection
+	 * @return each element casted
+	 * @see Stackoverflow #933447
+	 */
+	public static ArrayList<Tweet> castEeachElementToTweet(ArrayList<Object> collection) {
+		ArrayList<Tweet> response = new ArrayList<Tweet>();
+		if (collection != null) {
+			for (Object item : collection) {
+				try {
+					response.add((Tweet) item);
+				} catch (ClassCastException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return response;
 	}
 
 }
