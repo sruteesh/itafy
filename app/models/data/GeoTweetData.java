@@ -95,7 +95,8 @@ public class GeoTweetData extends MongoClientData {
 		}
 
 		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
-		long count = geoTweetCollection.count(query);
+		long count = geoTweetCollection
+				.count(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong());
 		return count;
 	}
 

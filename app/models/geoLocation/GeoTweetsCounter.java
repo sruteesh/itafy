@@ -27,18 +27,18 @@ public class GeoTweetsCounter {
 	 */
 	public HashMap<String, Long> recountGeoTweets() {
 		HashMap<String, Long> response = new HashMap<String, Long>();
-		addMadridReountToMap(response);
-		addBarcelonaToMap(response);
+		addMadridRecountToMap(response);
+		addBarcelonaRecountToMap(response);
 		return response;
 	}
 
-	protected void addMadridReountToMap(HashMap<String, Long> map) {
+	protected void addMadridRecountToMap(HashMap<String, Long> map) {
 		String key = AvaibleLocations.asString(AvaibleLocations.MADRID);
 		long value = GeoTweetData.countGeoTweets(AvaibleLocations.MADRID);
 		map.put(key, value);
 	}
 
-	protected void addBarcelonaToMap(HashMap<String, Long> map) {
+	protected void addBarcelonaRecountToMap(HashMap<String, Long> map) {
 		String key = AvaibleLocations.asString(AvaibleLocations.BARCELONA);
 		long value = GeoTweetData.countGeoTweets(AvaibleLocations.BARCELONA);
 		map.put(key, value);
