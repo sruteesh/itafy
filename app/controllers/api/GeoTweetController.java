@@ -37,13 +37,13 @@ public class GeoTweetController extends Controller {
 
 		ArrayList<Object> geoTweets;
 		if ((trustedArea != null) && (trustedCategory != null)) {
-			geoTweets = GeoTweetData.getAllGeoTweets(trustedArea, trustedCategory);
+			geoTweets = GeoTweetData.getGeoTweets(trustedArea, trustedCategory);
 		} else if (trustedArea != null) {
-			geoTweets = GeoTweetData.getAllGeoTweets(trustedArea);
+			geoTweets = GeoTweetData.getGeoTweets(trustedArea);
 		} else if (trustedCategory != null) {
-			geoTweets = GeoTweetData.getAllGeoTweets(trustedCategory);
+			geoTweets = GeoTweetData.getGeoTweets(trustedCategory);
 		} else {
-			geoTweets = GeoTweetData.getAllGeoTweets();
+			geoTweets = GeoTweetData.getGeoTweets();
 		}
 
 		JsonNode response = Helper.asJson(geoTweets);
@@ -57,7 +57,7 @@ public class GeoTweetController extends Controller {
 	 * @return (Result) JSON format
 	 */
 	public static Result show(String id) {
-		GeoTweet geoTweet = GeoTweetData.getGeoTweetById(id);
+		GeoTweet geoTweet = GeoTweetData.findGeoTweet(id);
 		JsonNode response = Helper.asJson(geoTweet);
 		return ok(response);
 	}

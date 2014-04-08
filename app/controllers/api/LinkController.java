@@ -56,7 +56,7 @@ public class LinkController extends Controller {
 	 * @return (Result) JSON format
 	 */
 	public static Result show(String id) {
-		Link link = LinkData.getLinkById(id);
+		Link link = LinkData.findLink(id);
 		JsonNode response = Helper.asJson(link);
 		return ok(response);
 	}

@@ -7,9 +7,9 @@ import models.entities.Tweet;
 public class Example {
 
 	public static void main(String[] a) {
-		Tweet t1 = new Tweet("Hola Caracola");
-		Tweet t2 = new Tweet("Eres un xixi; dijo el mayor xixi de todos");
-		Tweet t3 = new Tweet("xixi para todos");
+		Tweet t1 = Tweet.createTweetWithGeoTweetAndUser("Hola Caracola", "00", "00");
+		Tweet t2 = Tweet.createTweetWithGeoTweetAndUser("Eres un xixi; dijo el mayor xixi de todos", "01", "01");
+		Tweet t3 = Tweet.createTweetWithGeoTweetAndUser("xixi para todos", "02", "02");
 
 		Index index = new Index();
 		index.addTweet(t1);
