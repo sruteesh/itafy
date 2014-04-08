@@ -56,7 +56,7 @@ public class GeoTweetData extends MongoClientData {
 	 *
 	 * @return (ArrayList) all geoTweets or empty list otherwise.
 	 */
-	public static ArrayList<Object> getAllGeoTweets() {
+	public static ArrayList<Object> getGeoTweets() {
 		Iterable<GeoTweet> records = geoTweetCollection.find().as(GeoTweet.class);
 		return Helper.asArrayList(records);
 	}
@@ -68,7 +68,7 @@ public class GeoTweetData extends MongoClientData {
 	 * @param location (Enum) known location.
 	 * @return (ArrayList) all geoTweets in location or empty list otherwise.
 	 */
-	public static ArrayList<Object> getAllGeoTweets(AvaibleLocations location) {
+	public static ArrayList<Object> getGeoTweets(AvaibleLocations location) {
 		Area area = Area.createLocation(location);
 		if (area == null) {
 			return new ArrayList<Object>();
@@ -83,31 +83,13 @@ public class GeoTweetData extends MongoClientData {
 	}
 
 	/**
-	 * Query: returns how many geoTweets in the desired location.
-	 * 
-	 * @param location (Enum) known location.
-	 * @return (long) count of geoTweets in the location; -1 if unknown location
-	 */
-	public static long countGeoTweets(AvaibleLocations location) {
-		Area area = Area.createLocation(location);
-		if (area == null) {
-			return -1;
-		}
-
-		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
-		long count = geoTweetCollection
-				.count(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong());
-		return count;
-	}
-
-	/**
 	 * Read: returns geoTweets with the desired category as generic <code>Object</code> instances;
 	 * casting expected.
 	 * 
 	 * @param cat (Enum) known category.
 	 * @return (ArrayList) all geoTweets with category or empty list otherwise.
 	 */
-	public static ArrayList<Object> getAllGeoTweets(AvaibleCategories cat) {
+	public static ArrayList<Object> getGeoTweets(AvaibleCategories cat) {
 		Category category = Category.createCategory(cat);
 		if (category == null) {
 			return new ArrayList<Object>();
@@ -128,7 +110,7 @@ public class GeoTweetData extends MongoClientData {
 	 * @param category (Enum) known category.
 	 * @return (ArrayList) all geotweets in location and categorized or empty list otherwise.
 	 */
-	public static ArrayList<Object> getAllGeoTweets(AvaibleLocations location, AvaibleCategories category) {
+	public static ArrayList<Object> getGeoTweets(AvaibleLocations location, AvaibleCategories category) {
 		Area loc = Area.createLocation(location);
 		Category cat = Category.createCategory(category);
 		if ((loc == null) || (cat == null)) {
@@ -144,12 +126,30 @@ public class GeoTweetData extends MongoClientData {
 	}
 
 	/**
+	 * Query: returns how many geoTweets in the desired location.
+	 * 
+	 * @param location known location.
+	 * @return count of geoTweets in the location; -1 if unknown location
+	 */
+	public static long countGeoTweets(AvaibleLocations location) {
+		Area area = Area.createLocation(location);
+		if (area == null) {
+			return -1;
+		}
+
+		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
+		long count = geoTweetCollection
+				.count(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong());
+		return count;
+	}
+
+	/**
 	 * Read: returns the found geoTweet by id.
 	 *
-	 * @param id (String) Mongo's ObjectId as String.
-	 * @return (GeoTweet) found geoTweet or null otherwise.
+	 * @param id Mongo's ObjectId as String.
+	 * @return found geoTweet or null otherwise.
 	 */
-	public static GeoTweet getGeoTweetById(String id) {
+	public static GeoTweet findGeoTweet(String id) {
 		GeoTweet geoTweet = geoTweetCollection.findOne(new ObjectId(id)).as(GeoTweet.class);
 		return geoTweet;
 	}
@@ -158,13 +158,13 @@ public class GeoTweetData extends MongoClientData {
 	 * Update: change the category to an existing geoTweet. If the geoTweet does not exist in the DB
 	 * this function will not create any geoTweet and will return false.
 	 *
-	 * @param id GeoTweet id.
+	 * @param geoTweet GeoTweet id.
 	 * @param category new category.
-	 * @return (boolean) true if the geoTweet has been actualized; false otherwise.
+	 * @return true if the geoTweet has been actualized; false otherwise.
 	 */
-	public static boolean updateCategoryToGeoTweet(String id, Category category) {
+	public static boolean updateCategoryToGeoTweet(String geoTweet, Category category) {
 		GeoTweet foundTweet = geoTweetCollection
-				.findOne(new ObjectId(id))
+				.findOne(new ObjectId(geoTweet))
 				.as(GeoTweet.class);
 
 		if (foundTweet == null) {
