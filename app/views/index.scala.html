@@ -17,6 +17,23 @@
   </body>
 
   <script type="text/javascript" charset="utf-8">
+
+
+    function foo() {
+        return Math.random();
+    }
+
+    function getRecount() {
+        var recount = 0;
+        jsRoutes.controllers.Application.peopleCount().ajax({
+            success : function(data) {
+                recount = data;
+            }
+        });
+        return recount;
+    }
+
+
     $(function() {
         $('#container').highcharts({
             chart: {
@@ -29,7 +46,7 @@
                         var series = this.series[0];
                         setInterval(function() {
                             var x = (new Date()).getTime();
-                            var y = Math.random();
+                            var y = getRecount();
                             series.addPoint([x, y], true, true);
                         }, 1000);
                         }
@@ -50,6 +67,7 @@
             },
             legend: {enabled: false},
             exporting: {enabled: false},
+            // initial values
             series: [{
                 name: 'Random data',
                 data: (function() {
@@ -60,7 +78,7 @@
                     for (i = -19; i <= 0; i++) {
                         data.push({
                             x: time + i * 1000,
-                            y: Math.random()
+                            y: 159
                         });
                     }
                     return data;
@@ -70,11 +88,5 @@
     });
   </script>
 
-  <script>
-   jsRoutes.controllers.Application.peopleCount().ajax({
-        success : function(data) {
 
-        }
-      });
-  </script>
 </html>
