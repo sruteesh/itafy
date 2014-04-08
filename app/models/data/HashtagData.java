@@ -23,14 +23,15 @@ import controllers.db.DbNames;
 public class HashtagData extends MongoClientData {
 	protected static final MongoCollection hashtagCollection = jongoItafy.getCollection(DbNames.HASHTAGS);
 
-	public HashtagData() {}
+	/* No need to instanciate a <code>HashtagData</code> object */
+	private HashtagData() {}
 
 	/**
 	 * Create: creates and saves a new hashtag instance in the DB.
 	 *
-	 * @param text (String) defines this hashtag.
-	 * @param geoLocation (GeoLocation) coordenates for this hashtag (latitude & longitude).
-	 * @return (String) Mongo's ObjectId as String.
+	 * @param text defines this hashtag.
+	 * @param geoLocation coordenates for this hashtag (latitude & longitude).
+	 * @return Mongo's ObjectId as String.
 	 */
 	public static String saveHashtag(String text, GeoLocation geoLocation) {
 		Hashtag hashtag = Hashtag.createHashtagWithGeoLocations(text, geoLocation);
@@ -130,7 +131,7 @@ public class HashtagData extends MongoClientData {
 	 * @param id (String) Mongo's ObjectId as String.
 	 * @return (GeoTweet) found hashtag or null otherwise.
 	 */
-	public static Hashtag getHashtagById(String id) {
+	public static Hashtag findHashtagById(String id) {
 		Hashtag hashtag = hashtagCollection.findOne(new ObjectId(id)).as(Hashtag.class);
 		return hashtag;
 	}
