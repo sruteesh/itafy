@@ -11,6 +11,7 @@ public class DbNames {
 	public static final String LINKS = "links";
 	public static final String WORDS = "words";
 	public static final String GEO_TWEETS = "geo_tweets";
+	public static final String TWEETS = "tweets";
 
 	public static final String TWITTER_NAMES = "twitter_names";
 }
