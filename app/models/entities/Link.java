@@ -1,11 +1,14 @@
 package models.entities;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import models.categories.Category;
+import models.data.TweetsData;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 import twitter4j.GeoLocation;
+import utils.Helper;
 import utils.TitleExtractor;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -74,6 +77,11 @@ public class Link {
 	public void setCategory(Category category) {
 		this.category = category;
 		this.updatedAt = new Date();
+	}
+
+	public ArrayList<Tweet> getTweets() {
+		ArrayList<Object> tweets = TweetsData.getTweetsWithLink(this.id);
+		return Helper.castEeachElementToTweet(tweets);
 	}
 
 	@JsonProperty("latitude")
