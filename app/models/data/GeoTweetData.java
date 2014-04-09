@@ -1,6 +1,7 @@
 package models.data;
 
 import java.util.ArrayList;
+import java.util.Date;
 import models.categories.AvaibleCategories;
 import models.categories.Category;
 import models.entities.GeoTweet;
@@ -103,6 +104,26 @@ public class GeoTweetData extends MongoClientData {
 	}
 
 	/**
+	 * Read: returns geoTweets from the selected date as generic <code>Object</code> instances;
+	 * casting expected.
+	 * 
+	 * @param date
+	 * @return geoTweets from the selected date
+	 */
+	public static ArrayList<Object> getGeoTweets(Date date) {
+		if (date == null) {
+			return new ArrayList<Object>();
+		}
+
+		String query = "{updated_at : {$gt: #}}";
+		Iterable<GeoTweet> records = geoTweetCollection
+				.find(query, date)
+				.as(GeoTweet.class);
+
+		return Helper.asArrayList(records);
+	}
+
+	/**
 	 * Read: returns geoTweets with the desired category and location as <code>Object</code> instances;
 	 * casting expected.
 	 * 
@@ -120,6 +141,28 @@ public class GeoTweetData extends MongoClientData {
 		String query = "{category: #, latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		Iterable<GeoTweet> records = geoTweetCollection
 				.find(query, cat.getName(), loc.getMaxLat(), loc.getMinLat(), loc.getMaxLong(), loc.getMinLong())
+				.as(GeoTweet.class);
+
+		return Helper.asArrayList(records);
+	}
+
+	/**
+	 * Read: returns geoTweets with the selected location, from the selected date as generic
+	 * <code>Object</code> instances; casting expected.
+	 * 
+	 * @param location knwon location
+	 * @param date
+	 * @return geoTweets from the selected date and in the selected location
+	 */
+	public static ArrayList<Object> getGeoTweets(AvaibleLocations location, Date date) {
+		Area area = Area.createLocation(location);
+		if ((area == null) || (date == null)) {
+			return new ArrayList<Object>();
+		}
+
+		String query = "{updated_at : {$gt: #}, latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
+		Iterable<GeoTweet> records = geoTweetCollection
+				.find(query, date, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
 				.as(GeoTweet.class);
 
 		return Helper.asArrayList(records);
