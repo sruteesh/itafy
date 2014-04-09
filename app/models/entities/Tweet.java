@@ -78,6 +78,9 @@ public class Tweet {
 		return new Tweet(text, geoTweetId, userId);
 	}
 
+
+	// public methods
+
 	public void addHashtag(String hashtagId) {
 		if (hashtagIds == null) {
 			hashtagIds = new ArrayList<String>();
@@ -101,6 +104,9 @@ public class Tweet {
 		wordIds.add(wordId);
 		updatedAt = new Date();
 	}
+
+
+	// getters
 
 	public GeoTweet getGeoTweet() {
 		return GeoTweetData.findGeoTweet(this.geoTweetId);
@@ -169,5 +175,12 @@ public class Tweet {
 
 	@JsonProperty("updated_at")
 	public Date getUpdatedAt() { return updatedAt; }
+
+
+	// setters
+
+	public void setHashtagIds(ArrayList<String> hashtagIds) { this.hashtagIds = hashtagIds; }
+	public void setLinkIds(ArrayList<String> linkIds) { this.linkIds = linkIds; }
+	public void setWordIds(ArrayList<String> wordIds) { this.wordIds = wordIds; }
 
 }
