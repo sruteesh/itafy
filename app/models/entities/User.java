@@ -5,6 +5,7 @@ import java.util.Date;
 import models.data.TweetsData;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
+import twitter4j.GeoLocation;
 import utils.Helper;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * | followersCount | int      |
  * | followingCount | int      |
  * | followersRatio | double   |
+ * | latitude       | double   |
+ * | longitude      | double   |
  * | genre          | String   |
  * </pre>
  * 
@@ -28,7 +31,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author raul.marcos.l@gmail.com
  */
 public class User {
-
 	@Id
 	@ObjectId private String id;
 
@@ -36,8 +38,10 @@ public class User {
 	private long userId;
 	private boolean verified;
 	private int followersCount;
-	private int followingCount;
+	private int friendsCount;
 	private String genre;
+	private double latitude;
+	private double longitude;
 
 	private Date createdAt;
 	private Date updatedAt;
@@ -48,12 +52,21 @@ public class User {
 		this.updatedAt = createdAt;
 	}
 
-	private User(String userName, long userId, boolean verified, int followersCount, int followingCount) {
-		this.userName = userName;
-		this.userId = userId;
-		this.verified = verified;
-		this.followersCount = followersCount;
-		this.followingCount = followingCount;
+	private User(String name, long id) {
+		this.userName = name;
+		this.userId = id;
+		this.verified = false;
+		this.genre = null;
+		this.createdAt = new Date();
+		this.updatedAt = createdAt;
+	}
+
+	private User(String name, long id, GeoLocation geo) {
+		this.userName = name;
+		this.userId = id;
+		this.verified = false;
+		this.latitude = geo.getLatitude();
+		this.longitude = geo.getLongitude();
 		this.genre = null;
 		this.createdAt = new Date();
 		this.updatedAt = createdAt;
@@ -63,33 +76,39 @@ public class User {
 	 * Factory.
 	 * 
 	 * @param userId defines this user by twitter
-	 * @param userName
-	 * @param followers number of followers this user has
-	 * @param following number of people this user is following
+	 * @param name
 	 * @return new <code>User</code> instance
 	 */
-	public static User createUserWithNameAndFollowersRatio(long userId, String userName, int followers, int following) {
-		return new User(userName, userId, false, followers, following);
+	public static User createUser(long userId, String name) {
+		return new User(name, userId);
 	}
 
 	/**
 	 * Factory.
 	 * 
 	 * @param userId defines this user by twitter
-	 * @param userName
-	 * @param followers number of followers this user has
-	 * @param following number of people this user is following
-	 * @return new <code>User</code> instance with the flag <code>verified</code> set to true
+	 * @param name
+	 * @param location
+	 * @return new <code>User</code> instance
 	 */
-	public static User createVerifiedUserWithNameAndFollowersRatio(long userId, String userName, int followers, int following) {
-		return new User(userName, userId, true, followers, following);
+	public static User createUserWithGeoLocation(long userId, String name, GeoLocation location) {
+		return new User(name, userId, location);
 	}
+
+
+	// setters
 
 	// TODO genre as enum instead of String
 	public void setGenre(String genre) {
 		this.genre = genre;
 		this.updatedAt = new Date();
 	}
+
+	public void setFollowersCount(int followers) { this.followersCount = followers; }
+	public void setFriendsCount(int friends) { this.friendsCount = friends;}
+
+
+	// getters
 
 	public ArrayList<Tweet> getTweets() {
 		ArrayList<Object> tweets = TweetsData.getTweetsWithUser(this.id);
@@ -108,13 +127,19 @@ public class User {
 	@JsonProperty("followers_count")
 	public int getFollowersCount() { return followersCount; }
 
-	@JsonProperty("following_count")
-	public int getFollowingCount() { return followingCount; }
+	@JsonProperty("friends_count")
+	public int getFriendsCount() { return friendsCount; }
 
 	@JsonProperty("followers_ratio")
 	public double getFollowersRatio() {
-		return followersCount / followingCount;
+		return followersCount / friendsCount;
 	}
+
+	@JsonProperty("latitude")
+	public double getLatitude() { return latitude; }
+
+	@JsonProperty("longitude")
+	public double getLongitude() { return longitude; }
 
 	@JsonProperty("genre")
 	public String getGenre() { return genre; }
