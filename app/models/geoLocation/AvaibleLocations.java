@@ -25,6 +25,28 @@ public enum AvaibleLocations {
 		return null;
 	}
 
+	/**
+	 * example:
+	 * <pre>
+	 * asLocations([madrid, aaa, barcelona, bbb])
+	 * #=> [MADRID, BARCELONA]
+	 * </pre>
+	 * 
+	 * @param locations array of possible locations
+	 * @return
+	 */
+	public static ArrayList<AvaibleLocations> asLocations(String[] locations) {
+		ArrayList<AvaibleLocations> response = new ArrayList<AvaibleLocations>();
+		AvaibleLocations trustedLocation;
+		for (String location : locations) {
+			trustedLocation = AvaibleLocations.asLocation(location);
+			if (trustedLocation != null) {
+				response.add(trustedLocation);
+			}
+		}
+		return response;
+	}
+
 	public static ArrayList<String> avaibleLocations() {
 		ArrayList<String> avaibleLocations = new ArrayList<String>();
 		avaibleLocations.add("madrid");
