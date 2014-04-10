@@ -1,5 +1,7 @@
 package models.geoLocation;
 
+import twitter4j.GeoLocation;
+
 
 /**
  * Area definition
@@ -62,7 +64,7 @@ public class Area {
 	 * Factory.
 	 *
 	 * @param location must be checked if is trusted location
-	 * @return (Location) new Location isntance or null.
+	 * @return new Location isntance or null.
 	 */
 	public static Area createLocation(String location) {
 		AvaibleLocations trustedLocation = AvaibleLocations.asLocation(location);
@@ -73,7 +75,7 @@ public class Area {
 	 * Factory.
 	 *
 	 * @param trustedLocation
-	 * @return (Location) new Location instance or null.
+	 * @return new Location instance or null.
 	 */
 	public static Area createLocation(AvaibleLocations trustedLocation) {
 		Area area = null;
@@ -85,6 +87,19 @@ public class Area {
 			}
 		}
 		return area;
+	}
+
+	/**
+	 * Factory.
+	 * <p>
+	 * Only for defining new area via API
+	 */
+	public static Area createLocation(GeoLocation coordeantes, double radio) {
+		double maxLat = coordeantes.getLatitude() + radio;
+		double maxLon = coordeantes.getLongitude() + radio;
+		double minLat = coordeantes.getLatitude() - radio;
+		double minLon = coordeantes.getLongitude() - radio;
+		return new Area(maxLat, maxLon, minLat, minLon);
 	}
 
 

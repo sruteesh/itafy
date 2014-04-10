@@ -3,7 +3,6 @@ package models.data;
 import java.util.ArrayList;
 import models.entities.User;
 import models.geoLocation.Area;
-import models.geoLocation.AvaibleLocations;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import utils.Helper;
@@ -48,20 +47,14 @@ public class UserData extends MongoClientData {
 	 * Read: returns users in the desired location as generic <code>Object</code> instances;
 	 * casting expected.
 	 * 
-	 * @param location (Enum) known location.
-	 * @return (ArrayList) all users in location or empty list otherwise.
+	 * @param area
+	 * @return users in location or empty list otherwise.
 	 */
-	public static ArrayList<Object> getUsers(AvaibleLocations location) {
-		Area area = Area.createLocation(location);
-		if (area == null) {
-			return new ArrayList<Object>();
-		}
-
+	public static ArrayList<Object> getUsers(Area area) {
 		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		Iterable<User> records = userCollection
 				.find(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
 				.as(User.class);
-
 		return Helper.asArrayList(records);
 	}
 
@@ -72,7 +65,7 @@ public class UserData extends MongoClientData {
 	 * TODO Change the sex to be a Enum instead of a String
 	 * 
 	 * @param genre
-	 * @return useres with the selected genre or empry list otherwise.
+	 * @return users with the selected genre or empry list otherwise.
 	 */
 	public static ArrayList<Object> getUsers(String genre) {
 		String query = "{genre: #}";
@@ -88,36 +81,25 @@ public class UserData extends MongoClientData {
 	 * 
 	 * TODO Chage the sex to be a Enum instead a String
 	 * 
-	 * @param location known location
+	 * @param area
 	 * @param genre
-	 * @return all geotweets in location and categorized or empty list otherwise.
+	 * @return users in location and selected genre or empty list otherwise.
 	 */
-	public static ArrayList<Object> getUsers(AvaibleLocations location, String genre) {
-		Area area = Area.createLocation(location);
-		if (area == null) {
-			return new ArrayList<Object>();
-		}
-
+	public static ArrayList<Object> getUsers(Area area, String genre) {
 		String query = "{genre: #, latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		Iterable<User> records = userCollection
 				.find(query, genre, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
 				.as(User.class);
-
 		return Helper.asArrayList(records);
 	}
 
 	/**
 	 * Query: returns how many users in the desired location.
 	 * 
-	 * @param location (Enum) known location.
-	 * @return (long) count of users in the location; -1 if unknown location
+	 * @param area
+	 * @return count of users in the area
 	 */
-	public static long countUsers(AvaibleLocations location) {
-		Area area = Area.createLocation(location);
-		if (area == null) {
-			return -1;
-		}
-
+	public static long countUsers(Area area) {
 		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		long count = userCollection
 				.count(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong());
