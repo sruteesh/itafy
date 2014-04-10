@@ -43,4 +43,8 @@ GET  /api/users/:id       controllers.api.UserController.show(id: String)
 GET  /api/words/          controllers.api.WordController.index()
 GET  /api/words/:id       controllers.api.WordController.show(id: String)
 
+# Tweet
+# -----
+GET  /api/tweets/         controllers.api.TweetController.index()
+GET  /api/tweets/:id      controllers.api.TweetController.show(id: String)
 
