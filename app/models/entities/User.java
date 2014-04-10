@@ -111,7 +111,7 @@ public class User {
 	// getters
 
 	public ArrayList<Tweet> getTweets() {
-		ArrayList<Object> tweets = TweetsData.getTweetsWithUser(this.id);
+		ArrayList<Object> tweets = TweetsData.getTweetsFromUser(this.userId);
 		return Helper.castEeachElementToTweet(tweets);
 	}
 

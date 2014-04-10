@@ -2,13 +2,13 @@ package models.data;
 
 import java.util.ArrayList;
 import models.entities.Tweet;
+import models.entities.User;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import utils.Helper;
 import controllers.db.DbNames;
 
 public class TweetsData extends MongoClientData {
-
 	private static final MongoCollection tweetsCollection = jongoItafy.getCollection(DbNames.TWEETS);
 
 	/** No need to instanciate a <code>TweetData</code> object */
@@ -93,17 +93,20 @@ public class TweetsData extends MongoClientData {
 	}
 
 	/**
-	 * Read: tweets with the selected hashtag
+	 * Read: tweets from the selected user
 	 * 
-	 * @param id Mongo's id as a String
+	 * @param twitterUserId
 	 * @return array of tweets with the selected user or empty list otherwise.
 	 */
-	public static ArrayList<Object> getTweetsWithUser(String id) {
-		String query = "{user_ids: #}}";
-		Iterable<Tweet> records = tweetsCollection
-				.find(query, new ObjectId(id))
+	public static ArrayList<Object> getTweetsFromUser(long twitterUserId) {
+		User user = UserData.findUser(twitterUserId);
+		System.out.println("User: " + user.getId());
+		String query = "{user_id: #}";
+		Iterable<Tweet> tweets = tweetsCollection
+				.find(query, new ObjectId("53453a50300402c4735397a4"))
 				.as(Tweet.class);
-		return Helper.asArrayList(records);
+		return Helper.asArrayList(tweets);
+
 	}
 
 	/**
