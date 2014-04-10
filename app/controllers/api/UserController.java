@@ -53,6 +53,14 @@ public class UserController extends Controller {
 	 */
 	public static Result show(String id) {
 		User user = UserData.findUser(id);
+		if (user == null) {
+			try {
+				user = UserData.findUser(Long.valueOf(id).longValue());
+			} catch (NumberFormatException e) {
+				// no mongo's id, no twitter id;
+				// nothing to show
+			}
+		}
 		JsonNode response = Helper.asJson(user);
 		return ok(response);
 	}

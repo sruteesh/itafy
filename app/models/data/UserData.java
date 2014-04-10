@@ -76,6 +76,18 @@ public class UserData extends MongoClientData {
 	}
 
 	/**
+	 * Read: returns the user with the selected Twitter's userId
+	 * 
+	 * @param userId defined by Twitter
+	 * @return user with the selected Twitter's id.
+	 */
+	public static User findUser(long userId) {
+		String query = "{user_id: #}";
+		User user = userCollection.findOne(query, userId).as(User.class);
+		return user;
+	}
+
+	/**
 	 * Read: returns users with the selected genre and location as <code>Object</code> instances;
 	 * casting expected.
 	 * 
