@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd .. && play dist
+cd .. && play clean compile dist
 echo "[LOCAL DIST ZIP] Created!"
 
 SSH='ssh ubuntu@54.213.21.104 -i /Users/raul/GitHub/itafy/AmazonMicro1.pem'
