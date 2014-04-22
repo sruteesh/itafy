@@ -97,12 +97,15 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 	}
 
 	private static void startEvaluation() {
+
+		// there is a total of 217 Twitter names' manually marked
+		int limit = 200;
+
 		Iterable<TwitterName> twitterNames = twitterNamesCollection
-				// .find()
-				// .find("{genre: {$exists: true}, location: {$within: {$polygon: #}}}",
-				// getSpainPolygon())
-				.find("{genre: {$exists: true}}")
-				.limit(1000)
+				.find("{genre: {$exists: true}, location: {$within: {$polygon: #}}}",
+						getSpainPolygon())
+				// .find("{genre: {$exists: true}}")
+				.limit(limit)
 				.as(TwitterName.class);
 
 		int responseA;
@@ -114,7 +117,8 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 			String genre = twitterName.getGenre();
 			boolean verbose = false;
 			responseA = algorithmC(name, description, verbose);
-			if ((responseA == 1 && genre.equals("MALE")) || (responseA == 2 && genre.equals("FEMALE"))) {
+			if ((responseA == 1 && genre.equals("MALE")) || (responseA == 2 &&
+					genre.equals("FEMALE"))) {
 				detected++;
 			} else if (responseA == 0) {
 				undetected++;
@@ -126,9 +130,9 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 			}
 		}
 
-		System.out.println("DETECTED: " + detected);
-		System.out.println("UNDETECTED: " + undetected);
-		System.out.println("FALSE POSITIVES: " + falsePositives);
+		System.out.println("DETECTED: " + detected + "\t" + (detected * 100) / limit + "%");
+		System.out.println("UNDETECTED: " + undetected + "\t" + (undetected * 100) / limit + "%");
+		System.out.println("FALSE POSITIVES: " + falsePositives + "\t" + (falsePositives * 100) / limit + "%");
 	}
 
 	private static List<Double[]> getSpainPolygon() {
