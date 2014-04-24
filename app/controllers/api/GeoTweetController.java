@@ -33,7 +33,7 @@ public class GeoTweetController extends Controller {
 	 */
 	public static Result index() {
 		AvaibleLocations trustedArea = AvaibleLocations.asLocation(request().getQueryString("area"));
-		AvaibleCategories trustedCategory = AvaibleCategories.asCategory(request().getQueryString("category"));
+		AvaibleCategories trustedCategory = AvaibleCategories.valueOf(request().getQueryString("category"));
 
 		ArrayList<Object> geoTweets;
 		if ((trustedArea != null) && (trustedCategory != null)) {

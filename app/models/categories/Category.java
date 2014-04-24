@@ -26,7 +26,7 @@ public class Category {
 	 * @return (Category) new Category instance or null.
 	 */
 	public static Category createCategory(String name) {
-		AvaibleCategories trustedName = AvaibleCategories.asCategory(name);
+		AvaibleCategories trustedName = AvaibleCategories.valueOf(name);
 		if (trustedName != null) {
 			return createCategory(trustedName);
 		} else  {
