@@ -1,136 +1,173 @@
 package utils.textClassifier;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import models.categories.AvaibleCategories;
 import weka.classifiers.Classifier;
 import weka.classifiers.trees.J48;
 import weka.core.Attribute;
-import weka.core.FastVector;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.StringToWordVector;
 
 /**
- * 
- * Enlaces
- * --------
- * Pagina web con uso basico de weka: http://ianma.wordpress.com/2010/01/16/weka-with-java-eclipse-getting-started/
- * Ejemplos de weka https://svn.cms.waikato.ac.nz/svn/weka/branches/stable-3-6/wekaexamples/src/main/java/wekaexamples/
+ * TODO class description
  * 
  * @author m.artero@ucm.es
  * @author raul.marcos.l@gmail.com
+ * @see <a href="https://svn.cms.waikato.ac.nz/svn/weka/branches/stable-3-6/wekaexamples/src/main/java/wekaexamples/"> weka's examples</a>
+ * @see Stackoverflow #17596492
  */
 public class TextClassifier implements Serializable {
+	private static final long serialVersionUID = -5296895910740177580L; // serialization
 
-	/* FIXME: check what long should be wrote there. This was created by Eclipse (22-04-14) */
-	private static final long serialVersionUID = -5296895910740177580L;
+	/* Weka's objects */
+	private Instances dataset; // weka's model
+	private StringToWordVector filter; // used to generate the words count
+	private Classifier classifier; // weka's magic
+	private boolean isUpToDate; // is the model up to date? when new data is stored in the model, we need to actualize
 
-	/** The training data gathered so far. */
-	private Instances m_Data = null;
 
-	/** The filter used to generate the word counts. */
-	private StringToWordVector m_Filter = new StringToWordVector();
-
-	/** The actual classifier. */
-	private Classifier m_Classifier = new J48();
-
-	/** Whether the model is up to date. */
-	private boolean m_UpToDate;
-
-	/**
-	 * Constructs empty training dataset.
-	 */
 	public TextClassifier() {
-		String nameOfDataset = "MessageClassificationProblem";
-
-		// Create vector of attributes.
-		FastVector attributes = new FastVector(2);
-
-		// Add attribute for holding messages.
-		attributes.addElement(new Attribute("Message", (FastVector) null));
-
-		// Add class attribute.
-		FastVector classValues = new FastVector(2);
-		classValues.addElement("miss");
-		classValues.addElement("hit");
-		attributes.addElement(new Attribute("Class", classValues));
-
-		// Create dataset with initial capacity of 100, and set index of class.
-		m_Data = new Instances(nameOfDataset, attributes, 100);
-		m_Data.setClassIndex(m_Data.numAttributes() - 1);
+		dataset = MsgClassificationDataset.getDataset();
+		filter = new StringToWordVector();
+		classifier = new J48();
+		isUpToDate = false;
 	}
 
+	public TextClassifier(String pathToArffFile) {
+		ArffReader fileReader = new ArffReader();
+		dataset = fileReader.buildDatasetFromFile(pathToArffFile);
+		filter = new StringToWordVector();
+		classifier = new J48();
+		isUpToDate = false;
+	}
+
+
 	/**
-	 * Updates model using the given training message.
+	 * Updates model using the given training message
+	 * <p>
+	 * After adding a new instance to dataset, it needs to be rebuild
 	 * 
-	 * @param message	the message content
+	 * @param text	the message content
 	 * @param classValue	the class label
 	 */
-	public void updateData(String message, String classValue) {
-		// Make message into instance.
-		Instance instance = makeInstance(message, m_Data);
-
-		// Set class value for instance.
+	public void updateData(String text, String classValue) {
+		// 1) Make message into instance.
+		Instance instance = makeInstance(text, dataset);
 		instance.setClassValue(classValue);
-
-		// Add instance to training data.
-		m_Data.add(instance);
-
-		m_UpToDate = false;
+		// 2) Add instance to training data.
+		dataset.add(instance);
+		isUpToDate = false;
 	}
 
 	/**
-	 * Classifies a given message.
+	 * Classifies a given message and return the classification distribution for each possible class.
+	 * <p>
+	 * The distribution for each category is a double between
+	 * 0.0 (it has nothing to do) and 1.0 (we are pretty sure about it)
+	 * <p>
+	 * If there is no dataset build, or there are no instances, or something goes worng while weka's work;
+	 * the response would be <code>null</code>
+	 * <p>
+	 * The result <code>HashMap</code> will be smth like the following
+	 * (note that is up to the caller decide which category is the best option)
 	 * 
-	 * @param message	the message content
-	 * @throws Exception 	if classification fails
+	 * <pre>
+	 * | category1 | 2.5 |
+	 * | category2 | 4.0 |
+	 * | category3 | 2.5 |
+	 * | category4 | 0.0 |
+	 * | category5 | 1.0 |
+	 * </pre>
+	 * 
+	 * @param text the message content
+	 * @return HashMap containing distribution for each class. null if error while execution
 	 */
-	public void classifyMessage(String message) throws Exception {
-		// Check whether classifier has been built.
-		if (m_Data.numInstances() == 0) {
-			throw new Exception("No classifier available.");
+	public HashMap<String,Double> classifyMessage(String text) {
+
+		// 1) Check whether classifier has been built.
+		if (dataset.numInstances() == 0) {
+			return null;
 		}
 
-		// Check whether classifier and filter are up to date.
-		if (!m_UpToDate) {
-			// Initialize filter and tell it about the input format.
-			m_Filter.setInputFormat(m_Data);
-
-			// Generate word counts from the training data.
-			Instances filteredData  = Filter.useFilter(m_Data, m_Filter);
-
-			// Rebuild classifier.
-			m_Classifier.buildClassifier(filteredData);
-
-			m_UpToDate = true;
+		// 2) Check whether classifier and filter are up to date.
+		if (!isUpToDate) {
+			try {
+				rebuildClassifier();
+				isUpToDate = true;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
 		}
 
-		// Make separate little test set so that message
-		// does not get added to string attribute in m_Data.
-		Instances testset = m_Data.stringFreeStructure();
+		// 3) Make separate little test set so that message does not get added to string attribute
+		Instances testset = dataset.stringFreeStructure();
+		Instance instance = makeInstance(text, testset);
 
-		// Make message into test instance.
-		Instance instance = makeInstance(message, testset);
+		// 4 classify
+		HashMap<String, Double> response = new HashMap<String, Double>();
+		try {
+			response = classifyInstance(instance);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 
-		// Filter instance.
-		m_Filter.input(instance);
-		Instance filteredInstance = m_Filter.output();
+		return response;
+	}
 
-		// Get index of predicted class value.
-		double predicted = m_Classifier.classifyInstance(filteredInstance);
 
-		// Output class value.
-		System.out.println("Message classified as : " +
-				m_Data.classAttribute().value((int) predicted));
+	public int getNumInstances() { return dataset.numInstances(); }
+	public int getNumAttributes() { return dataset.numAttributes(); }
+	public int getNumClasses() { return dataset.numClasses(); }
 
-		// ----
-		// stackoverflow: 17596492
-		double[] probabilityDistribution = m_Classifier.distributionForInstance(filteredInstance);
 
-		double classAtt1Prob = probabilityDistribution[0];
-		System.out.println("miss: " + classAtt1Prob);
-		double classAtt2Prob = probabilityDistribution[1];
-		System.out.println("hit: " + classAtt2Prob);
+	private HashMap<String, Double> classifyInstance(Instance instance) throws Exception {
+		Instance filteredInstance = filterInstance(instance);
+		double[] probabilityDistribution = classifier.distributionForInstance(filteredInstance);
+		return buildDistributionMap(probabilityDistribution);
+	}
+
+	@SuppressWarnings("unused")
+	private String predictedClassName(Instance filteredInstance) throws Exception {
+		double predicted = classifier.classifyInstance(filteredInstance);
+		String predictedClassName = dataset.classAttribute().value((int) predicted);
+		return predictedClassName;
+	}
+
+	private Instance filterInstance(Instance instance) throws Exception {
+		filter.input(instance);
+		Instance filteredInstance = filter.output();
+		return filteredInstance;
+	}
+
+	private HashMap<String, Double> buildDistributionMap(double[] distribution) {
+		HashMap<String, Double> response = new HashMap<String, Double>();
+		String[] categoriesNames = AvaibleCategories.names();
+		if (distribution.length != categoriesNames.length) {
+			return null;
+		}
+		// zip(distribution, names)
+		for (int i = 0; i < distribution.length; i++) {
+			response.put(categoriesNames[i], distribution[i]);
+		}
+		return response;
+	}
+
+	/**
+	 * 1. Initialize filter and tell it about the input format </br>
+	 * 2. Generate word counts from the training data </br>
+	 * 3. Rebuild classifier. </br>
+	 * 
+	 * @throws Exception
+	 */
+	private void rebuildClassifier() throws Exception {
+		filter.setInputFormat(dataset);
+		Instances filteredData  = Filter.useFilter(dataset, filter);
+		classifier.buildClassifier(filteredData);
 	}
 
 	/**
@@ -138,19 +175,13 @@ public class TextClassifier implements Serializable {
 	 * 
 	 * @param text	the message content to convert
 	 * @param data	the header information
-	 * @return		the generated Instance
+	 * @return the generated Weka's Instance
 	 */
 	private Instance makeInstance(String text, Instances data) {
-		// Create instance of length two.
-		Instance instance = new Instance(2);
-
-		// Set value for message attribute
-		Attribute messageAtt = data.attribute("Message");
-		instance.setValue(messageAtt, messageAtt.addStringValue(text));
-
-		// Give instance access to attribute information from the dataset.
+		Instance instance = new Instance(2); // two attributes
+		Attribute messageAttribute = data.attribute(MsgClassificationConstants.MESSAGE);
+		instance.setValue(messageAttribute, messageAttribute.addStringValue(text));
 		instance.setDataset(data);
-
 		return instance;
 	}
 
