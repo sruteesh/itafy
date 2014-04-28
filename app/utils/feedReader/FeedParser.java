@@ -18,9 +18,9 @@ import javax.xml.stream.events.XMLEvent;
  * @see <a href="http://www.vogella.com/tutorials/RSSFeed/article.html">original source code</a>
  */
 public class FeedParser {
-	protected final URL url;
+	protected URL url;
 
-	public FeedParser(String feedUrl) {
+	public void setUrl(String feedUrl) {
 		try {
 			this.url = new URL(feedUrl);
 		} catch (MalformedURLException e) {
@@ -28,7 +28,9 @@ public class FeedParser {
 		}
 	}
 
-	public Feed readFeed() {
+	public Feed readFeed(String feedUrl) {
+		setUrl(feedUrl);
+
 		Feed feed = null;
 		try {
 			XMLInputFactory inputFactory = XMLInputFactory.newInstance();
@@ -52,7 +54,6 @@ public class FeedParser {
 		String copyright = "";
 		String author = "";
 		String pubdate = "";
-		String content = "";
 
 		// read the XML document
 		boolean isFeedHeader = true;
@@ -86,14 +87,11 @@ public class FeedParser {
 					case FeedParserConstants.COPYRIGHT:
 						copyright = getCharacterData(event, eventReader);
 						break;
-					case FeedParserConstants.CONTENT:
-						content = getCharacterData(event, eventReader);
-						break;
 				}
 			} else if (event.isEndElement()) {
 				if (event.asEndElement().getName().getLocalPart() == (FeedParserConstants.ITEM)) {
 					FeedMsg message =
-							new FeedMsg.Builder(title, content).author(author).description(description).link(link).build();
+							new FeedMsg.Builder(title, description).author(author).link(link).build();
 					response.getMessages().add(message);
 					event = eventReader.nextEvent();
 					continue;

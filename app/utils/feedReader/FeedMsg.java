@@ -16,9 +16,8 @@ package utils.feedReader;
 public class FeedMsg {
 	// main fields
 	protected String title;
-	protected String content;
-	// optional fields
 	protected String description;
+	// optional fields
 	protected String link;
 	protected String author;
 	protected String pubDate;
@@ -28,7 +27,6 @@ public class FeedMsg {
 	 */
 	private FeedMsg(Builder builder) {
 		title = builder.title;
-		content = builder.content;
 		description = builder.description;
 		link = builder.link;
 		author = builder.author;
@@ -39,8 +37,8 @@ public class FeedMsg {
 	public String toString() {
 		return "FeedMessage {\n"
 				+ "\ttitle = " + title + "\n"
-				+ "\tcontent = " + content + "\n"
-				+ "\tdescription = " + description + ", link = " + link + ", author = " + author + ", date = " + pubDate
+				+ "\tdescription = " + description + "\n"
+				+ "\tlink = " + link + ", author = " + author + ", date = " + pubDate
 				+ "}";
 	}
 
@@ -49,27 +47,20 @@ public class FeedMsg {
 	public String getDescription() { return description; }
 	public String getLink() { return link; }
 	public String getAuthor() { return author; }
-	public String getContent() { return content; }
 
 	public static class Builder {
 		// required patameters
 		private final String title;
-		private final String content;
+		private String description;
 
 		// optional parameters
-		private String description = "";
 		private String link = "";
 		private String author = "";
 		private String pubDate = "";
 
-		public Builder(String title, String content) {
+		public Builder(String title, String description) {
 			this.title = title;
-			this.content = content;
-		}
-
-		public Builder description(String description) {
 			this.description = description;
-			return this;
 		}
 
 		public Builder link(String link) {
@@ -91,5 +82,9 @@ public class FeedMsg {
 			return new FeedMsg(this);
 		}
 	} // Builder
+
+	public String buildComment() {
+		return this.link + " [" + this.author + "]";
+	}
 
 }
