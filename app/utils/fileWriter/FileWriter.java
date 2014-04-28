@@ -29,4 +29,8 @@ public class FileWriter {
 		return true;
 	}
 
+	public void writeEnter() {
+		writeText("");
+	}
+
 }

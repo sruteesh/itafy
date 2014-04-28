@@ -10,7 +10,8 @@ import weka.core.Utils;
 
 public class TextClassifierExample {
 
-	// TODO: relative paths instead of absolute local paths
+	// FIXME: relative paths instead of absolute local paths
+	// Stackoverflow#3844307
 
 	private static final String MODEL_PATH =
 			"/Users/manutero/workspace/itafy/app/utils/textClassifier/exampleFiles/example-model.arff";
