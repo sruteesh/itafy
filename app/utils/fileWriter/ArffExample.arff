@@ -1,0 +1,10 @@
+% El País (28 abril 2014)
+% https://...
+
+@relation categories-model
+@attribute Message string
+@attribute Class {POLITICA,ECONOMIA,CULTURA,DEPORTES}
+
+@data
+'Este es el artículo 1',CULTURA
+'Este es el artículo 2',ECONOMIA
