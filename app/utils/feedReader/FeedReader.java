@@ -9,12 +9,19 @@ import java.util.HashMap;
 import java.util.List;
 import models.categories.AvaibleCategories;
 import utils.fileWriter.ArffWriter;
+import utils.helpers.DateHelper;
 
 /**
+ * Once initialized (with the default configuration file or a selected one), is able to create
+ * an <em>arff</em> model (in the default path or a selected one)
+ * <p>
+ * The process is:
  * <ol>
- *  <li> Reads a configuration file with a list of rss links classified by category
+ *  <li> Reads a configuration file with a list of rss links classified by
+ *   {@link models.categories.AvaibleCategories category}
  *  <li> For each rss link, parse the feed
- *  <li> creates a output arff file using {@link utils.fileWriter.ArffWriter ArffWritter class}
+ *  <li> Creates a output arff file using {@link utils.fileWriter.ArffWriter ArffWritter class}
+ *  <li> The arff file could be used by Weka
  * </ol>
  * 
  * @author m.artero@ucm.es
@@ -23,51 +30,68 @@ import utils.fileWriter.ArffWriter;
  * @see AvaibleCategories
  */
 public class FeedReader {
-	// FIXME relative path
-	protected static String RSS_CONF_FILE = "/Users/manutero/workspace/itafy/conf/rss.txt";
-	protected static String OUTPUT_FILE = "/Users/manutero/workspace/itafy/conf/weka_model.arff";
+	// FIXME relative paths
+	private static final String DEFAULT_CONF_PATH = "/Users/manutero/workspace/itafy/conf/rss.txt";
+	private static final String DEFAULT_OUT_PATH = "/Users/manutero/workspace/itafy/weka-data/";
 
 	/**
 	 * rss.keySet() => categories
-	 * rss.get("category") => links
+	 * rss.get("category") => links for category
 	 */
-	protected HashMap<String, ArrayList<String>> rss;
-
-	public FeedReader() {
-		try {
-			rss = readConfigurationFile();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return;
-		}
-	}
-
-	public FeedReader(String rssConfigurationFile) {
-		RSS_CONF_FILE = rssConfigurationFile;
-		try {
-			rss = readConfigurationFile();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return;
-		}
-	}
+	private HashMap<String, ArrayList<String>> rss;
+	private String confFilePath;
+	private String outputFilePath;
 
 	/**
-	 * TODO: description
+	 * Initialize with the default configuration file <code>/conf/rss.txt</code>
+	 */
+	public FeedReader() {
+		confFilePath = DEFAULT_CONF_PATH;
+		outputFilePath = buildDefaultOutputPath();
+		try {
+			rss = readConfigurationFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		}
+	}
+
+
+	/**
+	 * Initialize with a determined configuration file
+	 * @param rssConfigurationFile path to the configuration file
+	 */
+	public FeedReader(String rssConfigurationFile) {
+		confFilePath = rssConfigurationFile;
+		outputFilePath = buildDefaultOutputPath();
+		try {
+			rss = readConfigurationFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		}
+	}
+
+
+	/**
+	 * Creates a output arff file using {@link utils.fileWriter.ArffWriter ArffWritter class}</br>
+	 * The arff file could be used by Weka
 	 * 
-	 * @param outputFile
-	 * @return
+	 * @param outputFile path of the output arff file
+	 * @return success; false if IOException raised while execution
 	 */
 	public boolean createModel(String outputFile) {
-		OUTPUT_FILE = outputFile;
+		outputFilePath = outputFile;
 		return createModel();
 	}
 
 	/**
-	 * Main method
-	 * TODO: description
+	 * Creates a output arff file using {@link utils.fileWriter.ArffWriter ArffWritter class}</br>
+	 * The arff file could be used by Weka
+	 * <p>
+	 * <code>/conf/weka_model.arff</code>
 	 * 
-	 * @return false if IOException raised while execution
+	 * @return success; false if IOException raised while execution or not configuration file read
 	 */
 	public boolean createModel() {
 		if (rss.isEmpty()) {
@@ -76,6 +100,7 @@ public class FeedReader {
 		ArrayList<WritableElement> data = parseFeedForEachRssLink();
 		return buildModelAsFile(data);
 	}
+
 
 	private ArrayList<WritableElement> parseFeedForEachRssLink() {
 		ArrayList<WritableElement> response = new ArrayList<WritableElement>();
@@ -89,7 +114,7 @@ public class FeedReader {
 					ArrayList<WritableElement> valuableContent = getWritableElementsForFeed(feed, categoryAsString);
 					response.addAll(valuableContent);
 				} catch (Exception e) {
-					// possible error in RSS from provider, not our guilt
+					// possible error in RSS from provider, not our guilt; just continue your way
 					continue;
 				}
 			}
@@ -99,19 +124,19 @@ public class FeedReader {
 	}
 
 
-
 	private ArrayList<WritableElement> getWritableElementsForFeed(Feed feed, String categoryAsString) {
 		ArrayList<WritableElement> response = new ArrayList<WritableElement>();
 		for (FeedMsg msg : feed.getMessages()) {
 			String comment = msg.buildComment();
-			WritableElement element = new WritableElement(comment, msg.getDescription(), categoryAsString);
+			String text = utils.helpers.StringHelper.normalize(msg.getDescription());
+			WritableElement element = new WritableElement(comment, text, categoryAsString);
 			response.add(element);
 		}
 		return response;
 	}
 
 	private boolean buildModelAsFile(ArrayList<WritableElement> data) {
-		ArffWriter writer = new ArffWriter(OUTPUT_FILE);
+		ArffWriter writer = new ArffWriter(outputFilePath);
 		boolean fail = false;
 		for(WritableElement element : data) {
 			fail |= writer.writeComment(element.comment);
@@ -135,7 +160,7 @@ public class FeedReader {
 	private HashMap<String, ArrayList<String>> readConfigurationFile() throws IOException {
 		HashMap<String, ArrayList<String>> response = new HashMap<String, ArrayList<String>>();
 
-		FileReader fileReader = new FileReader(new File(RSS_CONF_FILE));
+		FileReader fileReader = new FileReader(new File(confFilePath));
 		BufferedReader br = new BufferedReader(fileReader);
 		String line = null;
 		List<String> linksOfLastCategory = new ArrayList<String>();
@@ -179,6 +204,10 @@ public class FeedReader {
 			this.text = text;
 			this.classification = classification;
 		}
+	}
+
+	private String buildDefaultOutputPath() {
+		return DEFAULT_OUT_PATH + DateHelper.today() + ".arff";
 	}
 
 }

@@ -12,6 +12,7 @@ import java.text.Normalizer;
  * @author raulmarcosl@gmail.com
  */
 public final class StringHelper {
+	private static final String SPACE_CHAR = "\\s+";
 
 	/**
 	 * Suppress default constructor for noninstantiability; "Effective Java" Item 4.
@@ -42,5 +43,26 @@ public final class StringHelper {
 		return string.replaceAll("[^a-zA-Z]", " ");
 	}
 
+	/**
+	 * Applies three normalization functinos to each word of a text and return the normalized text
+	 * <pre>
+	 *  StringHelper.normalizeVowels(s);
+	 *  StringHelper.normaliceAsciiChars(s);
+	 *  StringHelper.removeNonAlphabeticChars(s);
+	 * </pre>
+	 * @param text to be normalized
+	 * @return normalized text
+	 */
+	public static String normalize(String text) {
+		String response = "";
+		String normalizedWord = "";
+		for (String word : text.split(SPACE_CHAR)) {
+			normalizedWord = StringHelper.normalizeVowels(word);
+			normalizedWord = StringHelper.normaliceAsciiChars(normalizedWord);
+			normalizedWord = StringHelper.removeNonAlphabeticChars(normalizedWord);
+			response += " " + normalizedWord;
+		}
+		return response;
+	}
 
 }
