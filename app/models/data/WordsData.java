@@ -5,7 +5,7 @@ import models.entities.Word;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import twitter4j.GeoLocation;
-import utils.Helper;
+import utils.helpers.CollectionHelper;
 import controllers.db.DbNames;
 
 /**
@@ -53,7 +53,7 @@ public class WordsData extends MongoClientData {
 	 */
 	public static ArrayList<Object> getWords() {
 		Iterable<Word> records = wordsCollection.find().as(Word.class);
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**

@@ -9,7 +9,7 @@ import models.geoLocation.AvaibleLocations;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import twitter4j.GeoLocation;
-import utils.Helper;
+import utils.helpers.CollectionHelper;
 import controllers.db.DbNames;
 
 /**
@@ -57,7 +57,7 @@ public class LinkData extends MongoClientData {
 	 */
 	public static ArrayList<Object> getAllLinks() {
 		Iterable<Link> records = linkCollection.find().as(Link.class);
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class LinkData extends MongoClientData {
 				.find(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
 				.as(Link.class);
 
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class LinkData extends MongoClientData {
 				.find("{category: #}", category.getName())
 				.as(Link.class);
 
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -121,7 +121,7 @@ public class LinkData extends MongoClientData {
 				.find(query, cat.getName(), loc.getMaxLat(), loc.getMinLat(), loc.getMaxLong(), loc.getMinLong())
 				.as(Link.class);
 
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**

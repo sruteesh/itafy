@@ -8,7 +8,7 @@ import models.geoLocation.AvaibleLocations;
 import org.codehaus.jackson.JsonNode;
 import play.mvc.Controller;
 import play.mvc.Result;
-import utils.Helper;
+import utils.helpers.JsonHelper;
 
 /**
  * API definition for geoTweets.
@@ -46,7 +46,7 @@ public class GeoTweetController extends Controller {
 			geoTweets = GeoTweetData.getGeoTweets();
 		}
 
-		JsonNode response = Helper.asJson(geoTweets);
+		JsonNode response = JsonHelper.asJson(geoTweets);
 		return ok(response);
 	}
 
@@ -58,7 +58,7 @@ public class GeoTweetController extends Controller {
 	 */
 	public static Result show(String id) {
 		GeoTweet geoTweet = GeoTweetData.findGeoTweet(id);
-		JsonNode response = Helper.asJson(geoTweet);
+		JsonNode response = JsonHelper.asJson(geoTweet);
 		return ok(response);
 	}
 

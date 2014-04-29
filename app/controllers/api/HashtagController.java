@@ -7,7 +7,7 @@ import models.geoLocation.AvaibleLocations;
 import org.codehaus.jackson.JsonNode;
 import play.mvc.Controller;
 import play.mvc.Result;
-import utils.Helper;
+import utils.helpers.JsonHelper;
 
 
 /**
@@ -44,7 +44,7 @@ public class HashtagController extends Controller {
 			hashtags = HashtagData.getAllHashtags();
 		}
 
-		JsonNode response = Helper.asJson(hashtags);
+		JsonNode response = JsonHelper.asJson(hashtags);
 		return ok(response);
 	}
 

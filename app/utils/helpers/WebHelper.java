@@ -1,4 +1,4 @@
-package utils;
+package utils.helpers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
  * 
  * @author manutero, raulmarcosl
  */
-public class TitleExtractor {
+public class WebHelper {
 	/*
 	 * the CASE_INSENSITIVE flag accounts for sites that use uppercase title
 	 * tags. the DOTALL flag accounts for sites that have line feeds in the

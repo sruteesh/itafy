@@ -9,8 +9,8 @@ import org.codehaus.jackson.JsonNode;
 import play.mvc.Controller;
 import play.mvc.Result;
 import twitter4j.GeoLocation;
-import utils.Helper;
-import utils.ParamsHelper;
+import utils.helpers.JsonHelper;
+import utils.helpers.ParamsHelper;
 
 
 /**
@@ -44,7 +44,7 @@ public class UserController extends Controller {
 		String genre = defineGenreFromParams(params);
 		String userName = defineUserFromParams(params);
 		ArrayList<Object> users = executeQueryDependingOn(area, genre, userName);
-		JsonNode response = Helper.asJson(users);
+		JsonNode response = JsonHelper.asJson(users);
 		return ok(response);
 	}
 
@@ -61,7 +61,7 @@ public class UserController extends Controller {
 				// nothing to show
 			}
 		}
-		JsonNode response = Helper.asJson(user);
+		JsonNode response = JsonHelper.asJson(user);
 		return ok(response);
 	}
 

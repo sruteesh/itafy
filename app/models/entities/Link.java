@@ -8,8 +8,8 @@ import models.data.TweetsData;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 import twitter4j.GeoLocation;
-import utils.Helper;
-import utils.TitleExtractor;
+import utils.helpers.CollectionHelper;
+import utils.helpers.WebHelper;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -70,7 +70,7 @@ public class Link {
 	}
 
 	public void completeTitle() throws IOException {
-		this.title = TitleExtractor.getPageTitle(this.url);
+		this.title = WebHelper.getPageTitle(this.url);
 		this.updatedAt = new Date();
 	}
 
@@ -81,7 +81,7 @@ public class Link {
 
 	public ArrayList<Tweet> getTweets() {
 		ArrayList<Object> tweets = TweetsData.getTweetsWithLink(this.id);
-		return Helper.castEeachElementToTweet(tweets);
+		return CollectionHelper.castEeachElementToTweet(tweets);
 	}
 
 	@JsonProperty("latitude")
