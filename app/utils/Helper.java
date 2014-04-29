@@ -2,6 +2,7 @@ package utils;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import models.entities.Tweet;
 import org.codehaus.jackson.JsonNode;
@@ -118,6 +119,29 @@ public final class Helper {
 			System.err.println("Utils.readTextFile("+filePath+")");
 			return null;
 		}
+	}
+
+
+	public static String normalizeVowels(String string) {
+		return string
+				.replace("á", "a")
+				.replace("é", "e")
+				.replace("í", "i")
+				.replace("ó", "o")
+				.replace("ú", "u")
+				.replace("ә", "e")
+				.replace("ε", "e")
+				.replace("α", "a");
+	}
+
+
+	public static String normaliceAsciiChars(String string) {
+		return Normalizer.normalize(string, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
+	}
+
+
+	public static String removeNonAlphabeticChars(String string) {
+		return string.replaceAll("[^a-zA-Z]", " ");
 	}
 
 }
