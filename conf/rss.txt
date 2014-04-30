@@ -13,7 +13,3 @@ POLITICA
 http://ep00.epimg.net/rss/politica/portada.xml
 http://ep00.epimg.net/rss/internacional/portada.xml
 http://estaticos.elmundo.es/elmundo/rss/internacional.xml
-
-ECONOMIA
-http://estaticos.elmundo.es/elmundo/rss/economia.xml
-http://www.elperiodico.com/es/rss/economia/rss.xml
