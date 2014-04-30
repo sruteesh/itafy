@@ -31,7 +31,7 @@ public class HashtagController extends Controller {
 	 */
 	public static Result index() {
 		AvaibleLocations trustedArea = AvaibleLocations.asLocation(request().getQueryString("area"));
-		AvaibleCategories trustedCategory = AvaibleCategories.asCategory(request().getQueryString("category"));
+		AvaibleCategories trustedCategory = AvaibleCategories.valueOf(request().getQueryString("category"));
 
 		ArrayList<Object> hashtags;
 		if ((trustedArea != null) && (trustedCategory != null)) {

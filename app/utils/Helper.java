@@ -1,5 +1,7 @@
 package utils;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import models.entities.Tweet;
 import org.codehaus.jackson.JsonNode;
@@ -25,6 +27,7 @@ public final class Helper {
 		throw new AssertionError();
 	}
 
+
 	/**
 	 * Converts collection of Mongo's results into ArrayList.<br>
 	 * If <code>collection</code> is null, it would return a empty arrayList
@@ -49,6 +52,7 @@ public final class Helper {
 	/** useful for JSON manipulation */
 	private static final ObjectMapper mapper = new ObjectMapper();
 
+
 	/**
 	 * Converts the parameter object to JSON.
 	 * 
@@ -59,6 +63,7 @@ public final class Helper {
 		return mapper.valueToTree(object);
 	}
 
+
 	/**
 	 * Returns an empty JSON "{}"
 	 * 
@@ -68,6 +73,7 @@ public final class Helper {
 		ArrayList<Object> emptyArray = new ArrayList<Object>();
 		return mapper.valueToTree(emptyArray);
 	}
+
 
 	/**
 	 * Returns the same collection but each element casted to <code>Tweet</code> class
@@ -88,6 +94,30 @@ public final class Helper {
 			}
 		}
 		return response;
+	}
+
+
+	/**
+	 * Read a .txt file and return it's content as a String
+	 * 
+	 * @param filePath path to a non binary file
+	 * @return text of the <code>.txt</code> file
+	 */
+	public static String readTextFile(String filePath) {
+		try {
+			FileReader m = new FileReader(filePath);
+			StringBuffer message = new StringBuffer();
+			int l;
+			while ((l = m.read()) != -1) {
+				message.append((char) l);
+			}
+			m.close();
+			return message.toString();
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.err.println("Utils.readTextFile("+filePath+")");
+			return null;
+		}
 	}
 
 }
