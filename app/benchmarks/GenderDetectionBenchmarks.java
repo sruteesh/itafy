@@ -108,31 +108,38 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 				.limit(limit)
 				.as(TwitterName.class);
 
-		int responseA;
-		int detected = 0, undetected = 0, falsePositives = 0;
+		int response;
+		int truePositive = 0, trueNegative = 0, falsePositive = 0, falseNegative = 0;
 		for (TwitterName twitterName : twitterNames) {
 			String name = twitterName.getName();
 			String screenName = twitterName.getScreenName();
 			String description = twitterName.getDescription();
 			String genre = twitterName.getGenre();
 			boolean verbose = false;
-			responseA = algorithmC(name, description, verbose);
-			if ((responseA == 1 && genre.equals("MALE")) || (responseA == 2 &&
-					genre.equals("FEMALE"))) {
-				detected++;
-			} else if (responseA == 0) {
-				undetected++;
+			response = algorithmC(name, description, verbose);
+			boolean isRealMale = genre.equals("MALE");
+			boolean isRealFemale = genre.equals("FEMALE");
+			boolean isRealUnknown = genre.equals("OTHER") || genre.equals("UNKNOWN");
+			if ((response == 1 && isRealMale) || (response == 2 && isRealFemale)) {
+				truePositive++;
+			} else if (response == 0 && isRealUnknown) {
+				trueNegative++;
+			} else if (response == 0 && (isRealMale || isRealFemale)) {
+				falseNegative++;
+			} else if ((response == 1 && isRealFemale) || (response == 2 && isRealMale)
+					|| ((response == 1 || response == 2) && isRealUnknown)) {
+				falsePositive++;
 			} else {
-				System.out.println("name: " + name + "\t" + screenName);
-				System.out.println("description: " + description);
-				System.out.println(genre + " " + responseA);
-				falsePositives++;
+				System.out.println("What? " + name + "  " + description);
+				System.out.println("response: " + response);
+				System.out.println("should be: " + genre);
 			}
 		}
 
-		System.out.println("DETECTED: " + detected + "\t" + (detected * 100) / limit + "%");
-		System.out.println("UNDETECTED: " + undetected + "\t" + (undetected * 100) / limit + "%");
-		System.out.println("FALSE POSITIVES: " + falsePositives + "\t" + (falsePositives * 100) / limit + "%");
+		System.out.println("True positive: " + truePositive + "\t" + (truePositive * 100) / limit + "%");
+		System.out.println("True negative: " + trueNegative + "\t" + (trueNegative * 100) / limit + "%");
+		System.out.println("False positive: " + falsePositive + "\t" + (falsePositive * 100) / limit + "%");
+		System.out.println("False negative: " + falseNegative + "\t" + (falseNegative * 100) / limit + "%");
 	}
 
 	private static List<Double[]> getSpainPolygon() {
