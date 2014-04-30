@@ -1,64 +1,64 @@
 @relation categories-model
 @attribute Message string
-@attribute Class {POLITICA,ECONOMIA,CULTURA,DEPORTES}
+@attribute Class {POLITICA,CULTURA,DEPORTES}
 
 @data
 % http://elpais.com/cultura/2014/04/29/actualidad/1398755428_862424.html [Jacinto Antón]
-" Varios de los cuerpos corresponden a principes y princesas de la    dinastia  una de las mas importantes del Antiguo Egipto",CULTURA
+" Varios de los cuerpos corresponden a principes y princesas de la dinastia una de las mas importantes del Antiguo Egipto",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398707923_236427.html [Rosa Rivas]
-" El Celler de Can Roca cae al numero dos de la lista World s     Noma  del danes Rene Redzepi  gana por cuarta vez  Arzak y Mugaritz  de Andoni Luis Aduriz  entre los diez primeros",CULTURA
+" El Celler de Can Roca cae al numero dos de la lista World s Noma del danes Rene Redzepi gana por cuarta vez Arzak y Mugaritz de Andoni Luis Aduriz entre los diez primeros",CULTURA
 
 % http://elpais.com/cultura/2014/04/29/actualidad/1398736875_046630.html [El País]
-" El brasileno DOM  del chef Alex Atala  se mantiene en el top ten aunque baja un puesto en la lista Worlds    Best",CULTURA
+" El brasileno DOM del chef Alex Atala se mantiene en el top ten aunque baja un puesto en la lista Worlds Best",CULTURA
 
 % http://elpais.com/cultura/2014/04/29/actualidad/1398743434_639322.html [Elizabeth Reyes L.]
-" La    Feria del Libro colombiana abre hoy con Vargas Llosa  Reunira a mas de     escritores internacionales y locales",CULTURA
+" La Feria del Libro colombiana abre hoy con Vargas Llosa Reunira a mas de escritores internacionales y locales",CULTURA
 
 % http://elpais.com/cultura/2014/04/29/actualidad/1398777305_696975.html [Juan Cruz]
-" El poeta Arnaldo Calveyra participa en la Feria del libro de Buenos Aires con una nueva edicion de su  Poesia reunida ",CULTURA
+" El poeta Arnaldo Calveyra participa en la Feria del libro de Buenos Aires con una nueva edicion de su Poesia reunida",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398685404_440323.html [Raquel Garzon]
-" El Nobel sudafricano y el narrador estadounidense leen parte de su intercambio epistolar  recogido en el libro  Aqui y ahora   en el acto central",CULTURA
+" El Nobel sudafricano y el narrador estadounidense leen parte de su intercambio epistolar recogido en el libro Aqui y ahora en el acto central",CULTURA
 
 % http://elpais.com/cultura/2014/04/29/actualidad/1398781286_935385.html [EFE]
-" El monto de         euros     por persona  se destina a incentivar la compra de libros  musica  prensa o entradas",CULTURA
+" El monto de euros por persona se destina a incentivar la compra de libros musica prensa o entradas",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398715312_240276.html [Patricia Tubella]
-" El mini British Museum de William Burrell        piezas desde la antiguedad hasta los impresionistas  sale de gira por el mundo en medio de una gran polemica",CULTURA
+" El mini British Museum de William Burrell piezas desde la antiguedad hasta los impresionistas sale de gira por el mundo en medio de una gran polemica",CULTURA
 
 % http://elpais.com/ccaa/2014/04/29/paisvasco/1398771918_430200.html [Inés P. Chávarri]
-" El alcalde de San Sebastian destaca que es la ciudad  por encima de otras instituciones  la que debe liderar el proyecto Todos los partidos del Ayuntamiento pactan un texto en defensa de la capitalidad y comprometiendose a trabajar juntos",CULTURA
+" El alcalde de San Sebastian destaca que es la ciudad por encima de otras instituciones la que debe liderar el proyecto Todos los partidos del Ayuntamiento pactan un texto en defensa de la capitalidad y comprometiendose a trabajar juntos",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398712004_554114.html [Anatxu Zabalbeascoa]
-" El legado de Oriol Bohigas  Rafael Moneo y Juan Navarro Baldeweg se sintetiza en una nueva coleccion de videos",CULTURA
+" El legado de Oriol Bohigas Rafael Moneo y Juan Navarro Baldeweg se sintetiza en una nueva coleccion de videos",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398712941_135331.html [Carles Geli]
-" El escritor Ignacio Martinez de Pison publica su nueva novela   La reputacion   relato de una familia de judios sefardies desde      hasta el final del protectorado",CULTURA
+" El escritor Ignacio Martinez de Pison publica su nueva novela La reputacion relato de una familia de judios sefardies desde hasta el final del protectorado",CULTURA
 
 % http://elpais.com/ccaa/2014/04/28/catalunya/1398715754_188798.html [José Ángel Montañés]
-" La venta de     millones de libros represento un    mas de facturacion que en     ",CULTURA
+" La venta de millones de libros represento un mas de facturacion que en",CULTURA
 
 % http://elpais.com/cultura/2014/04/27/actualidad/1398622548_794743.html [Winston Manrique Sabogal]
-" Patrizia de Rachewiltz  nieta de uno de los grandes poetas del siglo XX  publica  Mi Taishan   Se trata de un libro testimonio que enlaza lo clasico con las vanguardias y el presente",CULTURA
+" Patrizia de Rachewiltz nieta de uno de los grandes poetas del siglo XX publica Mi Taishan Se trata de un libro testimonio que enlaza lo clasico con las vanguardias y el presente",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398681213_856860.html [Winston Manrique Sabogal]
-" El jurado premia al autor por  renovar los horizontes de la novela  y destaca la alta cultura literaria",CULTURA
+" El jurado premia al autor por renovar los horizontes de la novela y destaca la alta cultura literaria",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398714565_110348.html [Fernando Savater]
-" Nunca dejamos de pertenecer a nuestra especie  pero no siempre demostramos los valores que le son propios",CULTURA
+" Nunca dejamos de pertenecer a nuestra especie pero no siempre demostramos los valores que le son propios",CULTURA
 
 % http://elpais.com/ccaa/2014/04/28/madrid/1398703290_980879.html [Rafael Fraguas]
-" La comparacion entre el ADN del impar novelista con el de su hermana  enterrada en Alcala de Henares  permitiria contrastar sus identidades  Por RAFAEL FRAGUAS",CULTURA
+" La comparacion entre el ADN del impar novelista con el de su hermana enterrada en Alcala de Henares permitiria contrastar sus identidades Por RAFAEL FRAGUAS",CULTURA
 
 % http://elpais.com/cultura/2014/04/29/actualidad/1398757101_942577.html [Javier Rodríguez Marcos]
-" Hablemos de Rosario Castellanos  que no pudo haber obtenido el galardon porque murio en       dos anos antes de que se concediera por primera vez",CULTURA
+" Hablemos de Rosario Castellanos que no pudo haber obtenido el galardon porque murio en dos anos antes de que se concediera por primera vez",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398720368_012981.html [Anatxu Zabalbeascoa]
-" Recibio el Premio Pritzker en       cuando era uno de los representantes mas cualificados del posmodernismo  Mezclo atrevimiento y sofistificacion",CULTURA
+" Recibio el Premio Pritzker en cuando era uno de los representantes mas cualificados del posmodernismo Mezclo atrevimiento y sofistificacion",CULTURA
 
 % http://elpais.com/cultura/2014/04/17/actualidad/1397751158_420182.html [Toni García]
-" La llegada a Dallas de Schnabel  un artista que genera amor y odio  es testigo del cambio de este paraje estadounidense",CULTURA
+" La llegada a Dallas de Schnabel un artista que genera amor y odio es testigo del cambio de este paraje estadounidense",CULTURA
 
 % http://elpais.com/cultura/2014/04/27/actualidad/1398608205_566294.html [Jacinto Antón]
 " Marti Gironell recrea la Prehistoria espanola y la vida diaria en el Neolitico en su novela El primer heroe",CULTURA
@@ -67,43 +67,43 @@
 " El pintor Antonio Pitxot desvela el lado mas intimo del artista en un libro de conversaciones con el critico Fernando Huici March",CULTURA
 
 % http://elpais.com/cultura/2014/04/15/actualidad/1397571613_599011.html [Angel Luis Sucasas Fernández]
-" Pino Creanza presenta en Espana  Cairo blues   un tebeo que fusiona poesia y reporterismo para narrar el presente de Egipto",CULTURA
+" Pino Creanza presenta en Espana Cairo blues un tebeo que fusiona poesia y reporterismo para narrar el presente de Egipto",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398685961_333391.html [AP]
-" La novela de Harper Lee estara disponible para libros electronicos el   de julio a traves de la editorial HarperCollins",CULTURA
+" La novela de Harper Lee estara disponible para libros electronicos el de julio a traves de la editorial HarperCollins",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398684914_934589.html [Carolina Ethel]
-"  Asymptote  es el proyecto taiwanes de una publicacion  babelica    El cuaderno gris   de Pla  llega a EE UU  Bogota empieza su feria del Libro  Peru invitado",CULTURA
+" Asymptote es el proyecto taiwanes de una publicacion babelica El cuaderno gris de Pla llega a EE UU Bogota empieza su feria del Libro Peru invitado",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398694692_795096.html [Natalia Marcos]
-" La desaparicion repentina de varios de sus habitantes cambia la vida del pueblo de Mapleton  La historia se estrena el    de junio en EE UU",CULTURA
+" La desaparicion repentina de varios de sus habitantes cambia la vida del pueblo de Mapleton La historia se estrena el de junio en EE UU",CULTURA
 
 % http://elpais.com/cultura/2014/04/27/actualidad/1398618274_848015.html [Gregorio Belinchón]
 " La comedia de Emilio Martinez Lazaro ya es la segunda pelicula mas taquillera en la historia de Espana",CULTURA
 
 % http://elpais.com/cultura/2014/04/26/actualidad/1398530346_636110.html [Toni García]
-" El argentino Alan Faena exporta su exitosa experiencia de Puerto Madero  Foster y Koolhaas participan en el proyecto urbanistico",CULTURA
+" El argentino Alan Faena exporta su exitosa experiencia de Puerto Madero Foster y Koolhaas participan en el proyecto urbanistico",CULTURA
 
 % http://elpais.com/cultura/2014/04/17/actualidad/1397752549_145379.html [Rosa Rivas]
-" Se hacen llamar neocarniceros y apuestan por ganaderia sostenible  las maduraciones largas o las reses con pedigri",CULTURA
+" Se hacen llamar neocarniceros y apuestan por ganaderia sostenible las maduraciones largas o las reses con pedigri",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398679389_738102.html [El País]
-" El certamen comunica los encargados de asignar la Palma de Oro  La    edicion se inaugura el proximo    de mayo",CULTURA
+" El certamen comunica los encargados de asignar la Palma de Oro La edicion se inaugura el proximo de mayo",CULTURA
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398693837_671829.html [Francesc Arroyo]
 " El profesor de Historia Contemporanea Ferran Gallego describe en su ultimo libro el magma intelectual que subyace a Falange y sus valores",CULTURA
 
 % http://elpais.com/cultura/2014/04/26/actualidad/1398525630_104638.html [Yumber Vera Rojas]
-" El nuevo disco del duo puertorriqueno  MultiViral  incluye colaboraciones de Julian Assange  Silvio Rodriguez y del escritor Eduardo Galeano",CULTURA
+" El nuevo disco del duo puertorriqueno MultiViral incluye colaboraciones de Julian Assange Silvio Rodriguez y del escritor Eduardo Galeano",CULTURA
 
 % http://elpais.com/cultura/2014/04/26/actualidad/1398512971_660097.html [Luis Doncel]
-" El escritor turcoaleman Akif Pirincci arrasa en Alemania con un libro que ataca a mujeres  homosexuales e inmigrantes",CULTURA
+" El escritor turcoaleman Akif Pirincci arrasa en Alemania con un libro que ataca a mujeres homosexuales e inmigrantes",CULTURA
 
 % http://elpais.com/ccaa/2014/04/25/galicia/1398451962_578258.html [Víctor Honorato, Elisa Lois]
-" Las denominaciones de origen sortean el paron economico La clave es que nuestra materia prima no pueden copiarla  dicen",CULTURA
+" Las denominaciones de origen sortean el paron economico La clave es que nuestra materia prima no pueden copiarla dicen",CULTURA
 
 % http://elpais.com/sociedad/2014/04/27/actualidad/1398626299_206791.html [Anatxu Zabalbeascoa]
-" Los profesionales abogan por un cambio en la manera de construir  Primero fueron los palacios  luego las viviendas y ahora se disenan edificios pensando en la habitabilidad",CULTURA
+" Los profesionales abogan por un cambio en la manera de construir Primero fueron los palacios luego las viviendas y ahora se disenan edificios pensando en la habitabilidad",CULTURA
 
 % http://elpais.com/cultura/2014/04/25/actualidad/1398410903_755623.html [Aurora Intxausti]
 " El jurado destaca el buen retrato de la sociedad espanola como Victor Hugo reflejo la de Paris y Dickens la de Londres",CULTURA
@@ -118,7 +118,7 @@
 " Lo que todos pensaban que era la primera clonacion humana la decada pasada se revelo como un fraude monumental",CULTURA
 
 % http://elpais.com/sociedad/2014/04/28/actualidad/1398707099_823972.html [Emilio de Benito]
-" Han sido desarrollados los primeros programas que deducen el rostro a partir del ADN  Pueden beneficiarse desde la antropologia a los medicos forenses",CULTURA
+" Han sido desarrollados los primeros programas que deducen el rostro a partir del ADN Pueden beneficiarse desde la antropologia a los medicos forenses",CULTURA
 
 % http://elpais.com/sociedad/2014/04/28/actualidad/1398714438_848340.html [Jaime Prats]
 " Los reproches estan incluidos en un informe de la agencia de comercio exterior de Obama",CULTURA
@@ -133,25 +133,25 @@
 " Una guia explica como padres y sanitarios pueden identificar el sufrimiento de los menores que padecen cancer",CULTURA
 
 % http://elpais.com/ccaa/2014/04/28/catalunya/1398689111_289672.html [Clara Blanchar]
-" Francia  Argentina  Alemania  Andorra y Mexico son los paises donde hay mas emigrantes procedentes de Cataluna",CULTURA
+" Francia Argentina Alemania Andorra y Mexico son los paises donde hay mas emigrantes procedentes de Cataluna",CULTURA
 
 % http://elpais.com/sociedad/2014/04/28/actualidad/1398683058_460776.html [Javier Sampedro]
 " Un equipo internacional logra una eficaz derivacion de celulas madre por transferencia nuclear",CULTURA
 
 % http://elpais.com/economia/2014/04/28/vivienda/1398687816_791120.html [El País]
-" La reduccion de un     en la base imponible por cesion de activos intangibles ha permitido reducir       millones de euros",CULTURA
+" La reduccion de un en la base imponible por cesion de activos intangibles ha permitido reducir millones de euros",CULTURA
 
 % http://elpais.com/sociedad/2014/04/27/actualidad/1398624205_316397.html [Alicia Rivera]
 " El cientifico de la Universidad de Tokio se define como mate mago",CULTURA
 
 % http://elpais.com/ccaa/2014/04/27/andalucia/1398616256_879000.html [Ginés Donaire]
-" La Junta de Andalucia abre en el ultimo ano     expedientes sancionadores por destrozos",CULTURA
+" La Junta de Andalucia abre en el ultimo ano expedientes sancionadores por destrozos",CULTURA
 
 % http://elpais.com/sociedad/2014/04/27/actualidad/1398627483_575807.html [AFP]
-" Se han detectado en total     casos  segun ha informado el Ministerio de Sanidad",CULTURA
+" Se han detectado en total casos segun ha informado el Ministerio de Sanidad",CULTURA
 
 % http://elpais.com/ccaa/2014/04/28/madrid/1398703290_980879.html [Rafael Fraguas]
-" La comparacion entre el ADN del impar novelista con el de su hermana  enterrada en Alcala de Henares  permitiria contrastar sus identidades  Por RAFAEL FRAGUAS",CULTURA
+" La comparacion entre el ADN del impar novelista con el de su hermana enterrada en Alcala de Henares permitiria contrastar sus identidades Por RAFAEL FRAGUAS",CULTURA
 
 % http://elpais.com/sociedad/2014/04/27/actualidad/1398621840_044945.html [Francho Barón]
 " El Gobierno autoriza el uso de machos de la especie transmisora modificados para que no puedan engendrar crias viables",CULTURA
@@ -160,13 +160,13 @@
 " Cientificos barceloneses logran reducir el alzheimer en ratones",CULTURA
 
 % http://elpais.com/elpais/2014/04/25/eps/1398421625_433152.html [Raimón Samsó]
-" El secreto esta en ser capaces de dar las gracias cada dia sin que ocurran hecho extraordinarios  Asi se consigue estar mas contentos sean cuales sean las circunstancias de nuestras vidas",CULTURA
+" El secreto esta en ser capaces de dar las gracias cada dia sin que ocurran hecho extraordinarios Asi se consigue estar mas contentos sean cuales sean las circunstancias de nuestras vidas",CULTURA
 
 % http://elpais.com/elpais/2014/04/23/eps/1398276723_622330.html [Correo El País Semanal]
-" En la foto de Aznar  esos ojos no ven lo que los demas  es decir  el mundo que tienen delante  Son los ojos de un iluminado",CULTURA
+" En la foto de Aznar esos ojos no ven lo que los demas es decir el mundo que tienen delante Son los ojos de un iluminado",CULTURA
 
 % http://elpais.com/elpais/2014/04/23/eps/1398277838_812255.html [Juan José Millás]
-" En el oceano de materia gris que llamamos cerebro bulle tambien un mar de ideas y obsesiones que  siendo diferentes en cada uno  resultan identicas observadas en conjunto",CULTURA
+" En el oceano de materia gris que llamamos cerebro bulle tambien un mar de ideas y obsesiones que siendo diferentes en cada uno resultan identicas observadas en conjunto",CULTURA
 
 % http://elpais.com/ccaa/2014/04/26/catalunya/1398465533_345661.html [Jacinto Antón]
 " El Polar Museum de Cambridge es la apoteosis del fetichismo helado",CULTURA
@@ -175,139 +175,139 @@
 " Un equipo de cientificos espanoles inicia hoy la busqueda de los restos del escritor bajo la madrilena iglesia de las Trinitarias",CULTURA
 
 % http://elpais.com/sociedad/2014/04/25/actualidad/1398452799_872940.html [Elena G. Sevillano]
-" La inversion en energias limpias cae en Espana a niveles de      mientras Reino Unido impulsa nuevos proyectos  Las empresas apuestan por la eolica en otros paises europeos",CULTURA
+" La inversion en energias limpias cae en Espana a niveles de mientras Reino Unido impulsa nuevos proyectos Las empresas apuestan por la eolica en otros paises europeos",CULTURA
 
 % http://elpais.com/sociedad/2014/04/25/actualidad/1398445342_458886.html [María Lillo]
-" La fisica nuclear y nieta de Marie Curie esta llena su vitalidad a sus    anos",CULTURA
+" La fisica nuclear y nieta de Marie Curie esta llena su vitalidad a sus anos",CULTURA
 
 % http://elpais.com/elpais/2014/04/25/media/1398458457_716738.html [Heber Longás]
 " Durante menos de dos semanas se trabajara con un georradar y un termografo en el Convento en el que esta enterrado Cervantes para localizar posibles enterramientos",CULTURA
 
 % http://elpais.com/tecnologia/2014/04/25/actualidad/1398428824_704774.html [Iván de Moneo]
-" Un equipo de arqueologos trata de exhumar     millones de cartuchos del mayor fiasco de la historia de los videojuegos",CULTURA
+" Un equipo de arqueologos trata de exhumar millones de cartuchos del mayor fiasco de la historia de los videojuegos",CULTURA
 
 % http://elpais.com/ccaa/2014/04/25/madrid/1398424498_484382.html [Agencias]
-" El proceso dara comienzo el proximo lunes  Una vez los expertos den con el cadaver  no se emplearan tecnicas de identificacion por ADN ya que no existen otras muestran para compararlas",CULTURA
+" El proceso dara comienzo el proximo lunes Una vez los expertos den con el cadaver no se emplearan tecnicas de identificacion por ADN ya que no existen otras muestran para compararlas",CULTURA
 
 % http://elpais.com/elpais/2014/04/24/videos/1398342941_741109.html [El País]
-" Una mole de     kilometros cuadrados se ha desprendido de la Antartida y se adentra en el mar de Amundsen",CULTURA
+" Una mole de kilometros cuadrados se ha desprendido de la Antartida y se adentra en el mar de Amundsen",CULTURA
 
 % http://elpais.com/sociedad/2014/04/24/actualidad/1398366686_292967.html [Oriol Güell]
 " El secretario de Educacion Superior ecuatoriano busca investigadores",CULTURA
 
 % http://elpais.com/elpais/2014/04/24/planeta_futuro/1398359645_931054.html [Pedro L. Alonso]
-" Los esfuerzos de cientos de cientificos y sus financiadores para reducir la incidencia y la mortalidad de esta enfermedad han salvado mas de tres millones de vidas desde el ano     ",CULTURA
+" Los esfuerzos de cientos de cientificos y sus financiadores para reducir la incidencia y la mortalidad de esta enfermedad han salvado mas de tres millones de vidas desde el ano",CULTURA
 
 % http://www.elmundo.es/cultura/2014/04/29/535f9b4522601d27438b4571.html [DAVID VIGARIO]
-" La medida tendra un coste de         euros  segun las previsiones de la Junta  El Gobierno de Jose Antonio Monago ya destino el ano pasado una partida a paliar el IVA del     de la cultura ",CULTURA
+" La medida tendra un coste de euros segun las previsiones de la Junta El Gobierno de Jose Antonio Monago ya destino el ano pasado una partida a paliar el IVA del de la cultura",CULTURA
 
 % http://www.elmundo.es/cultura/2014/04/29/53593c1d268e3ecb528b457a.html [ESTHER ALVARADO | SERGIO ENRÍZQUEZ-NISTAL (vídeo)]
-" Un grupo de teatro formado por jovenes de entre    y    anos pone en escena por primera vez en Espana la version teatral de la obra de William Golding ",CULTURA
+" Un grupo de teatro formado por jovenes de entre y anos pone en escena por primera vez en Espana la version teatral de la obra de William Golding",CULTURA
 
 % http://www.elmundo.es/cultura/2014/04/29/535eac49268e3ec25e8b4575.html [LUIS ALEMANY]
-" Eco  Yourcenar  Cela  Rushdie    Que ha ocurrido para que los autores de calidad hayan desaparecido en las ultimas tres decadas de las listas de ventas ",CULTURA
+" Eco Yourcenar Cela Rushdie Que ha ocurrido para que los autores de calidad hayan desaparecido en las ultimas tres decadas de las listas de ventas",CULTURA
 
 % http://www.elmundo.es/cultura/2014/04/29/535fa423ca47418b1f8b4570.html [GERMÁN GONZÁLEZ]
-" La soprano catalana ha sido llamado a declarar por  supuestamente  haber defraudado cerca de         euros a la Hacienda Publica ",CULTURA
+" La soprano catalana ha sido llamado a declarar por supuestamente haber defraudado cerca de euros a la Hacienda Publica",CULTURA
 
 % http://www.elmundo.es/cultura/2014/04/29/535fa05d22601d33438b4576.html [SALUD HERNÁNDEZ MORA]
-" Vargas Llosa es el protagonista de la Feria del Libro de Bogota  marcada por la reciente muerte de su antiguo amigo adversario  Gabriel Garcia Marquez ",CULTURA
+" Vargas Llosa es el protagonista de la Feria del Libro de Bogota marcada por la reciente muerte de su antiguo amigo adversario Gabriel Garcia Marquez",CULTURA
 
 % http://www.elmundo.es/cultura/2014/04/29/535ed243e2704e5a568b457d.html [DARÍO PRIETO]
-" El actor se ha impuesto en la votacion final al director Gerardo Vera  Terele Pavez  Aitana Sanchez Gijon o Asier Etxeandia eran otros de sus rivales ",CULTURA
+" El actor se ha impuesto en la votacion final al director Gerardo Vera Terele Pavez Aitana Sanchez Gijon o Asier Etxeandia eran otros de sus rivales",CULTURA
 
 % http://www.elmundo.es/andalucia/2014/04/29/535f8888ca4741711f8b457c.html [CRISTÓBAL G. MONTILLA]
-" Tras reabrir en mayo  sus ediciones llevan tres meses paradas por los mismos problemas que ya la tuvieron cerrada durante dos anos",CULTURA
+" Tras reabrir en mayo sus ediciones llevan tres meses paradas por los mismos problemas que ya la tuvieron cerrada durante dos anos",CULTURA
 
 % http://www.elmundo.es/pais-vasco/2014/04/29/535f886d268e3ec12a8b4577.html [J. M. ALONSO]
-" Ante el momento critico que atraviesa el proyecto  Bildu  PSE  PP y PNV tratan de reeditar la fotografia de unidad de hace tres anos  cuando se logro la Capitalidad  Aprueban una declaracion institucional en defensa del proyecto",CULTURA
+" Ante el momento critico que atraviesa el proyecto Bildu PSE PP y PNV tratan de reeditar la fotografia de unidad de hace tres anos cuando se logro la Capitalidad Aprueban una declaracion institucional en defensa del proyecto",CULTURA
 
 % http://www.elmundo.es/cultura/2014/04/28/535e5f32e2704e171f8b4570.html [JULIÁN RUIZ]
-" Nick Drake se murio enfermo de Francoise Hardy  de Camus  del  Concierto de Brandemburgo   de Dylan  de Tryptizol    Nadie lo escuchaba en esa epoca  Su leyenda no ha dejado de crecer desde entonces ",CULTURA
+" Nick Drake se murio enfermo de Francoise Hardy de Camus del Concierto de Brandemburgo de Dylan de Tryptizol Nadie lo escuchaba en esa epoca Su leyenda no ha dejado de crecer desde entonces",CULTURA
 
 % http://www.elmundo.es/cultura/2014/04/28/535eb911ca47415e238b456f.html [JUAN MANUEL BELLVER]
-" El restaurante danes Noma ha arrebatado el primer puesto a los hermanos Roca en el ranking de los    mejores restaurantes del mundo ",CULTURA
+" El restaurante danes Noma ha arrebatado el primer puesto a los hermanos Roca en el ranking de los mejores restaurantes del mundo",CULTURA
 
 % http://www.elmundo.es/cultura/2014/04/29/535f5e73e2704ec0748b4572.html [ELMUNDO.es]
-" E Z Rock  autor y protagonista de  It takes two   uno de los grandes exitos del hip hop en       muere a los    anos ",CULTURA
+" E Z Rock autor y protagonista de It takes two uno de los grandes exitos del hip hop en muere a los anos",CULTURA
 
 % http://www.elmundo.es/cultura/2014/04/29/535f75d2e2704ebd748b456c.html [EFE]
-" Los organizadores del premio ya tenian decidido concederle el homenaje cuando la bailarina murio  el pasado    de febrero ",CULTURA
+" Los organizadores del premio ya tenian decidido concederle el homenaje cuando la bailarina murio el pasado de febrero",CULTURA
 
 % http://www.elmundo.es/cultura/2014/04/29/535f922dca47419f1f8b4570.html [LORETO SÁNCHEZ SEOANE]
-" El sobrino y heredero politico del emperador de Francia no tenia su sangre  segun un estudio cientifico que niega el parentesco entre ambos ",CULTURA
+" El sobrino y heredero politico del emperador de Francia no tenia su sangre segun un estudio cientifico que niega el parentesco entre ambos",CULTURA
 
 % http://www.elmundo.es/economia/2014/04/29/535eae0322601d82268b4580.html [DANIEL J. OLLERO]
-" El edificio  de    plantas  se levanta en una isla natural en la rivera del Tamesis  Al menos un tercio de los londinenses se opone a este tipo de edificaciones ",CULTURA
+" El edificio de plantas se levanta en una isla natural en la rivera del Tamesis Al menos un tercio de los londinenses se opone a este tipo de edificaciones",CULTURA
 
 % http://www.elmundo.es/cultura/2014/04/29/535ef7c522601d49268b4571.html [RAÚL RIVERO]
-" Polemico  monumental  hiriente y escandaloso  Ajuste de cuentas  Agatha        es un libro que Harold Alvarado Tenorio  Buga        escribio para tener un espejo y para multiplicarse y acosar a los batallones de sus enemigos tambien desde los estantes de las bibliotecas ",CULTURA
+" Polemico monumental hiriente y escandaloso Ajuste de cuentas Agatha es un libro que Harold Alvarado Tenorio Buga escribio para tener un espejo y para multiplicarse y acosar a los batallones de sus enemigos tambien desde los estantes de las bibliotecas",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/29/535ea087e2704e58568b4573.html [RAFAEL BACHILLER, MARIO VICIOSA]
-" El    de mayo se producira una lluvia de estrellas que no ha sido vista nunca antes  generada por el    P LINEAR  un cometa que nos visita tan solo cada   anos y que ahora se encuentra cerca del Sol  Todo apunta a que sera posible observar hasta     meteoros por hora en condiciones ideales ",CULTURA
+" El de mayo se producira una lluvia de estrellas que no ha sido vista nunca antes generada por el P LINEAR un cometa que nos visita tan solo cada anos y que ahora se encuentra cerca del Sol Todo apunta a que sera posible observar hasta meteoros por hora en condiciones ideales",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/29/535f627f22601d0a438b4573.html [YULY JARA]
-" El trabajo a escala nacional realizado por la organizacion conservacionista SEO BirdLife revela que el uso de cebos envenenados ha matado       animales domesticos desde      hasta      ",CULTURA
+" El trabajo a escala nacional realizado por la organizacion conservacionista SEO BirdLife revela que el uso de cebos envenenados ha matado animales domesticos desde hasta",CULTURA
 
 % http://www.elmundo.es/salud/2014/04/28/535e4edb22601d43778b456f.html [ÁNGELES LÓPEZ]
-" Un experimento logra la primera clonacion medica a partir de las celulas de un paciente adulto  El hito se ha logrado con una enferma de diabetes  Otro grupo ha aplicado este procedimiento pero en varones sanos de    y    anos ",CULTURA
+" Un experimento logra la primera clonacion medica a partir de las celulas de un paciente adulto El hito se ha logrado con una enferma de diabetes Otro grupo ha aplicado este procedimiento pero en varones sanos de y anos",CULTURA
 
 % http://www.elmundo.es/salud/2014/04/28/533efa7022601d961b8b4582.html [ÁNGELES LÓPEZ]
-" Junto a su marido  Stephen L  Macknik  esta al frente del Instituto Barrow  EEUU   donde utiliza la magia para intentar comprender la base neurologica del conocimiento ",CULTURA
+" Junto a su marido Stephen L Macknik esta al frente del Instituto Barrow EEUU donde utiliza la magia para intentar comprender la base neurologica del conocimiento",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/27/535ac2eeca4741d3608b4580.html [MIGUEL G. CORRAL]
-"    anos despues de la creacion de la Reserva Biologica mas importante de Europa  EL MUNDO visita el espacio natural salvado por Jose Antonio Valverde ",CULTURA
+" anos despues de la creacion de la Reserva Biologica mas importante de Europa EL MUNDO visita el espacio natural salvado por Jose Antonio Valverde",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/27/535abb06ca474103618b457c.html [MIGUEL G. CORRAL]
-" La marisma del hoy Parque Nacional de Donana iba a ser desecada por Franco para hacer una plantacion de pinos y eucaliptos cuando lo impidio el joven naturalista Jose Antonio Valverde ",CULTURA
+" La marisma del hoy Parque Nacional de Donana iba a ser desecada por Franco para hacer una plantacion de pinos y eucaliptos cuando lo impidio el joven naturalista Jose Antonio Valverde",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/25/535a5bbd268e3e3c688b457c.html [YULY JARA]
-" El matematico Jin Akiyama  que ha triunfado en la television japonesa con un programa donde utiliza la magia para explicar esta ciencia exacta  presenta los experimentos de su espectaculo divulgativo en Madrid ",CULTURA
+" El matematico Jin Akiyama que ha triunfado en la television japonesa con un programa donde utiliza la magia para explicar esta ciencia exacta presenta los experimentos de su espectaculo divulgativo en Madrid",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/24/535811ce22601d79318b457f.html [TERESA GUERRERO]
-" El experimentado cosmonauta  que ha pasado mas de     dias en orbita  duda de que sea rentable emprender un viaje tripulado a Marte y reivindica la Luna y la Estacion Espacial Internacional como los lugares mas adecuados para realizar experimentos ",CULTURA
+" El experimentado cosmonauta que ha pasado mas de dias en orbita duda de que sea rentable emprender un viaje tripulado a Marte y reivindica la Luna y la Estacion Espacial Internacional como los lugares mas adecuados para realizar experimentos",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/25/535a1d1d22601d974e8b456c.html [elmundo.es]
-" El peligro de los asteroides es mayor de lo que se creia  Una nueva investigacion ha desvelado que entre los anos      y      se registraron unas    explosiones de meteoros en la atmosfera de nuestro planeta ",CULTURA
+" El peligro de los asteroides es mayor de lo que se creia Una nueva investigacion ha desvelado que entre los anos y se registraron unas explosiones de meteoros en la atmosfera de nuestro planeta",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/23/5357eb7922601d8f318b4586.html [elmundo.es]
-" Los astronautas de la NASA Steve Swanson y Rick Mastracchio  tripulantes de la Estacion Espacial Internacional  ISS   han logrado solucionar el problema durante una caminata de dos horas y media ",CULTURA
+" Los astronautas de la NASA Steve Swanson y Rick Mastracchio tripulantes de la Estacion Espacial Internacional ISS han logrado solucionar el problema durante una caminata de dos horas y media",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/24/5357abaaca4741d50a8b4572.html [YULY JARA]
-" Cientificos espanoles descubren que la  personalidad   mas o menos agresiva  de las hembras de esta especie de arana determina si devoran al macho antes o despues de la copula ",CULTURA
+" Cientificos espanoles descubren que la personalidad mas o menos agresiva de las hembras de esta especie de arana determina si devoran al macho antes o despues de la copula",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/22/535665ffca4741f2118b4583.html [YULY JARA]
-" Greenpeace recrea como quedarian distintos lugares de Espana si continuan acentuandose las consecuencias del cambio climatico y el deshielo del Artico ",CULTURA
+" Greenpeace recrea como quedarian distintos lugares de Espana si continuan acentuandose las consecuencias del cambio climatico y el deshielo del Artico",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/26/535a91d5ca4741d9608b4575.html [GUILLERMO PRUDENCIO]
-" Un miembro de la expedicion de WWF y el Instituto Polar Noruego en Svalvard narra como la perdida de hielo en el Artico debido al aumento de las temperaturas esta afectando ya las rutas que siguen los osos polares para reproducirse y sus habitos de caza ",CULTURA
+" Un miembro de la expedicion de WWF y el Instituto Polar Noruego en Svalvard narra como la perdida de hielo en el Artico debido al aumento de las temperaturas esta afectando ya las rutas que siguen los osos polares para reproducirse y sus habitos de caza",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/24/535928eee2704ed7238b4570.html [elmundo.es]
-" Desafortunadamente  el unico lugar en el mundo donde sera visible este espectaculo astronomico en todo su esplendor es en la Antartida y Australia ",CULTURA
+" Desafortunadamente el unico lugar en el mundo donde sera visible este espectaculo astronomico en todo su esplendor es en la Antartida y Australia",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/24/53592d10e2704e752f8b456f.html [BEATRIZ TRECEÑO]
-" Las cinco grandes ONG ecologistas debaten con los candidatos al Parlamento Europeo de todos los partidos  excepto UPyD y VOX  sus posturas y compromisos en materia de Medio Ambiente ",CULTURA
+" Las cinco grandes ONG ecologistas debaten con los candidatos al Parlamento Europeo de todos los partidos excepto UPyD y VOX sus posturas y compromisos en materia de Medio Ambiente",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/23/5357b6c2ca47410c0b8b4572.html [elmundo.es]
-" Esta semana tiene lugar una de las lluvias de estrellas mas brillantes que se pueden observar desde la Tierra  las Liridas  cuyo numero de meteoros es impredecible ",CULTURA
+" Esta semana tiene lugar una de las lluvias de estrellas mas brillantes que se pueden observar desde la Tierra las Liridas cuyo numero de meteoros es impredecible",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/22/535692ef22601df1278b4579.html [TERESA GUERRERO]
-" Durante los    dias que tardaran en recorrer el perimetro de la mayor isla del mundo  el explorador polar Ramon Larramendi y su equipo recabaran datos y tomaran muestras para varios proyectos cientificos que investigan los cambios en el clima del Artico  Soportaran temperaturas de hasta     y vientos de     kilometros por hora ",CULTURA
+" Durante los dias que tardaran en recorrer el perimetro de la mayor isla del mundo el explorador polar Ramon Larramendi y su equipo recabaran datos y tomaran muestras para varios proyectos cientificos que investigan los cambios en el clima del Artico Soportaran temperaturas de hasta y vientos de kilometros por hora",CULTURA
 
 % http://www.elmundo.es/salud/2014/04/24/5357f029268e3e0a058b4580.html [LAURA TARDÓN]
-" Cientificos australianos han comprobado en cobayas que el implante coclear asociado a una sustancia neuro  regenerativa podria ayudar a mejorar la audicion de las personas con sordera profunda ",CULTURA
+" Cientificos australianos han comprobado en cobayas que el implante coclear asociado a una sustancia neuro regenerativa podria ayudar a mejorar la audicion de las personas con sordera profunda",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/22/53563141268e3ef5478b4570.html [elmundo.es]
-" La organizacion Ciencia con Futuro lanza una campana satirica en internet para denunciar que la precariedad economica de los cientificos espanoles ",CULTURA
+" La organizacion Ciencia con Futuro lanza una campana satirica en internet para denunciar que la precariedad economica de los cientificos espanoles",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/22/534ea286e2704e5d3f8b4575.html [TERESA GUERRERO, ]
-" La maestra italiana Emma Castelnuovo  conocida por sus innovadores metodos de ensenanza de las matematicas  ha fallecido a los cien anos ",CULTURA
+" La maestra italiana Emma Castelnuovo conocida por sus innovadores metodos de ensenanza de las matematicas ha fallecido a los cien anos",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/24/53593552e2704efb238b4576.html [elmundo.es]
-" El Parlamento Europeo ha admitido a tramite una denuncia de la organizacion conservacionista Proyecto Gran Simio por el el maltrato y trato vejatorio sufrido por un grupo de chimpances que son utilizados en un espectaculo circense en Alemania ",CULTURA
+" El Parlamento Europeo ha admitido a tramite una denuncia de la organizacion conservacionista Proyecto Gran Simio por el el maltrato y trato vejatorio sufrido por un grupo de chimpances que son utilizados en un espectaculo circense en Alemania",CULTURA
 
 % http://www.elmundo.es/ciencia/2014/04/21/5354e395e2704eea558b456e.html [elmundo.es]
-" La compania SpaceX realiza un exitoso vuelo de prueba en Texas con un nuevo modelo de cohete reutilizable que podria abaratar de manera espectacular los costes de futuras misiones espaciales ",CULTURA
+" La compania SpaceX realiza un exitoso vuelo de prueba en Texas con un nuevo modelo de cohete reutilizable que podria abaratar de manera espectacular los costes de futuras misiones espaciales",CULTURA
 
 % http://elpais.com/deportes/2014/04/28/champions/1398708997_699855.html [José Sámano]
 " Bayern Munich y Real Madrid se juegan un puesto en la final de Lisboa con armas muy diferentes como se constato en la ida",DEPORTES
@@ -316,226 +316,226 @@
 " El tecnico italiano se muestra cauto frente al fervor de sus futbolistas tras la victoria ante el Bayern en el Bernabeu",DEPORTES
 
 % http://elpais.com/deportes/2014/04/28/champions/1398713690_756535.html [Diego Torres]
-" El lateral zurdo del Bayern de Munich  de    anos  reune potencia y resistencia  es agresivo como defensa y habil en las jugadas de ataque",DEPORTES
+" El lateral zurdo del Bayern de Munich de anos reune potencia y resistencia es agresivo como defensa y habil en las jugadas de ataque",DEPORTES
 
 % http://elpais.com/deportes/2014/04/28/champions/1398676985_558798.html [Agencias]
-" Guardiola ironiza con el equipo blanco  que disputara la vuelta de las semifinales  martes         con la ventaja del     logrado en la ida",DEPORTES
+" Guardiola ironiza con el equipo blanco que disputara la vuelta de las semifinales martes con la ventaja del logrado en la ida",DEPORTES
 
 % http://elpais.com/deportes/2014/02/25/actualidad/1393324599_482687.html [El País]
-" El conjunto blanco se enfrenta a una estadistica demoledora  solo ha ganado dos de    encuentros jugados en Alemania",DEPORTES
+" El conjunto blanco se enfrenta a una estadistica demoledora solo ha ganado dos de encuentros jugados en Alemania",DEPORTES
 
 % http://elpais.com/deportes/2012/04/16/actualidad/1334574730_338224.html [Alejandro Ciriza]
-" Del pisoton de Juanito a Matthaus a la peineta de Van Bommel  Los videos de un gran pulso del futbol europeo",DEPORTES
+" Del pisoton de Juanito a Matthaus a la peineta de Van Bommel Los videos de un gran pulso del futbol europeo",DEPORTES
 
 % http://elpais.com/deportes/2014/04/28/champions/1398711849_312334.html [Ladislao J. Moñino]
-" El delantero hispanobrasileno  que desafio a Terry en el duelo de ida en el Caldeon  espera a un Chelsea mas abierto como local",DEPORTES
+" El delantero hispanobrasileno que desafio a Terry en el duelo de ida en el Caldeon espera a un Chelsea mas abierto como local",DEPORTES
 
 % http://elpais.com/deportes/2014/04/28/champions/1398711001_548799.html [Javier Lafuente]
-" Schwarzer  de    anos  coautor de libros infantiles de futbol  vive a la sombra de Cech pese a su larga trayectoria en la liga inglesa",DEPORTES
+" Schwarzer de anos coautor de libros infantiles de futbol vive a la sombra de Cech pese a su larga trayectoria en la liga inglesa",DEPORTES
 
 % http://elpais.com/deportes/2014/04/11/actualidad/1397200789_948425.html [El País]
-" Vota a tu favorito para levantar la Copa entre Atletico de Madrid  Bayern de Munich  Chelsea y Real Madrid",DEPORTES
+" Vota a tu favorito para levantar la Copa entre Atletico de Madrid Bayern de Munich Chelsea y Real Madrid",DEPORTES
 
 % http://elpais.com/deportes/2014/04/28/actualidad/1398717950_614428.html [Luis Martín]
-" Los hijos de Tito Vilanova  Adria y Carlota  emocionan a los       asistentes al funeral oficiado en la Catedral de Barcelona",DEPORTES
+" Los hijos de Tito Vilanova Adria y Carlota emocionan a los asistentes al funeral oficiado en la Catedral de Barcelona",DEPORTES
 
 % http://elpais.com/deportes/2014/04/28/album/1398708992_024840.html [El País]
-" La plantilla ha acompanado a la familia de Vilanova en su funeral  oficiado en la catedral de Barcelona",DEPORTES
+" La plantilla ha acompanado a la familia de Vilanova en su funeral oficiado en la catedral de Barcelona",DEPORTES
 
 % http://elpais.com/deportes/2014/04/29/actualidad/1398753320_849643.html [Robert Álvarez]
-" LeBron James completa la escabechina ante Charlotte           Atlanta se adelanta     en su duelo con los Pacers           San Antonio iguala a dos su serie ante Dallas        ",DEPORTES
+" LeBron James completa la escabechina ante Charlotte Atlanta se adelanta en su duelo con los Pacers San Antonio iguala a dos su serie ante Dallas",DEPORTES
 
 % http://elpais.com/deportes/2014/04/28/actualidad/1398638174_695590.html [Robert Álvarez]
-" Los jugadores de los Clippers  con la camiseta de entrenamiento del reves ante los Warriors  Obama y Jordan rechazan las ofensas del mandatario",DEPORTES
+" Los jugadores de los Clippers con la camiseta de entrenamiento del reves ante los Warriors Obama y Jordan rechazan las ofensas del mandatario",DEPORTES
 
 % http://elpais.com/deportes/2014/04/28/actualidad/1398681967_436167.html [Juan L. Cudeiro]
-" El Celta abruma a un Valladolid inoperante y sella su permanencia entre los grandes  Marcaron Nolito      Charles  Mitrovic  p  p   y Manucho",DEPORTES
+" El Celta abruma a un Valladolid inoperante y sella su permanencia entre los grandes Marcaron Nolito Charles Mitrovic p p y Manucho",DEPORTES
 
 % http://elpais.com/deportes/2014/04/28/actualidad/1398692251_799444.html [Jaime Ripa]
-" La onubense  de    anos y primera campeona de Europa espanola de badminton  tras su gesta   Aun estoy emocionada ",DEPORTES
+" La onubense de anos y primera campeona de Europa espanola de badminton tras su gesta Aun estoy emocionada",DEPORTES
 
 % http://elpais.com/deportes/2014/04/27/actualidad/1398620618_288382.html [Faustino Sáez]
-" Motivador incomparable  conquisto una Liga y dos Copas con el Madrid y fue el autor de frases celebres como futbol es futbol",DEPORTES
+" Motivador incomparable conquisto una Liga y dos Copas con el Madrid y fue el autor de frases celebres como futbol es futbol",DEPORTES
 
 % http://elpais.com/deportes/2014/04/28/album/1398694460_956193.html []
 " Las imagenes mas espectaculares del deporte internacional",DEPORTES
 
 % http://www.elmundo.es/comunidad-valenciana/2014/04/29/535fc5c5268e3ee02a8b4574.html [elmundo.es]
-" David C  L   es socio  tiene    anos y colaboraba con la escuela  El club recuerda que fue una accion individual que no califica a la aficion   Hemos depurado responsabilidades y puesto al autor en manos de la Policia   dice Roig ",DEPORTES
+" David C L es socio tiene anos y colaboraba con la escuela El club recuerda que fue una accion individual que no califica a la aficion Hemos depurado responsabilidades y puesto al autor en manos de la Policia dice Roig",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535f83a1ca4741711f8b4577.html [elmundo.es]
-" El jugador del Barcelona tambien fue muy critico con la FIFA   Deberia prestar atencion a las cosas  Se deberia concentrar en cosas mas importantes que la Masia  Necesitan prestar atencion a cosas mas serias  ",DEPORTES
+" El jugador del Barcelona tambien fue muy critico con la FIFA Deberia prestar atencion a las cosas Se deberia concentrar en cosas mas importantes que la Masia Necesitan prestar atencion a cosas mas serias",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535fb2cdca4741691f8b4572.html [JOSÉ LUIS PÉREZ TRIVIÑO]
-" Decia Unamuno que el fascismo se cura leyendo y el racismo  viajando  Desgraciadamente ninguno de los dos medicamentos parecen haber curado esas dos grandes lacras ",DEPORTES
+" Decia Unamuno que el fascismo se cura leyendo y el racismo viajando Desgraciadamente ninguno de los dos medicamentos parecen haber curado esas dos grandes lacras",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535fb55bca47418b1f8b4577.html [elmundo.es]
-" El vicepresidente del maximo organismo  John Coates  critica los retrasos   Son peores incluso que los de Atenas         No hay plan B   anade   hay que sacarlo adelante  ",DEPORTES
+" El vicepresidente del maximo organismo John Coates critica los retrasos Son peores incluso que los de Atenas No hay plan B anade hay que sacarlo adelante",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/28/535ea8dee2704e69568b4574.html [PABLO SCARPELLINI]
-" La asociacion de jugadores de la NBA pide que se le impida asistir a los partidos tras los comentarios racistas que se le atribuyen ",DEPORTES
+" La asociacion de jugadores de la NBA pide que se le impida asistir a los partidos tras los comentarios racistas que se le atribuyen",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535f84d5e2704eaa748b457d.html [elmundo.es]
-" La final tendra lugar en el Lanxess Arena de Colonia  Alemania  los dias    de mayo y   de junio  en un duelo inedito en una  Final a Cuatro  ",DEPORTES
+" La final tendra lugar en el Lanxess Arena de Colonia Alemania los dias de mayo y de junio en un duelo inedito en una Final a Cuatro",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/28/535ecd3f22601d62268b4579.html [elmundo.es]
-" El tecnico del Malaga  jugador rojiblanco entre      y       se medira al lider en el Calderon en la penultima jornada ",DEPORTES
+" El tecnico del Malaga jugador rojiblanco entre y se medira al lider en el Calderon en la penultima jornada",DEPORTES
 
 % http://www.elmundo.es/andalucia/2014/04/28/535ea1bf268e3e975e8b4575.html [elmundo.es]
-" La windsurfista sufrio un accidente durante una regata en la semana olimpica de Hyeres  Francia  Se golpeo la cabeza y quedo insconsciente y flotando boca abajo ",DEPORTES
+" La windsurfista sufrio un accidente durante una regata en la semana olimpica de Hyeres Francia Se golpeo la cabeza y quedo insconsciente y flotando boca abajo",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535fb570268e3eb32a8b457b.html [elmundo.es]
-" Simeone se llevo a toda la plantilla  includo Gabi  sancionado por tarjetas  Se esperan temperaturas de    grados de maxima en la capital inglesa  Ademas  las casas de apuestas ven igualdad en la eliminatoria ",DEPORTES
+" Simeone se llevo a toda la plantilla includo Gabi sancionado por tarjetas Se esperan temperaturas de grados de maxima en la capital inglesa Ademas las casas de apuestas ven igualdad en la eliminatoria",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535f9222e2704ebe748b4577.html [elmundo.es]
-" La sesion de entrenamiento del Chelsea estuvo marcada por la presencia de los  tocados  ",DEPORTES
+" La sesion de entrenamiento del Chelsea estuvo marcada por la presencia de los tocados",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535f7d2be2704eac748b456f.html [JAIME RODRÍGUEZ]
-" El club y el vestuario blanco evitan entrar en los juegos mentales de Guardiola        aficionados blancos llegan a la ciudad bavara para empujar al equipo hacia la final de Lisboa",DEPORTES
+" El club y el vestuario blanco evitan entrar en los juegos mentales de Guardiola aficionados blancos llegan a la ciudad bavara para empujar al equipo hacia la final de Lisboa",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535fb570268e3eb32a8b457b.html [EL MUNDO]
-" Simeone se llevo a toda la plantilla  includo Gabi  sancionado por tarjetas  Se esperan temperaturas de    grados de maxima en la capital inglesa  Ademas  las casas de apuestas ven igualdad en la eliminatoria ",DEPORTES
+" Simeone se llevo a toda la plantilla includo Gabi sancionado por tarjetas Se esperan temperaturas de grados de maxima en la capital inglesa Ademas las casas de apuestas ven igualdad en la eliminatoria",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535faacd268e3ec82a8b457c.html [EUROPA PRESS]
-" El seleccionador espanol  Vicente del Bosque  afirmo que la polemica por asuntos de racismo creada en torno a la figura de Dani Alves tras el incidente en el partido del Barcelona",DEPORTES
+" El seleccionador espanol Vicente del Bosque afirmo que la polemica por asuntos de racismo creada en torno a la figura de Dani Alves tras el incidente en el partido del Barcelona",DEPORTES
 
 % http://www.elmundo.es/comunidad-valenciana/2014/04/29/535fa450ca47417f1f8b4573.html [EFE]
-" Villarreal se une a La Fe en proyecto solidario para ninos con cancerEl Villarreal  el Hospital Universitari La Fe de Valencia  la pena  Celtic Submari  y la ONG Aspanion  Asociacion de padres con Ninos oncologicos   han presentado este martes un proyecto solidario denominado  Unidos por la esperanza  para la lucha contra el cancer infantil y sus efectos Concretamente esta actuacion busca promover y financiar una linea de investigacion que permita que los ninos enfermos con cancer  puedan superar las secuelas de esterilidad que los tratamientos pueden producirles ",DEPORTES
+" Villarreal se une a La Fe en proyecto solidario para ninos con cancerEl Villarreal el Hospital Universitari La Fe de Valencia la pena Celtic Submari y la ONG Aspanion Asociacion de padres con Ninos oncologicos han presentado este martes un proyecto solidario denominado Unidos por la esperanza para la lucha contra el cancer infantil y sus efectos Concretamente esta actuacion busca promover y financiar una linea de investigacion que permita que los ninos enfermos con cancer puedan superar las secuelas de esterilidad que los tratamientos pueden producirles",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535f9222e2704ebe748b4577.html [EUROPA PRESS]
-" La sesion de entrenamiento del Chelsea de este martes estuvo marcada por la presencia de los  tocados  ",DEPORTES
+" La sesion de entrenamiento del Chelsea de este martes estuvo marcada por la presencia de los tocados",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535f83a1ca4741711f8b4577.html [Europa Press]
-" El jugador del Barcelona tambien fue muy critico con la FIFA   Deberia prestar atencion a las cosas  Se deberia concentrar en cosas mas importantes que la Masia  Necesitan prestar atencion a cosas mas serias  ",DEPORTES
+" El jugador del Barcelona tambien fue muy critico con la FIFA Deberia prestar atencion a las cosas Se deberia concentrar en cosas mas importantes que la Masia Necesitan prestar atencion a cosas mas serias",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535f60b122601d2c438b456b.html [JAIME RODRÍGUEZ]
-" Ancelotti pide valentia al Madrid  en el partido mas importante del club desde        Quieren quemar arboles  pero va a llover  ",DEPORTES
+" Ancelotti pide valentia al Madrid en el partido mas importante del club desde Quieren quemar arboles pero va a llover",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535f68a1e2704ebb748b456e.html [CARLOS FRESNEDA]
-" El entrenador portugues espera recuperar a Eden Hazard  el elegido mejor joven de la Premier ",DEPORTES
+" El entrenador portugues espera recuperar a Eden Hazard el elegido mejor joven de la Premier",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535f65dee2704ec0748b4578.html [JAVIER MARTÍNEZ]
-" El controvertido delantero marco dos goles cruciales al Bayern en la semifinal que precedio a la conquista de la octava Copa de Europa ",DEPORTES
+" El controvertido delantero marco dos goles cruciales al Bayern en la semifinal que precedio a la conquista de la octava Copa de Europa",DEPORTES
 
 % http://www.elmundo.es/deportes/2014/04/29/535f60a622601d2b438b4572.html [EDUARDO J. CASTELAO]
-" Gabi  autor del pase a Raul Garcia ante el Valencia  ausente por sancion frente al Chelsea  pone voz al vestuario del Atletico   Ire con la bufanda   afirma ",DEPORTES
+" Gabi autor del pase a Raul Garcia ante el Valencia ausente por sancion frente al Chelsea pone voz al vestuario del Atletico Ire con la bufanda afirma",DEPORTES
 
 % http://www.elmundo.es/elmundodeporte/futbol/ligas-europeas/ [elmundo.es]
-"  a href  http   www elmundo es elmundodeporte futbol liga francesa clasificacion html  Francia  a     a href  http   www elmundo es elmundodeporte futbol liga holandesa clasificacion html  Holanda  a     a href  http   www elmundo es elmundodeporte futbol liga portuguesa index html  Portugal  a     a href  http   www elmundo es elmundodeporte futbol liga belga index html  Belgica  a     a href  http   www elmundo es elmundodeporte futbol liga rusa index html  Rusia  a     a href  http   www elmundo es elmundodeporte futbol liga turca index html  TUR  a ",DEPORTES
+" a href http www elmundo es elmundodeporte futbol liga francesa clasificacion html Francia a a href http www elmundo es elmundodeporte futbol liga holandesa clasificacion html Holanda a a href http www elmundo es elmundodeporte futbol liga portuguesa index html Portugal a a href http www elmundo es elmundodeporte futbol liga belga index html Belgica a a href http www elmundo es elmundodeporte futbol liga rusa index html Rusia a a href http www elmundo es elmundodeporte futbol liga turca index html TUR a",DEPORTES
 
 % http://www.elmundo.es/elmundodeporte/futbol/ligas-americanas/index.html [elmundo.es]
-"  a href  http   www elmundo es elmundodeporte futbol liga argentina index html  ARG  a     a href  http   www elmundo es deportes futbol liga mexicana index html  MEX  a     a href  http   www elmundo es elmundodeporte futbol liga colombiana apertura index html  COL  a     a href  http   www elmundo es elmundodeporte futbol liga peruana index html  PER  a     a href  http   www elmundo es elmundodeporte futbol liga ecuatoriana index html  ECU  a     a href  http   www elmundo es elmundodeporte futbol liga chilena clausura index html  CHI  a     a href  http   www elmundo es elmundodeporte futbol ligas brasil carioca tg index html  BRA  a ",DEPORTES
+" a href http www elmundo es elmundodeporte futbol liga argentina index html ARG a a href http www elmundo es deportes futbol liga mexicana index html MEX a a href http www elmundo es elmundodeporte futbol liga colombiana apertura index html COL a a href http www elmundo es elmundodeporte futbol liga peruana index html PER a a href http www elmundo es elmundodeporte futbol liga ecuatoriana index html ECU a a href http www elmundo es elmundodeporte futbol liga chilena clausura index html CHI a a href http www elmundo es elmundodeporte futbol ligas brasil carioca tg index html BRA a",DEPORTES
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398785224_994547.html [Anabel Díez]
-" La vicepresidenta rechaza haber percibido sobresueldos  La socialista Soraya Rodriguez asegura que recibio         euros",POLITICA
+" La vicepresidenta rechaza haber percibido sobresueldos La socialista Soraya Rodriguez asegura que recibio euros",POLITICA
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398773630_030018.html [Anabel Díez]
-" Pere Navarro  Es muy grave que la victima de una agresion se convierta en sospechosa",POLITICA
+" Pere Navarro Es muy grave que la victima de una agresion se convierta en sospechosa",POLITICA
 
 % http://elpais.com/ccaa/2014/04/29/catalunya/1398774725_935619.html [Miquel Noguer]
-" Tras la agresion a Navarro  el portavoz catalan dice que algunos actores politicos tienen  tentaciones  de  criminalizar  el movimiento independentista",POLITICA
+" Tras la agresion a Navarro el portavoz catalan dice que algunos actores politicos tienen tentaciones de criminalizar el movimiento independentista",POLITICA
 
 % http://elpais.com/ccaa/2014/04/29/catalunya/1398781207_244913.html [EFE]
-" El magistrado ha reconocido que    jueces redactan una supuesta constitucion para una eventual Cataluna independiente",POLITICA
+" El magistrado ha reconocido que jueces redactan una supuesta constitucion para una eventual Cataluna independiente",POLITICA
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398755948_946571.html [El País]
-" El presidente del Consejo Europeo  Herman van Rompuy  afirma que prefiere que no se produzca la independencia de Cataluna",POLITICA
+" El presidente del Consejo Europeo Herman van Rompuy afirma que prefiere que no se produzca la independencia de Cataluna",POLITICA
 
 % http://elpais.com/ccaa/2014/04/28/catalunya/1398698937_193921.html [Pere Ríos]
-" La lider del PSOE critica al presidente del Gobierno   Cree que el tiempo lo arregla todo y yo creo que lo agrava ",POLITICA
+" La lider del PSOE critica al presidente del Gobierno Cree que el tiempo lo arregla todo y yo creo que lo agrava",POLITICA
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398756839_217955.html [Francesco Manetto]
-" Hernando   El sabra si tiene otros problemas de agenda  No tengo nada mas que decir ",POLITICA
+" Hernando El sabra si tiene otros problemas de agenda No tengo nada mas que decir",POLITICA
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398688646_991563.html [Bruno García Gallo, Carlos E. Cué]
-"  Ahora  a otra cosa   asegura el expresidente  Esperanza Aguirre dice que le montara un mitin en Madrid",POLITICA
+" Ahora a otra cosa asegura el expresidente Esperanza Aguirre dice que le montara un mitin en Madrid",POLITICA
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398706681_282275.html [Fernando J. Pérez]
-" La Sala de lo Penal decide la excarcelacion de otros    presuntos traficantes acogiendose a la reforma de la ley",POLITICA
+" La Sala de lo Penal decide la excarcelacion de otros presuntos traficantes acogiendose a la reforma de la ley",POLITICA
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398771407_899889.html [José María Jiménez Gálvez]
-" Amnistia Internacional inicia una campana contra la  creciente restriccion  en Espana del derecho de manifestacion y expresion",POLITICA
+" Amnistia Internacional inicia una campana contra la creciente restriccion en Espana del derecho de manifestacion y expresion",POLITICA
 
 % http://elpais.com/politica/2014/04/29/videos/1398775422_339165.html [Atlas]
-" La nueva titular de Agricultura afirma que  culminara el proyecto  que su predecesor  Miguel Arias Canete  tenia para el Ministerio",POLITICA
+" La nueva titular de Agricultura afirma que culminara el proyecto que su predecesor Miguel Arias Canete tenia para el Ministerio",POLITICA
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398670628_883990.html [Carlos E. Cué]
-" Sustituye al cabeza de lista del PP a las elecciones europeas  Canete  Ha tomado posesion esta tarde ante el Rey",POLITICA
+" Sustituye al cabeza de lista del PP a las elecciones europeas Canete Ha tomado posesion esta tarde ante el Rey",POLITICA
 
 % http://elpais.com/ccaa/2014/04/29/andalucia/1398769551_122498.html [Javier Martín-Arroyo]
-" La fiscalia evita solicitar prision preventiva para uno de los dos exconcejales socialistas imputados  Alaya afirma que la conclusion de la investigacion se  estima en breve plazo ",POLITICA
+" La fiscalia evita solicitar prision preventiva para uno de los dos exconcejales socialistas imputados Alaya afirma que la conclusion de la investigacion se estima en breve plazo",POLITICA
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398784581_707955.html [Marién Kadner López]
-" Los irregulares que entraron por Ceuta y Melilla se duplican en       frente a un     menos que llego en patera",POLITICA
+" Los irregulares que entraron por Ceuta y Melilla se duplican en frente a un menos que llego en patera",POLITICA
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398789414_844473.html [José Antonio Hernández]
-" Pilar Sepulveda  consejera progresista  presenta su informe  La conservadora Carmen Llombart aun no ha hecho publico el suyo",POLITICA
+" Pilar Sepulveda consejera progresista presenta su informe La conservadora Carmen Llombart aun no ha hecho publico el suyo",POLITICA
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398709941_457359.html [María Fernández]
-" La Junta prepara un decreto para blindar sus competencias sobre los municipios  Otras tres comunidades han hecho lo mismo",POLITICA
+" La Junta prepara un decreto para blindar sus competencias sobre los municipios Otras tres comunidades han hecho lo mismo",POLITICA
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398693037_989389.html [Andreu Manresa]
-" Bauza quiere reducir de    a    los parlamentarios  Segun el PP  la medida es lo que piden los ciudadanos",POLITICA
+" Bauza quiere reducir de a los parlamentarios Segun el PP la medida es lo que piden los ciudadanos",POLITICA
 
 % http://elpais.com/ccaa/2014/04/28/valencia/1398706403_933499.html [Ezequiel Moltó]
 " El lider de IU afirma que los populares no asumen su responsabilidad politica",POLITICA
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398685849_220661.html [Marina Gómez Robledo Ramos]
-" Sosa Wagner anuncia que el plan con el que su formacion buscara escanos en Bruselas costara     millones de euros",POLITICA
+" Sosa Wagner anuncia que el plan con el que su formacion buscara escanos en Bruselas costara millones de euros",POLITICA
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398681744_468061.html [El País]
 " Cables desclasificados por EE UU reflejan temores del entonces principe Juan Carlos en visperas de la muerte de Franco",POLITICA
 
 % http://elpais.com/internacional/2014/04/29/actualidad/1398790716_186883.html [María Antonia Sánchez-Vallejo]
-" El numero de edificios en manos rebeldes aumenta a dos semanas del referendum Cinco lideres separatistas  en la lista de sancionados por la Union Europea",POLITICA
+" El numero de edificios en manos rebeldes aumenta a dos semanas del referendum Cinco lideres separatistas en la lista de sancionados por la Union Europea",POLITICA
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398703216_010712.html [Claudi Pérez]
-" El viceprimer ministro ruso responsable de supervisar la anexion de Crimea a Rusia  Dmitri Kozak  y varios dirigentes separatistas de Donetsk tambien figuran en la lista",POLITICA
+" El viceprimer ministro ruso responsable de supervisar la anexion de Crimea a Rusia Dmitri Kozak y varios dirigentes separatistas de Donetsk tambien figuran en la lista",POLITICA
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398684011_241094.html [Pilar Bonet]
-" Kiev abrio contra el regidor una investigacion por amenazas y supuesto secuestro de dos activistas del  Euromaidan",POLITICA
+" Kiev abrio contra el regidor una investigacion por amenazas y supuesto secuestro de dos activistas del Euromaidan",POLITICA
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398712258_470273.html [Luis Doncel, Agencias]
 " Una delegacion de la OSCE negocia en Ucrania con los rebeldes prorrusos",POLITICA
 
 % http://elpais.com/internacional/2014/04/29/actualidad/1398750272_901898.html [Jose Reinoso]
-" Los ejercicios  similares a los realizados por Corea del Norte a finales de marzo  aumentan la tension en la zona",POLITICA
+" Los ejercicios similares a los realizados por Corea del Norte a finales de marzo aumentan la tension en la zona",POLITICA
 
 % http://elpais.com/internacional/2014/04/29/actualidad/1398775328_416099.html [Agencias]
-" El Observatorios Sirio de Derechos Humanos ha alertado de otro ataque en Damasco en el que    personas han perdido la vida",POLITICA
+" El Observatorios Sirio de Derechos Humanos ha alertado de otro ataque en Damasco en el que personas han perdido la vida",POLITICA
 
 % http://elpais.com/internacional/2014/04/29/actualidad/1398772753_247915.html [Javier Casqueiro]
 " El Consejo de Seguridad de la ONU valora los progresos y promesas del Gobierno marroqui sobre los derechos humanos",POLITICA
 
 % http://elpais.com/internacional/2014/04/29/actualidad/1398785374_864674.html [Ángeles Espinosa]
-" En visperas de la visita del rey Juan Carlos  los disturbios siguen sacudiendo cada noche ese pequeno reino arabe",POLITICA
+" En visperas de la visita del rey Juan Carlos los disturbios siguen sacudiendo cada noche ese pequeno reino arabe",POLITICA
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398708076_105376.html [Ignacio Fariza]
-" El ministro principal  Alex Salmond  cree que el peligro para la UE esta en el referendum sobre la permanencia britanica",POLITICA
+" El ministro principal Alex Salmond cree que el peligro para la UE esta en el referendum sobre la permanencia britanica",POLITICA
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398695154_133209.html [Walter Oppenheimer]
-" La formacion de Farage encabeza los sondeos europeos en Reino Unido  que le otorgan el     de los votos",POLITICA
+" La formacion de Farage encabeza los sondeos europeos en Reino Unido que le otorgan el de los votos",POLITICA
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398702719_566595.html [Miguel Mora]
 " El primer ministro frances garantiza a los diputados que los pensionistas que menos cobran mantendran su poder adquisitivo",POLITICA
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398703283_016317.html [Ángeles Espinosa]
-" El primer ministro Al Maliki aspira a un tercer mandato a pesar de las criticas por no haber frenado el sectarismo  Por  ANGELES ESPINOSA",POLITICA
+" El primer ministro Al Maliki aspira a un tercer mandato a pesar de las criticas por no haber frenado el sectarismo Por ANGELES ESPINOSA",POLITICA
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398701978_865192.html [Javier Casqueiro]
 " Nombra a su ultimo jefe de campana primer ministro y reclama un pacto a la oposicion para cambiar la Constitucion",POLITICA
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398677642_379480.html [Ricard González]
-" El mismo tribunal tambien impone la pena capital por terrorismo a otras     personas  supuestamente seguidores de la Hermandad",POLITICA
+" El mismo tribunal tambien impone la pena capital por terrorismo a otras personas supuestamente seguidores de la Hermandad",POLITICA
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398719477_556592.html [Lara Otero]
-" Canberra convoca un concurso para mapear con sonares        kilometros cuadrados de fondo marino por    millones",POLITICA
+" Canberra convoca un concurso para mapear con sonares kilometros cuadrados de fondo marino por millones",POLITICA
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398682253_611137.html [Jose Reinoso]
-" Aumentara la rotacion de soldados  barcos y aviones de combate  Obama afirma que la alianza contribuye a la paz en la region",POLITICA
+" Aumentara la rotacion de soldados barcos y aviones de combate Obama afirma que la alianza contribuye a la paz en la region",POLITICA
 
 % http://elpais.com/internacional/2014/04/29/actualidad/1398723736_263972.html [El País]
-" El periodista y politico fue estrecho colaborador de Aung San Suu Kyi  Paso    anos en la carcel por sus criticas al regimen",POLITICA
+" El periodista y politico fue estrecho colaborador de Aung San Suu Kyi Paso anos en la carcel por sus criticas al regimen",POLITICA
 
 % http://elpais.com/internacional/2014/04/27/actualidad/1398626195_232832.html [Juan Gómez]
 " Las horas finales del periodo de negociacion entre israelies y palestinos impulsado con vigor por EE UU se esfuman",POLITICA
@@ -544,119 +544,119 @@
 " Miles de musulmanes resisten en Bangui el cerco de la milicia cristiana",POLITICA
 
 % http://elpais.com/elpais/2014/04/29/planeta_futuro/1398773755_036586.html [El País]
-" El centro que la organizacion gestiona en Boguila  al norte del pais  fue asaltado el pasado sabado por hombres armados de la exSeleka durante una reunion con    lideres locales",POLITICA
+" El centro que la organizacion gestiona en Boguila al norte del pais fue asaltado el pasado sabado por hombres armados de la exSeleka durante una reunion con lideres locales",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535f72a1268e3eed2a8b4570.html [XAVIER COLÁS]
-" Vichislav Ponomariov mantiene retenidos a seis miembros de la OSCE desde el viernes  Asegura que solo negociara su liberacion si la UE levanta las sanciones ",POLITICA
+" Vichislav Ponomariov mantiene retenidos a seis miembros de la OSCE desde el viernes Asegura que solo negociara su liberacion si la UE levanta las sanciones",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535f6f76268e3ebb2a8b4570.html [ROSALÍA SÁNCHEZ]
-" Asi lo refleja la prensa germana en los articulos que acompanan a la fotografia  tomada anoche  de Schroder y el presidente ruso fundidos en un abrazo ",POLITICA
+" Asi lo refleja la prensa germana en los articulos que acompanan a la fotografia tomada anoche de Schroder y el presidente ruso fundidos en un abrazo",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535f688b268e3ebf2a8b4572.html [JUAN MANUEL BELLVER]
-" Esta tarde  el primer ministro frances se la  juega  en la Asamblea Nacional  donde se sometera a votacion su polemico Pacto de Responsabilidad ",POLITICA
+" Esta tarde el primer ministro frances se la juega en la Asamblea Nacional donde se sometera a votacion su polemico Pacto de Responsabilidad",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535fc01dca4741791f8b458c.html [LLUÍS MIQUEL HURTADO]
-" Ankara quiere que Washington deporte a Fethullah Gullen  maximo lider de la congregacion islamica Hizmet  acusado de promover un golpe de Estado en los    ",POLITICA
+" Ankara quiere que Washington deporte a Fethullah Gullen maximo lider de la congregacion islamica Hizmet acusado de promover un golpe de Estado en los",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535fad4922601d33438b457b.html [CARLOS FRESNEDA]
-" Conservadores  laboristas y liberaldemocratas se unen contra el Partido de la Independencia  que ya es la primera opcion a las europeas segun los sondeos ",POLITICA
+" Conservadores laboristas y liberaldemocratas se unen contra el Partido de la Independencia que ya es la primera opcion a las europeas segun los sondeos",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535f38a422601d34438b456c.html [SAL EMERGUI]
-" Israelies y palestinos acaban hoy nueves meses de negociaciones acusandose mutuamente y dejando el proceso de paz en muerte clinica ",POLITICA
+" Israelies y palestinos acaban hoy nueves meses de negociaciones acusandose mutuamente y dejando el proceso de paz en muerte clinica",POLITICA
 
 % http://www.elmundo.es/america/2014/04/29/535f462d268e3ed52a8b456b.html [elmundo.es]
-" El cuerpo de Eliezer Otaiza se encontro sin identificar con cuatro impactos de bala en El Hatillo  a las afueras de Caracas  Se abre una investigacion ",POLITICA
+" El cuerpo de Eliezer Otaiza se encontro sin identificar con cuatro impactos de bala en El Hatillo a las afueras de Caracas Se abre una investigacion",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535f6326268e3ee92a8b456d.html [elmundo.es]
-" Los atentados tienen lugar en plena campana electoral para las presidenciales y un dia despues de que Bashar Asad se postulara para un tercer mandato ",POLITICA
+" Los atentados tienen lugar en plena campana electoral para las presidenciales y un dia despues de que Bashar Asad se postulara para un tercer mandato",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535f6205268e3ec02a8b456e.html [elmundo.es]
-" Asma Asad aparece en publico para ayudar a conseguir votos al actual mandatario  El regimen se ha metido en un frenesi de inauguraciones y entrega de ayuda ",POLITICA
+" Asma Asad aparece en publico para ayudar a conseguir votos al actual mandatario El regimen se ha metido en un frenesi de inauguraciones y entrega de ayuda",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535f1093268e3ebc5e8b4571.html [elmundo.es]
-" Corea del Sur advierte de que respondera  con firmeza  si caen proyectiles a sus aguas  Las maniobras se producen tres dias despues de la visita a Seul de Obama ",POLITICA
+" Corea del Sur advierte de que respondera con firmeza si caen proyectiles a sus aguas Las maniobras se producen tres dias despues de la visita a Seul de Obama",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535ea736e2704e62568b4574.html [JAVIER G. GALLEGO]
-" Si los aplausos marcaran el resultado  el liberal Verhofstadt seria el vencedor  Y el popular Juncker  el claro perdedor tras mostrarse ausente y despistado ",POLITICA
+" Si los aplausos marcaran el resultado el liberal Verhofstadt seria el vencedor Y el popular Juncker el claro perdedor tras mostrarse ausente y despistado",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535ea5f222601d68268b4572.html [ROSALÍA SÁNCHEZ]
-" El candidato del principal partido euroesceptico aleman  Alternativa por alemania  AfD   Hans Olaf Henkel  respalda el derecho a la autodeterminacion de Cataluna y Escocia  a la vez que pide que Espana abandone el barco antes de que lo hunda ",POLITICA
+" El candidato del principal partido euroesceptico aleman Alternativa por alemania AfD Hans Olaf Henkel respalda el derecho a la autodeterminacion de Cataluna y Escocia a la vez que pide que Espana abandone el barco antes de que lo hunda",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535e07b2268e3e5e6a8b456a.html [FRANCISCO CARRIÓN]
-" La sentencia tiene lugar un mes despues de la condena a muerte de     personas  Entre los sentenciados  se encuentra el guia supremo de la Hermandad  Badia ",POLITICA
+" La sentencia tiene lugar un mes despues de la condena a muerte de personas Entre los sentenciados se encuentra el guia supremo de la Hermandad Badia",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535eae79e2704e76568b457f.html [FRANCISCO CARRIÓN]
-" Uno de los condenados a muerte por el juez Said Yusef habla con EL MUNDO y rehusa a revelar su pais de acogida por miedo a represalias ",POLITICA
+" Uno de los condenados a muerte por el juez Said Yusef habla con EL MUNDO y rehusa a revelar su pais de acogida por miedo a represalias",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535e9297e2704e73568b4570.html [F. C.]
-" El Codigo Penal egipcio contempla la pena de muerte  pero hasta ahora los tribunales no habian recurrido al cadalso de un modo tan alegre ",POLITICA
+" El Codigo Penal egipcio contempla la pena de muerte pero hasta ahora los tribunales no habian recurrido al cadalso de un modo tan alegre",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535e9abee2704e6c568b4574.html [IRENE HDEZ. VELASCO]
-" El ex secretario de Estado vaticano se queja de que su nueva residencia haya sido comparada con la  presunta estrechez  de la suite en la que vive el Papa ",POLITICA
+" El ex secretario de Estado vaticano se queja de que su nueva residencia haya sido comparada con la presunta estrechez de la suite en la que vive el Papa",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/27/535cafece2704edf188b456b.html [IRENE HDEZ. VELASCO]
-" Juan XXIII y Juan Pablo II son proclamados santos en una ceremonia concelebrada por Francisco y Benedicto XVI en San Pedro ante un millon de personas ",POLITICA
+" Juan XXIII y Juan Pablo II son proclamados santos en una ceremonia concelebrada por Francisco y Benedicto XVI en San Pedro ante un millon de personas",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/27/535d46b9268e3e497a8b4571.html [Papa Emérito Benedicto XVI]
-" Dio un giro impensable a la historia de la Iglesia  gracias a un concepto de actualizacion arraigado en la lucha por una forma verdadera de santidad  Asi se cuenta en este texto publicado en  L Osservatore Romano  ",POLITICA
+" Dio un giro impensable a la historia de la Iglesia gracias a un concepto de actualizacion arraigado en la lucha por una forma verdadera de santidad Asi se cuenta en este texto publicado en L Osservatore Romano",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/27/535d3b9ae2704eac188b4571.html [PAPA FRANCISCO]
-" Recuerda el autor  en este texto publicado por  L Osservatore Romano   que Karol Wojtyla decia que  lo que necesita este siglo no son maestros  son testigos   Y el lo fue ",POLITICA
+" Recuerda el autor en este texto publicado por L Osservatore Romano que Karol Wojtyla decia que lo que necesita este siglo no son maestros son testigos Y el lo fue",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535f6b06268e3ebd2a8b4571.html [C. FRESNEDA]
-" Un alumno de    anos la apunalo en el cuello en clase  El agresor estaba tomando antidepresivos y prometio vengarse por una sancion ",POLITICA
+" Un alumno de anos la apunalo en el cuello en clase El agresor estaba tomando antidepresivos y prometio vengarse por una sancion",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535fd58c268e3ed82a8b457c.html [elmundo.es]
-" El Tribunal de Apelacion de Florencia  que condeno en enero a Amanda Knox y Raffaele Sollecito  descarta ahora el movil sexual en el crimen  Kercher fue hallada degollada en su piso de estudiantes en el ano      ",POLITICA
+" El Tribunal de Apelacion de Florencia que condeno en enero a Amanda Knox y Raffaele Sollecito descarta ahora el movil sexual en el crimen Kercher fue hallada degollada en su piso de estudiantes en el ano",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535fc4ba268e3ecd2a8b457f.html [JUAN IGNACIO IRIGARAY]
-" La menor  de    anos  fue violada por su padrastro  Su madre denuncia que cuando acudio a los servicios medicos tardaron en atenderla y cuando lo hicieran el embarazo estaba ya muy avanzado ",POLITICA
+" La menor de anos fue violada por su padrastro Su madre denuncia que cuando acudio a los servicios medicos tardaron en atenderla y cuando lo hicieran el embarazo estaba ya muy avanzado",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/29/535fd72de2704ecb748b4579.html [elmundo.es]
-" En en edificio se estaba celebrando la votacion para la eleccion de un nuevo primer ministro  tras la renuncia el pasado dia    de abril del jefe de Gobierno interino  Abdala al Zani ",POLITICA
+" En en edificio se estaba celebrando la votacion para la eleccion de un nuevo primer ministro tras la renuncia el pasado dia de abril del jefe de Gobierno interino Abdala al Zani",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535e8653ca474153238b456b.html [M. F. IBÁÑEZ, PABLO L. OROSA]
-" Sunies  turcomanos y kurdos se disputan el poder en Kirkuk  provincia petrolifera simbolica en las elecciones de este miercoles ",POLITICA
+" Sunies turcomanos y kurdos se disputan el poder en Kirkuk provincia petrolifera simbolica en las elecciones de este miercoles",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535e6b77ca474190158b4584.html [C. FRESNEDA]
-" Peter Glazebrooke  un agricultor britanico celebre por las enormes hortalizas que cultiva en su huerto  ha ingresado en el Guinnes por la col mas grande jamas cosechada ",POLITICA
+" Peter Glazebrooke un agricultor britanico celebre por las enormes hortalizas que cultiva en su huerto ha ingresado en el Guinnes por la col mas grande jamas cosechada",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535e94f2ca474159238b4571.html [elmundo.es]
-" La casi nonagenaria Elisabeth Kalhammer rememora en una entrevista sus vivencias en el refugio del dictador en Berchtesgaden ",POLITICA
+" La casi nonagenaria Elisabeth Kalhammer rememora en una entrevista sus vivencias en el refugio del dictador en Berchtesgaden",POLITICA
 
 % http://www.elmundo.es/america/2014/04/28/535e751a22601d82268b456a.html [elmundo.es]
-" Tres mujeres de        y    anos se encuentran detenidas como presuntas autoras de la paliza  aparentemente motivada por celos y premeditada ",POLITICA
+" Tres mujeres de y anos se encuentran detenidas como presuntas autoras de la paliza aparentemente motivada por celos y premeditada",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535e13f4268e3e4e6a8b456b.html [L. GÓMEZ]
-" El ministro de Asuntos Exteriores britanico  William Hague  resalta las  incertidumbres  que se encuentran en el plan de Alex Salmond ",POLITICA
+" El ministro de Asuntos Exteriores britanico William Hague resalta las incertidumbres que se encuentran en el plan de Alex Salmond",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535ea948e2704e84568b4570.html [elmundo.es]
-" El ministro principal afirma que la independencia les permitiria contribuir en Europa a diferencia de la posicion euroesceptica mostrada por los sucesivos Gobiernos britanicos ",POLITICA
+" El ministro principal afirma que la independencia les permitiria contribuir en Europa a diferencia de la posicion euroesceptica mostrada por los sucesivos Gobiernos britanicos",POLITICA
 
 % http://www.elmundo.es/america/2014/04/28/535eabefe2704e76568b457a.html [elmundo.es]
-" El religioso estaba siendo buscado desde agosto de      tras ser identificado por victimas de la dictadura  Se ofrecian        euros a quien lo encontrara ",POLITICA
+" El religioso estaba siendo buscado desde agosto de tras ser identificado por victimas de la dictadura Se ofrecian euros a quien lo encontrara",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535e014b268e3e776a8b456d.html [elmundo.es]
-" Corea del Norte afirmo que en la rueda de prensa que ofrecio con Obama  Park Geun hye  mostro su verdadera cara como una perversa aduladora y traidora  ",POLITICA
+" Corea del Norte afirmo que en la rueda de prensa que ofrecio con Obama Park Geun hye mostro su verdadera cara como una perversa aduladora y traidora",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/28/535e88d2ca474176238b456b.html [elmundo.es]
-" Un artista japones escanea y convierte en obra plastica los niveles de radiaccion de la planta nuclear para concienciar de sus efectos ",POLITICA
+" Un artista japones escanea y convierte en obra plastica los niveles de radiaccion de la planta nuclear para concienciar de sus efectos",POLITICA
 
 % http://www.elmundo.es/internacional/2014/04/26/535be67a268e3e7e088b4572.html [J. M. COMAS]
-" Los socialdemocratas han pedido que el Partido Popular Europeo  PPE  se pronuncie con determinacion por este  descarrilamiento intolerable contra los ciudadanos alemanes  ",POLITICA
+" Los socialdemocratas han pedido que el Partido Popular Europeo PPE se pronuncie con determinacion por este descarrilamiento intolerable contra los ciudadanos alemanes",POLITICA
 
 % http://www.elmundo.es/america/2014/04/28/535e28d8268e3e656a8b4570.html [EUROPA PRESS]
-" El numero de oficiales detenidos asciende a     Todos ellos forman parte de un mismo grupo contra quienes  hay graves indicios  sobre su  actuacion sediciosa  ",POLITICA
+" El numero de oficiales detenidos asciende a Todos ellos forman parte de un mismo grupo contra quienes hay graves indicios sobre su actuacion sediciosa",POLITICA
 
 % http://www.elmundo.es/america/2014/04/28/535df55e268e3e796a8b456b.html [elmundo.es]
-" Las autoridades han confirmado la muerte de    personas en Arkansas  mientras que al menos dos han fallecido en Oklahoma y otra persona en Iowa ",POLITICA
+" Las autoridades han confirmado la muerte de personas en Arkansas mientras que al menos dos han fallecido en Oklahoma y otra persona en Iowa",POLITICA
 
 % http://www.elmundo.es/internacional/2014/03/29/5331a764e2704e800e8b4579.html [VICENTE ROMERO]
-" Los herbicidas que se usaron como arma quimica siguen causando victimas  mas de    anos despues  Cruz Roja Espanola y Unicef mantienen programas de ayuda a quienes todavia sufren consecuencias de los defoliantes ",POLITICA
+" Los herbicidas que se usaron como arma quimica siguen causando victimas mas de anos despues Cruz Roja Espanola y Unicef mantienen programas de ayuda a quienes todavia sufren consecuencias de los defoliantes",POLITICA
 
 % http://www.elmundo.es/internacional/2014/03/26/5331ab1ae2704e820e8b457d.html [V. ROMERO]
-" La prostitucion infantil ha disminuido y el pais asiatico ya no es un paraiso de pederastas  Un restaurante ha recuperado a un total de       adolescentes victimas del abandono ",POLITICA
+" La prostitucion infantil ha disminuido y el pais asiatico ya no es un paraiso de pederastas Un restaurante ha recuperado a un total de adolescentes victimas del abandono",POLITICA
 
 % http://www.elmundo.es/internacional/2014/03/03/530dc9e2e2704e87048b4574.html [VICENTE ROMERO]
-" Tres meses y medio despues del tifon  Yolanda   mas de cuatro millones de personas viven en albergues provisionales  La ayuda gubernamental apenas llega a campesinos y pescadores  que son los sectores mas empobrecidos ",POLITICA
+" Tres meses y medio despues del tifon Yolanda mas de cuatro millones de personas viven en albergues provisionales La ayuda gubernamental apenas llega a campesinos y pescadores que son los sectores mas empobrecidos",POLITICA
 
