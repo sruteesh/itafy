@@ -87,9 +87,9 @@ public class FeedReader {
 
 	/**
 	 * Creates a output arff file using {@link utils.fileWriter.ArffWriter ArffWritter class}</br>
-	 * The arff file could be used by Weka
+	 * The arff file could be used by Weka as the data model
 	 * <p>
-	 * <code>/conf/weka_model.arff</code>
+	 * Note: the arff file will be saved in the default <code>DEFAULT_OUT_PATH</code>
 	 * 
 	 * @return success; false if IOException raised while execution or not configuration file read
 	 */
@@ -124,6 +124,17 @@ public class FeedReader {
 	}
 
 
+	/**
+	 * Taking one <em>feed</em>, which contains several articles from newspapers, that corresponds
+	 * to a <em>category</em>;
+	 * get an array of <code>WritableElement</code> instances
+	 * <p>
+	 * Note a <code>WritableElement</code> describes the tuple {comment + text + category}
+	 * 
+	 * @param feed one feed contains several articles (<code>feed.getMessages()</code>)
+	 * @param categoryAsString corresponding to each article of the feed
+	 * @return array of <code>WritableElement</code> instances {comment + text + category}
+	 */
 	private ArrayList<WritableElement> getWritableElementsForFeed(Feed feed, String categoryAsString) {
 		ArrayList<WritableElement> response = new ArrayList<WritableElement>();
 		for (FeedMsg msg : feed.getMessages()) {
@@ -166,7 +177,7 @@ public class FeedReader {
 		List<String> linksOfLastCategory = new ArrayList<String>();
 		String lastCategory = "";
 
-		// if no more lines the readLine() returns null
+		// if no more lines readLine() returns null
 		while ((line = br.readLine()) != null) {
 			if (newCategoryDeclaration(line)) {
 				if (lastCategory != "") {
@@ -195,6 +206,14 @@ public class FeedReader {
 		return false;
 	}
 
+	private String buildDefaultOutputPath() {
+		return DEFAULT_OUT_PATH + DateHelper.today() + ".arff";
+	}
+
+
+	/**
+	 * Describes the tuple {comment + text + category}
+	 */
 	private class WritableElement {
 		String comment;
 		String text;
@@ -204,10 +223,6 @@ public class FeedReader {
 			this.text = text;
 			this.classification = classification;
 		}
-	}
-
-	private String buildDefaultOutputPath() {
-		return DEFAULT_OUT_PATH + DateHelper.today() + ".arff";
 	}
 
 }
