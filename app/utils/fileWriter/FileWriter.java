@@ -29,8 +29,14 @@ public class FileWriter {
 		return true;
 	}
 
-	public void writeEnter() {
-		writeText("");
+	public boolean writeEnter() {
+		return writeText("");
 	}
 
+	public static boolean isEmpty(String line) {
+		if ((line == null) || line.isEmpty() || line.equals("\n")) {
+			return true;
+		}
+		return false;
+	}
 }
