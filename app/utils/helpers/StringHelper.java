@@ -60,9 +60,9 @@ public final class StringHelper {
 			normalizedWord = StringHelper.normalizeVowels(word);
 			normalizedWord = StringHelper.normaliceAsciiChars(normalizedWord);
 			normalizedWord = StringHelper.removeNonAlphabeticChars(normalizedWord);
-			response += " " + normalizedWord;
+			response += normalizedWord + " ";
 		}
-		return response;
+		return response.substring(0, response.length() - 1); // remove last " "
 	}
 
 }
