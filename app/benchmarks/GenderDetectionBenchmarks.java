@@ -15,7 +15,7 @@ import java.util.Map.Entry;
 import models.data.MongoClientData;
 import models.entities.TwitterName;
 import org.jongo.MongoCollection;
-import utils.helpers.StringHelper;
+import utils.helpers.NormalizeHelper;
 import controllers.db.DbNames;
 
 public class GenderDetectionBenchmarks extends MongoClientData {
@@ -348,12 +348,12 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 
 	private static String normalize(String name) {
 		name = name.toLowerCase();
-		name = StringHelper.normalizeVowels(name);
-		name = StringHelper.normaliceAsciiChars(name);
+		name = NormalizeHelper.normalizeVowels(name);
+		name = NormalizeHelper.normaliceAsciiChars(name);
 
 		// comment this line to measure the improvement of remove non alphabetic
 		// chars
-		name = StringHelper.removeNonAlphabeticChars(name);
+		name = NormalizeHelper.removeNonAlphabeticChars(name);
 
 		return name;
 	}

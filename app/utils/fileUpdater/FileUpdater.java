@@ -103,9 +103,8 @@ public class FileUpdater {
 	private boolean updateLine(String line) {
 		boolean response;
 		if (isContent(line)) {
-			System.out.println("==> " + line); //XXX
 			String content = getContentToNormalize(line);
-			content = utils.helpers.StringHelper.normalize(content);
+			content = utils.helpers.NormalizeHelper.normalizeText(content);
 			String classAsString = getClassValue(line);
 			response = writer.writeData(content, classAsString);
 		} else {

@@ -139,7 +139,7 @@ public class FeedReader {
 		ArrayList<WritableElement> response = new ArrayList<WritableElement>();
 		for (FeedMsg msg : feed.getMessages()) {
 			String comment = msg.buildComment();
-			String text = utils.helpers.StringHelper.normalize(msg.getDescription());
+			String text = utils.helpers.NormalizeHelper.normalizeText(msg.getDescription());
 			WritableElement element = new WritableElement(comment, text, categoryAsString);
 			response.add(element);
 		}
