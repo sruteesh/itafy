@@ -14,7 +14,8 @@ public class TextClassifierExample {
 	// Stackoverflow#3844307
 
 	private static final String MODEL_PATH =
-			"/Users/manutero/workspace/itafy/app/utils/textClassifier/exampleFiles/example-model.arff";
+			//"/Users/manutero/workspace/itafy/app/utils/textClassifier/exampleFiles/example-model.arff";
+			"/Users/manutero/workspace/itafy/weka-data/2014_04_29.arff";
 
 	private static final String POLITIC_QUERY_PATH =
 			"/Users/manutero/workspace/itafy/app/utils/textClassifier/exampleFiles/query_politica.txt";
@@ -69,10 +70,10 @@ public class TextClassifierExample {
 		System.out.println("We do know it's a politic text");
 		System.out.println(response);
 
-		String economyQuery = FileHelper.readTextFile(ECONOMY_QUERY_PATH);
-		response = classifier.classifyMessage(economyQuery);
-		System.out.println("We do know it's a economic text");
-		System.out.println(response);
+		//		String economyQuery = FileHelper.readTextFile(ECONOMY_QUERY_PATH);
+		//		response = classifier.classifyMessage(economyQuery);
+		//		System.out.println("We do know it's a economic text");
+		//		System.out.println(response);
 
 		String sportQuery = FileHelper.readTextFile(SPORT_QUERY_PATH);
 		response = classifier.classifyMessage(sportQuery);
