@@ -98,13 +98,13 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 
 	private static void startEvaluation() {
 
-		// there is a total of 217 Twitter names' manually marked
-		int limit = 200;
+		int limit = 1000;
 
 		Iterable<TwitterName> twitterNames = twitterNamesCollection
-				.find("{genre: {$exists: true}, location: {$within: {$polygon: #}}}",
-						getSpainPolygon())
-				// .find("{genre: {$exists: true}}")
+				// .find("{genre: {$exists: true}, location: {$within: {$polygon: #}}}",
+				// getSpainPolygon())
+				// .find("{location: {$exists: false}}")
+				.find()
 				.limit(limit)
 				.as(TwitterName.class);
 
@@ -116,7 +116,7 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 			String description = twitterName.getDescription();
 			String genre = twitterName.getGenre();
 			boolean verbose = false;
-			response = algorithmC(name, description, verbose);
+			response = algorithmB(name, verbose);
 			boolean isRealMale = genre.equals("MALE");
 			boolean isRealFemale = genre.equals("FEMALE");
 			boolean isRealUnknown = genre.equals("OTHER") || genre.equals("UNKNOWN");
@@ -136,10 +136,10 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 			}
 		}
 
-		System.out.println("True positive: " + truePositive + "\t" + (truePositive * 100) / limit + "%");
-		System.out.println("True negative: " + trueNegative + "\t" + (trueNegative * 100) / limit + "%");
-		System.out.println("False positive: " + falsePositive + "\t" + (falsePositive * 100) / limit + "%");
-		System.out.println("False negative: " + falseNegative + "\t" + (falseNegative * 100) / limit + "%");
+		System.out.println("True positive " + truePositive);
+		System.out.println("True negative " + trueNegative);
+		System.out.println("False positive " + falsePositive);
+		System.out.println("False negative " + falseNegative);
 	}
 
 	private static List<Double[]> getSpainPolygon() {
