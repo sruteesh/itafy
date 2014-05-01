@@ -10,7 +10,7 @@ import models.geoLocation.AvaibleLocations;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import twitter4j.GeoLocation;
-import utils.Helper;
+import utils.helpers.CollectionHelper;
 import controllers.db.DbNames;
 
 /**
@@ -59,7 +59,7 @@ public class GeoTweetData extends MongoClientData {
 	 */
 	public static ArrayList<Object> getGeoTweets() {
 		Iterable<GeoTweet> records = geoTweetCollection.find().as(GeoTweet.class);
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class GeoTweetData extends MongoClientData {
 				.find(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
 				.as(GeoTweet.class);
 
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class GeoTweetData extends MongoClientData {
 				.find("{category: #}", category.getName())
 				.as(GeoTweet.class);
 
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class GeoTweetData extends MongoClientData {
 				.find(query, date)
 				.as(GeoTweet.class);
 
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -143,7 +143,7 @@ public class GeoTweetData extends MongoClientData {
 				.find(query, cat.getName(), loc.getMaxLat(), loc.getMinLat(), loc.getMaxLong(), loc.getMinLong())
 				.as(GeoTweet.class);
 
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -165,7 +165,7 @@ public class GeoTweetData extends MongoClientData {
 				.find(query, date, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
 				.as(GeoTweet.class);
 
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**

@@ -1,0 +1,410 @@
+@relation categories-model
+@attribute Message string
+@attribute Class {POLITICA,CULTURA,DEPORTES}
+
+@data
+% http://elpais.com/cultura/2014/04/30/actualidad/1398859382_690429.html [Daniel Verdú]
+"juez sentencia restituyan euros mensuales expresidente entidad derechos autor",CULTURA
+
+% http://elpais.com/cultura/2014/04/30/actualidad/1398870996_800541.html [El País]
+"informe incluye pais observados especiales recomienda asesorandolo",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398800668_476915.html [Gregorio Belinchón]
+"director vuelve ofrecer imaginativas formulas exhibicion ofrecio gratis pantallas Carmina amen",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398793525_405123.html [Carlos Boyero]
+"Paco Leon evidencia poseer cerebro poderoso peliculas inventa osadia hacerlas publico",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398804650_646229.html [Joan Faus]
+"Gentleman Guide Love Murder Hedwig Angry Inch encabezan candidaturas edicion",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398755428_862424.html [Jacinto Antón]
+"hallazgo Valle Reyes medio centenar cuerpos principes princesas dinastia Tutankamon enciende egiptologia",CULTURA
+
+% http://elpais.com/ccaa/2014/04/29/andalucia/1398795594_291682.html [Valme Cortés]
+"sexta campana excavaciones templo Tutmosis III desvela conjunto reutilizado epoca Ramses II VALME CORTES",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398786271_068693.html [Iker Seisdedos]
+"museo nacional reune cerca trescientas obras reflexionar juego dimension publica arte",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398798309_695968.html [Rafael Fraguas]
+"Culmina peinado termografico iglesia enterrado escritor",CULTURA
+
+% http://elpais.com/politica/2014/04/29/actualidad/1398776751_377851.html [Jesús García]
+"acusada defraudar medio millon declarar dinero Andorra",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398793994_957084.html [Álvaro P. Ruiz de Elvira]
+"Actores Oscar Isaac Adam Driver John Boyega unen veteranos Max Von Sydow",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398793452_379562.html [Patricia Tubella]
+"grupo artistas protesta veto carceles britanicas instrumentos cuerdas acero polemica abrio libros",CULTURA
+
+% http://elpais.com/cultura/2014/04/28/actualidad/1398705708_269803.html [Angel Luis Sucasas Fernández]
+"Neil Burger duo protagonista defienden Divergente filme futuro apocaliptico adolescentes",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398789879_238890.html [Javier Ocaña]
+"aparentemente agradable realidad plomiza pelicula vitola cine inmensas minorias",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398799226_381824.html [Javier Ocaña]
+"realizador neoyorquino director Mac Illuminata salido trabajo rarisimo mismo protagonista bobo disparatado",CULTURA
+
+% http://elpais.com/cultura/2014/04/30/actualidad/1398858839_974200.html [Marcos Ordóñez]
+"Duro apenas portadas aparecian igual Eric Burdon Gianni Morandi Stones Sylvie Vartan",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398790985_204448.html [Javier Ocaña]
+"pelicula inspirada Kramer Kramer comparar obra semejante desproposito duele",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398785519_278370.html [El País]
+"Horarios sinopsis videos imagenes peliculas llegan cartelera programacion salas",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398788053_587245.html [Jordi Costa]
+"Janos Szasz presente alergia sentimental personajes libro podido evitar traicionar material",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/tentaciones/1398781740_318571.html [Yumber Vera Rojas]
+"Chico Mann alter ego bailable Marcos Garcia miembro conocido combo Antibalas",CULTURA
+
+% http://elpais.com/cultura/2014/04/30/actualidad/1398830467_557890.html [Juan Diego Quesada]
+"restaurante mexicano Biko lista mejores cocineros continuan trabajando ajenos dictamen",CULTURA
+
+% http://elpais.com/cultura/2014/04/28/actualidad/1398707923_236427.html [Rosa Rivas]
+"Noma danes Rene Redzepi lidera cuarta vez lista World Best desplaza Celler Can Roca",CULTURA
+
+% http://elpais.com/cultura/2014/04/30/actualidad/1398855315_899356.html [José Carlos Capel]
+"nuevo listado desgarrador nunca cocineros descalabros importantes",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398800948_800070.html [Gregorio Belinchón]
+"guionista Drive debuta director adaptando thriller homonimo autora estadounidense Viggo Mortensen Kirsten Dunst",CULTURA
+
+% http://elpais.com/cultura/2014/04/30/actualidad/1398810810_514594.html [Manuel Palacios]
+"Experto talla mundial cine periferico Africa India Fundo dirigio Secuencias revista referencia cinefilos",CULTURA
+
+% http://elpais.com/cultura/2014/04/30/actualidad/1398853723_772547.html [Miguel Ángel García Vega]
+"obras maestras Instituto Artes Detroit DIA siglas ingles cuesta disfrutar tranquilidad",CULTURA
+
+% http://elpais.com/ccaa/2014/04/29/valencia/1398790530_539022.html [Ferran Bono]
+"candidato debera licenciado saber ingles castellano conocer valenciano",CULTURA
+
+% http://elpais.com/cultura/2014/04/28/actualidad/1398694804_179381.html [Iñigo López Palacios]
+"cantante productor grabado album versiones van Albert Pla Schumann Morente Edith Piaf",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398781286_935385.html [EFE]
+"monto euros persona destina incentivar compra libros musica prensa entradas",CULTURA
+
+% http://elpais.com/cultura/2014/04/28/actualidad/1398715312_240276.html [Patricia Tubella]
+"mini British Museum William Burrell piezas antiguedad impresionistas gira mundo medio gran polemica",CULTURA
+
+% http://elpais.com/ccaa/2014/04/29/paisvasco/1398771918_430200.html [Inés P. Chávarri]
+"alcalde San Sebastian destaca ciudad encima instituciones debe liderar proyecto partidos Ayuntamiento pactan texto defensa capitalidad comprometiendose trabajar juntos",CULTURA
+
+% http://elpais.com/cultura/2014/04/28/actualidad/1398712004_554114.html [Anatxu Zabalbeascoa]
+"legado Oriol Bohigas Rafael Moneo Juan Navarro Baldeweg sintetiza nueva coleccion videos",CULTURA
+
+% http://elpais.com/cultura/2014/04/25/actualidad/1398448501_014092.html [Flor Gragera de León]
+"Josu Lapresa redactor jefe Rolling Stone reconstruye libro persona pasos hacia Pequeno disco salvo musico",CULTURA
+
+% http://elpais.com/cultura/2014/04/28/actualidad/1398681213_856860.html [Winston Manrique Sabogal]
+"jurado premia autor renovar horizontes novela destaca alta cultura literaria",CULTURA
+
+% http://elpais.com/cultura/2014/04/28/actualidad/1398714565_110348.html [Fernando Savater]
+"Nunca dejamos pertenecer especie siempre demostramos valores propios",CULTURA
+
+% http://elpais.com/cultura/2014/04/28/actualidad/1398720368_012981.html [Anatxu Zabalbeascoa]
+"Recibio Premio Pritzker representantes cualificados posmodernismo Mezclo atrevimiento sofistificacion",CULTURA
+
+% http://elpais.com/cultura/2014/04/17/actualidad/1397751158_420182.html [Toni García]
+"llegada Dallas Schnabel artista genera amor odio testigo cambio paraje estadounidense",CULTURA
+
+% http://elpais.com/cultura/2014/04/27/actualidad/1398608205_566294.html [Jacinto Antón]
+"Marti Gironell recrea Prehistoria espanola vida diaria Neolitico novela primer heroe",CULTURA
+
+% http://elpais.com/cultura/2014/04/16/actualidad/1397641355_651274.html [Ángeles García]
+"pintor Antonio Pitxot desvela lado intimo artista libro conversaciones critico Fernando Huici March",CULTURA
+
+% http://elpais.com/cultura/2014/04/15/actualidad/1397571613_599011.html [Angel Luis Sucasas Fernández]
+"Pino Creanza presenta Espana Cairo blues tebeo fusiona poesia reporterismo narrar presente Egipto",CULTURA
+
+% http://elpais.com/cultura/2014/04/28/actualidad/1398685961_333391.html [AP]
+"novela Harper Lee disponible libros electronicos julio traves editorial HarperCollins",CULTURA
+
+% http://elpais.com/cultura/2014/04/27/actualidad/1398618274_848015.html [Gregorio Belinchón]
+"comedia Emilio Martinez Lazaro segunda pelicula taquillera historia Espana",CULTURA
+
+% http://elpais.com/cultura/2014/04/26/actualidad/1398530346_636110.html [Toni García]
+"argentino Alan Faena exporta exitosa experiencia Puerto Madero Foster Koolhaas participan proyecto urbanistico",CULTURA
+
+% http://elpais.com/cultura/2014/04/17/actualidad/1397752549_145379.html [Rosa Rivas]
+"hacen neocarniceros apuestan ganaderia sostenible maduraciones largas reses pedigri",CULTURA
+
+% http://elpais.com/cultura/2014/04/26/actualidad/1398525630_104638.html [Yumber Vera Rojas]
+"nuevo disco duo puertorriqueno MultiViral incluye colaboraciones Julian Assange Silvio Rodriguez escritor Eduardo Galeano",CULTURA
+
+% http://elpais.com/cultura/2014/04/26/actualidad/1398512971_660097.html [Luis Doncel]
+"escritor turcoaleman Akif Pirincci arrasa Alemania libro ataca mujeres homosexuales inmigrantes",CULTURA
+
+% http://elpais.com/sociedad/2014/04/30/actualidad/1398861333_720398.html [Emilio de Benito]
+"primer informe mundial OMS pone cifras problema alerta riesgo volver epoca preantibioticos Ningun pais libre cepas responden medicamentos",CULTURA
+
+% http://elpais.com/sociedad/2014/04/29/actualidad/1398797359_414494.html [Alicia Rivera]
+"experto explica uso Analisis Riesgos Adversarios",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398798309_695968.html [Rafael Fraguas]
+"Culmina peinado termografico iglesia enterrado escritor",CULTURA
+
+% http://elpais.com/elpais/2014/04/29/media/1398790586_006239.html [Rodrigo Silva]
+"Tumba KV rama sudoeste uadi",CULTURA
+
+% http://elpais.com/sociedad/2014/04/29/actualidad/1398782707_412101.html [Emilio de Benito]
+"injerto tumores persona roedores secuenciacion genetica permite probar tratamiento eficaz",CULTURA
+
+% http://elpais.com/sociedad/2014/04/29/actualidad/1398767130_252503.html [Emilio de Benito]
+"descubridor celulas madre iPS admite pudo error imagen articulo anterior",CULTURA
+
+% http://elpais.com/sociedad/2014/04/28/actualidad/1398707505_024610.html [Javier Sampedro]
+"pensaban primera clonacion humana decada pasada revelo fraude monumental",CULTURA
+
+% http://elpais.com/cultura/2014/04/29/actualidad/1398755428_862424.html [Jacinto Antón]
+"hallazgo Valle Reyes medio centenar cuerpos principes princesas dinastia Tutankamon enciende egiptologia",CULTURA
+
+% http://elpais.com/sociedad/2014/04/28/actualidad/1398707099_823972.html [Emilio de Benito]
+"desarrollados primeros programas deducen rostro partir ADN Pueden beneficiarse antropologia medicos forenses",CULTURA
+
+% http://elpais.com/sociedad/2014/04/28/actualidad/1398714438_848340.html [Jaime Prats]
+"reproches informe agencia comercio exterior Obama",CULTURA
+
+% http://elpais.com/elpais/2014/04/28/opinion/1398709258_044803.html [Cartas al Director]
+"Oportunidades empresariales",CULTURA
+
+% http://elpais.com/elpais/2014/04/28/media/1398708940_641957.html [El País]
+"Celulas obtenidas productoras insulina",CULTURA
+
+% http://elpais.com/sociedad/2014/04/25/actualidad/1398430073_587170.html [Elizabeth Ramírez Restrepo]
+"guia explica padres sanitarios pueden identificar sufrimiento menores padecen cancer",CULTURA
+
+% http://elpais.com/ccaa/2014/04/28/catalunya/1398689111_289672.html [Clara Blanchar]
+"Francia Argentina Alemania Andorra Mexico paises emigrantes procedentes Cataluna",CULTURA
+
+% http://elpais.com/sociedad/2014/04/28/actualidad/1398683058_460776.html [Javier Sampedro]
+"equipo internacional logra eficaz derivacion celulas madre transferencia nuclear",CULTURA
+
+% http://elpais.com/economia/2014/04/28/vivienda/1398687816_791120.html [El País]
+"reduccion base imponible cesion activos intangibles permitido reducir millones euros",CULTURA
+
+% http://elpais.com/sociedad/2014/04/27/actualidad/1398624205_316397.html [Alicia Rivera]
+"cientifico Universidad Tokio define mate mago",CULTURA
+
+% http://elpais.com/ccaa/2014/04/27/andalucia/1398616256_879000.html [Ginés Donaire]
+"Junta Andalucia abre ultimo expedientes sancionadores destrozos",CULTURA
+
+% http://elpais.com/sociedad/2014/04/27/actualidad/1398627483_575807.html [AFP]
+"detectado total casos informado Ministerio Sanidad",CULTURA
+
+% http://elpais.com/ccaa/2014/04/28/madrid/1398703290_980879.html [Rafael Fraguas]
+"comparacion ADN impar novelista hermana enterrada Alcala Henares permitiria contrastar identidades RAFAEL FRAGUAS",CULTURA
+
+% http://elpais.com/sociedad/2014/04/27/actualidad/1398621840_044945.html [Francho Barón]
+"Gobierno autoriza uso machos especie transmisora modificados puedan engendrar crias viables",CULTURA
+
+% http://elpais.com/elpais/2014/04/26/opinion/1398532749_191563.html [El País]
+"Cientificos barceloneses logran reducir alzheimer ratones",CULTURA
+
+% http://elpais.com/elpais/2014/04/25/eps/1398421625_433152.html [Raimón Samsó]
+"secreto capaces dar gracias dia ocurran extraordinarios consigue contentos cuales circunstancias vidas",CULTURA
+
+% http://elpais.com/elpais/2014/04/23/eps/1398276723_622330.html [Correo El País Semanal]
+"foto Aznar ojos demas decir mundo delante ojos iluminado",CULTURA
+
+% http://elpais.com/elpais/2014/04/23/eps/1398277838_812255.html [Juan José Millás]
+"oceano materia gris llamamos cerebro bulle mar ideas obsesiones diferentes resultan identicas observadas conjunto",CULTURA
+
+% http://elpais.com/ccaa/2014/04/26/catalunya/1398465533_345661.html [Jacinto Antón]
+"Polar Museum Cambridge apoteosis fetichismo helado",CULTURA
+
+% http://elpais.com/cultura/2014/04/25/actualidad/1398455035_667888.html [Rafael Fraguas]
+"equipo cientificos espanoles inicia busqueda restos escritor madrilena iglesia Trinitarias",CULTURA
+
+% http://elpais.com/sociedad/2014/04/25/actualidad/1398452799_872940.html [Elena G. Sevillano]
+"inversion energias limpias cae Espana niveles Reino Unido impulsa nuevos proyectos empresas apuestan eolica paises europeos",CULTURA
+
+% http://elpais.com/sociedad/2014/04/25/actualidad/1398445342_458886.html [María Lillo]
+"fisica nuclear nieta Marie Curie llena vitalidad",CULTURA
+
+% http://elpais.com/elpais/2014/04/25/media/1398458457_716738.html [Heber Longás]
+"semanas trabajara georradar termografo Convento enterrado Cervantes localizar posibles enterramientos",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/30/5360eeaf268e3ed56f8b4575.html [AGENCIAS | EL MUNDO]
+"interprete britanico conocido papeles peliculas familiares Super Mario Bros Roger Rabbit Hook",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/30/5360e9b722601d4b128b4573.html [LORETO SÁNCHEZ SEOANE]
+"companera Mirecka Ploss publicara Jan Karski unico hombre conte verdad",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/30/535fe409ca47418a1f8b4578.html [LUIS MARTÍNEZ]
+"DocumentaMadrid inaugura Armstrong lie Alex Gibney desmesurada historia ambicion desmesurada",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/30/535fe14bca4741881f8b4575.html [LUIS MARTÍNEZ]
+"Paco Leon ensena modales cine convierte revolucionaria extraneza primera pelicula simple comedia Brillante simple",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/30/53611111ca4741f3368b457c.html [elmundo.es]
+"oleos dibujos pertenecientes coleccion italiana pinacoteca viajaran Australia exhibirse partir mayo Galeria Nacional Victoria Melbourne",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/30/53602a6a268e3eb52a8b458c.html [FRANCISCO CARRIÓN]
+"jueves turistas podran visitar facsimil busca detener deterioro sufre tumba original hallazgo",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/30/5360e175ca4741f1368b4574.html [LUIS MARTÍNEZ]
+"entradas agotaron hora salas proyectaron pelicula paco Leon alternativa hacer",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/30/5360a9d3ca474103378b456e.html [JOSÉ FAJARDO]
+"ciudad poblada seres crueles amorales inspira antologia underground britanica It dark in London Alan Moore partida",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/30/535f584422601d2e438b456c.html [MARÍA QUINTANA]
+"escritor catalan entrega novela feliz celebracion afecto familiar bueno malo construida torno madre Amelia haria suspirar hijo ingrato",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/30/535fba1cca47419f1f8b4580.html [CONXA RODRÍGUEZ]
+"catedral Saint Paul City instala grandes pantallas proyecciones obra artista acompanen inspiren feligreses",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/30/536007f7ca4741731f8b4586.html [LUIS MARTÍNEZ]
+"documental Vanessa Lapa reconstruye vida jefe SS",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/29/53601c1922601d10438b4586.html [elmundo.es]
+"Montserrat Caballe responde orden juzgado Barcelona investigarla evasion euros via Andorra",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/30/53601808e2704ea1748b4588.html [PABLO JÁUREGUI]
+"mayores especialistas estudio impacto social cultural provocando revolucion digital debaten MUNDO oportunidades riesgos nuevas tecnologias",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/30/535fcf9522601d16438b4575.html [TERESA GUERRERO]
+"primera cosecha recogera principios junio consumidas astronautas hortalizas analizadas Tierra experimentos NASA intenta buscar metodos cultivar alimentos frescos cara misiones larga duracion",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/29/535ea087e2704e58568b4573.html [RAFAEL BACHILLER, MARIO VICIOSA]
+"mayo producira lluvia estrellas vista nunca generada LINEAR cometa visita solo ahora encuentra cerca Sol apunta posible observar meteoros hora condiciones ideales",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/29/535f627f22601d0a438b4573.html [YULY JARA]
+"trabajo escala nacional realizado organizacion conservacionista SEO BirdLife revela uso cebos envenenados matado animales domesticos",CULTURA
+
+% http://www.elmundo.es/salud/2014/04/28/535e4edb22601d43778b456f.html [ÁNGELES LÓPEZ]
+"experimento logra primera clonacion medica partir celulas paciente adulto hito logrado enferma diabetes grupo aplicado procedimiento varones sanos",CULTURA
+
+% http://www.elmundo.es/salud/2014/04/28/533efa7022601d961b8b4582.html [ÁNGELES LÓPEZ]
+"Junto marido Stephen Macknik frente Instituto Barrow EEUU utiliza magia intentar comprender base neurologica conocimiento",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/27/535ac2eeca4741d3608b4580.html [MIGUEL G. CORRAL]
+"creacion Reserva Biologica importante Europa MUNDO visita espacio natural salvado Jose Antonio Valverde",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/27/535abb06ca474103618b457c.html [MIGUEL G. CORRAL]
+"marisma Parque Nacional Donana iba desecada Franco hacer plantacion pinos eucaliptos impidio joven naturalista Jose Antonio Valverde",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/25/535a5bbd268e3e3c688b457c.html [YULY JARA]
+"matematico Jin Akiyama triunfado television japonesa programa utiliza magia explicar ciencia exacta presenta experimentos espectaculo divulgativo Madrid",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/24/535811ce22601d79318b457f.html [TERESA GUERRERO]
+"experimentado cosmonauta pasado dias orbita duda rentable emprender viaje tripulado Marte reivindica Luna Estacion Espacial Internacional lugares adecuados realizar experimentos",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/25/535a1d1d22601d974e8b456c.html [elmundo.es]
+"peligro asteroides mayor creia nueva investigacion desvelado registraron explosiones meteoros atmosfera planeta",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/23/5357eb7922601d8f318b4586.html [elmundo.es]
+"astronautas NASA Steve Swanson Rick Mastracchio tripulantes Estacion Espacial Internacional ISS logrado solucionar problema caminata horas media",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/24/5357abaaca4741d50a8b4572.html [YULY JARA]
+"Cientificos espanoles descubren personalidad agresiva hembras especie arana determina devoran macho copula",CULTURA
+
+% http://www.elmundo.es/cultura/2014/04/30/53602a6a268e3eb52a8b458c.html [FRANCISCO CARRIÓN]
+"jueves turistas podran visitar facsimil busca detener deterioro sufre tumba original hallazgo",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/26/535a91d5ca4741d9608b4575.html [GUILLERMO PRUDENCIO]
+"miembro expedicion WWF Instituto Polar Noruego Svalvard narra perdida hielo Artico debido aumento temperaturas afectando rutas siguen osos polares reproducirse habitos caza",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/24/53592d10e2704e752f8b456f.html [BEATRIZ TRECEÑO]
+"grandes ONG ecologistas debaten candidatos Parlamento Europeo partidos excepto UPyD VOX posturas compromisos materia Medio Ambiente",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/22/535692ef22601df1278b4579.html [TERESA GUERRERO]
+"dias tardaran recorrer perimetro mayor isla mundo explorador polar Ramon Larramendi equipo recabaran datos tomaran muestras varios proyectos cientificos investigan cambios clima Artico Soportaran temperaturas vientos kilometros hora",CULTURA
+
+% http://www.elmundo.es/salud/2014/04/24/5357f029268e3e0a058b4580.html [LAURA TARDÓN]
+"Cientificos australianos comprobado cobayas implante coclear asociado sustancia neuro regenerativa ayudar mejorar audicion personas sordera profunda",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/22/53563141268e3ef5478b4570.html [elmundo.es]
+"organizacion Ciencia Futuro lanza campana satirica internet denunciar precariedad economica cientificos espanoles",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/22/534ea286e2704e5d3f8b4575.html [TERESA GUERRERO, ]
+"maestra italiana Emma Castelnuovo conocida innovadores metodos ensenanza matematicas fallecido cien",CULTURA
+
+% http://www.elmundo.es/ciencia/2014/04/21/5354e395e2704eea558b456e.html [elmundo.es]
+"compania SpaceX realiza exitoso vuelo prueba Texas nuevo modelo cohete reutilizable abaratar manera espectacular costes futuras misiones espaciales",CULTURA
+
+% http://elpais.com/deportes/2014/04/29/champions/1398800675_892635.html [Ladislao J. Moñino]
+"Atletico Chelsea pendiente esperan duelo igual enredado ida Calderon LC",DEPORTES
+
+% http://elpais.com/deportes/2014/04/30/champions/1398874082_151241.html [Javier Lafuente, Ladislao J. Moñino]
+"aficionados Atletico armonia seguidores blues dan color Londres Chelsea",DEPORTES
+
+% http://elpais.com/deportes/2014/04/29/champions/1398800766_503431.html [Javier Lafuente]
+"tecnico portugues recupera Ivanovic defensa contener Etoo Hazard ataque abrir marcador Stamford Bridge",DEPORTES
+
+% http://elpais.com/deportes/2014/04/28/champions/1398711001_548799.html [Javier Lafuente]
+"Schwarzer coautor libros infantiles futbol vive sombra Cech pese larga trayectoria liga inglesa",DEPORTES
+
+% http://elpais.com/deportes/2014/04/29/champions/1398802162_856032.html [Ladislao J. Moñino]
+"turco fundamental eliminatoria Chelsea improvisacion desequilibrio espacios reducidos",DEPORTES
+
+% http://elpais.com/deportes/2014/04/28/champions/1398711849_312334.html [Ladislao J. Moñino]
+"delantero desafio Terry duelo ida Caldeon espera Chelsea abierto local",DEPORTES
+
+% http://elpais.com/sociedad/2014/04/29/actualidad/1398803031_185561.html [Eduardo Rodrigálvarez]
+"tibieza marca lucha xenofobia deporte Espana paises EE UU optan aplicar condenas ejemplarizantes",DEPORTES
+
+% http://elpais.com/deportes/2014/04/30/actualidad/1398845852_113735.html [Agencias]
+"acusado delito derechos fundamentales libertades publicas Villarreal retiro carnet socio",DEPORTES
+
+% http://elpais.com/deportes/2014/04/29/actualidad/1398764446_163851.html [El País]
+"Eto Nyom Marcelo sufrieron actos similares lanzamiento platano Alves Madrigal",DEPORTES
+
+% http://elpais.com/deportes/2014/04/29/actualidad/1398793529_415936.html [Robert Álvarez]
+"Adam Silver comisionado Liga impone maxima sancion todavia dueno Angeles Clippers podra participar ninguna actividad relacionada equipo Liga",DEPORTES
+
+% http://elpais.com/deportes/2014/04/28/actualidad/1398638174_695590.html [Robert Álvarez]
+"jugadores Clippers camiseta entrenamiento reves Warriors Criticas Obama",DEPORTES
+
+% http://elpais.com/deportes/2014/04/29/actualidad/1398755741_699565.html [Juanma Iturriaga]
+"Aqui van cuestiones reflexiones tramo final curso NBA episodio racista Sterling",DEPORTES
+
+% http://elpais.com/deportes/2014/04/30/actualidad/1398838897_145641.html [Robert Álvarez]
+"Memphis gana prorroga manda Clippers vencen Warriors sancion vida propietario",DEPORTES
+
+% http://elpais.com/deportes/2014/04/30/actualidad/1398849063_476134.html [Agencias]
+"catalan impone escaparse puerto Bellkasen vasco continua primera posicion segundo",DEPORTES
+
+% http://elpais.com/deportes/2014/04/28/actualidad/1398717950_614428.html [Luis Martín]
+"hijos Tito Vilanova Adria Carlota emocionan asistentes funeral oficiado Catedral Barcelona",DEPORTES
+
+% http://elpais.com/deportes/2014/04/28/album/1398694460_956193.html []
+"imagenes espectaculares deporte internacional",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/04/30/5360dfd322601d6e128b4577.html [EDUARDO J. CASTELAO]
+"juega Liga Champions Atletico Madrid moviliza personas Valencia Londres Valencia Miles camisetas rojiblancas hacen visibles centro capital britanica",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/04/30/536103ffca474105378b4578.html [DAVID PALOMO]
+"prensa alemana carga Guardiola derrota humillacion decepcion ridiculo Pep oportunidad cambiar animico final Copa Borussia Dortmund",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/04/30/53610ed022601d7b128b4580.html [elmundo.es]
+"presidente Ferrari Montezemolo revelado negociando fichaje Ayrton Senna piloto brasileno sufrio accidente fatal Imola",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/04/30/536122dc268e3eff6f8b4578.html [EL MUNDO]
+"Felipao elmundo deportes cfbf dd Jesucristo conseguiria unanimidad convocatoria Brasil CFB van intentar traves novedosa campana elmundo deportes cfbf dd",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/04/30/5360edf5ca474101378b457a.html [elmundo.es]
+"acusa vulnerar articulo Codigo Penal relativo provoquen discriminacion odio violencia grupos asociaciones motivos racistas",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/04/30/5360addfca4741e1368b456d.html [ANDRÉS ARAGÓN]
+"Memphis Grizzlies suman nueva victoria agonica Oklahoma adelantan eliminatoria canasta final Serge Ibaka entro tiempo decima segundo",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/04/29/535fefe8268e3eb12a8b4586.html [PABLO SCARPELLINI]
+"comisionado liga Adam Silver prohibe dueno Angeles Clippers volver pisar cancha baloncesto organizacion magnate Chicago debera pagar multa millones dolares",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/04/30/5360269722601d13438b458b.html [MIGUEL A. HERGUEDAS]
+"historica goleada Munich devuelve Real Madrid final Liga Campeones sitio privilegiado Lisboa luchar decimo titulo continental",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/04/30/5360aa38ca4741e7368b456d.html [JAIME RODRÍGUEZ]
+"Real Madrid vuelve Champions debia especialmente Bayern dijo Sergio Ramos final encuentro",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/04/30/5360aea2ca474104378b456d.html [SALVADOR SOSTRES]
+"Pep relativamente facil mediocre Bundesliga Madrid paso encima futbol bueno mejor",DEPORTES
+

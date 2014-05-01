@@ -26,32 +26,16 @@ public class Category {
 	 * @return (Category) new Category instance or null.
 	 */
 	public static Category createCategory(String name) {
-		AvaibleCategories trustedName = AvaibleCategories.valueOf(name);
+		Category response = null;
+		AvaibleCategories trustedName = AvaibleCategories.valueOf(name.toUpperCase());
 		if (trustedName != null) {
-			return createCategory(trustedName);
-		} else  {
-			return null;
+			response = new Category(name);
 		}
+		return response;
 	}
 
-	/**
-	 * Factory.
-	 * 
-	 * @param trustedName
-	 * @return (Category) new Category instance or null.
-	 */
-	public static Category createCategory(AvaibleCategories trustedName) {
-		if (trustedName == AvaibleCategories.POLITICA) {
-			return new Category("politica");
-		} else if (trustedName == AvaibleCategories.ECONOMIA) {
-			return new Category("economia");
-		} else if (trustedName == AvaibleCategories.DEPORTES) {
-			return new Category("deportes");
-		} else if (trustedName == AvaibleCategories.CULTURA) {
-			return new Category("cultura");
-		} else {
-			return null;
-		}
+	public static Category createCategory(AvaibleCategories category) {
+		return new Category(category.name().toLowerCase());
 	}
 
 	@JsonProperty("name")

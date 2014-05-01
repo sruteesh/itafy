@@ -8,7 +8,7 @@ import models.geoLocation.AvaibleLocations;
 import org.codehaus.jackson.JsonNode;
 import play.mvc.Controller;
 import play.mvc.Result;
-import utils.Helper;
+import utils.helpers.JsonHelper;
 
 
 /**
@@ -45,7 +45,7 @@ public class LinkController extends Controller {
 			links = LinkData.getAllLinks();
 		}
 
-		JsonNode response = Helper.asJson(links);
+		JsonNode response = JsonHelper.asJson(links);
 		return ok(response);
 	}
 
@@ -57,7 +57,7 @@ public class LinkController extends Controller {
 	 */
 	public static Result show(String id) {
 		Link link = LinkData.findLink(id);
-		JsonNode response = Helper.asJson(link);
+		JsonNode response = JsonHelper.asJson(link);
 		return ok(response);
 	}
 

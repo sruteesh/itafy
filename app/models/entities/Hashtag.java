@@ -7,7 +7,7 @@ import models.data.TweetsData;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 import twitter4j.GeoLocation;
-import utils.Helper;
+import utils.helpers.CollectionHelper;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -65,7 +65,7 @@ public class Hashtag {
 
 	public ArrayList<Tweet> getTweets() {
 		ArrayList<Object> tweets = TweetsData.getTweetsWithHashtag(this.id);
-		return Helper.castEeachElementToTweet(tweets);
+		return CollectionHelper.castEeachElementToTweet(tweets);
 	}
 
 	@JsonProperty("name")

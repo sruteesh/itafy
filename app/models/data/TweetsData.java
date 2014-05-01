@@ -5,7 +5,7 @@ import models.entities.Tweet;
 import models.entities.User;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
-import utils.Helper;
+import utils.helpers.CollectionHelper;
 import controllers.db.DbNames;
 
 public class TweetsData extends MongoClientData {
@@ -47,7 +47,7 @@ public class TweetsData extends MongoClientData {
 	 */
 	public static ArrayList<Object> getTweets() {
 		Iterable<Tweet> records = tweetsCollection.find().as(Tweet.class);
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class TweetsData extends MongoClientData {
 		Iterable<Tweet> records = tweetsCollection
 				.find(query, new ObjectId(id))
 				.as(Tweet.class);
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class TweetsData extends MongoClientData {
 		Iterable<Tweet> records = tweetsCollection
 				.find(query, new ObjectId(id))
 				.as(Tweet.class);
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class TweetsData extends MongoClientData {
 		Iterable<Tweet> records = tweetsCollection
 				.find(query, new ObjectId(id))
 				.as(Tweet.class);
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class TweetsData extends MongoClientData {
 		Iterable<Tweet> tweets = tweetsCollection
 				.find(query, new ObjectId("53453a50300402c4735397a4"))
 				.as(Tweet.class);
-		return Helper.asArrayList(tweets);
+		return CollectionHelper.asArrayList(tweets);
 
 	}
 

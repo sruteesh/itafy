@@ -5,7 +5,7 @@ import models.entities.User;
 import models.geoLocation.Area;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
-import utils.Helper;
+import utils.helpers.CollectionHelper;
 import controllers.db.DbNames;
 
 /**
@@ -40,7 +40,7 @@ public class UserData extends MongoClientData {
 	 */
 	public static ArrayList<Object> getUsers() {
 		Iterable<User> records = userCollection.find().as(User.class);
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class UserData extends MongoClientData {
 		Iterable<User> records = userCollection
 				.find(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
 				.as(User.class);
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class UserData extends MongoClientData {
 		Iterable<User> records = userCollection
 				.find(query, genre)
 				.as(User.class);
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class UserData extends MongoClientData {
 		Iterable<User> records = userCollection
 				.find(query, genre, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
 				.as(User.class);
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**

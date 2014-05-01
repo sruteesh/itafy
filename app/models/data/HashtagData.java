@@ -10,7 +10,7 @@ import models.geoLocation.AvaibleLocations;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import twitter4j.GeoLocation;
-import utils.Helper;
+import utils.helpers.CollectionHelper;
 import controllers.db.DbNames;
 
 /**
@@ -58,7 +58,7 @@ public class HashtagData extends MongoClientData {
 	 */
 	public static ArrayList<Object> getAllHashtags() {
 		Iterable<Hashtag> records = hashtagCollection.find().as(Hashtag.class);
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class HashtagData extends MongoClientData {
 				.find(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
 				.as(Hashtag.class);
 
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class HashtagData extends MongoClientData {
 				.find("{category: #}", category.getName())
 				.as(Hashtag.class);
 
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class HashtagData extends MongoClientData {
 				.find(query, cat.getName(), loc.getMaxLat(), loc.getMinLat(), loc.getMaxLong(), loc.getMinLong())
 				.as(GeoTweet.class);
 
-		return Helper.asArrayList(records);
+		return CollectionHelper.asArrayList(records);
 	}
 
 	/**

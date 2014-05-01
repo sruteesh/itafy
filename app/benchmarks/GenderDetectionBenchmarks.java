@@ -1,6 +1,5 @@
 package benchmarks;
 
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,12 +12,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import models.data.MongoClientData;
 import models.entities.TwitterName;
-
 import org.jongo.MongoCollection;
-
+import utils.helpers.NormalizeHelper;
 import controllers.db.DbNames;
 
 public class GenderDetectionBenchmarks extends MongoClientData {
@@ -351,34 +348,14 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 
 	private static String normalize(String name) {
 		name = name.toLowerCase();
-		name = normalizeVowels(name);
-		name = normaliceAsciiChars(name);
+		name = NormalizeHelper.normalizeVowels(name);
+		name = NormalizeHelper.normaliceAsciiChars(name);
 
 		// comment this line to measure the improvement of remove non alphabetic
 		// chars
-		name = removeNonAlphabeticChars(name);
+		name = NormalizeHelper.removeNonAlphabeticChars(name);
 
 		return name;
-	}
-
-	private static String normalizeVowels(String name) {
-		return name
-				.replace("á", "a")
-				.replace("é", "e")
-				.replace("í", "i")
-				.replace("ó", "o")
-				.replace("ú", "u")
-				.replace("ә", "e")
-				.replace("ε", "e")
-				.replace("α", "a");
-	}
-
-	private static String normaliceAsciiChars(String name) {
-		return Normalizer.normalize(name, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
-	}
-
-	private static String removeNonAlphabeticChars(String name) {
-		return name.replaceAll("[^a-zA-Z]", " ");
 	}
 
 	private static ArrayList<String> getCandidates(String stringToAnalyze) {
