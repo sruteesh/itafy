@@ -3,6 +3,7 @@ package controllers.scheduler;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+
 import models.data.GeoTweetData;
 import models.data.HashtagData;
 import models.data.LinkData;
@@ -15,8 +16,10 @@ import models.entities.Location;
 import models.entities.Tweet;
 import models.entities.TwitterName;
 import models.entities.User;
+
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
+
 import play.Logger;
 import twitter4j.GeoLocation;
 import twitter4j.HashtagEntity;
@@ -25,8 +28,11 @@ import twitter4j.StatusDeletionNotice;
 import twitter4j.StatusListener;
 import twitter4j.URLEntity;
 import utils.StreamingWebSocket;
+import utils.gender.GenderDetector;
+
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
+
 import controllers.db.DbNames;
 import controllers.db.MongoDBHandler;
 
@@ -73,8 +79,8 @@ public class StreamingListener implements StatusListener {
 		// saveTwitterName(status);
 
 		if (status.getGeoLocation() != null) {
-			// sendTweetToWebSocket(status);
-			saveStatusToDB(status);
+			sendTweetToWebSocket(status);
+			// saveStatusToDB(status);
 		}
 	}
 
@@ -115,23 +121,35 @@ public class StreamingListener implements StatusListener {
 
 	private void sendTweetToWebSocket(twitter4j.Status status) {
 		HashMap<String, Object> webSocketData = new HashMap<String, Object>();
-		webSocketData.put("text", status.getText());
+
 		GeoLocation geoLocation = status.getGeoLocation();
 		if (geoLocation != null) {
+			webSocketData.put("text", extractText(status));
 			webSocketData.put("longitude", geoLocation.getLongitude());
 			webSocketData.put("latitude", geoLocation.getLatitude());
+			twitter4j.User user = status.getUser();
+			webSocketData.put("gender", GenderDetector.detectUser(user.getName(), user.getDescription()));
 			StreamingWebSocket.sendHashMap(webSocketData);
 		}
 	}
 
+	private String extractText(twitter4j.Status status) {
+		if (status.getRetweetedStatus() == null) {
+			return status.getText();
+		} else {
+			return status.getRetweetedStatus().getText();
+		}
+	}
+
 	/**
-	 * Called from <code>StreamingListener.onStatus</code>: save the inmediate data to DB.
+	 * Called from <code>StreamingListener.onStatus</code>: save the inmediate
+	 * data to DB.
 	 * <ul>
-	 *  <li> geoTweet
-	 *  <li> hashtags
-	 *  <li> links
-	 *  <li> user
-	 *  <li> words
+	 * <li>geoTweet
+	 * <li>hashtags
+	 * <li>links
+	 * <li>user
+	 * <li>words
 	 * </ul>
 	 */
 	private void saveStatusToDB(twitter4j.Status status) {
@@ -145,7 +163,9 @@ public class StreamingListener implements StatusListener {
 	}
 
 	/**
-	 * Called from <code>StreamingListener.onStatus</code>: create a saves a geoTweet to DB
+	 * Called from <code>StreamingListener.onStatus</code>: create a saves a
+	 * geoTweet to DB
+	 * 
 	 * @param twitterId
 	 * @param location
 	 * @return Mongo's id as a String
@@ -158,7 +178,9 @@ public class StreamingListener implements StatusListener {
 	}
 
 	/**
-	 * Called from <code>StreamingListener.onStatus</code>: save each hashtag to DB
+	 * Called from <code>StreamingListener.onStatus</code>: save each hashtag to
+	 * DB
+	 * 
 	 * @param hashtagEntities
 	 * @param location
 	 * @return Mongo's ids as Strings
@@ -179,6 +201,7 @@ public class StreamingListener implements StatusListener {
 
 	/**
 	 * Called from <code>StreamingListener.onStatus</code>: save each link to DB
+	 * 
 	 * @param urlEntities
 	 * @param location
 	 * @return Mongo's ids as Strings
@@ -198,7 +221,8 @@ public class StreamingListener implements StatusListener {
 	}
 
 	/**
-	 * Called from <code>StreamingListener.onStatus</code>: create and saves the user to DB.
+	 * Called from <code>StreamingListener.onStatus</code>: create and saves the
+	 * user to DB.
 	 * 
 	 * @param twitterUser
 	 * @param location
@@ -222,8 +246,8 @@ public class StreamingListener implements StatusListener {
 	}
 
 	/**
-	 * Called from <code>StreamingListener.onStatus</code>: create and saves a new
-	 * <code>models.entity.tweet</code> which relates every model
+	 * Called from <code>StreamingListener.onStatus</code>: create and saves a
+	 * new <code>models.entity.tweet</code> which relates every model
 	 * 
 	 * @param geoTweetId
 	 * @param hashtagIds
