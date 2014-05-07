@@ -1,277 +1,277 @@
 @relation categories-model
 @attribute Message string
-@attribute Class {POLITICA,CULTURA,DEPORTES}
+@attribute Class {ACTUALIDAD,DEPORTES}
 
 @data
 % http://elpais.com/cultura/2014/05/06/actualidad/1399403708_544378.html [Rocío García]
-"familia musico Nacha Pop  fallecido enganada filme voz mil  denuncia solo retratado lado oscuro artista",CULTURA
+"familia musico Nacha Pop  fallecido enganada filme voz mil  denuncia solo retratado lado oscuro artista",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/06/actualidad/1399385401_329822.html [Luis Doncel]
-"Muere Munich dueno fastuosa coleccion obras arte parte supuestamente expoliadas nazis",CULTURA
+"Muere Munich dueno fastuosa coleccion obras arte parte supuestamente expoliadas nazis",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/07/actualidad/1399449105_830355.html [EFE]
-"cuadro vendio precio alto  Nenufares  Monet apertura temporada subastas Nueva York",CULTURA
+"cuadro vendio precio alto  Nenufares  Monet apertura temporada subastas Nueva York",ACTUALIDAD
 
 % http://elpais.com/tecnologia/2014/05/07/actualidad/1399450296_789432.html [Javier Martín]
-"Universidad Portsmouth compara primera vez comportamiento ilegal aficionados cine musica  proclives pago",CULTURA
+"Universidad Portsmouth compara primera vez comportamiento ilegal aficionados cine musica  proclives pago",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/06/actualidad/1399398698_449241.html [Flor Gragera de León]
-"Soledad Sevilla  Pilar Citoler Silvia Dauder reciben Premios Arte Mecenazgo Obra Social Caixa",CULTURA
+"Soledad Sevilla  Pilar Citoler Silvia Dauder reciben Premios Arte Mecenazgo Obra Social Caixa",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/05/06/valencia/1399392406_852868.html [Ferran Bono]
-"dibujante recrea comic compania libero Paris objetos Segunda Guerra Mundial muestra Valencia",CULTURA
+"dibujante recrea comic compania libero Paris objetos Segunda Guerra Mundial muestra Valencia",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/05/actualidad/1399314778_904302.html [Ana Teruel]
-"Museo Civilizaciones Quai Branly propone fascinante viaje universo pinturas corporales simbologia cultural  social religiosa",CULTURA
+"Museo Civilizaciones Quai Branly propone fascinante viaje universo pinturas corporales simbologia cultural  social religiosa",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/05/actualidad/1399316032_237986.html [Tereixa Constenla]
-"ex ministro Cultura Cesar Antonio Molina publica ensayo espinosa relacion poder intelectuales",CULTURA
+"ex ministro Cultura Cesar Antonio Molina publica ensayo espinosa relacion poder intelectuales",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/05/actualidad/1399304510_871134.html [Isabel Ferrer]
-"filosofo Alain Botton ofrece recorrido terapeutico Rijksmuseum obras  escuela mejorar vida",CULTURA
+"filosofo Alain Botton ofrece recorrido terapeutico Rijksmuseum obras  escuela mejorar vida",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/05/actualidad/1399312563_583333.html [Alejandro Rebossio]
-"Feria Libro Buenos Aires acoge presentacion obra participacion poder economico regimen militar",CULTURA
+"Feria Libro Buenos Aires acoge presentacion obra participacion poder economico regimen militar",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/05/actualidad/1399298527_657091.html [Miguel Mora]
-"Bartabas Andres Marin bailan silencios Tomas Luis Victoria  Golgota   arte ecuestre Greco",CULTURA
+"Bartabas Andres Marin bailan silencios Tomas Luis Victoria  Golgota   arte ecuestre Greco",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/05/actualidad/1399312953_867999.html [Iñigo López Palacios]
-"asturiano Nacho Vegas publica Resituacion  disco politico carrera cantautor confesional",CULTURA
+"asturiano Nacho Vegas publica Resituacion  disco politico carrera cantautor confesional",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/30/actualidad/1398865453_933757.html [Angel Luis Sucasas Fernández]
-" Sandman  mitica novela grafica escritor britanico  vuelve nuevas historias traducidas espanol  saga exito EE UU cumple",CULTURA
+" Sandman  mitica novela grafica escritor britanico  vuelve nuevas historias traducidas espanol  saga exito EE UU cumple",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/02/actualidad/1399048597_422717.html [Miguel Ángel García Vega]
-"Muchas peliculas grandes estudios requieren recreacion obras arte chocan exigencias artistas herederos",CULTURA
+"Muchas peliculas grandes estudios requieren recreacion obras arte chocan exigencias artistas herederos",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/04/actualidad/1399196790_543490.html [Carlos Pérez de Ziriza]
-"musico britanico ofrece distinguido concierto festival SOS Murcia  brillaron Phoenix Pet Shop Boys",CULTURA
+"musico britanico ofrece distinguido concierto festival SOS Murcia  brillaron Phoenix Pet Shop Boys",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/02/actualidad/1399023024_091164.html [Amelia Castilla]
-"disenadora influyente moda espanola ultimos vuelve decada alejada focos pequena coleccion",CULTURA
+"disenadora influyente moda espanola ultimos vuelve decada alejada focos pequena coleccion",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/02/actualidad/1399049665_052226.html [Toni García]
-"Dan Witz  artista calle neoyorquino rendido ahora pintura hiperrealista  traslada intenso ritual baile pintura",CULTURA
+"Dan Witz  artista calle neoyorquino rendido ahora pintura hiperrealista  traslada intenso ritual baile pintura",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/03/actualidad/1399144003_478553.html [Daniel Verdú]
-"Toledo acoge Batalla Organos  combate instrumentos tricentenarios aniversario Greco",CULTURA
+"Toledo acoge Batalla Organos  combate instrumentos tricentenarios aniversario Greco",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/03/actualidad/1399135016_636542.html [Anatxu Zabalbeascoa]
-"arquitecto japones levantara Montpellier torre alternativa bloque tradicional pisos",CULTURA
+"arquitecto japones levantara Montpellier torre alternativa bloque tradicional pisos",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/04/30/eps/1398860687_550183.html [Iñigo López Palacios]
-"duo estadounidense edita octavo album convertido banda rock clasico famosa momento  visitamos dominios Nashville",CULTURA
+"duo estadounidense edita octavo album convertido banda rock clasico famosa momento  visitamos dominios Nashville",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/05/02/andalucia/1399057595_489313.html [Margot Molina]
-"proyecto Vazquez Consuegra cuenta millones presupuesto terminado",CULTURA
+"proyecto Vazquez Consuegra cuenta millones presupuesto terminado",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/29/actualidad/1398792003_263242.html [Clara Morales Fernández]
-"Museo Nacional Escultura acoge Valladolid mirada docena autores contemporaneos Theotocopoulos",CULTURA
+"Museo Nacional Escultura acoge Valladolid mirada docena autores contemporaneos Theotocopoulos",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/05/04/madrid/1399240053_021658.html [Pablo Caruana]
-"festival teatro pretende abrirse nuevos espacios  recelos acerca modelo basado precariedad",CULTURA
+"festival teatro pretende abrirse nuevos espacios  recelos acerca modelo basado precariedad",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/05/04/catalunya/1399233953_404049.html [Jacinto Antón]
-"cirujano Carlos Ballesta narra gran aventura vital Diego Hurtado Mendoza hombre emperador",CULTURA
+"cirujano Carlos Ballesta narra gran aventura vital Diego Hurtado Mendoza hombre emperador",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/03/actualidad/1399142375_498809.html [Jacinto Antón]
-"monumental biografia escritora chino britanica Jung Chang describe gran gobernanta Cixi  mala dias Pekin ",CULTURA
+"monumental biografia escritora chino britanica Jung Chang describe gran gobernanta Cixi  mala dias Pekin ",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/02/actualidad/1399051362_466369.html [Patricia Tubella]
-"nueva edicion  publicada Reino Unido  saca luz valiosa coleccion relatos cortos escritor cambios forzados censura",CULTURA
+"nueva edicion  publicada Reino Unido  saca luz valiosa coleccion relatos cortos escritor cambios forzados censura",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/02/actualidad/1399054025_017889.html [Elsa Fernández-Santos]
-"Sheilah Graham  companera Scott Fitzgerald ultimos vida  recoge  College of one  recuerdos notas",CULTURA
+"Sheilah Graham  companera Scott Fitzgerald ultimos vida  recoge  College of one  recuerdos notas",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/02/actualidad/1399045570_658864.html [Miguel Mora]
-"Gobierno retrasa reinauguracion  prevista junio  otono  Claude Picasso  hijo pintor  monta colera",CULTURA
+"Gobierno retrasa reinauguracion  prevista junio  otono  Claude Picasso  hijo pintor  monta colera",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/01/actualidad/1398960108_128390.html [Manuel Vicent]
-"Valencia cosas cambiado dejar mismas sustancia cincuenta siglo pasado",CULTURA
+"Valencia cosas cambiado dejar mismas sustancia cincuenta siglo pasado",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/02/actualidad/1399044670_617817.html [Vicente Verdú]
-"Fracasaria hilvanara gama misma estirpe notas similares  cosa armonia monotonia",CULTURA
+"Fracasaria hilvanara gama misma estirpe notas similares  cosa armonia monotonia",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/02/actualidad/1399056670_838371.html [Lucia Magi]
-"oleada jovenes talentos fogones abre paso pais  conoce tradicion practica innovacion",CULTURA
+"oleada jovenes talentos fogones abre paso pais  conoce tradicion practica innovacion",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/02/actualidad/1399016773_923079.html [Diego A. Manrique]
-"musico Juan Formell  fallecido anos  puso banda sonora vida isla caribena partir",CULTURA
+"musico Juan Formell  fallecido anos  puso banda sonora vida isla caribena partir",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/01/actualidad/1398972625_636895.html [Antonio Calvo Roy]
-"Mario Bunge  pensadores contemporaneos destacados  educacion  economia comunicacion",CULTURA
+"Mario Bunge  pensadores contemporaneos destacados  educacion  economia comunicacion",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/30/actualidad/1398853353_675289.html [José Luis de Juan]
-"clasico explotacion laboral   Los filantropos harapos   publica Espana siglo aparicion razones varias",CULTURA
+"clasico explotacion laboral   Los filantropos harapos   publica Espana siglo aparicion razones varias",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/06/actualidad/1399399839_651807.html [Tereixa Constenla]
-"tribunal condena compania pagar Espana euros costas judiciales",CULTURA
+"tribunal condena compania pagar Espana euros costas judiciales",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/05/01/actualidad/1398969757_776697.html [Alberto González Fairén]
-"veterana mision exploracion Marte sonda Lunar Reconnaissance Orbiter recibido respaldo financiero proyecto presupuestos Casa Blanca",CULTURA
+"veterana mision exploracion Marte sonda Lunar Reconnaissance Orbiter recibido respaldo financiero proyecto presupuestos Casa Blanca",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/05/02/actualidad/1399054964_533072.html [Malen Ruiz de Elvira]
-"excepcional yacimiento grandes mamiferos Fonelas  Granada  prepara visitas",CULTURA
+"excepcional yacimiento grandes mamiferos Fonelas  Granada  prepara visitas",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/05/05/valencia/1399309114_704642.html [Andrés García Reche]
-"economia fuerte necesita marcos institucionales fuertes  eficaces fiables",CULTURA
+"economia fuerte necesita marcos institucionales fuertes  eficaces fiables",ACTUALIDAD
 
 % http://elpais.com/economia/2014/05/06/agencias/1399360876_451474.html [EFE Economía]
-"ventas crecen millones euros incluyendo division diagnostico comprada Novartis",CULTURA
+"ventas crecen millones euros incluyendo division diagnostico comprada Novartis",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/05/05/actualidad/1399293476_795464.html [Jessica Mouzo Quintáns]
-"cientificos creen lograr controlar rigidez tejidos mamarios servir combatir cancer mama",CULTURA
+"cientificos creen lograr controlar rigidez tejidos mamarios servir combatir cancer mama",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/05/05/galicia/1399313445_480165.html [Pepe Seijo]
-"Ayuntamiento explicado intencion promocionar conocimiento restos visitados",CULTURA
+"Ayuntamiento explicado intencion promocionar conocimiento restos visitados",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/05/05/icon/1399308548_893743.html [ICON]
-"video disecciona razones fisicas segunda salsa consumida Espana bote antojo  liquida solida   Depende   responde autor",CULTURA
+"video disecciona razones fisicas segunda salsa consumida Espana bote antojo  liquida solida   Depende   responde autor",ACTUALIDAD
 
 % http://elpais.com/economia/2014/05/05/actualidad/1399281893_051146.html [Juan José Toribio]
-"profesor Universidad Chicago ganandor Nobel fallece anos  Puso economia servicio estudio social",CULTURA
+"profesor Universidad Chicago ganandor Nobel fallece anos  Puso economia servicio estudio social",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/05/04/actualidad/1399220076_267865.html [Walter Oppenheimer]
-"reivindicacion sistema imperial pesos medidas refleja apego britanicos identidad cultural",CULTURA
+"reivindicacion sistema imperial pesos medidas refleja apego britanicos identidad cultural",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/05/04/actualidad/1399226486_173995.html [Raquel Vidales]
-"industria rechaza etiquetarlo perecedero nueva norma permite  riesgo intoxicacion minimo",CULTURA
+"industria rechaza etiquetarlo perecedero nueva norma permite  riesgo intoxicacion minimo",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/05/04/opinion/1399231470_088727.html [El País]
-"uso incorrecto antibioticos puede dejarnos arma salva vidas",CULTURA
+"uso incorrecto antibioticos puede dejarnos arma salva vidas",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/05/04/actualidad/1399218432_289933.html [Emilio de Benito]
-"animales menor edad  humanos  concentracion molecula",CULTURA
+"animales menor edad  humanos  concentracion molecula",ACTUALIDAD
 
 % http://elpais.com/economia/2014/05/02/actualidad/1399060227_513926.html [Laura Delle Femmine]
-"directivos espanoles condicionan mejora economica reactivacion consumo interno",CULTURA
+"directivos espanoles condicionan mejora economica reactivacion consumo interno",ACTUALIDAD
 
 % http://elpais.com/tecnologia/2014/05/03/actualidad/1399081258_282871.html [Sandro Pozzi]
-"surcoreana debera compensar estadounidense millones dolares  lejos millones reclamaba",CULTURA
+"surcoreana debera compensar estadounidense millones dolares  lejos millones reclamaba",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/05/02/actualidad/1399067153_412735.html [El País]
-"Miembro Reales Academias Ciencias Ingenieria  impulsor analisis funcional",CULTURA
+"Miembro Reales Academias Ciencias Ingenieria  impulsor analisis funcional",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/05/02/actualidad/1399052049_588038.html [Joaquin Mayordomo]
-"Grupos ecologistas denuncian proyecto UE riesgo ambiental",CULTURA
+"Grupos ecologistas denuncian proyecto UE riesgo ambiental",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/05/02/actualidad/1399054225_550745.html [Emilio de Benito]
-"ultimo recuento Centro Europeo Control Enfermedades da afectados  muerto",CULTURA
+"ultimo recuento Centro Europeo Control Enfermedades da afectados  muerto",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/05/02/galicia/1399023989_186597.html [EFE]
-"Arqueologos coinciden piedra labrada mano hombre descartan trate oquedad natural",CULTURA
+"Arqueologos coinciden piedra labrada mano hombre descartan trate oquedad natural",ACTUALIDAD
 
 % http://elpais.com/tecnologia/2014/05/01/actualidad/1398938538_626781.html [Laura Rivas]
-"equipo jovenes espanoles pretende  democratizar  exploracion espacio programas libres",CULTURA
+"equipo jovenes espanoles pretende  democratizar  exploracion espacio programas libres",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/05/01/actualidad/1398972625_636895.html [Antonio Calvo Roy]
-"Mario Bunge  pensadores contemporaneos destacados  educacion  economia comunicacion",CULTURA
+"Mario Bunge  pensadores contemporaneos destacados  educacion  economia comunicacion",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/05/01/actualidad/1398957763_769047.html [Javier Sampedro]
-"virus profundidades oceanicas trafican informacion genetica oxidar azufre",CULTURA
+"virus profundidades oceanicas trafican informacion genetica oxidar azufre",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/05/01/actualidad/1398952902_292959.html [Emilio de Benito]
-"Oscar Fernandez Capetillo unico espanol cientificos jovenes prometedores seleccionados  Cell ",CULTURA
+"Oscar Fernandez Capetillo unico espanol cientificos jovenes prometedores seleccionados  Cell ",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/30/actualidad/1398885896_802747.html [Elena G. Sevillano]
-"investigacion revelan gran acumulacion basura lechos oceanicos europeos  Expertos organismos internacionales alertan dano ecosistema marino",CULTURA
+"investigacion revelan gran acumulacion basura lechos oceanicos europeos  Expertos organismos internacionales alertan dano ecosistema marino",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/30/madrid/1398887502_593942.html [Rafael Fraguas]
-"alcaldesa Madrid  Ana Botella  visito tarde miercoles convento mostrar apoyo proyecto",CULTURA
+"alcaldesa Madrid  Ana Botella  visito tarde miercoles convento mostrar apoyo proyecto",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/30/actualidad/1398810052_924804.html [Alicia Rivera]
-"objeto orbita estrella Beta Pictoris",CULTURA
+"objeto orbita estrella Beta Pictoris",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/30/actualidad/1398877677_680026.html [Jacinto Antón]
-"inauguracion copia facsimil sepultura celebre faraon convierte rogativa vuelta turismo Egipto",CULTURA
+"inauguracion copia facsimil sepultura celebre faraon convierte rogativa vuelta turismo Egipto",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/30/actualidad/1398876873_586673.html [Javier Sampedro]
-"experimento da paso esencial camino hacia aplicacion clinica",CULTURA
+"experimento da paso esencial camino hacia aplicacion clinica",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/30/actualidad/1398861333_720398.html [Emilio de Benito]
-"primer informe mundial OMS pone cifras problema alerta riesgo volver epoca preantibioticos  Ningun pais libre cepas responden medicamentos",CULTURA
+"primer informe mundial OMS pone cifras problema alerta riesgo volver epoca preantibioticos  Ningun pais libre cepas responden medicamentos",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/29/actualidad/1398797359_414494.html [Alicia Rivera]
-"catedratico explica Analisis Riesgos Adversarios aplica ambitos dispares subastas marketing",CULTURA
+"catedratico explica Analisis Riesgos Adversarios aplica ambitos dispares subastas marketing",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/05/07/5369ed6de2704e86278b456c.html [ROSALÍA SÁNCHEZ]
-"coleccionista obras presuntamente expoliadas nazis judios dejo herencia millonario patrimonio fundacion solo sabe extranjero ",CULTURA
+"coleccionista obras presuntamente expoliadas nazis judios dejo herencia millonario patrimonio fundacion solo sabe extranjero ",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/05/07/5369f063e2704e83278b456e.html [PATRICIA DEL GALLO]
-"jurado dara primer fallo ano   pronostico reservado  favoritos estadounidenses runrun ",CULTURA
+"jurado dara primer fallo ano   pronostico reservado  favoritos estadounidenses runrun ",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/05/07/53691db522601dea568b4576.html [ESTHER ALVARADO]
-"Nuria Espert recupera  La violacion Lucrecia   dirigida Miguel Arco  unicas funciones Abadia ",CULTURA
+"Nuria Espert recupera  La violacion Lucrecia   dirigida Miguel Arco  unicas funciones Abadia ",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/05/07/5369862522601db6288b4574.html [LOURDES GÓMEZ]
-" Me siento bien aqui vez tumbada cama hospital   dijo inauguracion gira europea Londres ",CULTURA
+" Me siento bien aqui vez tumbada cama hospital   dijo inauguracion gira europea Londres ",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/05/05/5367e77fca47419d398b457e.html [DARÍO PRIETO]
-" La independencia  libertad  veces sentimiento realidad   grupo puertorriqueno  voz reivindicativa  Multi Viral  ",CULTURA
+" La independencia  libertad  veces sentimiento realidad   grupo puertorriqueno  voz reivindicativa  Multi Viral  ",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/05/06/5367bd02e2704ead278b4574.html [JULIÁN RUIZ]
-"imposible encender radio encontrarsem despues  cancion tipo  Happy   tampoco probable encontrarse nadie lleve bien riqueza  lujo felicidad ",CULTURA
+"imposible encender radio encontrarsem despues  cancion tipo  Happy   tampoco probable encontrarse nadie lleve bien riqueza  lujo felicidad ",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/05/07/5369122d268e3e98638b4585.html [LORETO SÁNCHEZ SEOANE]
-"cantante organizado rueda prensa Gira avion  tocado temas nuevo disco  segundo graba solitario   Dani Martin  ",CULTURA
+"cantante organizado rueda prensa Gira avion  tocado temas nuevo disco  segundo graba solitario   Dani Martin  ",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/05/07/536914ae22601d02578b4585.html [ESTHER ALVARADO]
-"Arranca muestra Surge Madrid  promueve Comunidad  estrenos  funciones espacios alternativos precio unico euros ",CULTURA
+"Arranca muestra Surge Madrid  promueve Comunidad  estrenos  funciones espacios alternativos precio unico euros ",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/05/07/536965ad268e3e8f638b4580.html [elmundo.es]
-"desconoce aun titulo filme  supondra segundo trabajo Stone director primero Phoenix  rodaje comenzara julio ",CULTURA
+"desconoce aun titulo filme  supondra segundo trabajo Stone director primero Phoenix  rodaje comenzara julio ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/05/07/5369f2cfca4741472a8b456c.html [YULY JARA]
-"Investigadores daneses chinos secuencian primera vez genoma arana africana tarantula  hallazgo ayudara conocer mejor genes proteinas involucrados fabricacion seda veneno que  propiedades  podrian utilizar biomedicina farmacologia ",CULTURA
+"Investigadores daneses chinos secuencian primera vez genoma arana africana tarantula  hallazgo ayudara conocer mejor genes proteinas involucrados fabricacion seda veneno que  propiedades  podrian utilizar biomedicina farmacologia ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/05/06/5369186ae2704eb2318b458d.html [elmundo.es]
-"informe cientifico sostiene aumento temperaturas casi ultimo siglo provocado olas calor sequias  huracanes  incendios graves lluvias torrenciales frecuentes ",CULTURA
+"informe cientifico sostiene aumento temperaturas casi ultimo siglo provocado olas calor sequias  huracanes  incendios graves lluvias torrenciales frecuentes ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/05/06/53678bc922601d624f8b456c.html [TERESA GUERRERO]
-"grandes tesoros tumbas reyes  estudio enterramientos gobernadores ciudadanos estratos sociales diferentes etnias permitiendo investigar realmente sociedad egipcia entorno  MUNDO acompana equipo andaluz hace excava necropolis Qubbet el Hawa  Asuan ",CULTURA
+"grandes tesoros tumbas reyes  estudio enterramientos gobernadores ciudadanos estratos sociales diferentes etnias permitiendo investigar realmente sociedad egipcia entorno  MUNDO acompana equipo andaluz hace excava necropolis Qubbet el Hawa  Asuan ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/05/06/53678bab22601d784f8b456c.html [YULY JARA]
-"equipo aragones informaticos ingenieros disenado robot exploracion espacial imita  rover  marciano  Curiosity   encuentra proyectos finalistas mundo elegidos NASA ",CULTURA
+"equipo aragones informaticos ingenieros disenado robot exploracion espacial imita  rover  marciano  Curiosity   encuentra proyectos finalistas mundo elegidos NASA ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/05/05/5367803c22601d3f4f8b456b.html [MIGUEL G. CORRAL, ]
-"atropellos linces disparado ultimo medio  hallazgo lince atropellado entorno Donana eleva numero felinos muertos carreteras va ano  cifra suma ejemplares atropellados",CULTURA
+"atropellos linces disparado ultimo medio  hallazgo lince atropellado entorno Donana eleva numero felinos muertos carreteras va ano  cifra suma ejemplares atropellados",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/05/05/53674e85268e3ee1338b456d.html [elmundo.es]
-"encuesta Universidad Cadiz realizada universitarios desvela desconocimiento general existe cosmos influencia religion hora abordar temas origen universo probabilidad contactar extraterrestres ",CULTURA
+"encuesta Universidad Cadiz realizada universitarios desvela desconocimiento general existe cosmos influencia religion hora abordar temas origen universo probabilidad contactar extraterrestres ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/05/03/5363e252ca4741bd3b8b456f.html [FRANCISCO CARRIÓN]
-"mision arqueologos suizos revolucionado historia necropolis tebana hallar tumba familia faraon Imperio Nuevo  MUNDO habla directora excavaciones ",CULTURA
+"mision arqueologos suizos revolucionado historia necropolis tebana hallar tumba familia faraon Imperio Nuevo  MUNDO habla directora excavaciones ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/05/01/5361513322601d6b128b4583.html [MIGUEL G. CORRAL]
-"matrimonio Pierre Marie Curie inicio finales siglo XIX saga cientificos precedentes  solo consiguieron Premio Nobel  Marie ocasiones  sino Elene  hijas  logro galardon marido Frederic Joliot  MUNDO entrevistado nietos ",CULTURA
+"matrimonio Pierre Marie Curie inicio finales siglo XIX saga cientificos precedentes  solo consiguieron Premio Nobel  Marie ocasiones  sino Elene  hijas  logro galardon marido Frederic Joliot  MUNDO entrevistado nietos ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/05/01/5361146ee2704eea4d8b457b.html [TERESA GUERRERO]
-"amplio estudio europeo participacion espanola muestra residuos generados hombre llegado zonas remotas oceano  metros profundidad  suponiendo amenaza numerosos animales ",CULTURA
+"amplio estudio europeo participacion espanola muestra residuos generados hombre llegado zonas remotas oceano  metros profundidad  suponiendo amenaza numerosos animales ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/30/53601808e2704ea1748b4588.html [PABLO JÁUREGUI]
-"mayores especialistas estudio impacto social cultural provocando revolucion digital debaten MUNDO oportunidades riesgos nuevas tecnologias ",CULTURA
+"mayores especialistas estudio impacto social cultural provocando revolucion digital debaten MUNDO oportunidades riesgos nuevas tecnologias ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/05/06/5368f8b9e2704e91318b4573.html [T. GUERRERO]
-"Fundacion BBVA pone marcha amplio programa convocatorias proyectos investigacion areas biomedicina  medio ambiente  socieconomia  comunicacion creacion audiovisual ",CULTURA
+"Fundacion BBVA pone marcha amplio programa convocatorias proyectos investigacion areas biomedicina  medio ambiente  socieconomia  comunicacion creacion audiovisual ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/05/04/5363cc17ca4741af3b8b4572.html [DAVID BARRADO]
-" Novelas ejemplares   publicadas autor Quijote refirio lunas Jupiter  recien descubiertas Galileo   pequenuelos Gaminedes   astrofisico espanol  posible Cervantes inspirara nombre satelites planeta gigante ",CULTURA
+" Novelas ejemplares   publicadas autor Quijote refirio lunas Jupiter  recien descubiertas Galileo   pequenuelos Gaminedes   astrofisico espanol  posible Cervantes inspirara nombre satelites planeta gigante ",ACTUALIDAD
 
 % http://www.elmundo.es/economia/2014/05/01/53626d5ee2704e897e8b4578.html [elmundo.es]
-"Monos transgenicos  impresion celulas  robots andan  llamadas movil encriptadas    Ciencia ficcion  No  actualidad candente ",CULTURA
+"Monos transgenicos  impresion celulas  robots andan  llamadas movil encriptadas    Ciencia ficcion  No  actualidad candente ",ACTUALIDAD
 
 % http://www.elmundo.es/salud/2014/05/01/53615b1822601d7d128b457f.html [ÁNGELES LÓPEZ]
-"Investigadores estadounidenses logran  primera vez mundo  celulas germinales hombres esteriles reprogramando celulas piel inyectandolas testiculos ratones ",CULTURA
+"Investigadores estadounidenses logran  primera vez mundo  celulas germinales hombres esteriles reprogramando celulas piel inyectandolas testiculos ratones ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/05/04/5363c59bca4741983b8b4578.html [elmundo.es]
-"Gobierno chino ensaya vehiculo aereo disemina agentes quimicos intentar reducir altos niveles polucion atmosferica sufre pais ",CULTURA
+"Gobierno chino ensaya vehiculo aereo disemina agentes quimicos intentar reducir altos niveles polucion atmosferica sufre pais ",ACTUALIDAD
 
 % http://www.elmundo.es/salud/2014/04/30/5360d26922601d71128b4571.html [MARÍA VALERIO]
-"implantar tejido cerdo  lavado  todas celulas lesion muscular  celulas madre humanas movilizan formar nuevo musculo sano ",CULTURA
+"implantar tejido cerdo  lavado  todas celulas lesion muscular  celulas madre humanas movilizan formar nuevo musculo sano ",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/30/5360e7d722601d49128b4579.html [YULY JARA]
-"Cientificos holandeses determinan primera vez cuanto dura dia planeta Sistema Solar  exoplaneta  em Beta Pictoris   em gira tanta velocidad dias dura solo horas",CULTURA
+"Cientificos holandeses determinan primera vez cuanto dura dia planeta Sistema Solar  exoplaneta  em Beta Pictoris   em gira tanta velocidad dias dura solo horas",ACTUALIDAD
 
 % http://elpais.com/deportes/2014/05/06/actualidad/1399403158_528002.html [Diego Torres]
 "capitan Madrid titular Liga primera vez temporada plantilla cree Ancelotti aparto portero sustituyo Diego Lopez razones extradeportivas",DEPORTES

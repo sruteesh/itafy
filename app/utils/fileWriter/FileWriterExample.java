@@ -15,8 +15,8 @@ public class FileWriterExample {
 		final String data2 = "Este es el artículo 2";
 
 		ArffWriter writer = new ArffWriter(path, metaData1, metaData2);
-		writer.writeData(data1, AvaibleCategories.CULTURA);
-		writer.writeData(data2, AvaibleCategories.POLITICA);
+		writer.writeData(data1, AvaibleCategories.ACTUALIDAD);
+		writer.writeData(data2, AvaibleCategories.DEPORTES);
 	}
 
 }

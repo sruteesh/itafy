@@ -6,7 +6,7 @@ package models.categories;
  * @author raul.marcos.l@gmail.com
  */
 public enum AvaibleCategories {
-	POLITICA, DEPORTES, CULTURA;
+	ACTUALIDAD, DEPORTES;
 
 	public static String[] names() {
 		AvaibleCategories[] categories = AvaibleCategories.values();

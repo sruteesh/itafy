@@ -102,14 +102,14 @@ public class TextClassifierExample {
 	}
 
 	private static void updateDataWithExampleFiles(TextClassifier classifier) {
-		// politics
-		classifier.updateData(FileHelper.readTextFile(POLITIC_TEXT_1), MsgClassificationConstants.POLITICS);
-		classifier.updateData(FileHelper.readTextFile(POLITIC_TEXT_2), MsgClassificationConstants.POLITICS);
-		classifier.updateData(FileHelper.readTextFile(POLITIC_TEXT_3), MsgClassificationConstants.POLITICS);
+		// politicS
+		classifier.updateData(FileHelper.readTextFile(POLITIC_TEXT_1), MsgClassificationConstants.NEWS);
+		classifier.updateData(FileHelper.readTextFile(POLITIC_TEXT_2), MsgClassificationConstants.NEWS);
+		classifier.updateData(FileHelper.readTextFile(POLITIC_TEXT_3), MsgClassificationConstants.NEWS);
 
 		// culture
-		classifier.updateData(FileHelper.readTextFile(CULTURE_TEXT_1), MsgClassificationConstants.CULTURE);
-		classifier.updateData(FileHelper.readTextFile(CULTURE_TEXT_2), MsgClassificationConstants.CULTURE);
+		classifier.updateData(FileHelper.readTextFile(CULTURE_TEXT_1), MsgClassificationConstants.NEWS);
+		classifier.updateData(FileHelper.readTextFile(CULTURE_TEXT_2), MsgClassificationConstants.NEWS);
 
 		// sport
 		classifier.updateData(FileHelper.readTextFile(SPORT_TEXT_1), MsgClassificationConstants.SPORTS);

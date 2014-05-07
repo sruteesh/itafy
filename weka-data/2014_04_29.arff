@@ -1,313 +1,313 @@
 @relation categories-model
 @attribute Message string
-@attribute Class {POLITICA,CULTURA,DEPORTES}
+@attribute Class {ACTUALIDAD,DEPORTES}
 
 @data
 % http://elpais.com/cultura/2014/04/29/actualidad/1398755428_862424.html [Jacinto Antón]
-"Varios cuerpos corresponden principes princesas dinastia importantes Antiguo Egipto",CULTURA
+"Varios cuerpos corresponden principes princesas dinastia importantes Antiguo Egipto",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398707923_236427.html [Rosa Rivas]
-"Celler Can Roca cae numero lista World Noma danes Rene Redzepi gana cuarta vez Arzak Mugaritz Andoni Luis Aduriz primeros",CULTURA
+"Celler Can Roca cae numero lista World Noma danes Rene Redzepi gana cuarta vez Arzak Mugaritz Andoni Luis Aduriz primeros",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/29/actualidad/1398736875_046630.html [El País]
-"brasileno DOM chef Alex Atala mantiene top ten baja puesto lista Worlds Best",CULTURA
+"brasileno DOM chef Alex Atala mantiene top ten baja puesto lista Worlds Best",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/29/actualidad/1398743434_639322.html [Elizabeth Reyes L.]
-"Feria Libro colombiana abre Vargas Llosa Reunira escritores internacionales locales",CULTURA
+"Feria Libro colombiana abre Vargas Llosa Reunira escritores internacionales locales",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/29/actualidad/1398777305_696975.html [Juan Cruz]
-"poeta Arnaldo Calveyra participa Feria libro Buenos Aires nueva edicion Poesia reunida",CULTURA
+"poeta Arnaldo Calveyra participa Feria libro Buenos Aires nueva edicion Poesia reunida",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398685404_440323.html [Raquel Garzon]
-"Nobel sudafricano narrador estadounidense leen parte intercambio epistolar recogido libro Aqui ahora acto central",CULTURA
+"Nobel sudafricano narrador estadounidense leen parte intercambio epistolar recogido libro Aqui ahora acto central",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/29/actualidad/1398781286_935385.html [EFE]
-"monto euros persona destina incentivar compra libros musica prensa entradas",CULTURA
+"monto euros persona destina incentivar compra libros musica prensa entradas",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398715312_240276.html [Patricia Tubella]
-"mini British Museum William Burrell piezas antiguedad impresionistas gira mundo medio gran polemica",CULTURA
+"mini British Museum William Burrell piezas antiguedad impresionistas gira mundo medio gran polemica",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/29/paisvasco/1398771918_430200.html [Inés P. Chávarri]
-"alcalde San Sebastian destaca ciudad encima instituciones debe liderar proyecto partidos Ayuntamiento pactan texto defensa capitalidad comprometiendose trabajar juntos",CULTURA
+"alcalde San Sebastian destaca ciudad encima instituciones debe liderar proyecto partidos Ayuntamiento pactan texto defensa capitalidad comprometiendose trabajar juntos",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398712004_554114.html [Anatxu Zabalbeascoa]
-"legado Oriol Bohigas Rafael Moneo Juan Navarro Baldeweg sintetiza nueva coleccion videos",CULTURA
+"legado Oriol Bohigas Rafael Moneo Juan Navarro Baldeweg sintetiza nueva coleccion videos",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398712941_135331.html [Carles Geli]
-"escritor Ignacio Martinez Pison publica nueva novela reputacion relato familia judios sefardies final protectorado",CULTURA
+"escritor Ignacio Martinez Pison publica nueva novela reputacion relato familia judios sefardies final protectorado",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/28/catalunya/1398715754_188798.html [José Ángel Montañés]
-"venta millones libros represento facturacion",CULTURA
+"venta millones libros represento facturacion",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/27/actualidad/1398622548_794743.html [Winston Manrique Sabogal]
-"Patrizia Rachewiltz nieta grandes poetas siglo XX publica Taishan trata libro testimonio enlaza clasico vanguardias presente",CULTURA
+"Patrizia Rachewiltz nieta grandes poetas siglo XX publica Taishan trata libro testimonio enlaza clasico vanguardias presente",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398681213_856860.html [Winston Manrique Sabogal]
-"jurado premia autor renovar horizontes novela destaca alta cultura literaria",CULTURA
+"jurado premia autor renovar horizontes novela destaca alta cultura literaria",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398714565_110348.html [Fernando Savater]
-"Nunca dejamos pertenecer especie siempre demostramos valores propios",CULTURA
+"Nunca dejamos pertenecer especie siempre demostramos valores propios",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/28/madrid/1398703290_980879.html [Rafael Fraguas]
-"comparacion ADN impar novelista hermana enterrada Alcala Henares permitiria contrastar identidades RAFAEL FRAGUAS",CULTURA
+"comparacion ADN impar novelista hermana enterrada Alcala Henares permitiria contrastar identidades RAFAEL FRAGUAS",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/29/actualidad/1398757101_942577.html [Javier Rodríguez Marcos]
-"Hablemos Rosario Castellanos pudo obtenido galardon murio concediera primera vez",CULTURA
+"Hablemos Rosario Castellanos pudo obtenido galardon murio concediera primera vez",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398720368_012981.html [Anatxu Zabalbeascoa]
-"Recibio Premio Pritzker representantes cualificados posmodernismo Mezclo atrevimiento sofistificacion",CULTURA
+"Recibio Premio Pritzker representantes cualificados posmodernismo Mezclo atrevimiento sofistificacion",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/17/actualidad/1397751158_420182.html [Toni García]
-"llegada Dallas Schnabel artista genera amor odio testigo cambio paraje estadounidense",CULTURA
+"llegada Dallas Schnabel artista genera amor odio testigo cambio paraje estadounidense",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/27/actualidad/1398608205_566294.html [Jacinto Antón]
-"Marti Gironell recrea Prehistoria espanola vida diaria Neolitico novela primer heroe",CULTURA
+"Marti Gironell recrea Prehistoria espanola vida diaria Neolitico novela primer heroe",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/16/actualidad/1397641355_651274.html [Ángeles García]
-"pintor Antonio Pitxot desvela lado intimo artista libro conversaciones critico Fernando Huici March",CULTURA
+"pintor Antonio Pitxot desvela lado intimo artista libro conversaciones critico Fernando Huici March",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/15/actualidad/1397571613_599011.html [Angel Luis Sucasas Fernández]
-"Pino Creanza presenta Espana Cairo blues tebeo fusiona poesia reporterismo narrar presente Egipto",CULTURA
+"Pino Creanza presenta Espana Cairo blues tebeo fusiona poesia reporterismo narrar presente Egipto",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398685961_333391.html [AP]
-"novela Harper Lee disponible libros electronicos julio traves editorial HarperCollins",CULTURA
+"novela Harper Lee disponible libros electronicos julio traves editorial HarperCollins",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398684914_934589.html [Carolina Ethel]
-"Asymptote proyecto taiwanes publicacion babelica cuaderno gris Pla EE UU Bogota empieza feria Libro Peru invitado",CULTURA
+"Asymptote proyecto taiwanes publicacion babelica cuaderno gris Pla EE UU Bogota empieza feria Libro Peru invitado",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398694692_795096.html [Natalia Marcos]
-"desaparicion repentina varios habitantes cambia vida pueblo Mapleton historia estrena junio EE UU",CULTURA
+"desaparicion repentina varios habitantes cambia vida pueblo Mapleton historia estrena junio EE UU",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/27/actualidad/1398618274_848015.html [Gregorio Belinchón]
-"comedia Emilio Martinez Lazaro segunda pelicula taquillera historia Espana",CULTURA
+"comedia Emilio Martinez Lazaro segunda pelicula taquillera historia Espana",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/26/actualidad/1398530346_636110.html [Toni García]
-"argentino Alan Faena exporta exitosa experiencia Puerto Madero Foster Koolhaas participan proyecto urbanistico",CULTURA
+"argentino Alan Faena exporta exitosa experiencia Puerto Madero Foster Koolhaas participan proyecto urbanistico",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/17/actualidad/1397752549_145379.html [Rosa Rivas]
-"hacen neocarniceros apuestan ganaderia sostenible maduraciones largas reses pedigri",CULTURA
+"hacen neocarniceros apuestan ganaderia sostenible maduraciones largas reses pedigri",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398679389_738102.html [El País]
-"certamen comunica encargados asignar Palma Oro edicion inaugura proximo mayo",CULTURA
+"certamen comunica encargados asignar Palma Oro edicion inaugura proximo mayo",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/28/actualidad/1398693837_671829.html [Francesc Arroyo]
-"profesor Historia Contemporanea Ferran Gallego describe ultimo libro magma intelectual subyace Falange valores",CULTURA
+"profesor Historia Contemporanea Ferran Gallego describe ultimo libro magma intelectual subyace Falange valores",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/26/actualidad/1398525630_104638.html [Yumber Vera Rojas]
-"nuevo disco duo puertorriqueno MultiViral incluye colaboraciones Julian Assange Silvio Rodriguez escritor Eduardo Galeano",CULTURA
+"nuevo disco duo puertorriqueno MultiViral incluye colaboraciones Julian Assange Silvio Rodriguez escritor Eduardo Galeano",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/26/actualidad/1398512971_660097.html [Luis Doncel]
-"escritor turcoaleman Akif Pirincci arrasa Alemania libro ataca mujeres homosexuales inmigrantes",CULTURA
+"escritor turcoaleman Akif Pirincci arrasa Alemania libro ataca mujeres homosexuales inmigrantes",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/25/galicia/1398451962_578258.html [Víctor Honorato, Elisa Lois]
-"denominaciones origen sortean paron economico clave materia prima pueden copiarla dicen",CULTURA
+"denominaciones origen sortean paron economico clave materia prima pueden copiarla dicen",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/27/actualidad/1398626299_206791.html [Anatxu Zabalbeascoa]
-"profesionales abogan cambio manera construir Primero palacios luego viviendas ahora disenan edificios pensando habitabilidad",CULTURA
+"profesionales abogan cambio manera construir Primero palacios luego viviendas ahora disenan edificios pensando habitabilidad",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/25/actualidad/1398410903_755623.html [Aurora Intxausti]
-"jurado destaca buen retrato sociedad espanola Victor Hugo reflejo Paris Dickens Londres",CULTURA
+"jurado destaca buen retrato sociedad espanola Victor Hugo reflejo Paris Dickens Londres",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/29/actualidad/1398782707_412101.html [Emilio de Benito]
-"injerto tumores persona roedores secuenciacion genetica permite probar tratamiento eficaz",CULTURA
+"injerto tumores persona roedores secuenciacion genetica permite probar tratamiento eficaz",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/29/actualidad/1398767130_252503.html [Emilio de Benito]
-"descubridor celulas madre iPS admite pudo error imagen articulo anterior",CULTURA
+"descubridor celulas madre iPS admite pudo error imagen articulo anterior",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/28/actualidad/1398707505_024610.html [Javier Sampedro]
-"pensaban primera clonacion humana decada pasada revelo fraude monumental",CULTURA
+"pensaban primera clonacion humana decada pasada revelo fraude monumental",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/28/actualidad/1398707099_823972.html [Emilio de Benito]
-"desarrollados primeros programas deducen rostro partir ADN Pueden beneficiarse antropologia medicos forenses",CULTURA
+"desarrollados primeros programas deducen rostro partir ADN Pueden beneficiarse antropologia medicos forenses",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/28/actualidad/1398714438_848340.html [Jaime Prats]
-"reproches informe agencia comercio exterior Obama",CULTURA
+"reproches informe agencia comercio exterior Obama",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/04/28/opinion/1398709258_044803.html [Cartas al Director]
-"Oportunidades empresariales",CULTURA
+"Oportunidades empresariales",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/04/28/media/1398708940_641957.html [El País]
-"Celulas obtenidas productoras insulina",CULTURA
+"Celulas obtenidas productoras insulina",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/25/actualidad/1398430073_587170.html [Elizabeth Ramírez Restrepo]
-"guia explica padres sanitarios pueden identificar sufrimiento menores padecen cancer",CULTURA
+"guia explica padres sanitarios pueden identificar sufrimiento menores padecen cancer",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/28/catalunya/1398689111_289672.html [Clara Blanchar]
-"Francia Argentina Alemania Andorra Mexico paises emigrantes procedentes Cataluna",CULTURA
+"Francia Argentina Alemania Andorra Mexico paises emigrantes procedentes Cataluna",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/28/actualidad/1398683058_460776.html [Javier Sampedro]
-"equipo internacional logra eficaz derivacion celulas madre transferencia nuclear",CULTURA
+"equipo internacional logra eficaz derivacion celulas madre transferencia nuclear",ACTUALIDAD
 
 % http://elpais.com/economia/2014/04/28/vivienda/1398687816_791120.html [El País]
-"reduccion base imponible cesion activos intangibles permitido reducir millones euros",CULTURA
+"reduccion base imponible cesion activos intangibles permitido reducir millones euros",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/27/actualidad/1398624205_316397.html [Alicia Rivera]
-"cientifico Universidad Tokio define mate mago",CULTURA
+"cientifico Universidad Tokio define mate mago",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/27/andalucia/1398616256_879000.html [Ginés Donaire]
-"Junta Andalucia abre ultimo expedientes sancionadores destrozos",CULTURA
+"Junta Andalucia abre ultimo expedientes sancionadores destrozos",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/27/actualidad/1398627483_575807.html [AFP]
-"detectado total casos informado Ministerio Sanidad",CULTURA
+"detectado total casos informado Ministerio Sanidad",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/28/madrid/1398703290_980879.html [Rafael Fraguas]
-"comparacion ADN impar novelista hermana enterrada Alcala Henares permitiria contrastar identidades RAFAEL FRAGUAS",CULTURA
+"comparacion ADN impar novelista hermana enterrada Alcala Henares permitiria contrastar identidades RAFAEL FRAGUAS",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/27/actualidad/1398621840_044945.html [Francho Barón]
-"Gobierno autoriza uso machos especie transmisora modificados puedan engendrar crias viables",CULTURA
+"Gobierno autoriza uso machos especie transmisora modificados puedan engendrar crias viables",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/04/26/opinion/1398532749_191563.html [El País]
-"Cientificos barceloneses logran reducir alzheimer ratones",CULTURA
+"Cientificos barceloneses logran reducir alzheimer ratones",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/04/25/eps/1398421625_433152.html [Raimón Samsó]
-"secreto capaces dar gracias dia ocurran extraordinarios consigue contentos cuales circunstancias vidas",CULTURA
+"secreto capaces dar gracias dia ocurran extraordinarios consigue contentos cuales circunstancias vidas",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/04/23/eps/1398276723_622330.html [Correo El País Semanal]
-"foto Aznar ojos demas decir mundo delante ojos iluminado",CULTURA
+"foto Aznar ojos demas decir mundo delante ojos iluminado",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/04/23/eps/1398277838_812255.html [Juan José Millás]
-"oceano materia gris llamamos cerebro bulle mar ideas obsesiones diferentes resultan identicas observadas conjunto",CULTURA
+"oceano materia gris llamamos cerebro bulle mar ideas obsesiones diferentes resultan identicas observadas conjunto",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/26/catalunya/1398465533_345661.html [Jacinto Antón]
-"Polar Museum Cambridge apoteosis fetichismo helado",CULTURA
+"Polar Museum Cambridge apoteosis fetichismo helado",ACTUALIDAD
 
 % http://elpais.com/cultura/2014/04/25/actualidad/1398455035_667888.html [Rafael Fraguas]
-"equipo cientificos espanoles inicia busqueda restos escritor madrilena iglesia Trinitarias",CULTURA
+"equipo cientificos espanoles inicia busqueda restos escritor madrilena iglesia Trinitarias",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/25/actualidad/1398452799_872940.html [Elena G. Sevillano]
-"inversion energias limpias cae Espana niveles Reino Unido impulsa nuevos proyectos empresas apuestan eolica paises europeos",CULTURA
+"inversion energias limpias cae Espana niveles Reino Unido impulsa nuevos proyectos empresas apuestan eolica paises europeos",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/25/actualidad/1398445342_458886.html [María Lillo]
-"fisica nuclear nieta Marie Curie llena vitalidad",CULTURA
+"fisica nuclear nieta Marie Curie llena vitalidad",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/04/25/media/1398458457_716738.html [Heber Longás]
-"semanas trabajara georradar termografo Convento enterrado Cervantes localizar posibles enterramientos",CULTURA
+"semanas trabajara georradar termografo Convento enterrado Cervantes localizar posibles enterramientos",ACTUALIDAD
 
 % http://elpais.com/tecnologia/2014/04/25/actualidad/1398428824_704774.html [Iván de Moneo]
-"equipo arqueologos trata exhumar millones cartuchos mayor fiasco historia videojuegos",CULTURA
+"equipo arqueologos trata exhumar millones cartuchos mayor fiasco historia videojuegos",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/25/madrid/1398424498_484382.html [Agencias]
-"proceso dara comienzo proximo lunes vez expertos den cadaver emplearan tecnicas identificacion ADN existen muestran compararlas",CULTURA
+"proceso dara comienzo proximo lunes vez expertos den cadaver emplearan tecnicas identificacion ADN existen muestran compararlas",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/04/24/videos/1398342941_741109.html [El País]
-"mole kilometros cuadrados desprendido Antartida adentra mar Amundsen",CULTURA
+"mole kilometros cuadrados desprendido Antartida adentra mar Amundsen",ACTUALIDAD
 
 % http://elpais.com/sociedad/2014/04/24/actualidad/1398366686_292967.html [Oriol Güell]
-"secretario Educacion Superior ecuatoriano busca investigadores",CULTURA
+"secretario Educacion Superior ecuatoriano busca investigadores",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/04/24/planeta_futuro/1398359645_931054.html [Pedro L. Alonso]
-"esfuerzos cientos cientificos financiadores reducir incidencia mortalidad enfermedad salvado millones vidas",CULTURA
+"esfuerzos cientos cientificos financiadores reducir incidencia mortalidad enfermedad salvado millones vidas",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/04/29/535f9b4522601d27438b4571.html [DAVID VIGARIO]
-"medida coste euros previsiones Junta Gobierno Jose Antonio Monago destino pasado partida paliar IVA cultura",CULTURA
+"medida coste euros previsiones Junta Gobierno Jose Antonio Monago destino pasado partida paliar IVA cultura",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/04/29/53593c1d268e3ecb528b457a.html [ESTHER ALVARADO | SERGIO ENRÍZQUEZ-NISTAL (vídeo)]
-"grupo teatro formado jovenes pone escena primera vez Espana version teatral obra William Golding",CULTURA
+"grupo teatro formado jovenes pone escena primera vez Espana version teatral obra William Golding",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/04/29/535eac49268e3ec25e8b4575.html [LUIS ALEMANY]
-"Eco Yourcenar Cela Rushdie ocurrido autores calidad desaparecido ultimas decadas listas ventas",CULTURA
+"Eco Yourcenar Cela Rushdie ocurrido autores calidad desaparecido ultimas decadas listas ventas",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/04/29/535fa423ca47418b1f8b4570.html [GERMÁN GONZÁLEZ]
-"soprano catalana declarar supuestamente defraudado cerca euros Hacienda Publica",CULTURA
+"soprano catalana declarar supuestamente defraudado cerca euros Hacienda Publica",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/04/29/535fa05d22601d33438b4576.html [SALUD HERNÁNDEZ MORA]
-"Vargas Llosa protagonista Feria Libro Bogota marcada reciente muerte antiguo amigo adversario Gabriel Garcia Marquez",CULTURA
+"Vargas Llosa protagonista Feria Libro Bogota marcada reciente muerte antiguo amigo adversario Gabriel Garcia Marquez",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/04/29/535ed243e2704e5a568b457d.html [DARÍO PRIETO]
-"actor impuesto votacion final director Gerardo Vera Terele Pavez Aitana Sanchez Gijon Asier Etxeandia rivales",CULTURA
+"actor impuesto votacion final director Gerardo Vera Terele Pavez Aitana Sanchez Gijon Asier Etxeandia rivales",ACTUALIDAD
 
 % http://www.elmundo.es/andalucia/2014/04/29/535f8888ca4741711f8b457c.html [CRISTÓBAL G. MONTILLA]
-"reabrir mayo ediciones llevan meses paradas mismos problemas cerrada",CULTURA
+"reabrir mayo ediciones llevan meses paradas mismos problemas cerrada",ACTUALIDAD
 
 % http://www.elmundo.es/pais-vasco/2014/04/29/535f886d268e3ec12a8b4577.html [J. M. ALONSO]
-"momento critico atraviesa proyecto Bildu PSE PP PNV tratan reeditar fotografia unidad hace logro Capitalidad Aprueban declaracion institucional defensa proyecto",CULTURA
+"momento critico atraviesa proyecto Bildu PSE PP PNV tratan reeditar fotografia unidad hace logro Capitalidad Aprueban declaracion institucional defensa proyecto",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/04/28/535e5f32e2704e171f8b4570.html [JULIÁN RUIZ]
-"Nick Drake murio enfermo Francoise Hardy Camus Concierto Brandemburgo Dylan Tryptizol Nadie escuchaba epoca leyenda dejado crecer entonces",CULTURA
+"Nick Drake murio enfermo Francoise Hardy Camus Concierto Brandemburgo Dylan Tryptizol Nadie escuchaba epoca leyenda dejado crecer entonces",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/04/28/535eb911ca47415e238b456f.html [JUAN MANUEL BELLVER]
-"restaurante danes Noma arrebatado primer puesto hermanos Roca ranking mejores restaurantes mundo",CULTURA
+"restaurante danes Noma arrebatado primer puesto hermanos Roca ranking mejores restaurantes mundo",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/04/29/535f5e73e2704ec0748b4572.html [ELMUNDO.es]
-"Rock autor protagonista It takes two grandes exitos hip hop muere",CULTURA
+"Rock autor protagonista It takes two grandes exitos hip hop muere",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/04/29/535f75d2e2704ebd748b456c.html [EFE]
-"organizadores premio decidido concederle homenaje bailarina murio pasado febrero",CULTURA
+"organizadores premio decidido concederle homenaje bailarina murio pasado febrero",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/04/29/535f922dca47419f1f8b4570.html [LORETO SÁNCHEZ SEOANE]
-"sobrino heredero politico emperador Francia sangre estudio cientifico niega parentesco ambos",CULTURA
+"sobrino heredero politico emperador Francia sangre estudio cientifico niega parentesco ambos",ACTUALIDAD
 
 % http://www.elmundo.es/economia/2014/04/29/535eae0322601d82268b4580.html [DANIEL J. OLLERO]
-"edificio plantas levanta isla natural rivera Tamesis tercio londinenses opone tipo edificaciones",CULTURA
+"edificio plantas levanta isla natural rivera Tamesis tercio londinenses opone tipo edificaciones",ACTUALIDAD
 
 % http://www.elmundo.es/cultura/2014/04/29/535ef7c522601d49268b4571.html [RAÚL RIVERO]
-"Polemico monumental hiriente escandaloso Ajuste cuentas Agatha libro Harold Alvarado Tenorio Buga escribio tener espejo multiplicarse acosar batallones enemigos estantes bibliotecas",CULTURA
+"Polemico monumental hiriente escandaloso Ajuste cuentas Agatha libro Harold Alvarado Tenorio Buga escribio tener espejo multiplicarse acosar batallones enemigos estantes bibliotecas",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/29/535ea087e2704e58568b4573.html [RAFAEL BACHILLER, MARIO VICIOSA]
-"mayo producira lluvia estrellas vista nunca generada LINEAR cometa visita solo ahora encuentra cerca Sol apunta posible observar meteoros hora condiciones ideales",CULTURA
+"mayo producira lluvia estrellas vista nunca generada LINEAR cometa visita solo ahora encuentra cerca Sol apunta posible observar meteoros hora condiciones ideales",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/29/535f627f22601d0a438b4573.html [YULY JARA]
-"trabajo escala nacional realizado organizacion conservacionista SEO BirdLife revela uso cebos envenenados matado animales domesticos",CULTURA
+"trabajo escala nacional realizado organizacion conservacionista SEO BirdLife revela uso cebos envenenados matado animales domesticos",ACTUALIDAD
 
 % http://www.elmundo.es/salud/2014/04/28/535e4edb22601d43778b456f.html [ÁNGELES LÓPEZ]
-"experimento logra primera clonacion medica partir celulas paciente adulto hito logrado enferma diabetes grupo aplicado procedimiento varones sanos",CULTURA
+"experimento logra primera clonacion medica partir celulas paciente adulto hito logrado enferma diabetes grupo aplicado procedimiento varones sanos",ACTUALIDAD
 
 % http://www.elmundo.es/salud/2014/04/28/533efa7022601d961b8b4582.html [ÁNGELES LÓPEZ]
-"Junto marido Stephen Macknik frente Instituto Barrow EEUU utiliza magia intentar comprender base neurologica conocimiento",CULTURA
+"Junto marido Stephen Macknik frente Instituto Barrow EEUU utiliza magia intentar comprender base neurologica conocimiento",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/27/535ac2eeca4741d3608b4580.html [MIGUEL G. CORRAL]
-"creacion Reserva Biologica importante Europa MUNDO visita espacio natural salvado Jose Antonio Valverde",CULTURA
+"creacion Reserva Biologica importante Europa MUNDO visita espacio natural salvado Jose Antonio Valverde",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/27/535abb06ca474103618b457c.html [MIGUEL G. CORRAL]
-"marisma Parque Nacional Donana iba desecada Franco hacer plantacion pinos eucaliptos impidio joven naturalista Jose Antonio Valverde",CULTURA
+"marisma Parque Nacional Donana iba desecada Franco hacer plantacion pinos eucaliptos impidio joven naturalista Jose Antonio Valverde",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/25/535a5bbd268e3e3c688b457c.html [YULY JARA]
-"matematico Jin Akiyama triunfado television japonesa programa utiliza magia explicar ciencia exacta presenta experimentos espectaculo divulgativo Madrid",CULTURA
+"matematico Jin Akiyama triunfado television japonesa programa utiliza magia explicar ciencia exacta presenta experimentos espectaculo divulgativo Madrid",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/24/535811ce22601d79318b457f.html [TERESA GUERRERO]
-"experimentado cosmonauta pasado dias orbita duda rentable emprender viaje tripulado Marte reivindica Luna Estacion Espacial Internacional lugares adecuados realizar experimentos",CULTURA
+"experimentado cosmonauta pasado dias orbita duda rentable emprender viaje tripulado Marte reivindica Luna Estacion Espacial Internacional lugares adecuados realizar experimentos",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/25/535a1d1d22601d974e8b456c.html [elmundo.es]
-"peligro asteroides mayor creia nueva investigacion desvelado registraron explosiones meteoros atmosfera planeta",CULTURA
+"peligro asteroides mayor creia nueva investigacion desvelado registraron explosiones meteoros atmosfera planeta",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/23/5357eb7922601d8f318b4586.html [elmundo.es]
-"astronautas NASA Steve Swanson Rick Mastracchio tripulantes Estacion Espacial Internacional ISS logrado solucionar problema caminata horas media",CULTURA
+"astronautas NASA Steve Swanson Rick Mastracchio tripulantes Estacion Espacial Internacional ISS logrado solucionar problema caminata horas media",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/24/5357abaaca4741d50a8b4572.html [YULY JARA]
-"Cientificos espanoles descubren personalidad agresiva hembras especie arana determina devoran macho copula",CULTURA
+"Cientificos espanoles descubren personalidad agresiva hembras especie arana determina devoran macho copula",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/22/535665ffca4741f2118b4583.html [YULY JARA]
-"Greenpeace recrea quedarian distintos lugares Espana continuan acentuandose consecuencias cambio climatico deshielo Artico",CULTURA
+"Greenpeace recrea quedarian distintos lugares Espana continuan acentuandose consecuencias cambio climatico deshielo Artico",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/26/535a91d5ca4741d9608b4575.html [GUILLERMO PRUDENCIO]
-"miembro expedicion WWF Instituto Polar Noruego Svalvard narra perdida hielo Artico debido aumento temperaturas afectando rutas siguen osos polares reproducirse habitos caza",CULTURA
+"miembro expedicion WWF Instituto Polar Noruego Svalvard narra perdida hielo Artico debido aumento temperaturas afectando rutas siguen osos polares reproducirse habitos caza",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/24/535928eee2704ed7238b4570.html [elmundo.es]
-"Desafortunadamente unico lugar mundo visible espectaculo astronomico esplendor Antartida Australia",CULTURA
+"Desafortunadamente unico lugar mundo visible espectaculo astronomico esplendor Antartida Australia",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/24/53592d10e2704e752f8b456f.html [BEATRIZ TRECEÑO]
-"grandes ONG ecologistas debaten candidatos Parlamento Europeo partidos excepto UPyD VOX posturas compromisos materia Medio Ambiente",CULTURA
+"grandes ONG ecologistas debaten candidatos Parlamento Europeo partidos excepto UPyD VOX posturas compromisos materia Medio Ambiente",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/23/5357b6c2ca47410c0b8b4572.html [elmundo.es]
-"lugar lluvias estrellas brillantes pueden observar Tierra Liridas cuyo numero meteoros impredecible",CULTURA
+"lugar lluvias estrellas brillantes pueden observar Tierra Liridas cuyo numero meteoros impredecible",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/22/535692ef22601df1278b4579.html [TERESA GUERRERO]
-"dias tardaran recorrer perimetro mayor isla mundo explorador polar Ramon Larramendi equipo recabaran datos tomaran muestras varios proyectos cientificos investigan cambios clima Artico Soportaran temperaturas vientos kilometros hora",CULTURA
+"dias tardaran recorrer perimetro mayor isla mundo explorador polar Ramon Larramendi equipo recabaran datos tomaran muestras varios proyectos cientificos investigan cambios clima Artico Soportaran temperaturas vientos kilometros hora",ACTUALIDAD
 
 % http://www.elmundo.es/salud/2014/04/24/5357f029268e3e0a058b4580.html [LAURA TARDÓN]
-"Cientificos australianos comprobado cobayas implante coclear asociado sustancia neuro regenerativa ayudar mejorar audicion personas sordera profunda",CULTURA
+"Cientificos australianos comprobado cobayas implante coclear asociado sustancia neuro regenerativa ayudar mejorar audicion personas sordera profunda",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/22/53563141268e3ef5478b4570.html [elmundo.es]
-"organizacion Ciencia Futuro lanza campana satirica internet denunciar precariedad economica cientificos espanoles",CULTURA
+"organizacion Ciencia Futuro lanza campana satirica internet denunciar precariedad economica cientificos espanoles",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/22/534ea286e2704e5d3f8b4575.html [TERESA GUERRERO, ]
-"maestra italiana Emma Castelnuovo conocida innovadores metodos ensenanza matematicas fallecido cien",CULTURA
+"maestra italiana Emma Castelnuovo conocida innovadores metodos ensenanza matematicas fallecido cien",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/24/53593552e2704efb238b4576.html [elmundo.es]
-"Parlamento Europeo admitido tramite denuncia organizacion conservacionista Proyecto Gran Simio maltrato trato vejatorio sufrido grupo chimpances utilizados espectaculo circense Alemania",CULTURA
+"Parlamento Europeo admitido tramite denuncia organizacion conservacionista Proyecto Gran Simio maltrato trato vejatorio sufrido grupo chimpances utilizados espectaculo circense Alemania",ACTUALIDAD
 
 % http://www.elmundo.es/ciencia/2014/04/21/5354e395e2704eea558b456e.html [elmundo.es]
-"compania SpaceX realiza exitoso vuelo prueba Texas nuevo modelo cohete reutilizable abaratar manera espectacular costes futuras misiones espaciales",CULTURA
+"compania SpaceX realiza exitoso vuelo prueba Texas nuevo modelo cohete reutilizable abaratar manera espectacular costes futuras misiones espaciales",ACTUALIDAD
 
 % http://elpais.com/deportes/2014/04/28/champions/1398708997_699855.html [José Sámano]
 "Bayern Munich Real Madrid juegan puesto final Lisboa armas diferentes constato ida",DEPORTES
@@ -427,236 +427,236 @@
 "elmundo elmundodeporte futbol liga argentina index ARG elmundo deportes futbol liga mexicana index MEX elmundo elmundodeporte futbol liga colombiana apertura index COL elmundo elmundodeporte futbol liga peruana index PER elmundo elmundodeporte futbol liga ecuatoriana index ECU elmundo elmundodeporte futbol liga chilena clausura index CHI elmundo elmundodeporte futbol ligas brasil carioca tg index BRA",DEPORTES
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398785224_994547.html [Anabel Díez]
-"vicepresidenta rechaza percibido sobresueldos socialista Soraya Rodriguez asegura recibio euros",POLITICA
+"vicepresidenta rechaza percibido sobresueldos socialista Soraya Rodriguez asegura recibio euros",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398773630_030018.html [Anabel Díez]
-"Pere Navarro grave victima agresion convierta sospechosa",POLITICA
+"Pere Navarro grave victima agresion convierta sospechosa",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/29/catalunya/1398774725_935619.html [Miquel Noguer]
-"agresion Navarro portavoz catalan actores politicos tentaciones criminalizar movimiento independentista",POLITICA
+"agresion Navarro portavoz catalan actores politicos tentaciones criminalizar movimiento independentista",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/29/catalunya/1398781207_244913.html [EFE]
-"magistrado reconocido jueces redactan supuesta constitucion eventual Cataluna independiente",POLITICA
+"magistrado reconocido jueces redactan supuesta constitucion eventual Cataluna independiente",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398755948_946571.html [El País]
-"presidente Consejo Europeo Herman van Rompuy afirma prefiere produzca independencia Cataluna",POLITICA
+"presidente Consejo Europeo Herman van Rompuy afirma prefiere produzca independencia Cataluna",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/28/catalunya/1398698937_193921.html [Pere Ríos]
-"lider PSOE critica presidente Gobierno Cree tiempo arregla creo agrava",POLITICA
+"lider PSOE critica presidente Gobierno Cree tiempo arregla creo agrava",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398756839_217955.html [Francesco Manetto]
-"Hernando sabra problemas agenda decir",POLITICA
+"Hernando sabra problemas agenda decir",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398688646_991563.html [Bruno García Gallo, Carlos E. Cué]
-"Ahora cosa asegura expresidente Esperanza Aguirre montara mitin Madrid",POLITICA
+"Ahora cosa asegura expresidente Esperanza Aguirre montara mitin Madrid",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398706681_282275.html [Fernando J. Pérez]
-"Sala Penal decide excarcelacion presuntos traficantes acogiendose reforma ley",POLITICA
+"Sala Penal decide excarcelacion presuntos traficantes acogiendose reforma ley",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398771407_899889.html [José María Jiménez Gálvez]
-"Amnistia Internacional inicia campana creciente restriccion Espana derecho manifestacion expresion",POLITICA
+"Amnistia Internacional inicia campana creciente restriccion Espana derecho manifestacion expresion",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/29/videos/1398775422_339165.html [Atlas]
-"nueva titular Agricultura afirma culminara proyecto predecesor Miguel Arias Canete Ministerio",POLITICA
+"nueva titular Agricultura afirma culminara proyecto predecesor Miguel Arias Canete Ministerio",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398670628_883990.html [Carlos E. Cué]
-"Sustituye cabeza lista PP elecciones europeas Canete tomado posesion tarde Rey",POLITICA
+"Sustituye cabeza lista PP elecciones europeas Canete tomado posesion tarde Rey",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/29/andalucia/1398769551_122498.html [Javier Martín-Arroyo]
-"fiscalia evita solicitar prision preventiva exconcejales socialistas imputados Alaya afirma conclusion investigacion estima breve plazo",POLITICA
+"fiscalia evita solicitar prision preventiva exconcejales socialistas imputados Alaya afirma conclusion investigacion estima breve plazo",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398784581_707955.html [Marién Kadner López]
-"irregulares entraron Ceuta Melilla duplican frente patera",POLITICA
+"irregulares entraron Ceuta Melilla duplican frente patera",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/29/actualidad/1398789414_844473.html [José Antonio Hernández]
-"Pilar Sepulveda consejera progresista presenta informe conservadora Carmen Llombart aun publico",POLITICA
+"Pilar Sepulveda consejera progresista presenta informe conservadora Carmen Llombart aun publico",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398709941_457359.html [María Fernández]
-"Junta prepara decreto blindar competencias municipios comunidades mismo",POLITICA
+"Junta prepara decreto blindar competencias municipios comunidades mismo",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398693037_989389.html [Andreu Manresa]
-"Bauza quiere reducir parlamentarios PP medida piden ciudadanos",POLITICA
+"Bauza quiere reducir parlamentarios PP medida piden ciudadanos",ACTUALIDAD
 
 % http://elpais.com/ccaa/2014/04/28/valencia/1398706403_933499.html [Ezequiel Moltó]
-"lider IU afirma populares asumen responsabilidad politica",POLITICA
+"lider IU afirma populares asumen responsabilidad politica",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398685849_220661.html [Marina Gómez Robledo Ramos]
-"Sosa Wagner anuncia plan formacion buscara escanos Bruselas costara millones euros",POLITICA
+"Sosa Wagner anuncia plan formacion buscara escanos Bruselas costara millones euros",ACTUALIDAD
 
 % http://elpais.com/politica/2014/04/28/actualidad/1398681744_468061.html [El País]
-"Cables desclasificados EE UU reflejan temores entonces principe Juan Carlos visperas muerte Franco",POLITICA
+"Cables desclasificados EE UU reflejan temores entonces principe Juan Carlos visperas muerte Franco",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/29/actualidad/1398790716_186883.html [María Antonia Sánchez-Vallejo]
-"numero edificios manos rebeldes aumenta semanas referendum lideres separatistas lista sancionados Union Europea",POLITICA
+"numero edificios manos rebeldes aumenta semanas referendum lideres separatistas lista sancionados Union Europea",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398703216_010712.html [Claudi Pérez]
-"viceprimer ministro ruso responsable supervisar anexion Crimea Rusia Dmitri Kozak varios dirigentes separatistas Donetsk figuran lista",POLITICA
+"viceprimer ministro ruso responsable supervisar anexion Crimea Rusia Dmitri Kozak varios dirigentes separatistas Donetsk figuran lista",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398684011_241094.html [Pilar Bonet]
-"Kiev abrio regidor investigacion amenazas supuesto secuestro activistas Euromaidan",POLITICA
+"Kiev abrio regidor investigacion amenazas supuesto secuestro activistas Euromaidan",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398712258_470273.html [Luis Doncel, Agencias]
-"delegacion OSCE negocia Ucrania rebeldes prorrusos",POLITICA
+"delegacion OSCE negocia Ucrania rebeldes prorrusos",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/29/actualidad/1398750272_901898.html [Jose Reinoso]
-"ejercicios similares realizados Corea Norte finales marzo aumentan tension zona",POLITICA
+"ejercicios similares realizados Corea Norte finales marzo aumentan tension zona",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/29/actualidad/1398775328_416099.html [Agencias]
-"Observatorios Sirio Derechos Humanos alertado ataque Damasco personas perdido vida",POLITICA
+"Observatorios Sirio Derechos Humanos alertado ataque Damasco personas perdido vida",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/29/actualidad/1398772753_247915.html [Javier Casqueiro]
-"Consejo Seguridad ONU valora progresos promesas Gobierno marroqui derechos humanos",POLITICA
+"Consejo Seguridad ONU valora progresos promesas Gobierno marroqui derechos humanos",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/29/actualidad/1398785374_864674.html [Ángeles Espinosa]
-"visperas visita rey Juan Carlos disturbios siguen sacudiendo noche pequeno reino arabe",POLITICA
+"visperas visita rey Juan Carlos disturbios siguen sacudiendo noche pequeno reino arabe",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398708076_105376.html [Ignacio Fariza]
-"ministro principal Alex Salmond cree peligro UE referendum permanencia britanica",POLITICA
+"ministro principal Alex Salmond cree peligro UE referendum permanencia britanica",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398695154_133209.html [Walter Oppenheimer]
-"formacion Farage encabeza sondeos europeos Reino Unido otorgan votos",POLITICA
+"formacion Farage encabeza sondeos europeos Reino Unido otorgan votos",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398702719_566595.html [Miguel Mora]
-"primer ministro frances garantiza diputados pensionistas cobran mantendran poder adquisitivo",POLITICA
+"primer ministro frances garantiza diputados pensionistas cobran mantendran poder adquisitivo",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398703283_016317.html [Ángeles Espinosa]
-"primer ministro Maliki aspira tercer mandato pesar criticas frenado sectarismo ANGELES ESPINOSA",POLITICA
+"primer ministro Maliki aspira tercer mandato pesar criticas frenado sectarismo ANGELES ESPINOSA",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398701978_865192.html [Javier Casqueiro]
-"Nombra ultimo jefe campana primer ministro reclama pacto oposicion cambiar Constitucion",POLITICA
+"Nombra ultimo jefe campana primer ministro reclama pacto oposicion cambiar Constitucion",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398677642_379480.html [Ricard González]
-"mismo tribunal impone pena capital terrorismo personas supuestamente seguidores Hermandad",POLITICA
+"mismo tribunal impone pena capital terrorismo personas supuestamente seguidores Hermandad",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398719477_556592.html [Lara Otero]
-"Canberra convoca concurso mapear sonares kilometros cuadrados fondo marino millones",POLITICA
+"Canberra convoca concurso mapear sonares kilometros cuadrados fondo marino millones",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/28/actualidad/1398682253_611137.html [Jose Reinoso]
-"Aumentara rotacion soldados barcos aviones combate Obama afirma alianza contribuye paz region",POLITICA
+"Aumentara rotacion soldados barcos aviones combate Obama afirma alianza contribuye paz region",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/29/actualidad/1398723736_263972.html [El País]
-"periodista politico estrecho colaborador Aung San Suu Kyi Paso carcel criticas regimen",POLITICA
+"periodista politico estrecho colaborador Aung San Suu Kyi Paso carcel criticas regimen",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/27/actualidad/1398626195_232832.html [Juan Gómez]
-"horas finales periodo negociacion israelies palestinos impulsado vigor EE UU esfuman",POLITICA
+"horas finales periodo negociacion israelies palestinos impulsado vigor EE UU esfuman",ACTUALIDAD
 
 % http://elpais.com/internacional/2014/04/26/actualidad/1398538115_010959.html [Gemma Parellada]
-"Miles musulmanes resisten Bangui cerco milicia cristiana",POLITICA
+"Miles musulmanes resisten Bangui cerco milicia cristiana",ACTUALIDAD
 
 % http://elpais.com/elpais/2014/04/29/planeta_futuro/1398773755_036586.html [El País]
-"centro organizacion gestiona Boguila norte pais asaltado pasado sabado hombres armados exSeleka reunion lideres locales",POLITICA
+"centro organizacion gestiona Boguila norte pais asaltado pasado sabado hombres armados exSeleka reunion lideres locales",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535f72a1268e3eed2a8b4570.html [XAVIER COLÁS]
-"Vichislav Ponomariov mantiene retenidos miembros OSCE viernes Asegura solo negociara liberacion UE levanta sanciones",POLITICA
+"Vichislav Ponomariov mantiene retenidos miembros OSCE viernes Asegura solo negociara liberacion UE levanta sanciones",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535f6f76268e3ebb2a8b4570.html [ROSALÍA SÁNCHEZ]
-"refleja prensa germana articulos acompanan fotografia tomada anoche Schroder presidente ruso fundidos abrazo",POLITICA
+"refleja prensa germana articulos acompanan fotografia tomada anoche Schroder presidente ruso fundidos abrazo",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535f688b268e3ebf2a8b4572.html [JUAN MANUEL BELLVER]
-"tarde primer ministro frances juega Asamblea Nacional sometera votacion polemico Pacto Responsabilidad",POLITICA
+"tarde primer ministro frances juega Asamblea Nacional sometera votacion polemico Pacto Responsabilidad",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535fc01dca4741791f8b458c.html [LLUÍS MIQUEL HURTADO]
-"Ankara quiere Washington deporte Fethullah Gullen maximo lider congregacion islamica Hizmet acusado promover golpe",POLITICA
+"Ankara quiere Washington deporte Fethullah Gullen maximo lider congregacion islamica Hizmet acusado promover golpe",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535fad4922601d33438b457b.html [CARLOS FRESNEDA]
-"Conservadores laboristas liberaldemocratas unen Partido Independencia primera opcion europeas sondeos",POLITICA
+"Conservadores laboristas liberaldemocratas unen Partido Independencia primera opcion europeas sondeos",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535f38a422601d34438b456c.html [SAL EMERGUI]
-"Israelies palestinos acaban nueves meses negociaciones acusandose mutuamente dejando proceso paz muerte clinica",POLITICA
+"Israelies palestinos acaban nueves meses negociaciones acusandose mutuamente dejando proceso paz muerte clinica",ACTUALIDAD
 
 % http://www.elmundo.es/america/2014/04/29/535f462d268e3ed52a8b456b.html [elmundo.es]
-"cuerpo Eliezer Otaiza encontro identificar impactos bala Hatillo afueras Caracas abre investigacion",POLITICA
+"cuerpo Eliezer Otaiza encontro identificar impactos bala Hatillo afueras Caracas abre investigacion",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535f6326268e3ee92a8b456d.html [elmundo.es]
-"atentados lugar plena campana electoral presidenciales dia Bashar Asad postulara tercer mandato",POLITICA
+"atentados lugar plena campana electoral presidenciales dia Bashar Asad postulara tercer mandato",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535f6205268e3ec02a8b456e.html [elmundo.es]
-"Asma Asad aparece publico ayudar conseguir votos actual mandatario regimen metido frenesi inauguraciones entrega ayuda",POLITICA
+"Asma Asad aparece publico ayudar conseguir votos actual mandatario regimen metido frenesi inauguraciones entrega ayuda",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535f1093268e3ebc5e8b4571.html [elmundo.es]
-"Corea Sur advierte respondera firmeza caen proyectiles aguas maniobras producen dias visita Seul Obama",POLITICA
+"Corea Sur advierte respondera firmeza caen proyectiles aguas maniobras producen dias visita Seul Obama",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535ea736e2704e62568b4574.html [JAVIER G. GALLEGO]
-"aplausos marcaran resultado liberal Verhofstadt vencedor popular Juncker claro perdedor mostrarse ausente despistado",POLITICA
+"aplausos marcaran resultado liberal Verhofstadt vencedor popular Juncker claro perdedor mostrarse ausente despistado",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535ea5f222601d68268b4572.html [ROSALÍA SÁNCHEZ]
-"candidato principal partido euroesceptico aleman Alternativa alemania AfD Hans Olaf Henkel respalda derecho autodeterminacion Cataluna Escocia vez pide Espana abandone barco hunda",POLITICA
+"candidato principal partido euroesceptico aleman Alternativa alemania AfD Hans Olaf Henkel respalda derecho autodeterminacion Cataluna Escocia vez pide Espana abandone barco hunda",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535e07b2268e3e5e6a8b456a.html [FRANCISCO CARRIÓN]
-"sentencia lugar condena muerte personas sentenciados encuentra guia supremo Hermandad Badia",POLITICA
+"sentencia lugar condena muerte personas sentenciados encuentra guia supremo Hermandad Badia",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535eae79e2704e76568b457f.html [FRANCISCO CARRIÓN]
-"condenados muerte juez Said Yusef habla MUNDO rehusa revelar pais acogida miedo represalias",POLITICA
+"condenados muerte juez Said Yusef habla MUNDO rehusa revelar pais acogida miedo represalias",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535e9297e2704e73568b4570.html [F. C.]
-"Codigo Penal egipcio contempla pena muerte ahora tribunales recurrido cadalso modo alegre",POLITICA
+"Codigo Penal egipcio contempla pena muerte ahora tribunales recurrido cadalso modo alegre",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535e9abee2704e6c568b4574.html [IRENE HDEZ. VELASCO]
-"ex secretario vaticano queja nueva residencia comparada presunta estrechez suite vive Papa",POLITICA
+"ex secretario vaticano queja nueva residencia comparada presunta estrechez suite vive Papa",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/27/535cafece2704edf188b456b.html [IRENE HDEZ. VELASCO]
-"Juan XXIII Juan Pablo II proclamados santos ceremonia concelebrada Francisco Benedicto XVI San Pedro millon personas",POLITICA
+"Juan XXIII Juan Pablo II proclamados santos ceremonia concelebrada Francisco Benedicto XVI San Pedro millon personas",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/27/535d46b9268e3e497a8b4571.html [Papa Emérito Benedicto XVI]
-"Dio giro impensable historia Iglesia gracias concepto actualizacion arraigado lucha forma verdadera santidad cuenta texto publicado Osservatore Romano",POLITICA
+"Dio giro impensable historia Iglesia gracias concepto actualizacion arraigado lucha forma verdadera santidad cuenta texto publicado Osservatore Romano",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/27/535d3b9ae2704eac188b4571.html [PAPA FRANCISCO]
-"Recuerda autor texto publicado Osservatore Romano Karol Wojtyla decia necesita siglo maestros testigos",POLITICA
+"Recuerda autor texto publicado Osservatore Romano Karol Wojtyla decia necesita siglo maestros testigos",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535f6b06268e3ebd2a8b4571.html [C. FRESNEDA]
-"alumno apunalo cuello clase agresor tomando antidepresivos prometio vengarse sancion",POLITICA
+"alumno apunalo cuello clase agresor tomando antidepresivos prometio vengarse sancion",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535fd58c268e3ed82a8b457c.html [elmundo.es]
-"Tribunal Apelacion Florencia condeno enero Amanda Knox Raffaele Sollecito descarta ahora movil sexual crimen Kercher hallada degollada piso estudiantes",POLITICA
+"Tribunal Apelacion Florencia condeno enero Amanda Knox Raffaele Sollecito descarta ahora movil sexual crimen Kercher hallada degollada piso estudiantes",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535fc4ba268e3ecd2a8b457f.html [JUAN IGNACIO IRIGARAY]
-"menor violada padrastro madre denuncia acudio servicios medicos tardaron atenderla hicieran embarazo avanzado",POLITICA
+"menor violada padrastro madre denuncia acudio servicios medicos tardaron atenderla hicieran embarazo avanzado",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/29/535fd72de2704ecb748b4579.html [elmundo.es]
-"edificio celebrando votacion eleccion nuevo primer ministro renuncia pasado dia abril jefe Gobierno interino Abdala Zani",POLITICA
+"edificio celebrando votacion eleccion nuevo primer ministro renuncia pasado dia abril jefe Gobierno interino Abdala Zani",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535e8653ca474153238b456b.html [M. F. IBÁÑEZ, PABLO L. OROSA]
-"Sunies turcomanos kurdos disputan poder Kirkuk provincia petrolifera simbolica elecciones miercoles",POLITICA
+"Sunies turcomanos kurdos disputan poder Kirkuk provincia petrolifera simbolica elecciones miercoles",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535e6b77ca474190158b4584.html [C. FRESNEDA]
-"Peter Glazebrooke agricultor britanico celebre enormes hortalizas cultiva huerto ingresado Guinnes col grande jamas cosechada",POLITICA
+"Peter Glazebrooke agricultor britanico celebre enormes hortalizas cultiva huerto ingresado Guinnes col grande jamas cosechada",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535e94f2ca474159238b4571.html [elmundo.es]
-"casi nonagenaria Elisabeth Kalhammer rememora entrevista vivencias refugio dictador Berchtesgaden",POLITICA
+"casi nonagenaria Elisabeth Kalhammer rememora entrevista vivencias refugio dictador Berchtesgaden",ACTUALIDAD
 
 % http://www.elmundo.es/america/2014/04/28/535e751a22601d82268b456a.html [elmundo.es]
-"mujeres encuentran detenidas presuntas autoras paliza aparentemente motivada celos premeditada",POLITICA
+"mujeres encuentran detenidas presuntas autoras paliza aparentemente motivada celos premeditada",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535e13f4268e3e4e6a8b456b.html [L. GÓMEZ]
-"ministro Asuntos Exteriores britanico William Hague resalta incertidumbres encuentran plan Alex Salmond",POLITICA
+"ministro Asuntos Exteriores britanico William Hague resalta incertidumbres encuentran plan Alex Salmond",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535ea948e2704e84568b4570.html [elmundo.es]
-"ministro principal afirma independencia permitiria contribuir Europa diferencia posicion euroesceptica mostrada sucesivos Gobiernos britanicos",POLITICA
+"ministro principal afirma independencia permitiria contribuir Europa diferencia posicion euroesceptica mostrada sucesivos Gobiernos britanicos",ACTUALIDAD
 
 % http://www.elmundo.es/america/2014/04/28/535eabefe2704e76568b457a.html [elmundo.es]
-"religioso buscado agosto identificado victimas dictadura ofrecian euros encontrara",POLITICA
+"religioso buscado agosto identificado victimas dictadura ofrecian euros encontrara",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535e014b268e3e776a8b456d.html [elmundo.es]
-"Corea Norte afirmo rueda prensa ofrecio Obama Park Geun hye mostro verdadera cara perversa aduladora traidora",POLITICA
+"Corea Norte afirmo rueda prensa ofrecio Obama Park Geun hye mostro verdadera cara perversa aduladora traidora",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/28/535e88d2ca474176238b456b.html [elmundo.es]
-"artista japones escanea convierte obra plastica niveles radiaccion planta nuclear concienciar efectos",POLITICA
+"artista japones escanea convierte obra plastica niveles radiaccion planta nuclear concienciar efectos",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/04/26/535be67a268e3e7e088b4572.html [J. M. COMAS]
-"socialdemocratas pedido Partido Popular Europeo PPE pronuncie determinacion descarrilamiento intolerable ciudadanos alemanes",POLITICA
+"socialdemocratas pedido Partido Popular Europeo PPE pronuncie determinacion descarrilamiento intolerable ciudadanos alemanes",ACTUALIDAD
 
 % http://www.elmundo.es/america/2014/04/28/535e28d8268e3e656a8b4570.html [EUROPA PRESS]
-"numero oficiales detenidos asciende forman parte mismo grupo graves indicios actuacion sediciosa",POLITICA
+"numero oficiales detenidos asciende forman parte mismo grupo graves indicios actuacion sediciosa",ACTUALIDAD
 
 % http://www.elmundo.es/america/2014/04/28/535df55e268e3e796a8b456b.html [elmundo.es]
-"autoridades confirmado muerte personas Arkansas fallecido Oklahoma persona Iowa",POLITICA
+"autoridades confirmado muerte personas Arkansas fallecido Oklahoma persona Iowa",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/03/29/5331a764e2704e800e8b4579.html [VICENTE ROMERO]
-"herbicidas usaron arma quimica siguen causando victimas Cruz Roja Espanola Unicef mantienen programas ayuda todavia sufren consecuencias defoliantes",POLITICA
+"herbicidas usaron arma quimica siguen causando victimas Cruz Roja Espanola Unicef mantienen programas ayuda todavia sufren consecuencias defoliantes",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/03/26/5331ab1ae2704e820e8b457d.html [V. ROMERO]
-"prostitucion infantil disminuido pais asiatico paraiso pederastas restaurante recuperado total adolescentes victimas abandono",POLITICA
+"prostitucion infantil disminuido pais asiatico paraiso pederastas restaurante recuperado total adolescentes victimas abandono",ACTUALIDAD
 
 % http://www.elmundo.es/internacional/2014/03/03/530dc9e2e2704e87048b4574.html [VICENTE ROMERO]
-"meses medio tifon Yolanda millones personas viven albergues provisionales ayuda gubernamental apenas campesinos pescadores sectores empobrecidos",POLITICA
+"meses medio tifon Yolanda millones personas viven albergues provisionales ayuda gubernamental apenas campesinos pescadores sectores empobrecidos",ACTUALIDAD
 
