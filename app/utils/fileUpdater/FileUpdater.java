@@ -7,6 +7,7 @@ import java.io.IOException;
 import org.apache.commons.lang.StringUtils;
 import utils.feedReader.FeedReader;
 import utils.fileWriter.ArffWriter;
+import utils.helpers.FileHelper;
 
 /**
  * This class was only created to solve this situation. </br>
@@ -86,17 +87,12 @@ public class FileUpdater {
 			if (fileEntry.isDirectory()) {
 				updateFiles(fileEntry);
 			} else {
-				if (isNormalFile(fileEntry)) {
+				if (FileHelper.isNormalFile(fileEntry)) {
 					fail |= updateFile(fileEntry.getPath());
 				}
 			}
 		}
 		return !fail;
-	}
-
-	/** Checks that the file will be readable... and isn't a hidden file such as <em>.DS_STORE</em> files */
-	private boolean isNormalFile(File fileEntry) {
-		return fileEntry.canRead() && fileEntry.canWrite() && !fileEntry.isHidden();
 	}
 
 	/** @see Stackoverflow #4662215 */

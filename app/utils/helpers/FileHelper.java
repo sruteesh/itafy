@@ -1,5 +1,6 @@
 package utils.helpers;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -22,6 +23,13 @@ public final class FileHelper {
 		throw new AssertionError();
 	}
 
+
+	/**
+	 * Checks that the file will be readable... and isn't a hidden file such as <em>.DS_STORE</em> files
+	 */
+	public static boolean isNormalFile(File fileEntry) {
+		return fileEntry.canRead() && fileEntry.canWrite() && !fileEntry.isHidden();
+	}
 
 	/**
 	 * Read a .txt file and return it's content as a String
