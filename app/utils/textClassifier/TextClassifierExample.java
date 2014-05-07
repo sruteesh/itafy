@@ -82,7 +82,7 @@ public class TextClassifierExample {
 		System.out.println("Query, we do know it's a politic text");
 		response = classifier.classifyMessage(FileHelper.readTextFile(POLITIC_QUERY));
 		System.out.println(response);
-		System.out.println(classifier.lastClassName);
+		System.out.println(classifier.getLastClassName());
 	}
 
 	private static void cultureQuery(TextClassifier classifier){
@@ -90,7 +90,7 @@ public class TextClassifierExample {
 		System.out.println("Query, we do know it's a cultural text");
 		response = classifier.classifyMessage(FileHelper.readTextFile(CULTURE_QUERY));
 		System.out.println(response);
-		System.out.println(classifier.lastClassName);
+		System.out.println(classifier.getLastClassName());
 	}
 
 	private static void sportQuery(TextClassifier classifier) {
@@ -98,7 +98,7 @@ public class TextClassifierExample {
 		System.out.println("Query, we do know it's a sports text");
 		response = classifier.classifyMessage(FileHelper.readTextFile(SPORT_QUERY));
 		System.out.println(response);
-		System.out.println(classifier.lastClassName);
+		System.out.println(classifier.getLastClassName());
 	}
 
 	private static void updateDataWithExampleFiles(TextClassifier classifier) {

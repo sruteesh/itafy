@@ -29,7 +29,7 @@ public class TextClassifier implements Serializable {
 	private boolean isUpToDate; // is the model up to date? when new data is stored in the model, we need to actualize
 
 	/* Useful for checking */
-	protected String lastClassName = "";
+	private String lastClassName = "";
 
 
 	public TextClassifier() {
@@ -58,17 +58,28 @@ public class TextClassifier implements Serializable {
 		}
 	}
 
-	/** Change <code>this.dataset</code> */
+	/**
+	 * Change <code>this.dataset</code>
+	 * @see Stackoverflow #*/
 	private void mergeDataSet(Instances data) throws Exception {
 		for (int i=0; i < data.numInstances(); i++) {
 			Instance instance = data.instance(i);
-			makeInstance(instance); // XXX
+			makeInstance(instance);
 			dataset.add(instance);
 		}
 
 	}
 
-	// black magic
+	/**
+	 * Black magic.
+	 * For some reason when 2 datasets were merged a <code>wekas.core.exception</code> were raised.
+	 * The solution was think in the instance we were adding as a completly new instance.
+	 * <p>
+	 * Takes the data (msg and class) of the input instance and creates a new instance
+	 * <p>
+	 * 
+	 * @param instance contains the data for the new instance
+	 */
 	private void makeInstance(Instance instance) {
 		Attribute messageAttribute = dataset.attribute(MsgClassificationConstants.MESSAGE);
 		instance.setValue(messageAttribute, messageAttribute.addStringValue(getMsg(instance)));
@@ -165,6 +176,15 @@ public class TextClassifier implements Serializable {
 	public int getNumAttributes() { return dataset.numAttributes(); }
 	public int getNumClasses() { return dataset.numClasses(); }
 	public String getLastClassName() {return lastClassName; }
+
+	@Override
+	public String toString() {
+		return
+				"Att: " + this.getNumAttributes() + "\n" +
+				"Classes: " + this.getNumClasses() + "\n" +
+				"Instances: " + this.getNumInstances() + "\n";
+	}
+
 
 	private HashMap<String, Double> classifyInstance(Instance instance) throws Exception {
 		Instance filteredInstance = filterInstance(instance);
