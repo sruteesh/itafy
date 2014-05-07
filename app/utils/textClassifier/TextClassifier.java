@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import models.categories.AvaibleCategories;
 import weka.classifiers.Classifier;
-import weka.classifiers.trees.J48;
+import weka.classifiers.rules.NNge;
 import weka.core.Attribute;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -35,7 +35,7 @@ public class TextClassifier implements Serializable {
 	public TextClassifier() {
 		dataset = MsgClassificationDataset.getDataset();
 		filter = new StringToWordVector();
-		classifier = new J48();
+		classifier = new NNge();
 		isUpToDate = false;
 	}
 
@@ -43,7 +43,7 @@ public class TextClassifier implements Serializable {
 		ArffReader fileReader = new ArffReader();
 		dataset = fileReader.buildDatasetFromFile(pathToArffFile);
 		filter = new StringToWordVector();
-		classifier = new J48();
+		classifier = new NNge();
 		isUpToDate = false;
 	}
 
@@ -229,6 +229,7 @@ public class TextClassifier implements Serializable {
 		filter.setInputFormat(dataset);
 		Instances filteredData = Filter.useFilter(dataset, filter);
 		classifier.buildClassifier(filteredData);
+		return;
 	}
 
 	/**
