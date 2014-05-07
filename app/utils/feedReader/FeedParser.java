@@ -39,6 +39,7 @@ public class FeedParser {
 			feed = readXMLDocument(eventReader);
 
 		} catch (XMLStreamException e) {
+			System.err.println("FeedParser: exception while parsing " + feedUrl);
 			throw new RuntimeException(e);
 		}
 		return feed;

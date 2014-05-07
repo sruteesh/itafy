@@ -95,6 +95,7 @@ public class FeedReader {
 	 */
 	public boolean createModel() {
 		if (rss.isEmpty()) {
+			System.err.println("FeedReader: no rss initialized");
 			return false;
 		}
 		ArrayList<WritableElement> data = parseFeedForEachRssLink();
@@ -115,6 +116,7 @@ public class FeedReader {
 					response.addAll(valuableContent);
 				} catch (Exception e) {
 					// possible error in RSS from provider, not our guilt; just continue your way
+					System.err.println("FeedReader: rss error from provider (" + link + ")");
 					continue;
 				}
 			}
