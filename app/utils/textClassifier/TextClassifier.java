@@ -28,6 +28,9 @@ public class TextClassifier implements Serializable {
 	private Classifier classifier; // weka's magic
 	private boolean isUpToDate; // is the model up to date? when new data is stored in the model, we need to actualize
 
+	/* Useful for checking */
+	protected String lastClassName = "";
+
 
 	public TextClassifier() {
 		dataset = MsgClassificationDataset.getDataset();
@@ -44,6 +47,44 @@ public class TextClassifier implements Serializable {
 		isUpToDate = false;
 	}
 
+	public void updateDataset(String pathToArffFile) {
+		ArffReader fileReader = new ArffReader();
+		Instances dataFromFile = fileReader.buildDatasetFromFile(pathToArffFile);
+		try {
+			mergeDataSet(dataFromFile);
+		} catch (Exception e) {
+			System.err.println("TextClassifier: mergeDataSet("+ pathToArffFile +")");
+			e.printStackTrace();
+		}
+	}
+
+	/** Change <code>this.dataset</code> */
+	private void mergeDataSet(Instances data) throws Exception {
+		for (int i=0; i < data.numInstances(); i++) {
+			Instance instance = data.instance(i);
+			makeInstance(instance); // XXX
+			dataset.add(instance);
+		}
+
+	}
+
+	// black magic
+	private void makeInstance(Instance instance) {
+		Attribute messageAttribute = dataset.attribute(MsgClassificationConstants.MESSAGE);
+		instance.setValue(messageAttribute, messageAttribute.addStringValue(getMsg(instance)));
+		instance.setDataset(dataset);
+		instance.setClassValue(getClassValue(instance));
+	}
+
+	private String getMsg(Instance instance) {
+		int msgIndex = dataset.attribute(MsgClassificationConstants.MESSAGE).index();
+		return instance.stringValue(msgIndex);
+	}
+
+	private String getClassValue(Instance instance) {
+		int classIndex = dataset.classIndex();;
+		return instance.stringValue(classIndex);
+	}
 
 	/**
 	 * Updates model using the given training message
@@ -123,19 +164,17 @@ public class TextClassifier implements Serializable {
 	public int getNumInstances() { return dataset.numInstances(); }
 	public int getNumAttributes() { return dataset.numAttributes(); }
 	public int getNumClasses() { return dataset.numClasses(); }
-
+	public String getLastClassName() {return lastClassName; }
 
 	private HashMap<String, Double> classifyInstance(Instance instance) throws Exception {
 		Instance filteredInstance = filterInstance(instance);
 		double[] probabilityDistribution = classifier.distributionForInstance(filteredInstance);
+		lastClassName = getClassName(classifier.classifyInstance(filteredInstance));
 		return buildDistributionMap(probabilityDistribution);
 	}
 
-	@SuppressWarnings("unused")
-	private String predictedClassName(Instance filteredInstance) throws Exception {
-		double predicted = classifier.classifyInstance(filteredInstance);
-		String predictedClassName = dataset.classAttribute().value((int) predicted);
-		return predictedClassName;
+	private String getClassName(double predicted) throws Exception {
+		return dataset.classAttribute().value((int) predicted);
 	}
 
 	private Instance filterInstance(Instance instance) throws Exception {
@@ -158,15 +197,17 @@ public class TextClassifier implements Serializable {
 	}
 
 	/**
-	 * 1. Initialize filter and tell it about the input format </br>
-	 * 2. Generate word counts from the training data </br>
-	 * 3. Rebuild classifier. </br>
+	 * <ol>
+	 *  <li> Initialize filter and tell it about the input format
+	 *  <li> Generate word counts from the training data
+	 *  <li> Rebuild classifier.
+	 * </ol>
 	 * 
 	 * @throws Exception
 	 */
 	private void rebuildClassifier() throws Exception {
 		filter.setInputFormat(dataset);
-		Instances filteredData  = Filter.useFilter(dataset, filter);
+		Instances filteredData = Filter.useFilter(dataset, filter);
 		classifier.buildClassifier(filteredData);
 	}
 
@@ -184,5 +225,13 @@ public class TextClassifier implements Serializable {
 		instance.setDataset(data);
 		return instance;
 	}
+
+	//	private Instance makeInstance(Instance instance) {
+	//		//		Instance response = new Instance(2);
+	//		//		Attribute msgAttribute = dataset.attribute(MsgClassificationConstants.MESSAGE);
+	//		//		response.setValue(msgAttribute, msgAttribute.addStringValue(instance.e(index)));
+	//		instance.setDataset(dataset);
+	//
+	//	}
 
 }
