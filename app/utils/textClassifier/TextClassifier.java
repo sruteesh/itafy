@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.HashMap;
 import models.categories.AvaibleCategories;
 import weka.classifiers.Classifier;
+import weka.classifiers.rules.DecisionTable;
 import weka.classifiers.rules.NNge;
+import weka.classifiers.trees.FT;
 import weka.core.Attribute;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -25,17 +27,26 @@ public class TextClassifier implements Serializable {
 	/* Weka's objects */
 	private Instances dataset; // weka's model
 	private StringToWordVector filter; // used to generate the words count
-	private Classifier classifier; // weka's magic
+	private Classifier rulesClassifier; // weka's magic: classifier based on rules
+	private Classifier tableClassifier; // weka's magic: classifier based on a decision table
+	private Classifier treeClassifier;  // weka's magic: classifier based on a tree
 	private boolean isUpToDate; // is the model up to date? when new data is stored in the model, we need to actualize
 
-	/* Useful for checking */
-	private String lastClassName = "";
+	// Last query's distributions
+	private double[] rulesDistribution;
+	private double[] tableDistribution;
+	private double[] treeDistribution;
 
+	// wizard
+	private Evaluator evaluator;
 
 	public TextClassifier() {
 		dataset = MsgClassificationDataset.getDataset();
 		filter = new StringToWordVector();
-		classifier = new NNge();
+		rulesClassifier = new NNge();
+		tableClassifier = new DecisionTable();
+		treeClassifier = new FT();
+		evaluator = new Evaluator();
 		isUpToDate = false;
 	}
 
@@ -43,7 +54,10 @@ public class TextClassifier implements Serializable {
 		ArffReader fileReader = new ArffReader();
 		dataset = fileReader.buildDatasetFromFile(pathToArffFile);
 		filter = new StringToWordVector();
-		classifier = new NNge();
+		rulesClassifier = new NNge();
+		tableClassifier = new DecisionTable();
+		treeClassifier = new FT();
+		evaluator = new Evaluator();
 		isUpToDate = false;
 	}
 
@@ -56,6 +70,7 @@ public class TextClassifier implements Serializable {
 			System.err.println("TextClassifier: mergeDataSet("+ pathToArffFile +")");
 			e.printStackTrace();
 		}
+		isUpToDate = false;
 	}
 
 	/**
@@ -67,7 +82,7 @@ public class TextClassifier implements Serializable {
 			makeInstance(instance);
 			dataset.add(instance);
 		}
-
+		isUpToDate = false;
 	}
 
 	/**
@@ -115,6 +130,17 @@ public class TextClassifier implements Serializable {
 	}
 
 	/**
+	 * main method
+	 * @param text
+	 * @return
+	 */
+	public String classifyAndEvaluateMsg(String text) {
+		HashMap<String, Double> averageDistribution = classifyMessage(text);
+		String response = evaluator.evaluate(averageDistribution);
+		return response;
+	}
+
+	/**
 	 * Classifies a given message and return the classification distribution for each possible class.
 	 * <p>
 	 * The distribution for each category is a double between
@@ -148,7 +174,6 @@ public class TextClassifier implements Serializable {
 		if (!isUpToDate) {
 			try {
 				rebuildClassifier();
-				isUpToDate = true;
 			} catch (Exception e) {
 				e.printStackTrace();
 				return null;
@@ -171,11 +196,25 @@ public class TextClassifier implements Serializable {
 		return response;
 	}
 
-
 	public int getNumInstances() { return dataset.numInstances(); }
 	public int getNumAttributes() { return dataset.numAttributes(); }
 	public int getNumClasses() { return dataset.numClasses(); }
-	public String getLastClassName() {return lastClassName; }
+
+	public HashMap<String, Double> getRulesResults() {
+		return zipDistributions(rulesDistribution);
+	}
+
+	public HashMap<String, Double> getTreeResults() {
+		return zipDistributions(treeDistribution);
+	}
+
+	public HashMap<String, Double> getTableResults() {
+		return zipDistributions(tableDistribution);
+	}
+
+	public HashMap<String, Double> getAverageResults() {
+		return evaluator.getEvaluableData();
+	}
 
 	@Override
 	public String toString() {
@@ -188,11 +227,14 @@ public class TextClassifier implements Serializable {
 
 	private HashMap<String, Double> classifyInstance(Instance instance) throws Exception {
 		Instance filteredInstance = filterInstance(instance);
-		double[] probabilityDistribution = classifier.distributionForInstance(filteredInstance);
-		lastClassName = getClassName(classifier.classifyInstance(filteredInstance));
-		return buildDistributionMap(probabilityDistribution);
+		rulesDistribution = rulesClassifier.distributionForInstance(filteredInstance);
+		treeDistribution = treeClassifier.distributionForInstance(filteredInstance);
+		tableDistribution = tableClassifier.distributionForInstance(filteredInstance);
+		return buildDistributionMap(rulesDistribution, treeDistribution, tableDistribution);
 	}
 
+	@SuppressWarnings("unused")
+	@Deprecated
 	private String getClassName(double predicted) throws Exception {
 		return dataset.classAttribute().value((int) predicted);
 	}
@@ -203,15 +245,31 @@ public class TextClassifier implements Serializable {
 		return filteredInstance;
 	}
 
-	private HashMap<String, Double> buildDistributionMap(double[] distribution) {
+	private HashMap<String, Double> buildDistributionMap(double[]... distributions) {
 		HashMap<String, Double> response = new HashMap<String, Double>();
 		String[] categoriesNames = AvaibleCategories.names();
-		if (distribution.length != categoriesNames.length) {
+		int length = categoriesNames.length;
+		for (int i = 0; i < length; i++) {
+			double sum = 0.0;
+			for (double[] distribution : distributions) {
+				if (distribution.length != length) {
+					return null;
+				}
+				sum += distribution[i];
+			}
+			response.put(categoriesNames[i], sum / distributions.length);
+		}
+		return response;
+	}
+
+	private HashMap<String, Double> zipDistributions(double[] d) {
+		String[] categoriesNames = AvaibleCategories.names();
+		if ((d == null) || (d.length != categoriesNames.length)) {
 			return null;
 		}
-		// zip(distribution, names)
-		for (int i = 0; i < distribution.length; i++) {
-			response.put(categoriesNames[i], distribution[i]);
+		HashMap<String, Double> response = new HashMap<String, Double>();
+		for (int i = 0; i < d.length; i++) {
+			response.put(categoriesNames[i], d[i]);
 		}
 		return response;
 	}
@@ -220,16 +278,19 @@ public class TextClassifier implements Serializable {
 	 * <ol>
 	 *  <li> Initialize filter and tell it about the input format
 	 *  <li> Generate word counts from the training data
-	 *  <li> Rebuild classifier.
+	 *  <li> Rebuild the 3 classifiers
 	 * </ol>
 	 * 
 	 * @throws Exception
 	 */
-	private void rebuildClassifier() throws Exception {
+	public void rebuildClassifier() throws Exception {
 		filter.setInputFormat(dataset);
 		Instances filteredData = Filter.useFilter(dataset, filter);
-		classifier.buildClassifier(filteredData);
-		return;
+		System.out.println("Building classifier");
+		rulesClassifier.buildClassifier(filteredData); System.out.println("rules done");
+		tableClassifier.buildClassifier(filteredData); System.out.println("table done");
+		treeClassifier.buildClassifier(filteredData); System.out.println("tree done");
+		isUpToDate = true;
 	}
 
 	/**
