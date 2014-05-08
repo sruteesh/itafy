@@ -1,9 +1,9 @@
 package benchmarks.textClassification;
 
 import java.io.File;
-import java.util.HashMap;
 import models.categories.AvaibleCategories;
 import utils.helpers.FileHelper;
+import utils.helpers.NormalizeHelper;
 import utils.textClassifier.TextClassifier;
 
 /**
@@ -11,6 +11,7 @@ import utils.textClassifier.TextClassifier;
  * @author raul.marcos.l@gmail.com
  */
 public class TextClassificationBenchmark {
+
 
 	private int hits;
 	private int misses;
@@ -27,13 +28,17 @@ public class TextClassificationBenchmark {
 	}
 
 	public void runBenchmarks() {
-		train(new File(DATA_FOLDER));
-		printClassifier();
-		politicTest();
-		cultureTest();
-		sportTest();
-		uncategorizedTest();
-		results();
+		try {
+			train(FINAL_CORPUS);
+			printClassifier();
+			politicTest();
+			cultureTest();
+			sportTest();
+			uncategorizedTest();
+			results();
+		} catch (Exception e) {
+			e.printStackTrace();return;
+		}
 	}
 
 	private void results() {
@@ -45,7 +50,7 @@ public class TextClassificationBenchmark {
 	private void uncategorizedTest() {
 		System.out.println("UNCATEGORIZED\n------------------\n");
 		File uncategorizedFolder = new File(UNCATEGORIZED_TWEETS);
-		test(uncategorizedFolder, "");
+		test(uncategorizedFolder, "NINGUNO");
 	}
 
 	private void sportTest() {
@@ -59,6 +64,7 @@ public class TextClassificationBenchmark {
 	}
 
 	private void politicTest() {
+		System.out.println("POLITIC\n-----------------------");
 		File politicFolder = new File(POLITIC_TWEETS);
 		test(politicFolder, "ACTUALIDAD");
 	}
@@ -66,10 +72,10 @@ public class TextClassificationBenchmark {
 	private void test(File folder, String expected) {
 		for (final File fileEntry : folder.listFiles()) {
 			if (FileHelper.isNormalFile(fileEntry)) {
-				String text = FileHelper.readTextFile(fileEntry.getPath());
-				HashMap<String, Double> response = classifier.classifyMessage(text);
-				String got = classifier.getLastClassName();
-				print(got, expected, response);
+				String realText = FileHelper.readTextFile(fileEntry.getPath());
+				String text = NormalizeHelper.normalizeText(realText);
+				String got = classifier.classifyAndEvaluateMsg(text);
+				print(got, expected, text);
 				compare(got, expected);
 			}
 		}
@@ -92,19 +98,30 @@ public class TextClassificationBenchmark {
 	}
 
 	private boolean mustBeUncategorized(String s) {
-		return s.isEmpty();
+		return s.equals("NINGUNO");
 	}
 
-	private void print(Object got, Object expected, Object details) {
-		System.out.println(got + " =? " + expected + "\t(" + details + ")");
+	private void print(Object got, Object expected, Object text) {
+		System.out.println("GOT: " + got + " =? " + expected + " (expected) \t" + text);
 	}
 
-	private void train(final File folder) {
+	private void train(String oneFile) throws Exception {
+		classifier.updateDataset(oneFile);
+		System.out.println("Model build");
+		classifier.rebuildClassifier();
+		System.out.println("Classifer ready");
+	}
+
+	@SuppressWarnings("unused")
+	private void train(final File folder) throws Exception {
 		for (final File fileEntry : folder.listFiles()) {
 			if (FileHelper.isNormalFile(fileEntry)) {
 				classifier.updateDataset(fileEntry.getPath());
 			}
 		}
+		System.out.println("Model build");
+		classifier.rebuildClassifier();
+		System.out.println("Classifer ready");
 	}
 
 	private void printClassifier() {
@@ -113,7 +130,9 @@ public class TextClassificationBenchmark {
 
 
 	//FIXME relative
+	@SuppressWarnings("unused")
 	private static final String DATA_FOLDER = "/Users/manutero/workspace/itafy/weka-data";
+	private static final String FINAL_CORPUS = "/Users/manutero/workspace/itafy/weka-data/corpus_tratado.arff";
 
 	private static final String CULTURE_TWEETS =
 			TextClassificationBenchmark.class.getResource("tweets/culture").getPath();
