@@ -1,0 +1,89 @@
+@relation categories-model
+@attribute Message string
+@attribute Class {ACTUALIDAD,DEPORTES}
+
+@data
+% http://elpais.com/deportes/2014/05/05/actualidad/1399291846_111959.html [José Sámano]
+"Ancelotti patinan Valladolid borde abismo dejan titulo Liga expensas milagro Cristiano retiro molestias minutos",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399499146_897507.html [Fede Movilla, Andrés Villar Velasco]
+"Ancelotti defiende problemas Madrid fisicos jugadores dan perdido titulo",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399496403_382529.html [Fede Movilla]
+"Casillas  volvia jugar partido Liga  apenas intervino gol empate Osorio",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399496663_934087.html [Andrés Villar Velasco]
+"publico pucelano empuja conjunto local  pudo corresponderle empate saca descenso",DEPORTES
+
+% http://elpais.com/deportes/2014/03/31/actualidad/1396254911_483325.html [El País]
+"Atletico  Barcelona Real Madrid    Vota favorito ",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399468090_898442.html [Pedro Cifuentes]
+"Scolari excluye jugadores Atletico encomienda bloque gano Confederaciones primer gran torneo solo juegan Brasil",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399488839_829786.html [Rodolfo Chisleanschi]
+"Cholo Carletto pregonan estilo espanol  ganan  dicen defender filosofia Roja aplauden",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399457650_929197.html [El País]
+"Vidal  medio Juventus anos  operado menisco rodilla peligra participacion Mundial",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399477267_143962.html [El País]
+"actual seleccionador sub    exjugador Barcelona  Real Madrid Zaragoza releva Lopetegui  ficha Oporto portugues",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399492092_062974.html [Cayetano Ros]
+"campeones  Pellegrini solo necesitan punto ultima jornada West Ham golear Aston Villa",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399450980_664152.html [Gorka Rodrigálvarez Pérez]
+"Ryan Giggs deja futbol anos  temporadas Manchester United  entrenado final curso",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399490944_600852.html [Carlos Arribas]
+"Belfast asusta carrera rosa tiempo gris  lluvia viento",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399493428_455523.html []
+"corredores  etapas  equipos  dias decisivos    Repase toda informacion ronda italiana",DEPORTES
+
+% http://elpais.com/deportes/2014/05/08/actualidad/1399532021_598793.html [Robert Álvarez]
+"Oklahoma iguala serie exhibicion poderio pareja estelar pivot Indiana desquita mala racha Washington",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399460767_586085.html [Robert Álvarez]
+"base Minnesota Timberwolves afirma equipo pedido musculo mejorar juego ofensivo",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399483306_488992.html [Juan Morenilla]
+"Valencia Basket  campeon Eurocup jugara proxima Euroliga  hace nuevo rico ahora adaptado austeridad volver alto",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399494289_357841.html [Faustino Sáez]
+"Madrid  liderado Sergio Rodriguez Llull  supera comodidad Casimiro viajar Barcelona",DEPORTES
+
+% http://elpais.com/deportes/2014/04/28/album/1398694460_956193.html []
+"imagenes espectaculares deporte internacional",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/07/536aa73f22601de64d8b4583.html [JAIME RODRÍGUEZ]
+"cabezazo Osorio minuto acaba aspiraciones titulo Madrid  ademas sufrio problemas Pepe Di Maria  Atletico necesita puntos Barca campeon gana partidos ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/07/536a8e26ca4741602a8b4578.html [elmundo.es]
+"portugues retiro minuto victima molestias musculares  Hace perdio partidos Liga final Copa causa ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/07/536a664722601ddb4d8b457a.html [GERMÁN ARANDA]
+"Renovacion total lista Scolari  solo Julio Cesar  Maicon  Alves  Ramires repiten respecto Sudafrica",DEPORTES
+
+% http://www.elmundo.es/comunidad-valenciana/2014/05/07/536a528b268e3eb4148b457a.html [RODRIGO TERRASA]
+"Valencia Basket  apoyado gran defensa Justin Doellman puntos   maltrata nuevo Unics conquista Eurocup ",DEPORTES
+
+% http://www.elmundo.es/comunidad-valenciana/2014/05/07/536a1e2aca4741462a8b4571.html [Edu Chova]
+"estadio Villareal apercibido lanzamiento bote humo  Comite Competicion considerado  distinta naturaleza  incidente platano ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/07/536a48a1e2704e8d278b4573.html [JAVIER MARTÍNEZ]
+"Rafa Nadal tumba argentino minutos necesidad recuperar mejor nivel finlandes Jarkko Nieminen rival octavos ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/07/536aa3b9ca47417a2a8b4584.html [DIEGO G. ARGOTA]
+"Madrid  liderado fabulosa direccion base puntos asistencias   reafirma liderato Fuenlabrada derbi historia ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/07/536a0bb722601dd44d8b456f.html [elmundo.es]
+"deuda clubes profesionales Ligas BBVA Adelante reducido millones finales temporada millones euros  ciento respecto ejercicio anterior",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/07/536a1952ca4741442a8b4577.html [elmundo.es]
+"Optimista muestra base torneo iniciara Madrid proximo agosto  Ademas  afirma Pau  un caramelo  agente libre ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/07/536aa2e622601df94d8b457f.html [ANDRÉS ARAGÓN]
+"doblete Dzeko acaba resistencia ultradefensivo Aston Villa  citizens  campeones domingo simple empate estadio West Ham juega nada ",DEPORTES
+
