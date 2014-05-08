@@ -5,10 +5,6 @@ import twitter4j.TwitterStream;
 import utils.TwitterConnectionHandler;
 import akka.actor.UntypedActor;
 
-/**
- * 
- * @author manutero, raulmarcosl
- */
 public class StreamingExtractor extends UntypedActor {
 
 	private static TwitterStream streaming;
