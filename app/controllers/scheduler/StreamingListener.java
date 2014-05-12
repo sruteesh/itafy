@@ -227,13 +227,28 @@ public class StreamingListener implements StatusListener {
 	 */
 	private String saveUser(twitter4j.User twitterUser, GeoLocation location) {
 		long userId = twitterUser.getId();
+		User user = UserData.findByTwitterId(userId);
+		if (userExists(user)) {
+			user.updateFollowersCount(twitterUser);
+		} else {
+			user = createNewUser(twitterUser, location);
+		}
+		Logger.info("User: " + user.getUserName());
+		return user.getId();
+	}
+
+	private boolean userExists(Object user) {
+		return user != null;
+	}
+
+	private User createNewUser(twitter4j.User twitterUser, GeoLocation location) {
+		long userId = twitterUser.getId();
 		String userName = twitterUser.getName();
 		User user = User.createUserWithGeoLocation(userId, userName, location);
 		user.setFollowersCount(twitterUser.getFollowersCount());
 		user.setFriendsCount(twitterUser.getFriendsCount());
 		UserData.saveUser(user);
-		Logger.info("User: " + user.getUserName());
-		return user.getId();
+		return user;
 	}
 
 	private ArrayList<String> saveWords(String tweetText, GeoLocation location) {
