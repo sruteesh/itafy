@@ -16,11 +16,13 @@ object ApplicationBuild extends Build {
       "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.2.1" % "optional",
       "org.apache.lucene" % "lucene-core" % "4.6.0",
       "org.apache.lucene" % "lucene-analyzers-common" % "4.6.0",
-      "org.apache.lucene" % "lucene-queryparser" % "4.6.0"
+      "org.apache.lucene" % "lucene-queryparser" % "4.6.0",
+      "org.apache.directory.studio" % "org.apache.commons.lang" % "2.6",
+      "nz.ac.waikato.cms.weka" % "weka-stable" % "3.6.11"
     )
 
     val main = play.Project(appName, appVersion, appDependencies).settings(
-      javacOptions ++= Seq("-source", "1.6", "-target", "1.6", "-encoding", "UTF-8")
+      javacOptions ++= Seq("-source", "1.7", "-target", "1.7", "-encoding", "UTF-8")
     )
 
 }
