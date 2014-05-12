@@ -96,9 +96,7 @@ public class User {
 	}
 
 
-	// setters
-
-	// TODO genre as enum instead of String
+	// FIXME genre as enum instead of String
 	public void setGenre(String genre) {
 		this.genre = genre;
 		this.updatedAt = new Date();
@@ -107,8 +105,6 @@ public class User {
 	public void setFollowersCount(int followers) { this.followersCount = followers; }
 	public void setFriendsCount(int friends) { this.friendsCount = friends;}
 
-
-	// getters
 
 	public ArrayList<Tweet> getTweets() {
 		ArrayList<Object> tweets = TweetsData.getTweetsFromUser(this.userId);
@@ -132,7 +128,13 @@ public class User {
 
 	@JsonProperty("followers_ratio")
 	public double getFollowersRatio() {
-		return followersCount / friendsCount;
+		double response = 0.0;
+		try {
+			response = followersCount / friendsCount;
+		} catch (ArithmeticException e) {
+			// divided by zero; keep 0.0
+		}
+		return response;
 	}
 
 	@JsonProperty("latitude")

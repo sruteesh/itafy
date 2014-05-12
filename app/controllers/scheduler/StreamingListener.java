@@ -75,7 +75,7 @@ public class StreamingListener implements StatusListener {
 
 		if (status.getGeoLocation() != null) {
 			sendTweetToWebSocket(status);
-			// saveStatusToDB(status);
+			saveStatusToDB(status);
 		}
 	}
 
