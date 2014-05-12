@@ -91,9 +91,10 @@ public class FeedParser {
 				}
 			} else if (event.isEndElement()) {
 				if (event.asEndElement().getName().getLocalPart() == (FeedParserConstants.ITEM)) {
-					FeedMsg message =
-							new FeedMsg.Builder(title, description).author(author).link(link).build();
-					response.getMessages().add(message);
+					FeedMsg message = new FeedMsg.Builder(title, description).author(author).link(link).build();
+					if (response != null) {
+						response.getMessages().add(message);
+					}
 					event = eventReader.nextEvent();
 					continue;
 				}
@@ -102,8 +103,13 @@ public class FeedParser {
 		return response;
 	}
 
-	private String getCharacterData(XMLEvent event, XMLEventReader eventReader)
-			throws XMLStreamException {
+	/**
+	 * @param event in/out argument
+	 * @param eventReader
+	 * @throws XMLStreamException
+	 */
+	@SuppressWarnings("all")
+	private String getCharacterData(XMLEvent event, XMLEventReader eventReader) throws XMLStreamException {
 		String result = "";
 		event = eventReader.nextEvent();
 		if (event instanceof Characters) {

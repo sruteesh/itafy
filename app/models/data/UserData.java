@@ -46,14 +46,20 @@ public class UserData extends MongoClientData {
 	/**
 	 * Read: returns users in the desired location as generic <code>Object</code> instances;
 	 * casting expected.
+	 * <p>
+	 * Note: avoid auto boxing (Effective Java Item 49)
 	 * 
 	 * @param area
 	 * @return users in location or empty list otherwise.
 	 */
 	public static ArrayList<Object> getUsers(Area area) {
 		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
+		Double maxLatitude = Double.valueOf(area.getMaxLat());
+		Double minLatitude = Double.valueOf(area.getMinLat());
+		Double maxLongitude = Double.valueOf(area.getMaxLong());
+		Double minLongitude = Double.valueOf(area.getMinLong());
 		Iterable<User> records = userCollection
-				.find(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
+				.find(query, maxLatitude, minLatitude, maxLongitude, minLongitude)
 				.as(User.class);
 		return CollectionHelper.asArrayList(records);
 	}
@@ -62,7 +68,7 @@ public class UserData extends MongoClientData {
 	 * Read: returns users with the selected genre as generic <code>Object</code> instances;
 	 * casting expected.
 	 * 
-	 * TODO Change the sex to be a Enum instead of a String
+	 * FIXME Change the sex to be a Enum instead of a String
 	 * 
 	 * @param genre
 	 * @return users with the selected genre or empry list otherwise.
@@ -83,15 +89,18 @@ public class UserData extends MongoClientData {
 	 */
 	public static User findUser(long userId) {
 		String query = "{user_id: #}";
-		User user = userCollection.findOne(query, userId).as(User.class);
+		Long id = Long.valueOf(userId);
+		User user = userCollection.findOne(query, id).as(User.class);
 		return user;
 	}
 
 	/**
 	 * Read: returns users with the selected genre and location as <code>Object</code> instances;
 	 * casting expected.
+	 * <p>
+	 * Note: avoid auto boxing (Effective Java Item 49)
 	 * 
-	 * TODO Chage the sex to be a Enum instead a String
+	 * FIXME Chage the sex to be a Enum instead a String
 	 * 
 	 * @param area
 	 * @param genre
@@ -99,8 +108,12 @@ public class UserData extends MongoClientData {
 	 */
 	public static ArrayList<Object> getUsers(Area area, String genre) {
 		String query = "{genre: #, latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
+		Double maxLatitude = Double.valueOf(area.getMaxLat());
+		Double minLatitude = Double.valueOf(area.getMinLat());
+		Double maxLongitude = Double.valueOf(area.getMaxLong());
+		Double minLongitude = Double.valueOf(area.getMinLong());
 		Iterable<User> records = userCollection
-				.find(query, genre, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
+				.find(query, genre, maxLatitude, minLatitude, maxLongitude, minLongitude)
 				.as(User.class);
 		return CollectionHelper.asArrayList(records);
 	}
@@ -113,15 +126,18 @@ public class UserData extends MongoClientData {
 	 */
 	public static long countUsers(Area area) {
 		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
-		long count = userCollection
-				.count(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong());
+		Double maxLatitude = Double.valueOf(area.getMaxLat());
+		Double minLatitude = Double.valueOf(area.getMinLat());
+		Double maxLongitude = Double.valueOf(area.getMaxLong());
+		Double minLongitude = Double.valueOf(area.getMinLong());
+		long count = userCollection.count(query, maxLatitude, minLatitude, maxLongitude, minLongitude);
 		return count;
 	}
 
 	/**
 	 * Query: returns how many users with the selected genre
 	 * 
-	 * TODO Chage the sex to be a Enum instead a String
+	 * FIXME Chage the sex to be a Enum instead a String
 	 * 
 	 * @param genre genre of the users
 	 * @return count of users with the selected genre
@@ -147,7 +163,7 @@ public class UserData extends MongoClientData {
 	 * Update: change the genre to an existing user.</br>
 	 * If the user doesn't exist in the DB this function will not create any user and will return false.
 	 *
-	 * TODO Chage the sex to be a Enum instead a String
+	 * FIXME Chage the sex to be a Enum instead a String
 	 *
 	 * @param id Mongo's ObjectId as a String
 	 * @param genre new genre

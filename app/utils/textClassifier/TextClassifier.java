@@ -94,6 +94,7 @@ public class TextClassifier implements Serializable {
 	 * <p>
 	 * 
 	 * @param instance contains the data for the new instance
+	 * @see Stackoverflow #20813069
 	 */
 	private void makeInstance(Instance instance) {
 		Attribute messageAttribute = dataset.attribute(MsgClassificationConstants.MESSAGE);
@@ -108,7 +109,7 @@ public class TextClassifier implements Serializable {
 	}
 
 	private String getClassValue(Instance instance) {
-		int classIndex = dataset.classIndex();;
+		int classIndex = dataset.classIndex();
 		return instance.stringValue(classIndex);
 	}
 
@@ -257,7 +258,8 @@ public class TextClassifier implements Serializable {
 				}
 				sum += distribution[i];
 			}
-			response.put(categoriesNames[i], sum / distributions.length);
+			Double averageValue = Double.valueOf(sum / distributions.length);
+			response.put(categoriesNames[i], averageValue);
 		}
 		return response;
 	}
@@ -269,7 +271,8 @@ public class TextClassifier implements Serializable {
 		}
 		HashMap<String, Double> response = new HashMap<String, Double>();
 		for (int i = 0; i < d.length; i++) {
-			response.put(categoriesNames[i], d[i]);
+			Double value = Double.valueOf(d[i]);
+			response.put(categoriesNames[i], value);
 		}
 		return response;
 	}
@@ -307,13 +310,5 @@ public class TextClassifier implements Serializable {
 		instance.setDataset(data);
 		return instance;
 	}
-
-	//	private Instance makeInstance(Instance instance) {
-	//		//		Instance response = new Instance(2);
-	//		//		Attribute msgAttribute = dataset.attribute(MsgClassificationConstants.MESSAGE);
-	//		//		response.setValue(msgAttribute, msgAttribute.addStringValue(instance.e(index)));
-	//		instance.setDataset(dataset);
-	//
-	//	}
 
 }

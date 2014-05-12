@@ -11,6 +11,7 @@ public class FeedReaderExample {
 		System.out.println("END");
 	}
 
+	@SuppressWarnings("unused")
 	public static void _main(String[] args) {
 		FeedParser parser = new FeedParser();
 		Feed feed = parser.readFeed("http://ep00.epimg.net/rss/internacional/portada.xml");

@@ -63,18 +63,18 @@ public class FeedMsg {
 			this.description = description;
 		}
 
-		public Builder link(String link) {
-			this.link = link;
+		public Builder link(String aLink) {
+			this.link = aLink;
 			return this;
 		}
 
-		public Builder author(String author) {
-			this.author = author;
+		public Builder author(String anAuthor) {
+			this.author = anAuthor;
 			return this;
 		}
 
-		public Builder pubDate(String pubDate) {
-			this.pubDate = pubDate;
+		public Builder pubDate(String aPubDate) {
+			this.pubDate = aPubDate;
 			return this;
 		}
 

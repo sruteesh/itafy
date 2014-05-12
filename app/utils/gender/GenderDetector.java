@@ -3,7 +3,6 @@ package utils.gender;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-
 import utils.helpers.NormalizeHelper;
 import benchmarks.DescriptionsUtils;
 import benchmarks.NamesUtils;
@@ -39,10 +38,12 @@ public class GenderDetector {
 			}
 		}
 
-		if (!male && !female && description != null) {
-			for (String candidate : descriptionCandidates) {
-				male |= DescriptionsUtils.manualMaleDescriptionsContains(candidate);
-				female |= DescriptionsUtils.manualFemaleDescriptionsContains(candidate);
+		if (!male && !female && (description != null)) {
+			if (descriptionCandidates != null) {
+				for (String candidate : descriptionCandidates) {
+					male |= DescriptionsUtils.manualMaleDescriptionsContains(candidate);
+					female |= DescriptionsUtils.manualFemaleDescriptionsContains(candidate);
+				}
 			}
 		}
 

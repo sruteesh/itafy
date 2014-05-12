@@ -35,7 +35,7 @@ public class ParamsHelper {
 	}
 
 	public String get(String key) {
-		System.out.println(key + "  =>  " + params.get(key)); //XXX
+		System.out.println(key + "  =>  " + params.get(key));
 		return params.get(key);
 	}
 

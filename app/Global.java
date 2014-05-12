@@ -26,6 +26,7 @@ public class Global extends GlobalSettings {
 	 * Initialize the Twitter library in order to be able to use the Twitter API
 	 * Rest and the Twitter Streaming
 	 */
+	@SuppressWarnings("unused")
 	private void initializeTwitterConnectionHandler() {
 		new TwitterConnectionHandler();
 	}
@@ -35,13 +36,13 @@ public class Global extends GlobalSettings {
 				new Props(StreamingWatcher.class));
 
 		Akka.system()
-				.scheduler()
-				.scheduleOnce(
-						Duration.Zero(),
-						// Duration.create(10, TimeUnit.MINUTES),
-						twitterStreamingWatcherActor,
-						"twitter_streaming_watcher_actor",
-						Akka.system().dispatcher()
+		.scheduler()
+		.scheduleOnce(
+				Duration.Zero(),
+				// Duration.create(10, TimeUnit.MINUTES),
+				twitterStreamingWatcherActor,
+				"twitter_streaming_watcher_actor",
+				Akka.system().dispatcher()
 				);
 	}
 }

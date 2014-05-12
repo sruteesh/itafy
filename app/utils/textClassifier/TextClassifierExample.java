@@ -42,6 +42,7 @@ public class TextClassifierExample {
 	 * Shows how to use the <code>textClassifier</code> class building a dataset from a single
 	 * <em>arff</em> file
 	 */
+	@SuppressWarnings("unused")
 	public static void _main(String[] args) {
 		TextClassifier classifier = new TextClassifier(EXAMPLE_MODEL);
 		showStadistics(classifier);
@@ -57,6 +58,7 @@ public class TextClassifierExample {
 	 * Shows how to use the <code>textClassifier</code> class building initially an empty dataset
 	 * and filling it manually using <code>updateData(text, class)</code> method
 	 */
+	@SuppressWarnings("unused")
 	public static void __main(String[] args) {
 		TextClassifier classifier = new TextClassifier();
 		updateDataWithExampleFiles(classifier);

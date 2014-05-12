@@ -77,10 +77,10 @@ public final class NormalizeHelper {
 	 * @return normalized text
 	 */
 	public static String normalizeText(String text) {
-		text = breakDownUrls(text);
+		String urlFreeText = breakDownUrls(text);
 		String response = "";
 		String normalizedWord = "";
-		for (String word : text.split(SPACE_CHAR)) {
+		for (String word : urlFreeText.split(SPACE_CHAR)) {
 			normalizedWord = NormalizeHelper.normalizeVowels(word);
 			normalizedWord = NormalizeHelper.normaliceAsciiChars(normalizedWord);
 			normalizedWord = NormalizeHelper.removeNonAlphabeticChars(normalizedWord);
@@ -109,12 +109,15 @@ public final class NormalizeHelper {
 	}
 
 	/**
-	 * @example <code>removeUrlsFromText("this is a url  amazing")</code>
+	 * @example <code>removeUrlsFromText("this is a url http://www.themostamazingsiteontheinternet.com amazing")</code>
 	 * returns <code>[http://www.themostamazingsiteontheinternet.com]</code> and change the input argument
 	 * to <code>"this is a url amazing"</code>
+	 * <p>
+	 * Note: add a <code>SuppressWarnings</code> to text assigment
 	 * @param text <strong>in/out</strong> argument
 	 * @return
 	 */
+	@SuppressWarnings("all")
 	public static ArrayList<String> removeUrlsFromText(String text) {
 		Matcher matcher = URL_PATTERN.matcher(text);
 		ArrayList<String> response = new ArrayList<String>();

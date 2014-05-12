@@ -21,11 +21,9 @@ import play.Logger;
  * @see LuceneVersion
  */
 public class Searcher {
-
 	private QueryParser parser = null;
 	private IndexSearcher searcher = null;
 	private boolean initialized = false;
-
 
 	public Searcher() {
 		try {
@@ -82,7 +80,8 @@ public class Searcher {
 		for(ScoreDoc hit : hits) {
 			int docId = hit.doc;
 			Document d = searcher.doc(docId);
-			response.put(d.get(Index.INDEX), hit.score);
+			Float hitValue = Float.valueOf(hit.score);
+			response.put(d.get(Index.INDEX), hitValue);
 		}
 		return response;
 	}

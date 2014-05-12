@@ -74,8 +74,13 @@ public class LinkData extends MongoClientData {
 		}
 
 		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
+		Double maxLatitude = Double.valueOf(area.getMaxLat());
+		Double minLatitude = Double.valueOf(area.getMinLat());
+		Double maxLongitude = Double.valueOf(area.getMaxLong());
+		Double minLongitude = Double.valueOf(area.getMinLong());
+
 		Iterable<Link> records = linkCollection
-				.find(query, area.getMaxLat(), area.getMinLat(), area.getMaxLong(), area.getMinLong())
+				.find(query, maxLatitude, minLatitude, maxLongitude, minLongitude)
 				.as(Link.class);
 
 		return CollectionHelper.asArrayList(records);
@@ -110,15 +115,20 @@ public class LinkData extends MongoClientData {
 	 * @return all links in location and categorized or empty list otherwise.
 	 */
 	public static ArrayList<Object> getAllLinks(AvaibleLocations location, AvaibleCategories category) {
-		Area loc = Area.createLocation(location);
+		Area area = Area.createLocation(location);
 		Category cat = Category.createCategory(category);
-		if ((loc == null) || (cat == null)) {
+		if ((area == null) || (cat == null)) {
 			return new ArrayList<Object>();
 		}
 
 		String query = "{category: #, latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
+		Double maxLatitude = Double.valueOf(area.getMaxLat());
+		Double minLatitude = Double.valueOf(area.getMinLat());
+		Double maxLongitude = Double.valueOf(area.getMaxLong());
+		Double minLongitude = Double.valueOf(area.getMinLong());
+
 		Iterable<Link> records = linkCollection
-				.find(query, cat.getName(), loc.getMaxLat(), loc.getMinLat(), loc.getMaxLong(), loc.getMinLong())
+				.find(query, cat.getName(), maxLatitude, minLatitude, maxLongitude, minLongitude)
 				.as(Link.class);
 
 		return CollectionHelper.asArrayList(records);

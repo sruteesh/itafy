@@ -34,13 +34,13 @@ public class GeoTweetsCounter {
 
 	protected void addMadridRecountToMap(HashMap<String, Long> map) {
 		String key = AvaibleLocations.asString(AvaibleLocations.MADRID);
-		long value = GeoTweetData.countGeoTweets(AvaibleLocations.MADRID);
+		Long value = Long.valueOf(GeoTweetData.countGeoTweets(AvaibleLocations.MADRID));
 		map.put(key, value);
 	}
 
 	protected void addBarcelonaRecountToMap(HashMap<String, Long> map) {
 		String key = AvaibleLocations.asString(AvaibleLocations.BARCELONA);
-		long value = GeoTweetData.countGeoTweets(AvaibleLocations.BARCELONA);
+		Long value = Long.valueOf(GeoTweetData.countGeoTweets(AvaibleLocations.BARCELONA));
 		map.put(key, value);
 	}
 
