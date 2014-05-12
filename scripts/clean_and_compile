@@ -1,0 +1,9 @@
+#!/bin/bash
+
+clear
+echo "compiling project"
+
+play clean
+play dependencies
+play compile
+play eclipse
