@@ -2,7 +2,6 @@ package models.data;
 
 import java.util.ArrayList;
 import java.util.Date;
-import models.categories.AvaibleCategories;
 import models.categories.Category;
 import models.entities.GeoTweet;
 import models.geoLocation.Area;
@@ -21,11 +20,12 @@ import controllers.db.DbNames;
  * @see GeoTweet
  */
 public class GeoTweetData extends MongoClientData {
+	protected static final MongoCollection geoTweetCollection =
+			jongoItafy.getCollection(DbNames.GEO_TWEETS);
 
-	protected static final MongoCollection geoTweetCollection = jongoItafy.getCollection(DbNames.GEO_TWEETS);
-
-	/* No need to instanciate a <code>GeoTweetData</code> object */
+	/** No need to instanciate a <code>GeoTweetData</code> object */
 	private GeoTweetData() {}
+
 
 	/**
 	 * Create: saves the geoTweet instance into the DB.
@@ -37,6 +37,7 @@ public class GeoTweetData extends MongoClientData {
 		geoTweetCollection.save(geoTweet);
 		return geoTweet.getId();
 	}
+
 
 	/**
 	 * Create: creates and saves a new geoTweet instance in the DB.
@@ -51,6 +52,7 @@ public class GeoTweetData extends MongoClientData {
 		return geoTweet.getId();
 	}
 
+
 	/**
 	 * Read: returns all the geoTweets in the DB as generic <code>Object</code> instances;
 	 * casting expected.
@@ -62,6 +64,7 @@ public class GeoTweetData extends MongoClientData {
 		return CollectionHelper.asArrayList(records);
 	}
 
+
 	/**
 	 * Read: returns geoTweets in the desired location as generic <code>Object</code> instances;
 	 * casting expected.
@@ -71,24 +74,21 @@ public class GeoTweetData extends MongoClientData {
 	 * @param location (Enum) known location.
 	 * @return (ArrayList) all geoTweets in location or empty list otherwise.
 	 */
-	public static ArrayList<Object> getGeoTweets(AvaibleLocations location) {
-		Area area = Area.createLocation(location);
+	public static ArrayList<Object> getGeoTweets(Area area) {
 		if (area == null) {
 			return new ArrayList<Object>();
 		}
-
 		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		Double maxLatitude = Double.valueOf(area.getMaxLat());
 		Double minLatitude = Double.valueOf(area.getMinLat());
 		Double maxLongitude = Double.valueOf(area.getMaxLong());
 		Double minLongitude = Double.valueOf(area.getMinLong());
-
 		Iterable<GeoTweet> records = geoTweetCollection
 				.find(query, maxLatitude, minLatitude, maxLongitude, minLongitude)
 				.as(GeoTweet.class);
-
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Read: returns geoTweets with the desired category as generic <code>Object</code> instances;
@@ -97,18 +97,16 @@ public class GeoTweetData extends MongoClientData {
 	 * @param cat (Enum) known category.
 	 * @return (ArrayList) all geoTweets with category or empty list otherwise.
 	 */
-	public static ArrayList<Object> getGeoTweets(AvaibleCategories cat) {
-		Category category = Category.createCategory(cat);
+	public static ArrayList<Object> getGeoTweets(Category category) {
 		if (category == null) {
 			return new ArrayList<Object>();
 		}
-
 		Iterable<GeoTweet> records = geoTweetCollection
 				.find("{category: #}", category.getName())
 				.as(GeoTweet.class);
-
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Read: returns geoTweets from the selected date as generic <code>Object</code> instances;
@@ -121,14 +119,13 @@ public class GeoTweetData extends MongoClientData {
 		if (date == null) {
 			return new ArrayList<Object>();
 		}
-
 		String query = "{updated_at : {$gt: #}}";
 		Iterable<GeoTweet> records = geoTweetCollection
 				.find(query, date)
 				.as(GeoTweet.class);
-
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Read: returns geoTweets with the desired category and location as <code>Object</code>
@@ -140,25 +137,21 @@ public class GeoTweetData extends MongoClientData {
 	 * @param category (Enum) known category.
 	 * @return (ArrayList) all geotweets in location and categorized or empty list otherwise.
 	 */
-	public static ArrayList<Object> getGeoTweets(AvaibleLocations location, AvaibleCategories category) {
-		Area area = Area.createLocation(location);
-		Category cat = Category.createCategory(category);
-		if ((area == null) || (cat == null)) {
+	public static ArrayList<Object> getGeoTweets(Area area, Category category) {
+		if ((area == null) || (category == null)) {
 			return new ArrayList<Object>();
 		}
-
 		String query = "{category: #, latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		Double maxLatitude = Double.valueOf(area.getMaxLat());
 		Double minLatitude = Double.valueOf(area.getMinLat());
 		Double maxLongitude = Double.valueOf(area.getMaxLong());
 		Double minLongitude = Double.valueOf(area.getMinLong());
-
 		Iterable<GeoTweet> records = geoTweetCollection
-				.find(query, cat.getName(), maxLatitude, minLatitude, maxLongitude, minLongitude)
+				.find(query, category.getName(), maxLatitude, minLatitude, maxLongitude, minLongitude)
 				.as(GeoTweet.class);
-
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Read: returns geoTweets with the selected location, from the selected date as generic
@@ -175,19 +168,17 @@ public class GeoTweetData extends MongoClientData {
 		if ((area == null) || (date == null)) {
 			return new ArrayList<Object>();
 		}
-
 		String query = "{updated_at : {$gt: #}, latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		Double maxLatitude = Double.valueOf(area.getMaxLat());
 		Double minLatitude = Double.valueOf(area.getMinLat());
 		Double maxLongitude = Double.valueOf(area.getMaxLong());
 		Double minLongitude = Double.valueOf(area.getMinLong());
-
 		Iterable<GeoTweet> records = geoTweetCollection
 				.find(query, date, maxLatitude, minLatitude, maxLongitude, minLongitude)
 				.as(GeoTweet.class);
-
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Query: returns how many geoTweets in the desired location.
@@ -202,17 +193,16 @@ public class GeoTweetData extends MongoClientData {
 		if (area == null) {
 			return -1;
 		}
-
 		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		Double maxLatitude = Double.valueOf(area.getMaxLat());
 		Double minLatitude = Double.valueOf(area.getMinLat());
 		Double maxLongitude = Double.valueOf(area.getMaxLong());
 		Double minLongitude = Double.valueOf(area.getMinLong());
-
 		long count = geoTweetCollection
 				.count(query, maxLatitude, minLatitude, maxLongitude, minLongitude);
 		return count;
 	}
+
 
 	/**
 	 * Read: returns the found geoTweet by id.
@@ -224,6 +214,7 @@ public class GeoTweetData extends MongoClientData {
 		GeoTweet geoTweet = geoTweetCollection.findOne(new ObjectId(id)).as(GeoTweet.class);
 		return geoTweet;
 	}
+
 
 	/**
 	 * Update: change the category to an existing geoTweet. If the geoTweet does not exist in the DB
@@ -237,15 +228,14 @@ public class GeoTweetData extends MongoClientData {
 		GeoTweet foundTweet = geoTweetCollection
 				.findOne(new ObjectId(geoTweet))
 				.as(GeoTweet.class);
-
 		if (foundTweet == null) {
 			return false;
 		}
-
 		foundTweet.setCategory(category);
 		geoTweetCollection.save(foundTweet);
 		return true;
 	}
+
 
 	/**
 	 * Destroy: remove a GeoTweet from the DB.

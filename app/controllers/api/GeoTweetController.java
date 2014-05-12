@@ -1,14 +1,15 @@
 package controllers.api;
 
 import java.util.ArrayList;
-import models.categories.AvaibleCategories;
+import models.categories.Category;
 import models.data.GeoTweetData;
 import models.entities.GeoTweet;
-import models.geoLocation.AvaibleLocations;
+import models.geoLocation.Area;
 import org.codehaus.jackson.JsonNode;
 import play.mvc.Controller;
 import play.mvc.Result;
 import utils.helpers.JsonHelper;
+import utils.helpers.ParamsHelper;
 
 /**
  * API definition for geoTweets.
@@ -32,20 +33,10 @@ public class GeoTweetController extends Controller {
 	 * @return (Result) index page
 	 */
 	public static Result index() {
-		AvaibleLocations trustedArea = AvaibleLocations.asLocation(request().getQueryString("area"));
-		AvaibleCategories trustedCategory = AvaibleCategories.valueOf(request().getQueryString("category"));
-
-		ArrayList<Object> geoTweets;
-		if ((trustedArea != null) && (trustedCategory != null)) {
-			geoTweets = GeoTweetData.getGeoTweets(trustedArea, trustedCategory);
-		} else if (trustedArea != null) {
-			geoTweets = GeoTweetData.getGeoTweets(trustedArea);
-		} else if (trustedCategory != null) {
-			geoTweets = GeoTweetData.getGeoTweets(trustedCategory);
-		} else {
-			geoTweets = GeoTweetData.getGeoTweets();
-		}
-
+		ParamsHelper params = new ParamsHelper(request().queryString());
+		Area area = params.defineArea();
+		Category category = params.defineCategory();
+		ArrayList<Object> geoTweets = executeQueryDependingOn(area, category);
 		JsonNode response = JsonHelper.asJson(geoTweets);
 		return ok(response);
 	}
@@ -60,6 +51,20 @@ public class GeoTweetController extends Controller {
 		GeoTweet geoTweet = GeoTweetData.findGeoTweet(id);
 		JsonNode response = JsonHelper.asJson(geoTweet);
 		return ok(response);
+	}
+
+	private static ArrayList<Object> executeQueryDependingOn(Area area, Category category) {
+		ArrayList<Object> geoTweets;
+		if ((area != null) && (category != null)) {
+			geoTweets = GeoTweetData.getGeoTweets(area, category);
+		} else if (area != null) {
+			geoTweets = GeoTweetData.getGeoTweets(area);
+		} else if (category != null) {
+			geoTweets = GeoTweetData.getGeoTweets(category);
+		} else {
+			geoTweets = GeoTweetData.getGeoTweets();
+		}
+		return geoTweets;
 	}
 
 }
