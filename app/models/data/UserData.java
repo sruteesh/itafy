@@ -160,6 +160,20 @@ public class UserData extends MongoClientData {
 	}
 
 	/**
+	 * Read: returns user by twitter id
+	 * 
+	 * @param id twitterId
+	 * @return found user or null otherwise
+	 */
+	public static User findByTwitterId(long id) {
+		String query = "{user_id: #}";
+		Long userId = Long.valueOf(id);
+		User user = userCollection.findOne(query, userId).as(User.class);
+		return user;
+	}
+
+
+	/**
 	 * Update: change the genre to an existing user.</br>
 	 * If the user doesn't exist in the DB this function will not create any user and will return false.
 	 *

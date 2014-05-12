@@ -153,4 +153,8 @@ public class User {
 	@JsonProperty("updated_at")
 	public Date getUpdatedAt() { return updatedAt; }
 
+	public void updateFollowersCount(twitter4j.User twitterUser) {
+		// TODO
+	}
+
 }

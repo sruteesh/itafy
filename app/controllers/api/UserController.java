@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import models.data.UserData;
 import models.entities.User;
 import models.geoLocation.Area;
-import models.geoLocation.AvaibleLocations;
 import org.codehaus.jackson.JsonNode;
 import play.mvc.Controller;
 import play.mvc.Result;
-import twitter4j.GeoLocation;
 import utils.helpers.JsonHelper;
 import utils.helpers.ParamsHelper;
 
@@ -40,9 +38,9 @@ public class UserController extends Controller {
 	 */
 	public static Result index() {
 		ParamsHelper params = new ParamsHelper(request().queryString());
-		Area area = defineAreaFromParams(params);
-		String genre = defineGenreFromParams(params);
-		String userName = defineUserFromParams(params);
+		Area area = params.defineArea();
+		String genre = params.defineGenre();
+		String userName = params.defineUser();
 		ArrayList<Object> users = executeQueryDependingOn(area, genre, userName);
 		JsonNode response = JsonHelper.asJson(users);
 		return ok(response);
@@ -66,31 +64,6 @@ public class UserController extends Controller {
 	}
 
 
-	// private
-
-	private static Area defineAreaFromParams(ParamsHelper params) {
-		Area area = null;
-		if (params.has("area")) {
-			AvaibleLocations trustedLocation = AvaibleLocations.asLocation(params.get("area"));
-			area = Area.createLocation(trustedLocation);
-		} else if ((params.has("latitude")) && (params.has("longitude")) && params.has("radio")) {
-			double latitude = Double.valueOf(params.get("latitude")).doubleValue();
-			double longitude = Double.valueOf(params.get("longitude")).doubleValue();
-			double radio = Double.valueOf(params.get("radio")).doubleValue();
-			GeoLocation coordenates = new GeoLocation(latitude, longitude);
-			area = Area.createLocation(coordenates, radio);
-		}
-		return area;
-	}
-
-	private static String defineGenreFromParams(ParamsHelper params) {
-		String genre = null;
-		if (params.has("genre")) {
-			genre = params.get("genre");
-		}
-		return genre;
-	}
-
 	// TODO : use userName
 	private static ArrayList<Object> executeQueryDependingOn(Area area, String genre, String userName) {
 		ArrayList<Object> users = new ArrayList<Object>();
@@ -104,14 +77,6 @@ public class UserController extends Controller {
 			users = UserData.getUsers();
 		}
 		return users;
-	}
-
-	private static String defineUserFromParams(ParamsHelper params) {
-		String userName = null;
-		if (params.has("user")) {
-			userName = params.get("user");
-		}
-		return userName;
 	}
 
 }
