@@ -1,11 +1,9 @@
 package models.data;
 
 import java.util.ArrayList;
-import models.categories.AvaibleCategories;
 import models.categories.Category;
 import models.entities.Link;
 import models.geoLocation.Area;
-import models.geoLocation.AvaibleLocations;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import twitter4j.GeoLocation;
@@ -25,6 +23,7 @@ public class LinkData extends MongoClientData {
 	/** No need to instanciate a <code>UserData</code> object */
 	private LinkData() {}
 
+
 	/**
 	 * Create: creates and saves a new link instance in the DB.
 	 * 
@@ -38,6 +37,7 @@ public class LinkData extends MongoClientData {
 		return link.getId();
 	}
 
+
 	/**
 	 * Create: saves the link instance into the DB.
 	 * 
@@ -49,16 +49,18 @@ public class LinkData extends MongoClientData {
 		return link.getId();
 	}
 
+
 	/**
 	 * Read: returns all the links in the DB as generic <code>Object</code> instances;
 	 * casting expected
 	 * 
 	 * @return all links or empty list otherwise.
 	 */
-	public static ArrayList<Object> getAllLinks() {
+	public static ArrayList<Object> getLinks() {
 		Iterable<Link> records = linkCollection.find().as(Link.class);
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Read: returns links in the desired location as generic <code>Object</code>
@@ -67,44 +69,39 @@ public class LinkData extends MongoClientData {
 	 * @param location known location.
 	 * @return all links in location or empty list otherwise.
 	 */
-	public static ArrayList<Object> getAllLinks(AvaibleLocations location) {
-		Area area = Area.createLocation(location);
+	public static ArrayList<Object> getLinks(Area area) {
 		if (area == null) {
 			return new ArrayList<Object>();
 		}
-
 		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		Double maxLatitude = Double.valueOf(area.getMaxLat());
 		Double minLatitude = Double.valueOf(area.getMinLat());
 		Double maxLongitude = Double.valueOf(area.getMaxLong());
 		Double minLongitude = Double.valueOf(area.getMinLong());
-
 		Iterable<Link> records = linkCollection
 				.find(query, maxLatitude, minLatitude, maxLongitude, minLongitude)
 				.as(Link.class);
-
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Read: returns lniks with the desired category as generic <code>Object</code> instances;
 	 * casting expected.
 	 * 
-	 * @param cat known category.
+	 * @param cattegory known category.
 	 * @return all hashtags with category or empty list otherwise.
 	 */
-	public static ArrayList<Object> getAllLinks(AvaibleCategories cat) {
-		Category category = Category.createCategory(cat);
+	public static ArrayList<Object> getLinks(Category category) {
 		if (category == null) {
 			return new ArrayList<Object>();
 		}
-
 		Iterable<Link> records = linkCollection
 				.find("{category: #}", category.getName())
 				.as(Link.class);
-
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Read: returns links with the desired category and location as <code>Object</code> instances;
@@ -114,25 +111,21 @@ public class LinkData extends MongoClientData {
 	 * @param category known category.
 	 * @return all links in location and categorized or empty list otherwise.
 	 */
-	public static ArrayList<Object> getAllLinks(AvaibleLocations location, AvaibleCategories category) {
-		Area area = Area.createLocation(location);
-		Category cat = Category.createCategory(category);
-		if ((area == null) || (cat == null)) {
+	public static ArrayList<Object> getLinks(Area area, Category category) {
+		if ((area == null) || (category == null)) {
 			return new ArrayList<Object>();
 		}
-
 		String query = "{category: #, latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		Double maxLatitude = Double.valueOf(area.getMaxLat());
 		Double minLatitude = Double.valueOf(area.getMinLat());
 		Double maxLongitude = Double.valueOf(area.getMaxLong());
 		Double minLongitude = Double.valueOf(area.getMinLong());
-
 		Iterable<Link> records = linkCollection
-				.find(query, cat.getName(), maxLatitude, minLatitude, maxLongitude, minLongitude)
+				.find(query, category.getName(), maxLatitude, minLatitude, maxLongitude, minLongitude)
 				.as(Link.class);
-
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Read: returns the found link by id.
@@ -145,6 +138,7 @@ public class LinkData extends MongoClientData {
 		return link;
 	}
 
+
 	/**
 	 * Update: change the category to an existing link. If the link does not exist in the DB
 	 * this function will not create any link and will return false.
@@ -154,18 +148,15 @@ public class LinkData extends MongoClientData {
 	 * @return true if the link has been actualized; false otherwise.
 	 */
 	public static boolean updateCategoryToLink(String id, Category category) {
-		Link foundLink = linkCollection
-				.findOne(new ObjectId(id))
-				.as(Link.class);
-
+		Link foundLink = linkCollection.findOne(new ObjectId(id)).as(Link.class);
 		if (foundLink == null) {
 			return false;
 		}
-
 		foundLink.setCategory(category);
 		linkCollection.save(foundLink);
 		return true;
 	}
+
 
 	/**
 	 * Destroy: remove a link from the DB.
