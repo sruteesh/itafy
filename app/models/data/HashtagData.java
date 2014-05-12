@@ -1,12 +1,10 @@
 package models.data;
 
 import java.util.ArrayList;
-import models.categories.AvaibleCategories;
 import models.categories.Category;
 import models.entities.GeoTweet;
 import models.entities.Hashtag;
 import models.geoLocation.Area;
-import models.geoLocation.AvaibleLocations;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 import twitter4j.GeoLocation;
@@ -23,8 +21,9 @@ import controllers.db.DbNames;
 public class HashtagData extends MongoClientData {
 	protected static final MongoCollection hashtagCollection = jongoItafy.getCollection(DbNames.HASHTAGS);
 
-	/* No need to instanciate a <code>HashtagData</code> object */
+	/** No need to instanciate a <code>HashtagData</code> object */
 	private HashtagData() {}
+
 
 	/**
 	 * Create: creates and saves a new hashtag instance in the DB.
@@ -39,6 +38,7 @@ public class HashtagData extends MongoClientData {
 		return hashtag.getId();
 	}
 
+
 	/**
 	 * Create: saves the hashtag instance into the DB.
 	 *
@@ -50,16 +50,18 @@ public class HashtagData extends MongoClientData {
 		return hashtag.getId();
 	}
 
+
 	/**
 	 * Read: returns all the hashtags in the DB as generic <code>Object</code> instances;
 	 * casting expected.
 	 *
 	 * @return (ArrayList) all geoTweets or empty list otherwise.
 	 */
-	public static ArrayList<Object> getAllHashtags() {
+	public static ArrayList<Object> getHashtags() {
 		Iterable<Hashtag> records = hashtagCollection.find().as(Hashtag.class);
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Read: returns geoTweets in the desired location as generic <code>Object</code>
@@ -70,24 +72,21 @@ public class HashtagData extends MongoClientData {
 	 * @param location (Enum) known location.
 	 * @return (ArrayList) all hashtags in location or empty list otherwise.
 	 */
-	public static ArrayList<Object> getAllHashtags(AvaibleLocations location) {
-		Area area = Area.createLocation(location);
+	public static ArrayList<Object> getHashtags(Area area) {
 		if (area == null) {
 			return new ArrayList<Object>();
 		}
-
 		String query = "{latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		Double maxLatitude = Double.valueOf(area.getMaxLat());
 		Double minLatitude = Double.valueOf(area.getMinLat());
 		Double maxLongitude = Double.valueOf(area.getMaxLong());
 		Double minLongitude = Double.valueOf(area.getMinLong());
-
 		Iterable<Hashtag> records = hashtagCollection
 				.find(query, maxLatitude, minLatitude, maxLongitude, minLongitude)
 				.as(Hashtag.class);
-
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Read: returns hashtags with the desired category as generic <code>Object</code> instances;
@@ -96,18 +95,16 @@ public class HashtagData extends MongoClientData {
 	 * @param cat (Enum) known category.
 	 * @return (ArrayList) all hashtags with category or empty list otherwise.
 	 */
-	public static ArrayList<Object> getAllHashtags(AvaibleCategories cat) {
-		Category category = Category.createCategory(cat);
+	public static ArrayList<Object> getHashtags(Category category) {
 		if (category == null) {
 			return new ArrayList<Object>();
 		}
-
 		Iterable<Hashtag> records = hashtagCollection
 				.find("{category: #}", category.getName())
 				.as(Hashtag.class);
-
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Read: returns hashtags with the desired category and location as <code>Object</code> instances;
@@ -119,25 +116,21 @@ public class HashtagData extends MongoClientData {
 	 * @param category (Enum) known category.
 	 * @return (ArrayList) all hashtags in location and categorized or empty list otherwise.
 	 */
-	public static ArrayList<Object> getAllHashtags(AvaibleLocations location, AvaibleCategories category) {
-		Area area = Area.createLocation(location);
-		Category cat = Category.createCategory(category);
-		if ((area == null) || (cat == null)) {
+	public static ArrayList<Object> getHashtags(Area area, Category category) {
+		if ((area == null) || (category == null)) {
 			return new ArrayList<Object>();
 		}
-
 		String query = "{category: #, latitude: {$lt:#, $gt:#}, longitude:{$lt:#, $gt:#}}";
 		Double maxLatitude = Double.valueOf(area.getMaxLat());
 		Double minLatitude = Double.valueOf(area.getMinLat());
 		Double maxLongitude = Double.valueOf(area.getMaxLong());
 		Double minLongitude = Double.valueOf(area.getMinLong());
-
 		Iterable<GeoTweet> records = hashtagCollection
-				.find(query, cat.getName(), maxLatitude, minLatitude, maxLongitude, minLongitude)
+				.find(query, category.getName(), maxLatitude, minLatitude, maxLongitude, minLongitude)
 				.as(GeoTweet.class);
-
 		return CollectionHelper.asArrayList(records);
 	}
+
 
 	/**
 	 * Read: returns the found hashtag by id.

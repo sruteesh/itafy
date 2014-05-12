@@ -1,13 +1,14 @@
 package controllers.api;
 
 import java.util.ArrayList;
-import models.categories.AvaibleCategories;
+import models.categories.Category;
 import models.data.HashtagData;
-import models.geoLocation.AvaibleLocations;
+import models.geoLocation.Area;
 import org.codehaus.jackson.JsonNode;
 import play.mvc.Controller;
 import play.mvc.Result;
 import utils.helpers.JsonHelper;
+import utils.helpers.ParamsHelper;
 
 
 /**
@@ -30,23 +31,14 @@ public class HashtagController extends Controller {
 	 * @return (Result) index page
 	 */
 	public static Result index() {
-		AvaibleLocations trustedArea = AvaibleLocations.asLocation(request().getQueryString("area"));
-		AvaibleCategories trustedCategory = AvaibleCategories.valueOf(request().getQueryString("category"));
-
-		ArrayList<Object> hashtags;
-		if ((trustedArea != null) && (trustedCategory != null)) {
-			hashtags = HashtagData.getAllHashtags(trustedArea, trustedCategory);
-		} else if (trustedArea != null) {
-			hashtags = HashtagData.getAllHashtags(trustedArea);
-		} else if (trustedCategory != null) {
-			hashtags = HashtagData.getAllHashtags(trustedCategory);
-		} else {
-			hashtags = HashtagData.getAllHashtags();
-		}
-
+		ParamsHelper params = new ParamsHelper(request().queryString());
+		Area area = params.defineArea();
+		Category category = params.defineCategory();
+		ArrayList<Object> hashtags = executeQueryDependingOn(area, category);
 		JsonNode response = JsonHelper.asJson(hashtags);
 		return ok(response);
 	}
+
 
 	/**
 	 * GET /api/hashtags/:id
@@ -56,6 +48,21 @@ public class HashtagController extends Controller {
 	 */
 	public static Result show(String id) {
 		return TODO;
+	}
+
+
+	private static ArrayList<Object> executeQueryDependingOn(Area area, Category category) {
+		ArrayList<Object> hashtags;
+		if ((area != null) && (category != null)) {
+			hashtags = HashtagData.getHashtags(area, category);
+		} else if (area != null) {
+			hashtags = HashtagData.getHashtags(area);
+		} else if (category != null) {
+			hashtags = HashtagData.getHashtags(category);
+		} else {
+			hashtags = HashtagData.getHashtags();
+		}
+		return hashtags;
 	}
 
 }
