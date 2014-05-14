@@ -62,32 +62,24 @@ public class FeedParser {
 			XMLEvent event = eventReader.nextEvent();
 			if (event.isStartElement()) {
 				String localPart = event.asStartElement().getName().getLocalPart();
-				switch (localPart) {
-					case FeedParserConstants.ITEM:
-						if (isFeedHeader) {
-							isFeedHeader = false;
-							response = new Feed(title, link, description, copyright, pubdate);
-						}
-						event = eventReader.nextEvent();
-						break;
-					case FeedParserConstants.TITLE:
-						title = getCharacterData(event, eventReader);
-						break;
-					case FeedParserConstants.DESCRIPTION:
-						description = getCharacterData(event, eventReader);
-						break;
-					case FeedParserConstants.LINK:
-						link = getCharacterData(event, eventReader);
-						break;
-					case FeedParserConstants.AUTHOR:
-						author = getCharacterData(event, eventReader);
-						break;
-					case FeedParserConstants.PUB_DATE:
-						pubdate = getCharacterData(event, eventReader);
-						break;
-					case FeedParserConstants.COPYRIGHT:
-						copyright = getCharacterData(event, eventReader);
-						break;
+				if (localPart.equals(FeedParserConstants.ITEM)){
+					if (isFeedHeader) {
+						isFeedHeader = false;
+						response = new Feed(title, link, description, copyright, pubdate);
+					}
+					event = eventReader.nextEvent();
+				} else if (localPart.equals(FeedParserConstants.TITLE)) {
+					title = getCharacterData(event, eventReader);
+				} else if (localPart.equals(FeedParserConstants.DESCRIPTION)) {
+					description = getCharacterData(event, eventReader);
+				} else if (localPart.equals(FeedParserConstants.LINK)) {
+					link = getCharacterData(event, eventReader);
+				} else if (localPart.equals(FeedParserConstants.AUTHOR)) {
+					author = getCharacterData(event, eventReader);
+				} else if (localPart.equals(FeedParserConstants.PUB_DATE)) {
+					pubdate = getCharacterData(event, eventReader);
+				} else if (localPart.equals(FeedParserConstants.COPYRIGHT)) {
+					copyright = getCharacterData(event, eventReader);
 				}
 			} else if (event.isEndElement()) {
 				if (event.asEndElement().getName().getLocalPart() == (FeedParserConstants.ITEM)) {
