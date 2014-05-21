@@ -22,7 +22,7 @@ object ApplicationBuild extends Build {
     )
 
     val main = play.Project(appName, appVersion, appDependencies).settings(
-      javacOptions ++= Seq("-source", "1.7", "-target", "1.7", "-encoding", "UTF-8")
+      javacOptions ++= Seq("-source", "1.6", "-target", "1.6", "-encoding", "UTF-8")
     )
 
 }

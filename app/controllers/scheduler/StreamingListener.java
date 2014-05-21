@@ -3,6 +3,7 @@ package controllers.scheduler;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+
 import models.data.GeoTweetData;
 import models.data.HashtagData;
 import models.data.LinkData;
@@ -15,8 +16,10 @@ import models.entities.Location;
 import models.entities.Tweet;
 import models.entities.TwitterName;
 import models.entities.User;
+
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
+
 import play.Logger;
 import twitter4j.GeoLocation;
 import twitter4j.HashtagEntity;
@@ -26,8 +29,10 @@ import twitter4j.StatusListener;
 import twitter4j.URLEntity;
 import utils.StreamingWebSocket;
 import utils.gender.GenderDetector;
+
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
+
 import controllers.db.DbNames;
 import controllers.db.MongoDBHandler;
 
@@ -114,30 +119,6 @@ public class StreamingListener implements StatusListener {
 		}
 	}
 
-	/** Note: avoid auto boxing (Effective Java Item 49) */
-	private void sendTweetToWebSocket(twitter4j.Status status) {
-		HashMap<String, Object> webSocketData = new HashMap<String, Object>();
-		GeoLocation geoLocation = status.getGeoLocation();
-		if (geoLocation != null) {
-			Double longitude = Double.valueOf(geoLocation.getLongitude());
-			Double latitude = Double.valueOf(geoLocation.getLatitude());
-			webSocketData.put("text", extractText(status));
-			webSocketData.put("longitude", longitude);
-			webSocketData.put("latitude", latitude);
-			twitter4j.User user = status.getUser();
-			webSocketData.put("gender", GenderDetector.detectUser(user.getName(), user.getDescription()));
-			StreamingWebSocket.sendHashMap(webSocketData);
-		}
-	}
-
-	private String extractText(twitter4j.Status status) {
-		if (status.getRetweetedStatus() == null) {
-			return status.getText();
-		} else {
-			return status.getRetweetedStatus().getText();
-		}
-	}
-
 	/**
 	 * Called from <code>StreamingListener.onStatus</code>: save the inmediate
 	 * data to DB.
@@ -172,6 +153,30 @@ public class StreamingListener implements StatusListener {
 		String geoTweetId = GeoTweetData.saveGeoTweet(geoTweet);
 		Logger.info("Tweet: " + geoTweet.getTwitterId());
 		return geoTweetId;
+	}
+
+	/** Note: avoid auto boxing (Effective Java Item 49) */
+	private void sendTweetToWebSocket(twitter4j.Status status) {
+		HashMap<String, Object> webSocketData = new HashMap<String, Object>();
+		GeoLocation geoLocation = status.getGeoLocation();
+		if (geoLocation != null) {
+			Double longitude = Double.valueOf(geoLocation.getLongitude());
+			Double latitude = Double.valueOf(geoLocation.getLatitude());
+			webSocketData.put("text", extractText(status));
+			webSocketData.put("longitude", longitude);
+			webSocketData.put("latitude", latitude);
+			twitter4j.User user = status.getUser();
+			webSocketData.put("gender", GenderDetector.detectUser(user.getName(), user.getDescription()));
+			StreamingWebSocket.sendHashMap(webSocketData);
+		}
+	}
+
+	private String extractText(twitter4j.Status status) {
+		if (status.getRetweetedStatus() == null) {
+			return status.getText();
+		} else {
+			return status.getRetweetedStatus().getText();
+		}
 	}
 
 	/**
