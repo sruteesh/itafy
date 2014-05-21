@@ -1,7 +1,7 @@
 package utils.textSearch;
 
 import java.io.IOException;
-import models.data.TweetData;
+import models.categories.AvaibleCategories;
 import models.entities.Tweet;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -34,7 +34,7 @@ import play.Logger;
  */
 public class Index {
 	public static final String TEXT = "text";
-	public static final String INDEX = "index";
+	public static final String CATEGORY = "category";
 
 	private IndexWriter writer = null;
 	private boolean initialized = false;
@@ -52,18 +52,19 @@ public class Index {
 	}
 
 
-	/**
-	 * Search the tweet that corresponds to the input id. If the tweet does exist, calls and returns
-	 * <code>addTweet(Tweet)</code>
-	 * 
-	 * @param tweetId Mongo's id as a String which corresponds to a Tweet object
-	 * @return success; false if the tweet does not exist or <code>addTweet(Tweet)</code> fails
-	 */
-	public boolean addTweet(String tweetId) {
+	public boolean addText(String text, AvaibleCategories category) {
 		boolean response = false;
-		Tweet t = TweetData.findTweet(tweetId);
-		if (t != null) {
-			response = addTweet(t);
+		if (initialized) {
+			try {
+				Document doc = new Document();
+				doc.add(new TextField(TEXT, text, Field.Store.NO));
+				doc.add(new TextField(CATEGORY, category.name(), Field.Store.YES));
+				writer.addDocument(doc);
+				response = true;
+			} catch (IOException e) {
+				Logger.error("EXCEPTION: utils.textSearch.Index.addTweet("+text+")");
+				e.printStackTrace();
+			}
 		}
 		return response;
 	}
@@ -76,21 +77,8 @@ public class Index {
 	 * @param tweet the tweet we want to save in the index
 	 * @return success; false if the index is not initialized yet or excepction raises
 	 */
-	public boolean addTweet(Tweet tweet) {
-		boolean response = false;
-		if (initialized) {
-			try {
-				Document doc = new Document();
-				doc.add(new TextField(TEXT, tweet.getText(), Field.Store.NO));
-				doc.add(new TextField(INDEX, tweet.getId(), Field.Store.YES));
-				writer.addDocument(doc);
-				response = true;
-			} catch (IOException e) {
-				Logger.error("EXCEPTION: utils.textSearch.Index.addTweet("+tweet.toString()+")");
-				e.printStackTrace();
-			}
-		}
-		return response;
+	public boolean addTweet(Tweet tweet, AvaibleCategories category) {
+		return addText(tweet.getText(), category);
 	}
 
 

@@ -1,64 +1,56 @@
 package utils.textSearch;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import models.data.TweetData;
-import models.entities.Tweet;
+import models.categories.AvaibleCategories;
 
 
 public class Example {
 
 	public static void main(String[] a) {
-		String[] temporalIds = createTweets();
-		createIndex(temporalIds);
-		HashMap<String, Float> results = query("dinosaurio");
+		createIndex();
+		Object results = query("dinosaurio");
 		System.out.println(results.toString());
-		destroyTweets(temporalIds);
+
 	}
 
 
 	// private
 
-	private static String[] createTweets() {
-		String[] response = new String[3];
-		for (int i = 0; i < 3; i++) {
-			Tweet t = Tweet.createTweetWithGeoTweetAndUser(fakeTexts[i], fakeGeoTweetIds[0], fakeUserId);
-			response[i] = TweetData.savetweet(t);
-			System.out.println(t.getId() + ": " + fakeTexts[i]);
-		}
-		return response;
-	}
-
-	private static void createIndex(String[] ids) {
+	private static void createIndex() {
 		Index index = new Index();
-		for (String id : ids) {
-			index.addTweet(id);
+		for (String key : fakeTexts.keySet()) {
+			index.addText(key, fakeTexts.get(key));
 		}
 		index.closeWriter();
 	}
 
-	private static HashMap<String, Float> query(String query) {
-		HashMap<String, Float> results = new HashMap<String, Float>();
+	private static HashMap<String, ArrayList<Float>> query(String query) {
+		HashMap<String, ArrayList<Float>> results = new HashMap<String, ArrayList<Float>>();
 		Searcher searcher = new Searcher();
 		results = searcher.search(query);
 		return results;
 	}
 
-	private static void destroyTweets(String[] ids) {
-		for (String id : ids) {
-			TweetData.destroyTweet(id);
-		}
+
+	private static final HashMap<String, AvaibleCategories> fakeTexts = new HashMap<String, AvaibleCategories>();
+	static {
+		fakeTexts.put("Hola hola caracola", AvaibleCategories.ACTUALIDAD);
+		fakeTexts.put("Eres un dinosaurio; dijo el mayor dinosaurio de todos", AvaibleCategories.DEPORTES);
+		fakeTexts.put("dinosaurio en el zoo", AvaibleCategories.DEPORTES);
+		fakeTexts.put("esto nos son mas que pruebas", AvaibleCategories.DEPORTES);
+		fakeTexts.put("de forma, un tanto aleatorias", AvaibleCategories.DEPORTES);
+		fakeTexts.put("Alendi no debe llegar al pozo de la ascension", AvaibleCategories.DEPORTES);
+		fakeTexts.put("pues no debe liberar lo que se oculta alli", AvaibleCategories.DEPORTES);
+		fakeTexts.put("aqui meto otro dinosaurio", AvaibleCategories.DEPORTES);
+		fakeTexts.put("y este dinosaurio es para despistar", AvaibleCategories.ACTUALIDAD);
+		fakeTexts.put("hablemos de pokemon", AvaibleCategories.ACTUALIDAD);
+		fakeTexts.put("en realidad esta escrito en katakana", AvaibleCategories.ACTUALIDAD);
+		fakeTexts.put("y es una contraccion de pocket monsters", AvaibleCategories.ACTUALIDAD);
+		fakeTexts.put("tambien hay pokemon de tipo dinosaurio", AvaibleCategories.DEPORTES);
+
 	}
 
 
-	// lets imagine that the user "e720" wrote these tweets
 
-	private static final String[] fakeGeoTweetIds = {
-		"5370be443004241a99c0e720", "5370be443004241a99c0e721", "5370be443004241a99c0e722"
-	};
-
-	private static final String[] fakeTexts = {
-		"Hola hola caracola", "Eres un dinosaurio; dijo el mayor dinosaurio de todos", "dinosaurio en el zoo"
-	};
-
-	private static final String fakeUserId = "5370be443004241a99c0e720";
 }

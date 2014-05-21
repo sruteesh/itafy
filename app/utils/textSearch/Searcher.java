@@ -1,6 +1,7 @@
 package utils.textSearch;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
@@ -46,7 +47,7 @@ public class Searcher {
 	 * @param numberOfHits (int) number of desired hits
 	 * @return (HashMap) results or null if error ocurred (see logs)
 	 */
-	public HashMap<String, Float> search(String textQuery, int numberOfHits) {
+	public HashMap<String, ArrayList<Float>> search(String textQuery, int numberOfHits) {
 		if (initialized) {
 			try {
 				Query query = parser.parse(textQuery);
@@ -70,18 +71,24 @@ public class Searcher {
 	 * @param textQuery (String) query
 	 * @return (HashMap) results or null if error ocurred (see logs)
 	 */
-	public HashMap<String, Float> search(String textQuery) {
+	public HashMap<String, ArrayList<Float>> search(String textQuery) {
 		return search(textQuery, 10);
 	}
 
 
-	private HashMap<String, Float> convertHitsInHash(ScoreDoc[] hits) throws IOException {
-		HashMap<String, Float> response = new HashMap<String, Float>();
+	private HashMap<String, ArrayList<Float>> convertHitsInHash(ScoreDoc[] hits) throws IOException {
+		HashMap<String, ArrayList<Float>> response = new HashMap<String, ArrayList<Float>>();
 		for(ScoreDoc hit : hits) {
 			int docId = hit.doc;
 			Document d = searcher.doc(docId);
 			Float hitValue = Float.valueOf(hit.score);
-			response.put(d.get(Index.INDEX), hitValue);
+			String category = d.get(Index.CATEGORY);
+			if (response.get(category) == null) {
+				response.put(category, new ArrayList<Float>());
+			}
+			ArrayList<Float> tmp = response.get(category);
+			tmp.add(hitValue);
+			response.put(category, tmp);
 		}
 		return response;
 	}
