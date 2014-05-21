@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import models.categories.Category;
-import models.data.TweetsData;
+import models.data.TweetData;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 import twitter4j.GeoLocation;
@@ -80,7 +80,7 @@ public class Link {
 	}
 
 	public ArrayList<Tweet> getTweets() {
-		ArrayList<Object> tweets = TweetsData.getTweetsWithLink(this.id);
+		ArrayList<Object> tweets = TweetData.getTweetsWithLink(this.id);
 		return CollectionHelper.castEeachElementToTweet(tweets);
 	}
 

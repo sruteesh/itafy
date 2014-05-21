@@ -2,7 +2,7 @@ package models.entities;
 
 import java.util.ArrayList;
 import java.util.Date;
-import models.data.TweetsData;
+import models.data.TweetData;
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
 import twitter4j.GeoLocation;
@@ -107,7 +107,7 @@ public class User {
 
 
 	public ArrayList<Tweet> getTweets() {
-		ArrayList<Object> tweets = TweetsData.getTweetsFromUser(this.userId);
+		ArrayList<Object> tweets = TweetData.getTweetsFromUser(this.userId);
 		return CollectionHelper.castEeachElementToTweet(tweets);
 	}
 

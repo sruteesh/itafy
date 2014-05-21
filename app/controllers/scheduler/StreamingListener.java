@@ -6,7 +6,7 @@ import java.util.HashMap;
 import models.data.GeoTweetData;
 import models.data.HashtagData;
 import models.data.LinkData;
-import models.data.TweetsData;
+import models.data.TweetData;
 import models.data.UserData;
 import models.entities.GeoTweet;
 import models.entities.Hashtag;
@@ -283,7 +283,7 @@ public class StreamingListener implements StatusListener {
 			tweet.setWordIds(wordIds);
 		}
 
-		TweetsData.savetweet(tweet);
+		TweetData.savetweet(tweet);
 		Logger.info("Tweet: " + tweet.getText());
 		return tweet.getId();
 	}

@@ -8,11 +8,11 @@ import org.jongo.MongoCollection;
 import utils.helpers.CollectionHelper;
 import controllers.db.DbNames;
 
-public class TweetsData extends MongoClientData {
+public class TweetData extends MongoClientData {
 	private static final MongoCollection tweetsCollection = jongoItafy.getCollection(DbNames.TWEETS);
 
 	/** No need to instanciate a <code>TweetData</code> object */
-	private TweetsData() {}
+	private TweetData() {}
 
 	/**
 	 * Create: saves the tweet into the DB
