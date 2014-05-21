@@ -80,9 +80,9 @@ public class FeedReader {
 	 * @param outputFile path of the output arff file
 	 * @return success; false if IOException raised while execution
 	 */
-	public boolean createModel(String outputFile) {
+	public void createModel(String outputFile) {
 		outputFilePath = outputFile;
-		return createModel();
+		createModel();
 	}
 
 	/**
@@ -93,13 +93,12 @@ public class FeedReader {
 	 * 
 	 * @return success; false if IOException raised while execution or not configuration file read
 	 */
-	public boolean createModel() {
+	public void createModel() {
 		if (rss.isEmpty()) {
 			System.err.println("FeedReader: no rss initialized");
-			return false;
 		}
 		ArrayList<WritableElement> data = parseFeedForEachRssLink();
-		return buildModelAsFile(data);
+		buildModelAsFile(data);
 	}
 
 
@@ -148,15 +147,13 @@ public class FeedReader {
 		return response;
 	}
 
-	private boolean buildModelAsFile(ArrayList<WritableElement> data) {
+	private void buildModelAsFile(ArrayList<WritableElement> data) {
 		ArffWriter writer = new ArffWriter(outputFilePath);
-		boolean fail = false;
 		for(WritableElement element : data) {
-			fail |= writer.writeComment(element.comment);
-			fail |= writer.writeData(element.text, element.classification);
+			writer.writeComment(element.comment);
+			writer.writeData(element.text, element.classification);
 			writer.writeEnter();
 		}
-		return !fail;
 	}
 
 	/**

@@ -1,36 +1,32 @@
 package utils.fileWriter;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-
+import java.io.PrintWriter;
 
 public class FileWriter {
-	protected final String path;
+	private File file;
+	private PrintWriter writer;
 
 	public FileWriter(String path) {
-		this.path = path;
 		try {
-			Files.deleteIfExists(Paths.get(path));
+			file = new File(path);
+			writer = new PrintWriter(file, "UTF-8");
 		} catch (IOException e) {
-			e.printStackTrace();
+			// it's ok
 		}
 	}
 
-	public boolean writeText(String text) {
-		final String content = text + "\n";
-		try {
-			Files.write(Paths.get(path), content.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
+	public void writeText(String text) {
+		writer.println(text);
 	}
 
-	public boolean writeEnter() {
-		return writeText("");
+	public void writeEnter() {
+		writeText("");
+	}
+
+	public void close() {
+		writer.close();
 	}
 
 	public static boolean isEmpty(String line) {
@@ -39,4 +35,5 @@ public class FileWriter {
 		}
 		return false;
 	}
+
 }

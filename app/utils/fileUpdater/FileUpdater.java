@@ -41,25 +41,22 @@ public class FileUpdater {
 	 * @param path
 	 * @return success
 	 */
-	public boolean updateFile(String path) {
+	public void updateFile(String path) {
 		System.out.println(path);
 		String outPath = calculateOutPath(path);
 		writer = new ArffWriter(outPath);
-		boolean fail = false;
 		try {
 			FileReader fileReader = new FileReader(new File(path));
 			BufferedReader br = new BufferedReader(fileReader);
 			String line = null;
 			// if no more lines readLine() returns null
 			while ((line = br.readLine()) != null) {
-				fail |= updateLine(line);
+				updateLine(line);
 			}
 			br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-			fail = true;
 		}
-		return !fail;
 	}
 
 	/**
@@ -81,32 +78,28 @@ public class FileUpdater {
 	 * @return success
 	 * @see Stackoverflow #1844688
 	 */
-	public boolean updateFiles(final File folder) {
-		boolean fail = false;
+	public void updateFiles(final File folder) {
 		for (final File fileEntry : folder.listFiles()) {
 			if (fileEntry.isDirectory()) {
 				updateFiles(fileEntry);
 			} else {
 				if (FileHelper.isNormalFile(fileEntry)) {
-					fail |= updateFile(fileEntry.getPath());
+					updateFile(fileEntry.getPath());
 				}
 			}
 		}
-		return !fail;
 	}
 
 	/** @see Stackoverflow #4662215 */
-	private boolean updateLine(String line) {
-		boolean response;
+	private void updateLine(String line) {
 		if (isContent(line)) {
 			String content = getContentToNormalize(line);
 			content = utils.helpers.NormalizeHelper.normalizeText(content);
 			String classAsString = getClassValue(line);
-			response = writer.writeData(content, classAsString);
+			writer.writeData(content, classAsString);
 		} else {
-			response = writer.writeText(line);
+			writer.writeText(line);
 		}
-		return response;
 	}
 
 	private boolean isContent(String s) {

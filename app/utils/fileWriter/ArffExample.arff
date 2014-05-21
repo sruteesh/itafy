@@ -3,8 +3,8 @@
 
 @relation categories-model
 @attribute Message string
-@attribute Class {POLITICA,ECONOMIA,CULTURA,DEPORTES}
+@attribute Class {POLITICA,CULTURA,DEPORTES}
 
 @data
-'Este es el artículo 1',CULTURA
-'Este es el artículo 2',ECONOMIA
+"Este es el artículo 1",ACTUALIDAD
+"Este es el artículo 2",DEPORTES

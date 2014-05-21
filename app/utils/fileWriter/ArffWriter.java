@@ -67,25 +67,25 @@ public class ArffWriter extends FileWriter {
 	/**
 	 * @return false if IOException raised while execution
 	 */
-	public boolean writeComment(String comment) {
+	public void writeComment(String comment) {
 		String content = "" + STARTING_COMMENT + ' ' + comment;
-		return writeText(content);
+		writeText(content);
 	}
 
 	/**
 	 * @return false if IOException raised while execution
 	 */
-	public boolean writeData(String text, String classification) {
+	public void writeData(String text, String classification) {
 		String content = "\"" + text + "\"" + "," + classification.toUpperCase();
-		return writeText(content);
+		writeText(content);
 	}
 
 	/**
 	 * @return false if IOException raised while execution
 	 */
-	public boolean writeData(String text, AvaibleCategories category) {
+	public void writeData(String text, AvaibleCategories category) {
 		String content = "\"" + text + "\"" + "," + category.name();
-		return writeText(content);
+		writeText(content);
 	}
 
 	/**

@@ -9,8 +9,8 @@ public class FileUpdaterExample {
 	public static void main(String[] args) {
 		final File folder = new File(FOLDER_PATH);
 		FileUpdater updater = new FileUpdater();
-		boolean success = updater.updateFiles(folder);
-		System.out.println(success);
+		updater.updateFiles(folder);
+		System.out.println("FIN");
 	}
 
 }
