@@ -1,4 +1,4 @@
-package benchmarks.textClassification;
+package benchmarks.textClassification.weka;
 
 import java.io.File;
 import models.categories.AvaibleCategories;
@@ -10,16 +10,14 @@ import utils.textClassifier.TextClassifier;
  * @author m.artero@ucm.es
  * @author raul.marcos.l@gmail.com
  */
-public class TextClassificationBenchmark {
-
-
+public class WekaBenchmark {
 	private int hits;
 	private int misses;
 	private int falseNews;
 	private int falseSports;
 	private TextClassifier classifier;
 
-	public TextClassificationBenchmark() {
+	public WekaBenchmark() {
 		classifier = new TextClassifier();
 		hits = 0;
 		misses = 0;
@@ -135,19 +133,19 @@ public class TextClassificationBenchmark {
 	private static final String FINAL_CORPUS = "/Users/manutero/workspace/itafy/weka-data/corpus_tratado.arff";
 
 	private static final String CULTURE_TWEETS =
-			TextClassificationBenchmark.class.getResource("tweets/culture").getPath();
+			WekaBenchmark.class.getResource("tweets/culture").getPath();
 
 	private static final String POLITIC_TWEETS =
-			TextClassificationBenchmark.class.getResource("tweets/politic").getPath();
+			WekaBenchmark.class.getResource("tweets/politic").getPath();
 
 	private static final String SPORT_TWEETS =
-			TextClassificationBenchmark.class.getResource("tweets/sport").getPath();
+			WekaBenchmark.class.getResource("tweets/sport").getPath();
 
 	private static final String UNCATEGORIZED_TWEETS =
-			TextClassificationBenchmark.class.getResource("tweets/uncategorized").getPath();
+			WekaBenchmark.class.getResource("tweets/uncategorized").getPath();
 
 	public static void main(String[] args) {
-		TextClassificationBenchmark benchmark = new TextClassificationBenchmark();
+		WekaBenchmark benchmark = new WekaBenchmark();
 		benchmark.runBenchmarks();
 		System.out.println("END");
 	}

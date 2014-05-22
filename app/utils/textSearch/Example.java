@@ -8,10 +8,16 @@ import models.categories.AvaibleCategories;
 public class Example {
 
 	public static void main(String[] a) {
-		createIndex();
-		Object results = query("dinosaurio");
-		System.out.println(results.toString());
-
+		//createIndex();
+		//Object results = query("dinosaurio");
+		//System.out.println(results.toString());
+		LuceneEvaluator b = new LuceneEvaluator();
+		try {
+			b.wait();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 

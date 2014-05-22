@@ -38,7 +38,7 @@ public class TextClassifier implements Serializable {
 	private double[] treeDistribution;
 
 	// wizard
-	private Evaluator evaluator;
+	private WekaEvaluator evaluator;
 
 	public TextClassifier() {
 		dataset = MsgClassificationDataset.getDataset();
@@ -46,7 +46,7 @@ public class TextClassifier implements Serializable {
 		rulesClassifier = new NNge();
 		tableClassifier = new DecisionTable();
 		treeClassifier = new FT();
-		evaluator = new Evaluator();
+		evaluator = new WekaEvaluator();
 		isUpToDate = false;
 	}
 
@@ -57,7 +57,7 @@ public class TextClassifier implements Serializable {
 		rulesClassifier = new NNge();
 		tableClassifier = new DecisionTable();
 		treeClassifier = new FT();
-		evaluator = new Evaluator();
+		evaluator = new WekaEvaluator();
 		isUpToDate = false;
 	}
 
