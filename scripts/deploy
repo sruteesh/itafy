@@ -1,12 +1,12 @@
 #!/bin/bash
 
-cd .. && play clean compile dist
+play clean compile dist
 echo "[LOCAL DIST ZIP] Created!"
 
-SSH='ssh ubuntu@54.213.21.104 -i /Users/raul/GitHub/itafy/AmazonMicro1.pem'
-PEM_FILE='/Users/raul/GitHub/itafy/AmazonMicro1.pem'
+PEM_FILE='/Users/raul/GitHub/itafy/itafyServer.pem'
+SSH='ssh ubuntu@54.213.21.104 -i $PEM_FILE'
 DIST_FOLDER='/Users/raul/GitHub/itafy/dist/itafy-0.1.zip'
-REMOTE_FOLDER='ubuntu@54.213.21.104:/home/ubuntu'
+REMOTE_FOLDER='ubuntu@54.72.212.197:/home/ubuntu'
 
 $SSH "rm itafy-0.1.zip"
 echo "[OLD REMOTE DIST ZIP] Deleted or inexistent!"
