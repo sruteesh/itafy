@@ -8,8 +8,8 @@ GET    /assets/*file                   controllers.Assets.at(path="/public", fil
 GET  /                    controllers.Application.index()
 GET  /peopleCount         controllers.Application.peopleCount()
 GET  /onlive              controllers.TwitterController.onLive()
-GET  /demo/index          controllers.Assets.at(path="/public/html", file="index-demo.html")
-GET  /demo/localindex     controllers.Assets.at(path="/public/html", file="index-localdemo.html")
+GET  /demo                controllers.Assets.at(path="/public/html", file="index-demo.html")
+GET  /localdemo           controllers.Assets.at(path="/public/html", file="index-localdemo.html")
 
 # API
 # ===
