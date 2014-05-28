@@ -114,8 +114,6 @@ public class StreamingListener implements StatusListener {
 			}
 
 			twitterNamesCollection.save(twitterName);
-			Logger.info(user.getScreenName());
-			Logger.info("[TwitterName] " + name + "\t @" + screenName + "\t" + lang);
 		}
 	}
 
@@ -151,7 +149,7 @@ public class StreamingListener implements StatusListener {
 	private String saveGeoTweet(long twitterId, GeoLocation location) {
 		GeoTweet geoTweet = GeoTweet.createTweetWithGeoLocation(twitterId, location);
 		String geoTweetId = GeoTweetData.saveGeoTweet(geoTweet);
-		Logger.info("Tweet: " + geoTweet.getTwitterId());
+
 		return geoTweetId;
 	}
 
@@ -195,7 +193,6 @@ public class StreamingListener implements StatusListener {
 			Hashtag hashtag = Hashtag.createHashtagWithGeoLocations(text, location);
 			String hashtagId = HashtagData.saveHashtag(hashtag);
 			hashtagIds.add(hashtagId);
-			Logger.info("HT: " + hashtag.getName());
 		}
 
 		return hashtagIds;
@@ -216,7 +213,6 @@ public class StreamingListener implements StatusListener {
 			Link link = Link.createLinkWithGeoLocations(url, location);
 			String linkId = LinkData.saveLink(link);
 			linkIds.add(linkId);
-			Logger.info("Link: " + link.getUrl());
 		}
 
 		return linkIds;
@@ -238,7 +234,7 @@ public class StreamingListener implements StatusListener {
 		} else {
 			user = createNewUser(twitterUser, location);
 		}
-		Logger.info("User: " + user.getUserName());
+
 		return user.getId();
 	}
 
@@ -289,7 +285,7 @@ public class StreamingListener implements StatusListener {
 		}
 
 		TweetData.savetweet(tweet);
-		Logger.info("Tweet: " + tweet.getText());
+
 		return tweet.getId();
 	}
 
