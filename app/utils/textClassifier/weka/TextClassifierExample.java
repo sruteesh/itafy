@@ -1,4 +1,4 @@
-package utils.textClassifier;
+package utils.textClassifier.weka;
 
 import java.io.File;
 import java.util.HashMap;

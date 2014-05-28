@@ -3,7 +3,7 @@ package benchmarks.textClassification.weka;
 import java.io.File;
 import utils.helpers.FileHelper;
 import utils.helpers.NormalizeHelper;
-import utils.textClassifier.TextClassifier;
+import utils.textClassifier.weka.TextClassifier;
 import benchmarks.textClassification.TextClassificationBenchmark;
 
 /**

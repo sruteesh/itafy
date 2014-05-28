@@ -1,4 +1,4 @@
-package utils.textClassifier;
+package utils.textClassifier.weka;
 
 public interface MsgClassificationConstants {
 	public static final String DATASET_NAME = "MessageClassification";

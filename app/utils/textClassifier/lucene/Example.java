@@ -1,4 +1,4 @@
-package utils.textSearch;
+package utils.textClassifier.lucene;
 
 import java.util.ArrayList;
 import java.util.HashMap;

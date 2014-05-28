@@ -1,4 +1,4 @@
-package utils.textClassifier;
+package utils.textClassifier.weka;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

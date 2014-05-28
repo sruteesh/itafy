@@ -1,4 +1,4 @@
-package utils.textSearch;
+package utils.textClassifier.lucene;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,8 +16,8 @@ import utils.helpers.CollectionHelper;
  * <p>
  * First, it is necessary to train the system. Two possibilities avaible:
  * <ol>
- *  <li> {@link utils.textSearch.LuceneEvaluator#addText(String, String) Add each text separately}
- *  <li> {@link utils.textSearch.LuceneEvaluator#trainWithFile(String) Add every text from a arff file}
+ *  <li> {@link utils.textClassifier.lucene.LuceneEvaluator#addText(String, String) Add each text separately}
+ *  <li> {@link utils.textClassifier.lucene.LuceneEvaluator#trainWithFile(String) Add every text from a arff file}
  * </ol>
  * Once this is done, is possible to make queries. The response would be the most valuable category
  * corresponding to the text
@@ -96,7 +96,7 @@ public class LuceneEvaluator {
 	 * Fill the Lucene index with multiple data at the same time
 	 * <p>
 	 * The file would have the same format as in the text classifier based on
-	 * {@link utils.textClassifier.ArffReader Weka} </br>
+	 * {@link utils.textClassifier.weka.ArffReader Weka} </br>
 	 * <ul>
 	 *  <li> Headings starting with <code>@</code> (will ignore)
 	 *  <li> Comments starting with <code>%</code> (will ignore)
@@ -182,7 +182,7 @@ public class LuceneEvaluator {
 
 	/**
 	 * Query using Lucene, the response is automatically evaluated by the
-	 * {@link utils.textSearch.LuceneEvaluator#evaluate(HashMap) evaluation function}
+	 * {@link utils.textClassifier.lucene.LuceneEvaluator#evaluate(HashMap) evaluation function}
 	 * 
 	 * @param textQuery supposed to be normalized and preprocessed
 	 * @return determined class name for the text

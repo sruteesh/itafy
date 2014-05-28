@@ -4,7 +4,7 @@ import java.io.File;
 import models.categories.AvaibleCategories;
 import utils.helpers.FileHelper;
 import utils.helpers.NormalizeHelper;
-import utils.textSearch.LuceneEvaluator;
+import utils.textClassifier.lucene.LuceneEvaluator;
 import benchmarks.textClassification.TextClassificationBenchmark;
 
 
