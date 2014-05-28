@@ -1,0 +1,118 @@
+@relation categories-model
+@attribute Message string
+@attribute Class {POLITICA,CULTURA,DEPORTES}
+
+@data
+% http://elpais.com/deportes/2014/05/27/actualidad/1401180002_467979.html [El País]
+"Fernando Torres apunta hispanobrasileno  puede importante grupo  reitera ilusion lista",DEPORTES
+
+% http://elpais.com/deportes/2014/05/26/actualidad/1401126492_184257.html [Luis Martín]
+"Federacion  Atletico jugador acuerdan ultimo reciba tratamiento microrrotura biceps femoral Navas  incognita",DEPORTES
+
+% http://elpais.com/deportes/2014/05/26/actualidad/1401127706_286643.html [Luis Martín]
+"preparador fisico  siempre mano Bosque  explica claves adaptarse Brasil",DEPORTES
+
+% http://elpais.com/deportes/2014/05/26/actualidad/1401120613_400123.html [Ramón Muñoz]
+"rojiblancos sonaron conquista Europa fatalismo impuso ganaron ganan siempre",DEPORTES
+
+% http://elpais.com/deportes/2014/05/26/actualidad/1401122580_187167.html [Diego Latorre]
+"Atletico perdio final Lisboa hizo mal suele hacer bien  neutralizar rival cancelando virtudes",DEPORTES
+
+% http://elpais.com/deportes/2014/05/25/champions/1401035219_231264.html [Cayetano Ros]
+"equipo Anelotti rodillo Liga Campeones  victorias goles  final impuso gen ganador",DEPORTES
+
+% http://elpais.com/deportes/2014/05/27/actualidad/1401202123_389308.html [Javier Pérez]
+"tecnico acepta condiciones renovar club granota Granada Malaga buscan nuevo tecnico",DEPORTES
+
+% http://elpais.com/deportes/2014/05/26/actualidad/1401129785_976579.html [Juan I. Irigoyen]
+"entrenador filial blanquiazul meses toma testigo Javier Aguirre",DEPORTES
+
+% http://elpais.com/deportes/2014/05/26/actualidad/1401130208_094379.html [Eduardo Rodrigálvarez]
+"Eibar asciende Primera modelo austeridad inteligente implica identificacion valores historicos",DEPORTES
+
+% http://elpais.com/deportes/2014/05/26/actualidad/1401130687_931413.html [Gorka Rodrigálvarez Pérez]
+"Racing Albacete esquivan desaparicion gracias ascensos Segunda  Los numeros salen orejas   presidente cantabro",DEPORTES
+
+% http://elpais.com/deportes/2014/05/27/actualidad/1401206245_562892.html [Agencias]
+"colombiano  partia quinto  aventaja minutos compatriota Uran enfunda  maglia rosa ",DEPORTES
+
+% http://elpais.com/deportes/2014/05/26/actualidad/1401122277_117480.html [Carlos Arribas]
+"Uran debera defender maglia rosa ataques anuncia Quintana dura montana queda",DEPORTES
+
+% http://elpais.com/deportes/2014/05/07/actualidad/1399493428_455523.html []
+"Corredores  etapas  clasificaciones  equipos  jornadas decisivas    Toda informacion ronda italiana",DEPORTES
+
+% http://elpais.com/deportes/2014/05/27/actualidad/1401163182_622586.html [Robert Álvarez]
+"nueva demostracion estrella Miami puntos rebotes  pone evidencia desplome Indiana",DEPORTES
+
+% http://elpais.com/deportes/2014/05/26/actualidad/1401132524_001318.html [El País]
+"nombramiento cuenta apoyo Secretario Estado  Miguel Cardenal  meses votaciones infructuosas",DEPORTES
+
+% http://elpais.com/deportes/2014/04/28/album/1398694460_956193.html []
+"imagenes espectaculares deporte internacional",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/53848403268e3e3a308b4570.html [elmundo.es]
+"delantero muestra absoluta confianza cuerpo medico seleccion   cuando jugador importante esperar ultimo momento ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/53843e8722601d7e2a8b456c.html [EDUARDO J. CASTELAO]
+"servicios medicos Atletico seleccion creen problemas primer partido  Holanda  dia",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/53843f1022601d732a8b456d.html [RAFAEL DURÁ]
+"biologia biologia tener cuenta jugador viene larga temporada gran carga  disputar competiciones ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/538440e1e2704ed15d8b456d.html [elmundo.es]
+"Magnifica actuacion alero puntos victoria Heat Miami gana Indiana  oportunidades pasar cuarta final consecutiva ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/538365e1268e3e0e488b457b.html [BEGOÑA PÉREZ]
+" En Inglaterra aparecido jovenes podrian exitosos  gente calla siente optimista   dijo seleccionador ingles entrevista concedida MUNDO ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/538457ece2704ecc5d8b456c.html [ALBERTO RAMÍREZ]
+"falta confirmacion oficial  Filippo Inzaghi nuevo entrenador AC Milan sustituyendo Seedorf  afirman medios italianos Gazzetta dello Sport  Emery anuncio renovara Sevilla ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/53845d6d268e3e3c308b456f.html [elmundo.es]
+"propuesta millonario ruso Anton Zingarevich esconde trampa  pues nuevo propietario asumir deuda millones euros ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/26/53838a0f268e3e0d488b4586.html [elmundo.es]
+"amenaza hielo pasos Gavia Stelvio puede impedir celebracion etapa  direccion aseguran modificara trazado pesar previsiones ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/26/53838f95e2704e86428b4574.html [elmundo.es]
+" No amigos  colegas   recalco Lewis Hamilton Nico Rosberg  consiguiese victoria Montecarlo ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/53845192e2704ef05d8b456f.html [elmundo.es]
+"ala pivot Valencia obtenido total puntos  superando Sergio Rodriguez  suma puntos ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/538488c2268e3e56308b4572.html [elmundo.es]
+"Finalista pasada edicion  espanol apenas sufrir superar primera ronda  derroto holandes Igor Sijsling hora minutos  Almagro retiro molestias ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/5384b213ca474134108b457a.html [EFE]
+" Gracias esfuerzo situado Real Madrid lugar merece  rey Europa   dijo capitan portero Real Madrid ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/5384a3bee2704ece5d8b457d.html [EL MUNDO]
+"tecnico Madrid  recogia Roma premio Enzo  su humildad   dicho  satisfaccion llevar Decima casa quedara siempre  trabajo mayor secreto  la pasion  ",DEPORTES
+
+% http://www.elmundo.es/comunidad-valenciana/2014/05/27/5384a320ca474166108b4575.html [EUROPA PRESS]
+" strong La Generalitat  strong   en principio plantea pagar nada  a strong  Bankia  strong  aval concedido Instituto Valenciano Finanzas  IVF ",DEPORTES
+
+% http://www.elmundo.es/comunidad-valenciana/2014/05/27/53848a8922601d7b2a8b4570.html [INMA LIDÓN]
+"juzgado instancia numero Valencia ordenado ejecucion pago millones euros prestamo concedido Bankia Fundacion Valencia comprar acciones Valencia CF Instituto Valenciano Finanzas  IVF  ejercio avalista ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/26/53826c74ca47411b6a8b456e.html [FERNANDO BORRERO]
+"espera completar ampliacion capital  humilde Eibar suspira disfrutar primer ascenso Primera Division ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/53848403268e3e3a308b4570.html [EFE]
+"delantero muestra absoluta confianza cuerpo medico seleccion   cuando jugador importante esperar ultimo momento ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/53845d6d268e3e3c308b456f.html [EFE]
+"propuesta millonario ruso Anton Zingarevich esconde trampa  pues nuevo propietario asumir deuda millones euros ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/53846f66268e3e58308b4574.html [EFE]
+"exfutbolista Sergio Gonzalez nuevo entrenador Espanyol proximas temporadas  falta cerrar formalmente negociaciones ",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/538466bde2704ef35d8b457a.html [EL MUNDO]
+"posible debut Gerard Deulofeu Espana aun especial  Bolivia manera provisional lista definitiva junio  Deulofeu lucira numero",DEPORTES
+
+% http://www.elmundo.es/deportes/2014/05/27/538457ece2704ecc5d8b456c.html [ALBERTO RAMÍREZ]
+"falta confirmacion oficial  Filippo Inzaghi nuevo entrenador AC Milan sustituyendo Seedorf  afirman medios italianos Gazzetta dello Sport  Emery anuncio renovara Sevilla ",DEPORTES
+
+% http://www.elmundo.es/elmundodeporte/futbol/ligas-europeas/ [elmundo.es]
+" a href  http   www elmundo es elmundodeporte futbol liga francesa clasificacion html  Francia  a   a href  http   www elmundo es elmundodeporte futbol liga holandesa clasificacion html  Holanda  a   a href  http   www elmundo es elmundodeporte futbol liga portuguesa index html  Portugal  a   a href  http   www elmundo es elmundodeporte futbol
