@@ -21,13 +21,13 @@ public class LuceneBenchmark extends TextClassificationBenchmark {
 	public void runBenchmarks() {
 		try {
 			train();
-			//politicTest();
-			//cultureTest();
+			politicTest();
+			cultureTest();
 			sportTest();
-			//uncategorizedTest();
+			uncategorizedTest();
 			printResults();
-
 		} catch (Exception e) {
+			System.err.println("LuceneBenchmark.runBenchmarks()");
 			e.printStackTrace();
 			return;
 		}
@@ -45,15 +45,12 @@ public class LuceneBenchmark extends TextClassificationBenchmark {
 			if (FileHelper.isNormalFile(fileEntry)) {
 				String realText = FileHelper.readTextFile(fileEntry.getPath());
 				String text = NormalizeHelper.normalizeText(realText);
-				String got = classifier.queryAndEvaluation(text);
-
+				String got = classifier.queryAndEvaluate(text);
 				print(got, expected, text);
-				System.out.println("----------------------");
 				compare(got, expected);
 			}
 		}
 	}
-
 
 	@SuppressWarnings("unused")
 	@Deprecated
@@ -66,7 +63,6 @@ public class LuceneBenchmark extends TextClassificationBenchmark {
 			}
 		}
 	}
-
 
 	public static void main(String[] a) {
 		LuceneBenchmark benchmark = new LuceneBenchmark();
