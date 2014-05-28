@@ -1,65 +1,77 @@
 package benchmarks.textClassification.lucene;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
 import models.categories.AvaibleCategories;
 import utils.helpers.FileHelper;
 import utils.helpers.NormalizeHelper;
 import utils.textSearch.LuceneEvaluator;
+import benchmarks.textClassification.TextClassificationBenchmark;
 
 
-public class LuceneBenchmark {
-	private int hits;
-	private int misses;
-	private LuceneEvaluator evaluator;
+public class LuceneBenchmark extends TextClassificationBenchmark {
+	private LuceneEvaluator classifier;
+
+	public LuceneBenchmark() {
+		hits = 0;
+		misses = 0;
+		classifier = new LuceneEvaluator();
+	}
+
+	@Override
+	public void runBenchmarks() {
+		try {
+			train();
+			//politicTest();
+			//cultureTest();
+			sportTest();
+			//uncategorizedTest();
+			printResults();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
+	}
+
+	@Override
+	protected void train() throws Exception {
+		classifier.trainWithFile(FINAL_CORPUS);
+		System.out.println("Classifer ready");
+	}
+
+	@Override
+	protected void test(File folder, String expected) {
+		for (final File fileEntry : folder.listFiles()) {
+			if (FileHelper.isNormalFile(fileEntry)) {
+				String realText = FileHelper.readTextFile(fileEntry.getPath());
+				String text = NormalizeHelper.normalizeText(realText);
+				String got = classifier.queryAndEvaluation(text);
+
+				print(got, expected, text);
+				System.out.println("----------------------");
+				compare(got, expected);
+			}
+		}
+	}
+
+
+	@SuppressWarnings("unused")
+	@Deprecated
+	private void train(File folder, AvaibleCategories category) {
+		for (final File fileEntry : folder.listFiles()) {
+			if (FileHelper.isNormalFile(fileEntry)) {
+				String realText = FileHelper.readTextFile(fileEntry.getPath());
+				String text = NormalizeHelper.normalizeText(realText);
+				classifier.addText(text, category);
+			}
+		}
+	}
+
 
 	public static void main(String[] a) {
 		LuceneBenchmark benchmark = new LuceneBenchmark();
 		benchmark.runBenchmarks();
 		System.out.println("FIN");
 	}
-
-	public LuceneBenchmark() {
-		hits = 0;
-		misses = 0;
-		evaluator = new LuceneEvaluator();
-	}
-
-	public void runBenchmarks() {
-		fillIndex(new File(CULTURE_TWEETS), AvaibleCategories.ACTUALIDAD);
-		fillIndex(new File(SPORT_TWEETS), AvaibleCategories.DEPORTES);
-		HashMap<String, ArrayList<Float>> response = new HashMap<String, ArrayList<Float>>();
-		response = evaluator.query("Atletico campeon de copa");
-		System.out.println(response);
-
-		fillIndex(new File(POLITIC_TWEETS), AvaibleCategories.ACTUALIDAD);
-		response = evaluator.query("Atletico campeon de copa");
-		System.out.println(response);
-	}
-
-	private void fillIndex(File folder, AvaibleCategories category) {
-		for (final File fileEntry : folder.listFiles()) {
-			if (FileHelper.isNormalFile(fileEntry)) {
-				String realText = FileHelper.readTextFile(fileEntry.getPath());
-				String text = NormalizeHelper.normalizeText(realText);
-				evaluator.addText(text, category);
-			}
-		}
-	}
-
-
-
-	private static final String CULTURE_TWEETS =
-			LuceneBenchmark.class.getResource("../tweets/culture").getPath();
-
-	private static final String POLITIC_TWEETS =
-			LuceneBenchmark.class.getResource("../tweets/politic").getPath();
-
-	private static final String SPORT_TWEETS =
-			LuceneBenchmark.class.getResource("../tweets/sport").getPath();
-
-	private static final String UNCATEGORIZED_TWEETS =
-			LuceneBenchmark.class.getResource("../tweets/uncategorized").getPath();
 
 }
