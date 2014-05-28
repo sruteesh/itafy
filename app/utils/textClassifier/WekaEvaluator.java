@@ -11,8 +11,8 @@ public class WekaEvaluator {
 
 	public WekaEvaluator() {
 		evaluableData = new HashMap<String,Double>();
-		NEWS_LIMIT = 0.9710401891252954;
-		SPORT_LIMIT = 0.25;
+		NEWS_LIMIT = 0.7;
+		SPORT_LIMIT = 0.3;
 	}
 
 	public void setSportLimit(double v) { SPORT_LIMIT = v; }
