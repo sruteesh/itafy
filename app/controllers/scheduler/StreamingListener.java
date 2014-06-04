@@ -130,12 +130,13 @@ public class StreamingListener implements StatusListener {
 	 */
 	private void saveStatusToDB(twitter4j.Status status) {
 		GeoLocation location = status.getGeoLocation();
-		String geoTweetId = saveGeoTweet(status.getId(), location);
-		ArrayList<String> hashtagIds = saveHashtags(status.getHashtagEntities(), location);
-		ArrayList<String> linkIds = saveLinks(status.getURLEntities(), location);
+		Tweet tweet = TweetData.saveTweet(status);
+		String tweetId = tweet.getId();
 		String userId = saveUser(status.getUser(), location);
-		ArrayList<String> wordIds = saveWords(status.getText(), location);
-		saveTweet(status.getText(), geoTweetId, hashtagIds, linkIds, userId, wordIds);
+
+		// String geoTweetId = saveGeoTweet(status.getId(), location);
+		saveHashtags(status.getHashtagEntities(), location, tweetId);
+		saveLinks(status.getURLEntities(), location, tweetId);
 	}
 
 	/**
@@ -183,19 +184,17 @@ public class StreamingListener implements StatusListener {
 	 * 
 	 * @param hashtagEntities
 	 * @param location
-	 * @return Mongo's ids as Strings
+	 * @return void
 	 */
-	private ArrayList<String> saveHashtags(HashtagEntity[] hashtagEntities, GeoLocation location) {
+	private void saveHashtags(HashtagEntity[] hashtagEntities, GeoLocation location, String tweetId) {
 		ArrayList<String> hashtagIds = new ArrayList<String>();
 
 		for (HashtagEntity hashtagEntity : hashtagEntities) {
 			String text = hashtagEntity.getText().toLowerCase();
-			Hashtag hashtag = Hashtag.createHashtagWithGeoLocations(text, location);
+			Hashtag hashtag = Hashtag.createHashtagWithGeoLocations(text, location, tweetId);
 			String hashtagId = HashtagData.saveHashtag(hashtag);
 			hashtagIds.add(hashtagId);
 		}
-
-		return hashtagIds;
 	}
 
 	/**
@@ -203,19 +202,18 @@ public class StreamingListener implements StatusListener {
 	 * 
 	 * @param urlEntities
 	 * @param location
-	 * @return Mongo's ids as Strings
+	 * @param tweetId
+	 * @return void
 	 */
-	private ArrayList<String> saveLinks(URLEntity[] urlEntities, GeoLocation location) {
+	private void saveLinks(URLEntity[] urlEntities, GeoLocation location, String tweetId) {
 		ArrayList<String> linkIds = new ArrayList<String>();
 
 		for (URLEntity urlEntity : urlEntities) {
 			String url = urlEntity.getExpandedURL();
-			Link link = Link.createLinkWithGeoLocations(url, location);
+			Link link = Link.createLinkWithGeoLocations(url, location, tweetId);
 			String linkId = LinkData.saveLink(link);
 			linkIds.add(linkId);
 		}
-
-		return linkIds;
 	}
 
 	/**
@@ -224,7 +222,7 @@ public class StreamingListener implements StatusListener {
 	 * 
 	 * @param twitterUser
 	 * @param location
-	 * @return Mongo's id as a String
+	 * @return Mongo id as String
 	 */
 	private String saveUser(twitter4j.User twitterUser, GeoLocation location) {
 		long userId = twitterUser.getId();
@@ -251,42 +249,4 @@ public class StreamingListener implements StatusListener {
 		UserData.saveUser(user);
 		return user;
 	}
-
-	private ArrayList<String> saveWords(String tweetText, GeoLocation location) {
-		ArrayList<String> wordIds = new ArrayList<String>();
-		// TODO
-		return wordIds;
-	}
-
-	/**
-	 * Called from <code>StreamingListener.onStatus</code>: create and saves a
-	 * new <code>models.entity.tweet</code> which relates every model
-	 * 
-	 * @param geoTweetId
-	 * @param hashtagIds
-	 * @param linkIds
-	 * @param userId
-	 * @param wordIds
-	 * @return Mongo's id as a String
-	 */
-	private String saveTweet(String text, String geoTweetId, ArrayList<String> hashtagIds,
-			ArrayList<String> linkIds, String userId, ArrayList<String> wordIds) {
-
-		Tweet tweet = Tweet.createTweetWithGeoTweetAndUser(text, geoTweetId, userId);
-
-		if (!hashtagIds.isEmpty()) {
-			tweet.setHashtagIds(hashtagIds);
-		}
-		if (!linkIds.isEmpty()) {
-			tweet.setLinkIds(linkIds);
-		}
-		if (!wordIds.isEmpty()) {
-			tweet.setWordIds(wordIds);
-		}
-
-		TweetData.savetweet(tweet);
-
-		return tweet.getId();
-	}
-
 }

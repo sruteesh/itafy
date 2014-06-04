@@ -9,9 +9,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Auxiliar class which defines possible useful common methods for normalizating text
+ * Auxiliar class which defines possible useful common methods for normalizating
+ * text
  * <p>
- * Note: all methods would be static; not reason to instanciate or extend this class
+ * Note: all methods would be static; not reason to instanciate or extend this
+ * class
  * 
  * @author martero@ucm.es
  * @author raulmarcosl@gmail.com
@@ -21,23 +23,25 @@ import java.util.regex.Pattern;
  */
 public final class NormalizeHelper {
 	private static final String SPACE_CHAR = "\\s+";
-	//FIXME: relative path
-	private static final String STOP_LIST_PATH = "/Users/manutero/workspace/itafy/stop-list/stop-list.txt";
+	// FIXME: relative path
+	private static final String STOP_LIST_PATH = "/Users/raul/GitHub/itafy/stop-list/stop-list.txt";
 	private static final ArrayList<String> stopList;
 
 	// Pattern for recognizing a URL, based off RFC 3986
 	private static final Pattern URL_PATTERN = Pattern.compile(
-			"(?:^|[\\W])((ht|f)tp(s?):\\/\\/|www\\.)" + "(([\\w\\-]+\\.){1,}?([\\w\\-.~]+\\/?)*" + "[\\p{Alnum}.,%_=?&#\\-+()\\[\\]\\*$~@!:/{};']*)",
+			"(?:^|[\\W])((ht|f)tp(s?):\\/\\/|www\\.)" + "(([\\w\\-]+\\.){1,}?([\\w\\-.~]+\\/?)*"
+					+ "[\\p{Alnum}.,%_=?&#\\-+()\\[\\]\\*$~@!:/{};']*)",
 			Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
 
 	/**
-	 * Suppress default constructor for noninstantiability; "Effective Java" Item 4.
+	 * Suppress default constructor for noninstantiability; "Effective Java"
+	 * Item 4.
+	 * 
 	 * @throws AssertionError
 	 */
 	private NormalizeHelper() {
 		throw new AssertionError();
 	}
-
 
 	public static String normalizeVowels(String string) {
 		return string
@@ -60,7 +64,9 @@ public final class NormalizeHelper {
 	}
 
 	/**
-	 * Applies FIVE normalization functinos to each word of a text and return the normalized text
+	 * Applies FIVE normalization functinos to each word of a text and return
+	 * the normalized text
+	 * 
 	 * <pre>
 	 *  NormalizeHelper.breakDownUrls(s)
 	 *  NormalizeHelper.isInStopList(s)
@@ -69,11 +75,12 @@ public final class NormalizeHelper {
 	 *  NormalizeHelper.removeNonAlphabeticChars(s);
 	 * </pre>
 	 * <p>
-	 * Note: we must check the stop list <strong>after</strong> removing non alphabetic chars;
-	 * this, makes the algorithim slower but if the stop list is checked before the normalization,
-	 * there will be <em>ninja</em> words.
+	 * Note: we must check the stop list <strong>after</strong> removing non
+	 * alphabetic chars; this, makes the algorithim slower but if the stop list
+	 * is checked before the normalization, there will be <em>ninja</em> words.
 	 * 
-	 * @param text to be normalized
+	 * @param text
+	 *            to be normalized
 	 * @return normalized text
 	 */
 	public static String normalizeText(String text) {
@@ -94,8 +101,11 @@ public final class NormalizeHelper {
 
 	/**
 	 * Note: this function does NOT keep order in the String.
-	 * @example breakDownUrls("this is a url http://www.themostamazingsiteontheinternet.com amazing")
-	 * returns "this is a url amazing http www themostamazingsiteontheinternet com"
+	 * 
+	 * @example breakDownUrls(
+	 *          "this is a url http://www.themostamazingsiteontheinternet.com amazing"
+	 *          ) returns
+	 *          "this is a url amazing http www themostamazingsiteontheinternet com"
 	 * @param text
 	 * @return
 	 */
@@ -110,11 +120,14 @@ public final class NormalizeHelper {
 
 	/**
 	 * @example <code>removeUrlsFromText("this is a url http://www.themostamazingsiteontheinternet.com amazing")</code>
-	 * returns <code>[http://www.themostamazingsiteontheinternet.com]</code> and change the input argument
-	 * to <code>"this is a url amazing"</code>
-	 * <p>
-	 * Note: add a <code>SuppressWarnings</code> to text assigment
-	 * @param text <strong>in/out</strong> argument
+	 *          returns
+	 *          <code>[http://www.themostamazingsiteontheinternet.com]</code>
+	 *          and change the input argument to
+	 *          <code>"this is a url amazing"</code>
+	 *          <p>
+	 *          Note: add a <code>SuppressWarnings</code> to text assigment
+	 * @param text
+	 *            <strong>in/out</strong> argument
 	 * @return
 	 */
 	@SuppressWarnings("all")
@@ -132,15 +145,16 @@ public final class NormalizeHelper {
 
 	private static String removeSubString(String text, int startIndex, int endIndex) {
 		StringBuffer response = new StringBuffer(text);
-		response.replace(startIndex, endIndex ,"");
+		response.replace(startIndex, endIndex, "");
 		return response.toString();
 	}
 
-	/** 3 tests
+	/**
+	 * 3 tests
 	 * <ol>
-	 *  <li> is this word in the stop list?
-	 *  <li> is this word more than a single char?
-	 *  <li> is this word more than just white spaces?
+	 * <li>is this word in the stop list?
+	 * <li>is this word more than a single char?
+	 * <li>is this word more than just white spaces?
 	 */
 	public static boolean hasSemanticWeight(String word) {
 		return !isInStopList(word) && (word.length() > 1) && (word.trim().length() > 0);
@@ -152,19 +166,20 @@ public final class NormalizeHelper {
 	}
 
 	/**
-	 * @example <code>removeLastChar("I have a dogs")</code> returns <code>"I have a dog"</code>
+	 * @example <code>removeLastChar("I have a dogs")</code> returns
+	 *          <code>"I have a dog"</code>
 	 * @param text
 	 * @return text withiout last char
 	 */
 	private static String removeLastChar(String text) {
 		String response = "";
-		if ((text != null) && !text.isEmpty()){
+		if ((text != null) && !text.isEmpty()) {
 			response = text.substring(0, text.length() - 1);
 		}
 		return response;
 	}
 
-	//stop list static initialization from stop-list/stop-list.txt
+	// stop list static initialization from stop-list/stop-list.txt
 	static {
 		stopList = new ArrayList<String>();
 		BufferedReader br;

@@ -7,21 +7,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import models.categories.AvaibleCategories;
 import utils.fileWriter.ArffWriter;
 import utils.helpers.DateHelper;
 
 /**
- * Once initialized (with the default configuration file or a selected one), is able to create
- * an <em>arff</em> model (in the default path or a selected one)
+ * Once initialized (with the default configuration file or a selected one), is
+ * able to create an <em>arff</em> model (in the default path or a selected one)
  * <p>
  * The process is:
  * <ol>
- *  <li> Reads a configuration file with a list of rss links classified by
- *   {@link models.categories.AvaibleCategories category}
- *  <li> For each rss link, parse the feed
- *  <li> Creates a output arff file using {@link utils.fileWriter.ArffWriter ArffWritter class}
- *  <li> The arff file could be used by Weka
+ * <li>Reads a configuration file with a list of rss links classified by
+ * {@link models.categories.AvaibleCategories category}
+ * <li>For each rss link, parse the feed
+ * <li>Creates a output arff file using {@link utils.fileWriter.ArffWriter
+ * ArffWritter class}
+ * <li>The arff file could be used by Weka
  * </ol>
  * 
  * @author m.artero@ucm.es
@@ -31,12 +33,11 @@ import utils.helpers.DateHelper;
  */
 public class FeedReader {
 	// FIXME relative paths
-	private static final String DEFAULT_CONF_PATH = "/Users/manutero/workspace/itafy/conf/rss.txt";
-	private static final String DEFAULT_OUT_PATH = "/Users/manutero/workspace/itafy/weka-data/";
+	private static final String DEFAULT_CONF_PATH = "/Users/raul/GitHub/itafy/conf/rss.txt";
+	private static final String DEFAULT_OUT_PATH = "/Users/raul/GitHub/itafy/weka-data/";
 
 	/**
-	 * rss.keySet() => categories
-	 * rss.get("category") => links for category
+	 * rss.keySet() => categories rss.get("category") => links for category
 	 */
 	private HashMap<String, ArrayList<String>> rss;
 	private String confFilePath;
@@ -56,10 +57,11 @@ public class FeedReader {
 		}
 	}
 
-
 	/**
 	 * Initialize with a determined configuration file
-	 * @param rssConfigurationFile path to the configuration file
+	 * 
+	 * @param rssConfigurationFile
+	 *            path to the configuration file
 	 */
 	public FeedReader(String rssConfigurationFile) {
 		confFilePath = rssConfigurationFile;
@@ -72,12 +74,12 @@ public class FeedReader {
 		}
 	}
 
-
 	/**
-	 * Creates a output arff file using {@link utils.fileWriter.ArffWriter ArffWritter class}</br>
-	 * The arff file could be used by Weka
+	 * Creates a output arff file using {@link utils.fileWriter.ArffWriter
+	 * ArffWritter class}</br> The arff file could be used by Weka
 	 * 
-	 * @param outputFile path of the output arff file
+	 * @param outputFile
+	 *            path of the output arff file
 	 * @return success; false if IOException raised while execution
 	 */
 	public void createModel(String outputFile) {
@@ -86,12 +88,15 @@ public class FeedReader {
 	}
 
 	/**
-	 * Creates a output arff file using {@link utils.fileWriter.ArffWriter ArffWritter class}</br>
-	 * The arff file could be used by Weka as the data model
+	 * Creates a output arff file using {@link utils.fileWriter.ArffWriter
+	 * ArffWritter class}</br> The arff file could be used by Weka as the data
+	 * model
 	 * <p>
-	 * Note: the arff file will be saved in the default <code>DEFAULT_OUT_PATH</code>
+	 * Note: the arff file will be saved in the default
+	 * <code>DEFAULT_OUT_PATH</code>
 	 * 
-	 * @return success; false if IOException raised while execution or not configuration file read
+	 * @return success; false if IOException raised while execution or not
+	 *         configuration file read
 	 */
 	public void createModel() {
 		if (rss.isEmpty()) {
@@ -100,7 +105,6 @@ public class FeedReader {
 		ArrayList<WritableElement> data = parseFeedForEachRssLink();
 		buildModelAsFile(data);
 	}
-
 
 	private ArrayList<WritableElement> parseFeedForEachRssLink() {
 		ArrayList<WritableElement> response = new ArrayList<WritableElement>();
@@ -114,7 +118,8 @@ public class FeedReader {
 					ArrayList<WritableElement> valuableContent = getWritableElementsForFeed(feed, categoryAsString);
 					response.addAll(valuableContent);
 				} catch (Exception e) {
-					// possible error in RSS from provider, not our guilt; just continue your way
+					// possible error in RSS from provider, not our guilt; just
+					// continue your way
 					System.err.println("FeedReader: rss error from provider (" + link + ")");
 					continue;
 				}
@@ -124,17 +129,21 @@ public class FeedReader {
 		return response;
 	}
 
-
 	/**
-	 * Taking one <em>feed</em>, which contains several articles from newspapers, that corresponds
-	 * to a <em>category</em>;
-	 * get an array of <code>WritableElement</code> instances
+	 * Taking one <em>feed</em>, which contains several articles from
+	 * newspapers, that corresponds to a <em>category</em>; get an array of
+	 * <code>WritableElement</code> instances
 	 * <p>
-	 * Note a <code>WritableElement</code> describes the tuple {comment + text + category}
+	 * Note a <code>WritableElement</code> describes the tuple {comment + text +
+	 * category}
 	 * 
-	 * @param feed one feed contains several articles (<code>feed.getMessages()</code>)
-	 * @param categoryAsString corresponding to each article of the feed
-	 * @return array of <code>WritableElement</code> instances {comment + text + category}
+	 * @param feed
+	 *            one feed contains several articles (
+	 *            <code>feed.getMessages()</code>)
+	 * @param categoryAsString
+	 *            corresponding to each article of the feed
+	 * @return array of <code>WritableElement</code> instances {comment + text +
+	 *         category}
 	 */
 	private ArrayList<WritableElement> getWritableElementsForFeed(Feed feed, String categoryAsString) {
 		ArrayList<WritableElement> response = new ArrayList<WritableElement>();
@@ -149,7 +158,7 @@ public class FeedReader {
 
 	private void buildModelAsFile(ArrayList<WritableElement> data) {
 		ArffWriter writer = new ArffWriter(outputFilePath);
-		for(WritableElement element : data) {
+		for (WritableElement element : data) {
 			writer.writeComment(element.comment);
 			writer.writeData(element.text, element.classification);
 			writer.writeEnter();
@@ -158,6 +167,7 @@ public class FeedReader {
 
 	/**
 	 * The response is similar to:
+	 * 
 	 * <pre>
 	 * {
 	 *   CULTURA => [link1, link2, ..., linkN]
@@ -165,6 +175,7 @@ public class FeedReader {
 	 *   ...
 	 * }
 	 * </pre>
+	 * 
 	 * @throws IOException
 	 */
 	private HashMap<String, ArrayList<String>> readConfigurationFile() throws IOException {
@@ -197,7 +208,7 @@ public class FeedReader {
 	}
 
 	private boolean newCategoryDeclaration(String line) {
-		for (String categoryName: AvaibleCategories.names()) {
+		for (String categoryName : AvaibleCategories.names()) {
 			if (categoryName.equals(line)) {
 				return true;
 			}
@@ -209,7 +220,6 @@ public class FeedReader {
 		return DEFAULT_OUT_PATH + DateHelper.today() + ".arff";
 	}
 
-
 	/**
 	 * Describes the tuple {comment + text + category}
 	 */
@@ -217,6 +227,7 @@ public class FeedReader {
 		String comment;
 		String text;
 		String classification;
+
 		WritableElement(String comment, String text, String classification) {
 			this.comment = comment;
 			this.text = text;

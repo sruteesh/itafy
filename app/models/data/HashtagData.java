@@ -1,18 +1,21 @@
 package models.data;
 
 import java.util.ArrayList;
+
 import models.categories.Category;
 import models.entities.GeoTweet;
 import models.entities.Hashtag;
 import models.geoLocation.Area;
+
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
-import twitter4j.GeoLocation;
+
 import utils.helpers.CollectionHelper;
 import controllers.db.DbNames;
 
 /**
- * CRUD (create, read, update, and destroy) for <code>Hashtag</code> model in the DB.
+ * CRUD (create, read, update, and destroy) for <code>Hashtag</code> model in
+ * the DB.
  * 
  * @author martero@ucm.es
  * @author raulmarcosl@gmail.com
@@ -22,27 +25,30 @@ public class HashtagData extends MongoClientData {
 	protected static final MongoCollection hashtagCollection = jongoItafy.getCollection(DbNames.HASHTAGS);
 
 	/** No need to instanciate a <code>HashtagData</code> object */
-	private HashtagData() {}
-
+	private HashtagData() {
+	}
 
 	/**
 	 * Create: creates and saves a new hashtag instance in the DB.
-	 *
-	 * @param text defines this hashtag.
-	 * @param geoLocation coordenates for this hashtag (latitude & longitude).
+	 * 
+	 * @param text
+	 *            defines this hashtag.
+	 * @param geoLocation
+	 *            coordenates for this hashtag (latitude & longitude).
 	 * @return Mongo's ObjectId as String.
 	 */
-	public static String saveHashtag(String text, GeoLocation geoLocation) {
-		Hashtag hashtag = Hashtag.createHashtagWithGeoLocations(text, geoLocation);
-		hashtagCollection.save(hashtag);
-		return hashtag.getId();
-	}
-
+	// public static String saveHashtag(String text, GeoLocation geoLocation) {
+	// Hashtag hashtag = Hashtag.createHashtagWithGeoLocations(text,
+	// geoLocation);
+	// hashtagCollection.save(hashtag);
+	// return hashtag.getId();
+	// }
 
 	/**
 	 * Create: saves the hashtag instance into the DB.
-	 *
-	 * @param hashtag (Hashtag) instance going to be saved.
+	 * 
+	 * @param hashtag
+	 *            (Hashtag) instance going to be saved.
 	 * @return (String) Mongo's ObjectId as String.
 	 */
 	public static String saveHashtag(Hashtag hashtag) {
@@ -50,11 +56,10 @@ public class HashtagData extends MongoClientData {
 		return hashtag.getId();
 	}
 
-
 	/**
-	 * Read: returns all the hashtags in the DB as generic <code>Object</code> instances;
-	 * casting expected.
-	 *
+	 * Read: returns all the hashtags in the DB as generic <code>Object</code>
+	 * instances; casting expected.
+	 * 
 	 * @return (ArrayList) all geoTweets or empty list otherwise.
 	 */
 	public static ArrayList<Object> getHashtags() {
@@ -62,14 +67,14 @@ public class HashtagData extends MongoClientData {
 		return CollectionHelper.asArrayList(records);
 	}
 
-
 	/**
-	 * Read: returns geoTweets in the desired location as generic <code>Object</code>
-	 * instances.
+	 * Read: returns geoTweets in the desired location as generic
+	 * <code>Object</code> instances.
 	 * <p>
 	 * Note: avoid auto boxing (Effective Java Item 49)
 	 * 
-	 * @param location (Enum) known location.
+	 * @param location
+	 *            (Enum) known location.
 	 * @return (ArrayList) all hashtags in location or empty list otherwise.
 	 */
 	public static ArrayList<Object> getHashtags(Area area) {
@@ -87,12 +92,12 @@ public class HashtagData extends MongoClientData {
 		return CollectionHelper.asArrayList(records);
 	}
 
-
 	/**
-	 * Read: returns hashtags with the desired category as generic <code>Object</code> instances;
-	 * casting expected.
+	 * Read: returns hashtags with the desired category as generic
+	 * <code>Object</code> instances; casting expected.
 	 * 
-	 * @param cat (Enum) known category.
+	 * @param cat
+	 *            (Enum) known category.
 	 * @return (ArrayList) all hashtags with category or empty list otherwise.
 	 */
 	public static ArrayList<Object> getHashtags(Category category) {
@@ -105,16 +110,18 @@ public class HashtagData extends MongoClientData {
 		return CollectionHelper.asArrayList(records);
 	}
 
-
 	/**
-	 * Read: returns hashtags with the desired category and location as <code>Object</code> instances;
-	 * casting expected.
+	 * Read: returns hashtags with the desired category and location as
+	 * <code>Object</code> instances; casting expected.
 	 * <p>
 	 * Note: avoid auto boxing (Effective Java Item 49)
 	 * 
-	 * @param location (Enum) known location.
-	 * @param category (Enum) known category.
-	 * @return (ArrayList) all hashtags in location and categorized or empty list otherwise.
+	 * @param location
+	 *            (Enum) known location.
+	 * @param category
+	 *            (Enum) known category.
+	 * @return (ArrayList) all hashtags in location and categorized or empty
+	 *         list otherwise.
 	 */
 	public static ArrayList<Object> getHashtags(Area area, Category category) {
 		if ((area == null) || (category == null)) {
@@ -131,11 +138,11 @@ public class HashtagData extends MongoClientData {
 		return CollectionHelper.asArrayList(records);
 	}
 
-
 	/**
 	 * Read: returns the found hashtag by id.
-	 *
-	 * @param id (String) Mongo's ObjectId as String.
+	 * 
+	 * @param id
+	 *            (String) Mongo's ObjectId as String.
 	 * @return (GeoTweet) found hashtag or null otherwise.
 	 */
 	public static Hashtag findHashtagById(String id) {

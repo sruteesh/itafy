@@ -1,21 +1,22 @@
 package models.entities;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
+
 import models.categories.Category;
-import models.data.TweetData;
+
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
+
 import twitter4j.GeoLocation;
-import utils.helpers.CollectionHelper;
 import utils.helpers.WebHelper;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Model definition: Link
- *
+ * 
  * <pre>
  * | field     | class    |
  * |:--------- |:-------- |
@@ -24,20 +25,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * | title     | String   |
  * | url       | String   |
  * | category  | Category |
+ * | tweetId   | String   |
  * </pre>
- *
+ * 
  * @author martero@ucm.es
  * @author raul.marcos@ucm.es
  */
 public class Link {
 	@Id
-	@ObjectId private String id;
+	@ObjectId
+	private String id;
 
 	private double latitude;
 	private double longitude;
 	private String title;
 	private String url;
 	private Category category;
+
+	@ObjectId
+	private String tweetId;
 
 	private Date createdAt;
 	private Date updatedAt;
@@ -48,25 +54,29 @@ public class Link {
 		this.updatedAt = createdAt;
 	}
 
-	private Link(String url, GeoLocation location) {
+	private Link(String url, GeoLocation location, String tweetId) {
 		this.latitude = location.getLatitude();
 		this.longitude = location.getLongitude();
 		this.title = null;
 		this.url = url;
 		this.category = null;
+		this.tweetId = tweetId;
 		this.createdAt = new Date();
 		this.updatedAt = createdAt;
 	}
 
 	/**
 	 * Factory.
-	 *
-	 * @param url the link itself.
-	 * @param geoLocation coordenates.
+	 * 
+	 * @param url
+	 *            the link itself.
+	 * @param geoLocation
+	 *            coordenates.
+	 * @param tweetId
 	 * @return (Link) new instance.
 	 */
-	public static Link createLinkWithGeoLocations(String url, GeoLocation geoLocation) {
-		return new Link(url, geoLocation);
+	public static Link createLinkWithGeoLocations(String url, GeoLocation geoLocation, String tweetId) {
+		return new Link(url, geoLocation, tweetId);
 	}
 
 	public void completeTitle() throws IOException {
@@ -79,33 +89,54 @@ public class Link {
 		this.updatedAt = new Date();
 	}
 
-	public ArrayList<Tweet> getTweets() {
-		ArrayList<Object> tweets = TweetData.getTweetsWithLink(this.id);
-		return CollectionHelper.castEeachElementToTweet(tweets);
-	}
+	// public ArrayList<Tweet> getTweets() {
+	// ArrayList<Object> tweets = TweetData.getTweetsWithLink(this.id);
+	// return CollectionHelper.castEeachElementToTweet(tweets);
+	// }
 
 	@JsonProperty("latitude")
-	public double getLatitude() { return latitude; }
+	public double getLatitude() {
+		return latitude;
+	}
 
 	@JsonProperty("longitude")
-	public double getLongitude() { return longitude; }
+	public double getLongitude() {
+		return longitude;
+	}
 
 	@JsonProperty("url")
-	public String getUrl() { return url; }
+	public String getUrl() {
+		return url;
+	}
 
 	@JsonProperty("title")
-	public String getTitle() { return title; }
+	public String getTitle() {
+		return title;
+	}
 
 	@JsonProperty("category")
-	public Category getCategory() { return category; }
+	public Category getCategory() {
+		return category;
+	}
+
+	@JsonProperty("tweet_id")
+	public String getTweetId() {
+		return tweetId;
+	}
 
 	@JsonProperty("created_at")
-	public Date getCreatedAt() { return createdAt; }
+	public Date getCreatedAt() {
+		return createdAt;
+	}
 
 	@JsonProperty("updated_at")
-	public Date getUpdatedAt() { return updatedAt; }
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
 
 	@JsonProperty("_id")
-	public String getId() { return id; }
+	public String getId() {
+		return id;
+	}
 
 }

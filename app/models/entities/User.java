@@ -1,12 +1,12 @@
 package models.entities;
 
-import java.util.ArrayList;
 import java.util.Date;
-import models.data.TweetData;
+
 import org.jongo.marshall.jackson.oid.Id;
 import org.jongo.marshall.jackson.oid.ObjectId;
+
 import twitter4j.GeoLocation;
-import utils.helpers.CollectionHelper;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -32,7 +32,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class User {
 	@Id
-	@ObjectId private String id;
+	@ObjectId
+	private String id;
 
 	private String userName;
 	private long userId;
@@ -75,7 +76,8 @@ public class User {
 	/**
 	 * Factory.
 	 * 
-	 * @param userId defines this user by twitter
+	 * @param userId
+	 *            defines this user by twitter
 	 * @param name
 	 * @return new <code>User</code> instance
 	 */
@@ -86,7 +88,8 @@ public class User {
 	/**
 	 * Factory.
 	 * 
-	 * @param userId defines this user by twitter
+	 * @param userId
+	 *            defines this user by twitter
 	 * @param name
 	 * @param location
 	 * @return new <code>User</code> instance
@@ -95,36 +98,49 @@ public class User {
 		return new User(name, userId, location);
 	}
 
-
 	// FIXME genre as enum instead of String
 	public void setGenre(String genre) {
 		this.genre = genre;
 		this.updatedAt = new Date();
 	}
 
-	public void setFollowersCount(int followers) { this.followersCount = followers; }
-	public void setFriendsCount(int friends) { this.friendsCount = friends;}
-
-
-	public ArrayList<Tweet> getTweets() {
-		ArrayList<Object> tweets = TweetData.getTweetsFromUser(this.userId);
-		return CollectionHelper.castEeachElementToTweet(tweets);
+	public void setFollowersCount(int followers) {
+		this.followersCount = followers;
 	}
 
+	public void setFriendsCount(int friends) {
+		this.friendsCount = friends;
+	}
+
+	// public ArrayList<Tweet> getTweets() {
+	// ArrayList<Object> tweets = TweetData.getTweetsFromUser(this.userId);
+	// return CollectionHelper.castEeachElementToTweet(tweets);
+	// }
+
 	@JsonProperty("user_name")
-	public String getUserName() { return userName; }
+	public String getUserName() {
+		return userName;
+	}
 
 	@JsonProperty("user_id")
-	public long getUserId() { return userId; }
+	public long getUserId() {
+		return userId;
+	}
 
 	@JsonProperty("verified")
-	public boolean isVerified() { return verified; }
+	public boolean isVerified() {
+		return verified;
+	}
 
 	@JsonProperty("followers_count")
-	public int getFollowersCount() { return followersCount; }
+	public int getFollowersCount() {
+		return followersCount;
+	}
 
 	@JsonProperty("friends_count")
-	public int getFriendsCount() { return friendsCount; }
+	public int getFriendsCount() {
+		return friendsCount;
+	}
 
 	@JsonProperty("followers_ratio")
 	public double getFollowersRatio() {
@@ -138,22 +154,34 @@ public class User {
 	}
 
 	@JsonProperty("latitude")
-	public double getLatitude() { return latitude; }
+	public double getLatitude() {
+		return latitude;
+	}
 
 	@JsonProperty("longitude")
-	public double getLongitude() { return longitude; }
+	public double getLongitude() {
+		return longitude;
+	}
 
 	@JsonProperty("genre")
-	public String getGenre() { return genre; }
+	public String getGenre() {
+		return genre;
+	}
 
 	@JsonProperty("_id")
-	public String getId() { return id; }
+	public String getId() {
+		return id;
+	}
 
 	@JsonProperty("created_at")
-	public Date getCreatedAt() { return createdAt; }
+	public Date getCreatedAt() {
+		return createdAt;
+	}
 
 	@JsonProperty("updated_at")
-	public Date getUpdatedAt() { return updatedAt; }
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
 
 	public void updateFollowersCount(twitter4j.User twitterUser) {
 		// TODO

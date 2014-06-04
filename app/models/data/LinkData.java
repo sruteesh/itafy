@@ -1,17 +1,20 @@
 package models.data;
 
 import java.util.ArrayList;
+
 import models.categories.Category;
 import models.entities.Link;
 import models.geoLocation.Area;
+
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
-import twitter4j.GeoLocation;
+
 import utils.helpers.CollectionHelper;
 import controllers.db.DbNames;
 
 /**
- * CRUD (create, read, update, and destroy) for <code>Link</code> model in the DB.
+ * CRUD (create, read, update, and destroy) for <code>Link</code> model in the
+ * DB.
  * 
  * @author martero@ucm.es
  * @author raulmarcosl@gmail.com
@@ -21,27 +24,29 @@ public class LinkData extends MongoClientData {
 	protected static final MongoCollection linkCollection = jongoItafy.getCollection(DbNames.LINKS);
 
 	/** No need to instanciate a <code>UserData</code> object */
-	private LinkData() {}
-
+	private LinkData() {
+	}
 
 	/**
 	 * Create: creates and saves a new link instance in the DB.
 	 * 
-	 * @param url the link itself.
-	 * @param geoLocation coordenates of the link (latitude & longitude)
+	 * @param url
+	 *            the link itself.
+	 * @param geoLocation
+	 *            coordenates of the link (latitude & longitude)
 	 * @return Mongo's ObjectId as String.
 	 */
-	public static String saveLink(String url, GeoLocation geoLocation) {
-		Link link = Link.createLinkWithGeoLocations(url, geoLocation);
-		linkCollection.save(link);
-		return link.getId();
-	}
-
+	// public static String saveLink(String url, GeoLocation geoLocation) {
+	// Link link = Link.createLinkWithGeoLocations(url, geoLocation);
+	// linkCollection.save(link);
+	// return link.getId();
+	// }
 
 	/**
 	 * Create: saves the link instance into the DB.
 	 * 
-	 * @param link instance going to be saved.
+	 * @param link
+	 *            instance going to be saved.
 	 * @return Mongo's ObjectId as String.
 	 */
 	public static String saveLink(Link link) {
@@ -49,10 +54,9 @@ public class LinkData extends MongoClientData {
 		return link.getId();
 	}
 
-
 	/**
-	 * Read: returns all the links in the DB as generic <code>Object</code> instances;
-	 * casting expected
+	 * Read: returns all the links in the DB as generic <code>Object</code>
+	 * instances; casting expected
 	 * 
 	 * @return all links or empty list otherwise.
 	 */
@@ -61,12 +65,12 @@ public class LinkData extends MongoClientData {
 		return CollectionHelper.asArrayList(records);
 	}
 
-
 	/**
-	 * Read: returns links in the desired location as generic <code>Object</code>
-	 * instances.
-	 *
-	 * @param location known location.
+	 * Read: returns links in the desired location as generic
+	 * <code>Object</code> instances.
+	 * 
+	 * @param location
+	 *            known location.
 	 * @return all links in location or empty list otherwise.
 	 */
 	public static ArrayList<Object> getLinks(Area area) {
@@ -84,12 +88,12 @@ public class LinkData extends MongoClientData {
 		return CollectionHelper.asArrayList(records);
 	}
 
-
 	/**
-	 * Read: returns lniks with the desired category as generic <code>Object</code> instances;
-	 * casting expected.
+	 * Read: returns lniks with the desired category as generic
+	 * <code>Object</code> instances; casting expected.
 	 * 
-	 * @param cattegory known category.
+	 * @param cattegory
+	 *            known category.
 	 * @return all hashtags with category or empty list otherwise.
 	 */
 	public static ArrayList<Object> getLinks(Category category) {
@@ -102,13 +106,14 @@ public class LinkData extends MongoClientData {
 		return CollectionHelper.asArrayList(records);
 	}
 
-
 	/**
-	 * Read: returns links with the desired category and location as <code>Object</code> instances;
-	 * casting expected.
+	 * Read: returns links with the desired category and location as
+	 * <code>Object</code> instances; casting expected.
 	 * 
-	 * @param location known location.
-	 * @param category known category.
+	 * @param location
+	 *            known location.
+	 * @param category
+	 *            known category.
 	 * @return all links in location and categorized or empty list otherwise.
 	 */
 	public static ArrayList<Object> getLinks(Area area, Category category) {
@@ -126,11 +131,11 @@ public class LinkData extends MongoClientData {
 		return CollectionHelper.asArrayList(records);
 	}
 
-
 	/**
 	 * Read: returns the found link by id.
 	 * 
-	 * @param id Mongo's ObjectId as String.
+	 * @param id
+	 *            Mongo's ObjectId as String.
 	 * @return found link or null otherwise.
 	 */
 	public static Link findLink(String id) {
@@ -138,13 +143,15 @@ public class LinkData extends MongoClientData {
 		return link;
 	}
 
-
 	/**
-	 * Update: change the category to an existing link. If the link does not exist in the DB
-	 * this function will not create any link and will return false.
+	 * Update: change the category to an existing link. If the link does not
+	 * exist in the DB this function will not create any link and will return
+	 * false.
 	 * 
-	 * @param id link id.
-	 * @param category new category.
+	 * @param id
+	 *            link id.
+	 * @param category
+	 *            new category.
 	 * @return true if the link has been actualized; false otherwise.
 	 */
 	public static boolean updateCategoryToLink(String id, Category category) {
@@ -157,11 +164,11 @@ public class LinkData extends MongoClientData {
 		return true;
 	}
 
-
 	/**
 	 * Destroy: remove a link from the DB.
 	 * 
-	 * @param linkId Mongo's ObjectId as String.
+	 * @param linkId
+	 *            Mongo's ObjectId as String.
 	 */
 	public static void destroyLink(String linkId) {
 		linkCollection.remove(new ObjectId(linkId));
