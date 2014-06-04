@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  * <p>
  * Note: all methods would be static; not reason to instanciate or extend this
  * class
- * 
+ *
  * @author martero@ucm.es
  * @author raulmarcosl@gmail.com
  * @see Stackoverflow #1844355
@@ -27,16 +27,17 @@ public final class NormalizeHelper {
 	private static final String STOP_LIST_PATH = "/Users/raul/GitHub/itafy/stop-list/stop-list.txt";
 	private static final ArrayList<String> stopList;
 
-	// Pattern for recognizing a URL, based off RFC 3986
+	// Pattern for recognizing a URL, based on RFC 3986
 	private static final Pattern URL_PATTERN = Pattern.compile(
-			"(?:^|[\\W])((ht|f)tp(s?):\\/\\/|www\\.)" + "(([\\w\\-]+\\.){1,}?([\\w\\-.~]+\\/?)*"
-					+ "[\\p{Alnum}.,%_=?&#\\-+()\\[\\]\\*$~@!:/{};']*)",
-			Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
+			"(?:^|[\\W])((ht|f)tp(s?):\\/\\/|www\\.)" +
+					"(([\\w\\-]+\\.){1,}?([\\w\\-.~]+\\/?)*" +
+					"[\\p{Alnum}.,%_=?&#\\-+()\\[\\]\\*$~@!:/{};']*)",
+					Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
 
 	/**
 	 * Suppress default constructor for noninstantiability; "Effective Java"
 	 * Item 4.
-	 * 
+	 *
 	 * @throws AssertionError
 	 */
 	private NormalizeHelper() {
@@ -66,7 +67,7 @@ public final class NormalizeHelper {
 	/**
 	 * Applies FIVE normalization functinos to each word of a text and return
 	 * the normalized text
-	 * 
+	 *
 	 * <pre>
 	 *  NormalizeHelper.breakDownUrls(s)
 	 *  NormalizeHelper.isInStopList(s)
@@ -78,13 +79,14 @@ public final class NormalizeHelper {
 	 * Note: we must check the stop list <strong>after</strong> removing non
 	 * alphabetic chars; this, makes the algorithim slower but if the stop list
 	 * is checked before the normalization, there will be <em>ninja</em> words.
-	 * 
+	 *
 	 * @param text
 	 *            to be normalized
 	 * @return normalized text
 	 */
 	public static String normalizeText(String text) {
-		String urlFreeText = breakDownUrls(text);
+		// String urlFreeText = breakDownUrls(text);
+		String urlFreeText = removeUrlsFromText(text);
 		String response = "";
 		String normalizedWord = "";
 		for (String word : urlFreeText.split(SPACE_CHAR)) {
@@ -99,23 +101,27 @@ public final class NormalizeHelper {
 		return removeLastChar(response);
 	}
 
+
 	/**
 	 * Note: this function does NOT keep order in the String.
-	 * 
+	 *
 	 * @example breakDownUrls(
 	 *          "this is a url http://www.themostamazingsiteontheinternet.com amazing"
 	 *          ) returns
 	 *          "this is a url amazing http www themostamazingsiteontheinternet com"
 	 * @param text
 	 * @return
+	 * @deprecated
 	 */
+	@Deprecated
 	public static String breakDownUrls(String text) {
-		ArrayList<String> urlsInTheText = removeUrlsFromText(text);
-		String response = text;
-		for (String url : urlsInTheText) {
-			response += NormalizeHelper.removeNonAlphabeticChars(url);
-		}
-		return response;
+		//		ArrayList<String> urlsInTheText = removeUrlsFromText(text);
+		//		String response = text;
+		//		for (String url : urlsInTheText) {
+		//			response += NormalizeHelper.removeNonAlphabeticChars(url);
+		//		}
+		//		return response;
+		return null;
 	}
 
 	/**
@@ -130,15 +136,13 @@ public final class NormalizeHelper {
 	 *            <strong>in/out</strong> argument
 	 * @return
 	 */
-	@SuppressWarnings("all")
-	public static ArrayList<String> removeUrlsFromText(String text) {
+	public static String removeUrlsFromText(String text) {
+		String response = text;
 		Matcher matcher = URL_PATTERN.matcher(text);
-		ArrayList<String> response = new ArrayList<String>();
 		while (matcher.find()) {
 			int matchStart = matcher.start(1);
 			int matchEnd = matcher.end();
-			response.add(text.substring(matchStart, matchEnd));
-			text = removeSubString(text, matchStart, matchEnd);
+			response = removeSubString(text, matchStart, matchEnd);
 		}
 		return response;
 	}

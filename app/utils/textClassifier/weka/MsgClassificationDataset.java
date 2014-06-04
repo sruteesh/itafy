@@ -1,4 +1,4 @@
-package utils.textClassifier;
+package utils.textClassifier.weka;
 
 import models.categories.AvaibleCategories;
 import weka.core.Attribute;

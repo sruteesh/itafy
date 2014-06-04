@@ -1,6 +1,8 @@
 package utils.helpers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
 import models.entities.Tweet;
 
 /**
@@ -58,6 +60,36 @@ public final class CollectionHelper {
 					response.add((Tweet) item);
 				} catch (ClassCastException e) {
 					e.printStackTrace();
+				}
+			}
+		}
+		return response;
+	}
+
+	/**
+	 * FIXME could be nice to do a total generic function
+	 * smth like ArrayList<T extends Number>
+	 * @return
+	 */
+	public static float sumValues(ArrayList<Float> array) {
+		float result = (float) 0.0;
+		for (Float element : array) {
+			result += element.floatValue();
+		}
+		return result;
+	}
+
+
+	public static String max(HashMap<String, Double> map) {
+		String response = "";
+		if (!map.isEmpty()) {
+			double max = 0.0;
+			for (Entry<String, Double> entry : map.entrySet()) {
+				String key = entry.getKey();
+				double value = entry.getValue().doubleValue();
+				if (value > max) {
+					max = value;
+					response = key;
 				}
 			}
 		}

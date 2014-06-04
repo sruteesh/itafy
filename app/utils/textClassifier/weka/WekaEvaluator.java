@@ -1,18 +1,18 @@
-package utils.textClassifier;
+package utils.textClassifier.weka;
 
 import java.util.HashMap;
 import models.categories.AvaibleCategories;
 
 
-public class Evaluator {
+public class WekaEvaluator {
 	private double NEWS_LIMIT;
 	private double SPORT_LIMIT;
 	private HashMap<String, Double> evaluableData;
 
-	public Evaluator() {
+	public WekaEvaluator() {
 		evaluableData = new HashMap<String,Double>();
-		NEWS_LIMIT = 0.9710401891252954;
-		SPORT_LIMIT = 0.25;
+		NEWS_LIMIT = 0.7;
+		SPORT_LIMIT = 0.3;
 	}
 
 	public void setSportLimit(double v) { SPORT_LIMIT = v; }

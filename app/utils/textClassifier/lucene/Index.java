@@ -1,4 +1,4 @@
-package utils.textSearch;
+package utils.textClassifier.lucene;
 
 import java.io.IOException;
 import models.categories.AvaibleCategories;
@@ -41,34 +41,38 @@ public class Index {
 
 	public Index() {
 		try {
-			IndexWriterConfig config;
-			config = new IndexWriterConfig(LuceneVersion.VERSION, Analyzer.getAnalyzer());
-			writer = new IndexWriter(LuceneDirectory.getDirectory(), config);
-			initialized = true;
-		} catch (IOException e) {
+			initialization();
+		} catch(IOException e) {
 			Logger.error("textSearch.Index()");
 			e.printStackTrace();
 		}
 	}
 
+	private void initialization() throws IOException {
+		IndexWriterConfig config;
+		config = new IndexWriterConfig(LuceneVersion.VERSION, Analyzer.getAnalyzer());
+		writer = new IndexWriter(LuceneDirectory.getDirectory(), config);
+		initialized = true;
+	}
 
 	public boolean addText(String text, AvaibleCategories category) {
 		boolean response = false;
-		if (initialized) {
-			try {
+		try {
+			if (!initialized) {
+				initialization();
+			} else {
 				Document doc = new Document();
 				doc.add(new TextField(TEXT, text, Field.Store.NO));
 				doc.add(new TextField(CATEGORY, category.name(), Field.Store.YES));
 				writer.addDocument(doc);
 				response = true;
-			} catch (IOException e) {
-				Logger.error("EXCEPTION: utils.textSearch.Index.addTweet("+text+")");
-				e.printStackTrace();
 			}
+		} catch (IOException e) {
+			Logger.error("EXCEPTION: utils.textSearch.Index.addTweet("+text+")");
+			e.printStackTrace();
 		}
 		return response;
 	}
-
 
 	/**
 	 * Adds the tweet to the index. In order to use the less the better,
@@ -83,6 +87,7 @@ public class Index {
 
 
 	public void closeWriter() {
+		initialized = false;
 		try {
 			writer.close();
 		} catch (IOException e) {

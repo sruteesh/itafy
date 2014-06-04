@@ -1,4 +1,4 @@
-package utils.textSearch;
+package utils.textClassifier.lucene;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 
