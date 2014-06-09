@@ -23,6 +23,7 @@ import org.jongo.MongoCollection;
 import play.Logger;
 import twitter4j.GeoLocation;
 import twitter4j.HashtagEntity;
+import twitter4j.MediaEntity;
 import twitter4j.StallWarning;
 import twitter4j.StatusDeletionNotice;
 import twitter4j.StatusListener;
@@ -132,7 +133,7 @@ public class StreamingListener implements StatusListener {
 		GeoLocation location = status.getGeoLocation();
 		Tweet tweet = TweetData.saveTweet(status);
 		String tweetId = tweet.getId();
-		String userId = saveUser(status.getUser(), location);
+		// String userId = saveUser(status.getUser(), location);
 
 		// String geoTweetId = saveGeoTweet(status.getId(), location);
 		saveHashtags(status.getHashtagEntities(), location, tweetId);
@@ -161,11 +162,18 @@ public class StreamingListener implements StatusListener {
 		if (geoLocation != null) {
 			Double longitude = Double.valueOf(geoLocation.getLongitude());
 			Double latitude = Double.valueOf(geoLocation.getLatitude());
+			twitter4j.User user = status.getUser();
+			webSocketData.put("screen_name", user.getScreenName());
+			webSocketData.put("real_name", user.getName());
+			webSocketData.put("gender", GenderDetector.detectUser(user.getName(), user.getDescription()));
+
+			MediaEntity[] mediaEntities = status.getMediaEntities();
+			if (mediaEntities != null) {
+				webSocketData.put("photo", mediaEntities[0].getMediaURL());
+			}
 			webSocketData.put("text", extractText(status));
 			webSocketData.put("longitude", longitude);
 			webSocketData.put("latitude", latitude);
-			twitter4j.User user = status.getUser();
-			webSocketData.put("gender", GenderDetector.detectUser(user.getName(), user.getDescription()));
 			StreamingWebSocket.sendHashMap(webSocketData);
 		}
 	}
