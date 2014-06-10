@@ -165,15 +165,18 @@ public class StreamingListener implements StatusListener {
 			twitter4j.User user = status.getUser();
 			webSocketData.put("screen_name", user.getScreenName());
 			webSocketData.put("real_name", user.getName());
+			webSocketData.put("profile_url", user.getProfileImageURL());
 			webSocketData.put("gender", GenderDetector.detectUser(user.getName(), user.getDescription()));
 
 			MediaEntity[] mediaEntities = status.getMediaEntities();
-			if (mediaEntities != null) {
-				webSocketData.put("photo", mediaEntities[0].getMediaURL());
+			if (mediaEntities != null && mediaEntities.length > 0) {
+				// append thumb prefix for smaller pictures
+				webSocketData.put("photo_url", mediaEntities[0].getMediaURL() + ":thumb");
 			}
 			webSocketData.put("text", extractText(status));
 			webSocketData.put("longitude", longitude);
 			webSocketData.put("latitude", latitude);
+			// if (mediaEntities != null && mediaEntities.length > 0)
 			StreamingWebSocket.sendHashMap(webSocketData);
 		}
 	}
