@@ -4,7 +4,7 @@ GET    /assets/*file                   controllers.Assets.at(path="/public", fil
 
 # Home page
 # =========
-GET  /localdemo           controllers.Assets.at(path="/public/html", file="index-localdemo.html")
+GET  /                    controllers.Assets.at(path="/public/html", file="index-localdemo.html")
 GET  /onlive              controllers.TwitterController.onLive()
 GET  /demo                controllers.Assets.at(path="/public/html", file="index-demo.html")
 
