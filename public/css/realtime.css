@@ -63,11 +63,15 @@ body #menu-ui {
   right: 50px;
   z-index: 1;
   border-radius: 3px;
-  width: 120px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  -moz-border-radius: 3px;
+  width: 60px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+body #menu-ui img {
+  width: 30px;
+  height: 30px;
 }
 body #menu-ui a {
-  font-size: 13px;
   color: #404040;
   display: block;
   margin: 0;
@@ -76,13 +80,6 @@ body #menu-ui a {
   text-decoration: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   text-align: center;
-}
-body #menu-ui a:first-child {
-  border-radius: 3px 3px 0 0;
-}
-body #menu-ui a:last-child {
-  border: none;
-  border-radius: 0 0 3px 3px;
 }
 body #menu-ui a:hover {
   background: #f8f8f8;

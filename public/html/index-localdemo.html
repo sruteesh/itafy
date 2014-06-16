@@ -24,8 +24,9 @@
 </head>
 <body>
     <nav id='menu-ui'>
-        <a href='#' class='active' id='filter-all'>All events</a>
-        <a href='#' id='filter-food'>Food events</a>
+        <a id="play-pause-button" href="#">
+            <img src="../img/pause.png" alt="pause" />
+        </a>
     </nav>
     <div id='cssmenu'>
         <ul>
@@ -41,21 +42,23 @@
                 <h3>Género</h3>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> Hombre</input>
+                        <input type="checkbox" id="gender-male"> Hombre</input>
                     </label>
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> Mujer</input>
+                        <input type="checkbox" id="gender-female"> Mujer</input>
                     </label>
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> Otro</input>
+                        <input type="checkbox" id="gender-unknown"> Otro</input>
                     </label>
                 </div>
             </div>
         </form>
+
+        <button id="update-map" class="btn btn-default">Actualizar</button>
         <div>
             <h1>
                 <span id="tweets-number"></span> Tweets
@@ -70,36 +73,46 @@
             map = L.mapbox.map('map', 'raulmarcosl.h2di3h3g');
             map.addControl(L.mapbox.geocoderControl('map', 'raulmarcosl.h2di3h3g'));
 
+            var pauseSystem = false;
+
             var webSocket = new WebSocket("ws://localhost:9000/onlive");
-            var totalTweets = 0, male = 0, female = 0, unknown = 0;
+            var totalTweets = 0, maleCount = 0, femaleCount = 0, unknownCount = 0;
             var maleColor = '#ACD1E9';
             var femaleColor = '#FFBAD2';
             var unknownColor = '#333';
             var genderData = [];
-            var markers = [];
+            var maleMarkers = [], femaleMarkers = [], unknownMarkers = [];
+            var femaleEnabled = true, maleEnabled = true, unknownEnabled = true;
             genderData[0] = 0;
             genderData[1] = 0;
             genderData[2] = 0;
 
             webSocket.onmessage = function (event) {
 
+                // if the pause button is clicked, we simply do nothing
+                if (pauseSystem) return 0;
+
                 var tweet = JSON.parse(event.data);
                 // $("#tweets-feed").append('<p>' + tweet.gender + '</p>');
-                totalTweets++;
-                $("#tweets-number").text(totalTweets);
-                if (tweet.gender === 'male') {
-                    male++;
-                    genderData[1] = male;
+                if (tweet.gender === 'male' && maleEnabled) {
+                    maleCount++;
+                    genderData[1] = maleCount;
                     markerColor = maleColor;
-                } else if (tweet.gender === 'female') {
-                    female++;
-                    genderData[0] = female;
+                } else if (tweet.gender === 'female' && femaleEnabled) {
+                    femaleCount++;
+                    genderData[0] = femaleCount;
                     markerColor = femaleColor;
-                } else {
-                    unknown++;
-                    genderData[2] = unknown;
+                } else if (tweet.gender === 'unknown' && unknownEnabled) {
+                    unknownCount++;
+                    genderData[2] = unknownCount;
                     markerColor = unknownColor;
+                } else {
+                    // if it doesn't pass any clause, we don't consider it
+                    return 0;
                 }
+
+                totalTweets++;
+                updateTweetCounter(totalTweets);
 
                 var marker = L.mapbox.marker.style({
                     type: 'Feature',
@@ -113,7 +126,13 @@
                     }
                 }, [tweet.latitude, tweet.longitude]);
 
-                markers.push(marker);
+                if (tweet.gender === 'male') {
+                    maleMarkers.push(marker);
+                } else if (tweet.gender === 'female') {
+                    femaleMarkers.push(marker);
+                } else if (tweet.gender === 'unknown') {
+                    unknownMarkers.push(marker);
+                }
 
 
                 // marker.setIcon(L.icon({
@@ -221,7 +240,22 @@
             }]
         });
 
-        interval = setInterval(function() {
+        $('#play-pause-button').click(function () {
+            imgElement = $(this).find('img');
+            if (imgElement.attr('src') === '../img/pause.png') {
+                imgElement.attr('src', '../img/play.png');
+            } else {
+                imgElement.attr('src', '../img/pause.png');
+            }
+
+            pauseSystem = !pauseSystem;
+        });
+
+        var updateTweetCounter = function(totalTweets) {
+            $("#tweets-number").text(totalTweets);
+        }
+
+        var updateChart = function() {
             var chart = $("#gender-charts").highcharts();
             var data = [
                 {
@@ -238,6 +272,62 @@
             if (chart != null) {
                 chart.series[0].setData(genderData);
             }
+        };
+
+        $('#update-map').click(function () {
+            maleEnabled = $('#gender-male').prop('checked');
+            femaleEnabled = $('#gender-female').prop('checked');
+            unknownEnabled = $('#gender-unknown').prop('checked');
+
+            console.log(maleEnabled, femaleEnabled, unknownEnabled);
+
+            newTotalTweets = totalTweets;
+
+            if (!maleEnabled) {
+                genderData[0] = 0;
+                newTotalTweets -= maleCount;
+                maleCount = 0;
+
+                // slice(0) is used to make a clone of an array
+                auxMarkers = maleMarkers.slice(0);
+                unknownMarkers = [];
+                auxMarkers.forEach(function(marker) {
+                    map.removeLayer(marker);
+                });
+            }
+
+            if (!femaleEnabled) {
+                genderData[1] = 0;
+                newTotalTweets -= femaleCount;
+                femaleCount = 0;
+
+                auxMarkers = femaleMarkers.slice(0);
+                unknownMarkers = [];
+                auxMarkers.forEach(function(marker) {
+                    map.removeLayer(marker);
+                });
+            }
+
+            if (!unknownEnabled) {
+                genderData[2] = 0;
+                newTotalTweets -= unknownCount;
+                unknownCount = 0;
+
+                auxMarkers = unknownMarkers.slice(0);
+                unknownMarkers = [];
+                auxMarkers.forEach(function(marker) {
+                    map.removeLayer(marker);
+                });
+            }
+
+            totalTweets = newTotalTweets;
+
+            updateTweetCounter(totalTweets);
+            updateChart();
+        });
+
+        interval = setInterval(function() {
+            updateChart();
         }, 500);
     });
 
