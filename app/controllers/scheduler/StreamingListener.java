@@ -38,7 +38,7 @@ import controllers.db.DbNames;
 import controllers.db.MongoDBHandler;
 
 /**
- * 
+ *
  * @author manutero, raulmarcosl
  */
 public class StreamingListener implements StatusListener {
@@ -143,7 +143,7 @@ public class StreamingListener implements StatusListener {
 	/**
 	 * Called from <code>StreamingListener.onStatus</code>: create a saves a
 	 * geoTweet to DB
-	 * 
+	 *
 	 * @param twitterId
 	 * @param location
 	 * @return Mongo's id as a String
@@ -169,10 +169,24 @@ public class StreamingListener implements StatusListener {
 			webSocketData.put("gender", GenderDetector.detectUser(user.getName(), user.getDescription()));
 
 			MediaEntity[] mediaEntities = status.getMediaEntities();
+			boolean hasMediaEntities;
 			if (mediaEntities != null && mediaEntities.length > 0) {
 				// append thumb prefix for smaller pictures
 				webSocketData.put("photo_url", mediaEntities[0].getMediaURL() + ":thumb");
+				hasMediaEntities = true;
+			} else {
+				hasMediaEntities = false;
 			}
+			webSocketData.put("has_media", hasMediaEntities);
+
+			URLEntity[] urlEntities = status.getURLEntities();
+			boolean hasUrlEntities;
+			if (urlEntities != null && urlEntities.length > 0) {
+				hasUrlEntities = true;
+			} else {
+				hasUrlEntities = false;
+			}
+			webSocketData.put("has_url", hasUrlEntities);
 			webSocketData.put("text", extractText(status));
 			webSocketData.put("longitude", longitude);
 			webSocketData.put("latitude", latitude);
@@ -192,7 +206,7 @@ public class StreamingListener implements StatusListener {
 	/**
 	 * Called from <code>StreamingListener.onStatus</code>: save each hashtag to
 	 * DB
-	 * 
+	 *
 	 * @param hashtagEntities
 	 * @param location
 	 * @return void
@@ -210,7 +224,7 @@ public class StreamingListener implements StatusListener {
 
 	/**
 	 * Called from <code>StreamingListener.onStatus</code>: save each link to DB
-	 * 
+	 *
 	 * @param urlEntities
 	 * @param location
 	 * @param tweetId
@@ -230,7 +244,7 @@ public class StreamingListener implements StatusListener {
 	/**
 	 * Called from <code>StreamingListener.onStatus</code>: create and saves the
 	 * user to DB.
-	 * 
+	 *
 	 * @param twitterUser
 	 * @param location
 	 * @return Mongo id as String
