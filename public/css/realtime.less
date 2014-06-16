@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    #tweets-count {
+        position: absolute;
+        background-color: pink;
+        width: 350px;
+        left: 0px;
+        bottom: 400px;
+        overflow: scroll;
+    }
+    #gender-charts {
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        left: 0px;
+        bottom: 0px;
+        // overflow: scroll;
+    }
+
+    .leaflet-popup-content-wrapper {
+      background: #fbfbfb;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+    }
+
+    #map {
+        position: absolute;
+        width:100%;
+        height:100%;
+        margin-left: 350px;
+
+        .popup {
+            img.profile-url {
+                float: left;
+                height: 48px;
+                width: 48px;
+            }
+
+            h2.real-name {
+                margin-left: 60px;
+                font-weight: 700;
+            }
+
+            h3.screen-name {
+                margin-left: 60px;
+                margin-top: -10px;
+                color: #009999;
+                font-weight: 300;
+            }
+
+            .tweet-photo {
+                display: block;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+
+                img {
+                    height: 150px;
+                    width: 150px;
+                }
+            }
+
+            .tweet-text a {
+                color: #009999;
+            }
+        }
+    }
+
+    #menu-ui {
+        background: #fff;
+        position: absolute;
+        top: 84px;
+        right:50px;
+        z-index: 1;
+        border-radius: 3px;
+        width: 120px;
+        border: 1px solid rgba(0,0,0,0.4);
+
+        a {
+            font-size: 13px;
+            color: #404040;
+            display: block;
+            margin: 0;
+            padding: 0;
+            padding: 10px;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0,0,0,0.25);
+            text-align: center;
+        }
+
+        a:first-child {
+            border-radius: 3px 3px 0 0;
+        }
+
+        a:last-child {
+            border: none;
+            border-radius: 0 0 3px 3px;
+        }
+
+        a:hover {
+            background: #f8f8f8;
+            color: #404040;
+        }
+
+        a.active, a.active:hover {
+            background: #3887BE;
+            color: #FFF;
+        }
+    }
+}
