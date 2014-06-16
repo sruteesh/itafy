@@ -1,6 +1,5 @@
 # Javascript routing & map static resources
 # =========
-GET    /assets/javascripts/routes      controllers.Application.javascriptRoutes()
 GET    /assets/*file                   controllers.Assets.at(path="/public", file)
 
 # Home page
