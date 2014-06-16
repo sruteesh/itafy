@@ -37,32 +37,43 @@
         </ul>
     </div>
     <div id='tweets-count'>
+        <div id="claim">
+            <h3>
+                Aquí puedes ver los tweets en español que están siendo publicados en <span>tiempo real</span>.
+                <br>
+                <br>
+                Además, a continuación puedes seleccionar qué categorías quieres ver:
+            </h3>
+        </div>
+
         <form class="form-inline" role="form">
             <div class="form-group">
-                <h3>Género</h3>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" id="gender-male"> Hombre</input>
+                        <input type="checkbox" id="gender-male" checked="checked"> Hombre</input>
                     </label>
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" id="gender-female"> Mujer</input>
+                        <input type="checkbox" id="gender-female" checked="checked"> Mujer</input>
                     </label>
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" id="gender-unknown"> Otro</input>
+                        <input type="checkbox" id="gender-unknown" checked="checked"> Otro</input>
                     </label>
                 </div>
             </div>
         </form>
 
         <button id="update-map" class="btn btn-default">Actualizar</button>
+
+        <hr />
+
         <div>
-            <h1>
-                <span id="tweets-number"></span> Tweets
-            </h1>
+            <h3 id="tweets-number-text">
+                Tweets: <span id="tweets-number"></span>
+            </h3>
         </div>
     </div>
     <div id="gender-charts"></div>
@@ -71,7 +82,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             map = L.mapbox.map('map', 'raulmarcosl.h2di3h3g');
-            map.addControl(L.mapbox.geocoderControl('map', 'raulmarcosl.h2di3h3g'));
+            // map.addControl(L.mapbox.geocoderControl('map', 'raulmarcosl.h2di3h3g'));
 
             var pauseSystem = false;
 
@@ -79,13 +90,10 @@
             var totalTweets = 0, maleCount = 0, femaleCount = 0, unknownCount = 0;
             var maleColor = '#ACD1E9';
             var femaleColor = '#FFBAD2';
-            var unknownColor = '#333';
-            var genderData = [];
+            var unknownColor = '#A3A3A3';
+
             var maleMarkers = [], femaleMarkers = [], unknownMarkers = [];
             var femaleEnabled = true, maleEnabled = true, unknownEnabled = true;
-            genderData[0] = 0;
-            genderData[1] = 0;
-            genderData[2] = 0;
 
             webSocket.onmessage = function (event) {
 
@@ -96,15 +104,12 @@
                 // $("#tweets-feed").append('<p>' + tweet.gender + '</p>');
                 if (tweet.gender === 'male' && maleEnabled) {
                     maleCount++;
-                    genderData[1] = maleCount;
                     markerColor = maleColor;
                 } else if (tweet.gender === 'female' && femaleEnabled) {
                     femaleCount++;
-                    genderData[0] = femaleCount;
                     markerColor = femaleColor;
                 } else if (tweet.gender === 'unknown' && unknownEnabled) {
                     unknownCount++;
-                    genderData[2] = unknownCount;
                     markerColor = unknownColor;
                 } else {
                     // if it doesn't pass any clause, we don't consider it
@@ -187,16 +192,16 @@
                 type: 'column'
             },
             title: {
-                text: 'Gender'
+                text: 'Género'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Female',
-                    'Male',
-                    'Unknown'
+                    'Hombres',
+                    'Mujeres',
+                    'Desconocidos'
                 ]
             },
             yAxis: {
@@ -227,13 +232,13 @@
                 name: ' ',
                 data: [
                     {
-                        y: genderData[0], color: '#F6CECE'
+                        y: maleCount, color: maleColor
                     },
                     {
-                        y: genderData[1], color: '#A9D0F5'
+                        y: femaleCount, color: femaleColor
                     },
                     {
-                        y: genderData[2], color: '#333333'
+                        y: unknownCount, color: unknownColor
                     }
                 ]
 
@@ -257,20 +262,21 @@
 
         var updateChart = function() {
             var chart = $("#gender-charts").highcharts();
-            var data = [
-                {
-                    y: genderData[0], color: '#F6CECE'
-                },
-                {
-                    y: genderData[1], color: '#A9D0F5'
-                },
-                {
-                    y: genderData[2], color: '#333333'
-                }
-            ];
 
             if (chart != null) {
-                chart.series[0].setData(genderData);
+                var data = [
+                    {
+                        y: maleCount, color: maleColor
+                    },
+                    {
+                        y: femaleCount, color: femaleColor
+                    },
+                    {
+                        y: unknownCount, color: unknownColor
+                    }
+                ];
+
+                chart.series[0].setData(data);
             }
         };
 
@@ -284,7 +290,6 @@
             newTotalTweets = totalTweets;
 
             if (!maleEnabled) {
-                genderData[0] = 0;
                 newTotalTweets -= maleCount;
                 maleCount = 0;
 
@@ -297,7 +302,6 @@
             }
 
             if (!femaleEnabled) {
-                genderData[1] = 0;
                 newTotalTweets -= femaleCount;
                 femaleCount = 0;
 
@@ -309,7 +313,6 @@
             }
 
             if (!unknownEnabled) {
-                genderData[2] = 0;
                 newTotalTweets -= unknownCount;
                 unknownCount = 0;
 
