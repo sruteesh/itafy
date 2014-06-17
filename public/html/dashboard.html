@@ -74,6 +74,7 @@
             var loadedData = [];
 
             $.get('../html/data.html', function(data) {
+            // $.get('http://www.itafy.com/api/tweets/per-minutes', function(data) {
                 loadedData = jQuery.parseJSON(data).tweets;
 
                 $('#container').highcharts({
@@ -81,20 +82,20 @@
                         zoomType: 'x'
                     },
                     title: {
-                        text: 'USD to EUR exchange rate from 2006 through 2008'
+                        text: 'Número de tweets en las últimas 24 horas'
                     },
                     subtitle: {
                         text: document.ontouchstart === undefined ?
-                            'Click and drag in the plot area to zoom in' :
-                            'Pinch the chart to zoom in'
+                            'Arrastra en la gráfica para hacer zoom' :
+                            'Haz click en la gráfica para hacer zoom'
                     },
                     xAxis: {
                         type: 'datetime',
-                        minRange: 1000 // fourteen days
+                        minRange: 60 * 1000 // fourteen days
                     },
                     yAxis: {
                         title: {
-                            text: 'Exchange rate'
+                            text: 'Número de tweets'
                         }
                     },
                     legend: {
@@ -124,9 +125,9 @@
 
                     series: [{
                         type: 'area',
-                        name: 'USD to EUR',
-                        pointInterval: 1000,
-                        pointStart: Date.UTC(2006, 0, 01),
+                        name: 'Tweets',
+                        pointInterval: 60 * 1000,
+                        pointStart: Date.UTC(20014, 5, 16, 17),
                         data: loadedData
                     }]
                 });
