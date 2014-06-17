@@ -1,15 +1,18 @@
 body {
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 body #tweets-count {
   position: absolute;
   width: 350px;
   left: 0px;
   text-align: center;
-  color: #009999;
+  color: #909090;
 }
 body #tweets-count #claim {
+  color: #909090;
   margin-top: 30px;
   padding: 0 20px;
 }
@@ -20,16 +23,16 @@ body #tweets-count #claim h3 {
 body #tweets-count #claim h3 span {
   font-weight: 700;
 }
-body #tweets-count input {
-  font-size: 20px;
+body #tweets-count label {
+  font-size: 18px;
   font-weight: 700;
   margin: 10px;
 }
 body #tweets-count .btn-default {
-  margin-top: 10px;
-  border-color: #A3A3A3;
+  margin-top: 12px;
+  border-color: #009999;
   color: #FFF;
-  background-color: #A3A3A3;
+  background-color: #009999;
 }
 body #tweets-count hr {
   border-color: #eeeeee -moz-use-text-color #ffffff;
@@ -49,6 +52,7 @@ body #gender-charts {
   height: 350px;
   left: 0px;
   bottom: 0px;
+  margin-bottom: -12px;
 }
 body .leaflet-popup-content-wrapper {
   background: #fbfbfb;

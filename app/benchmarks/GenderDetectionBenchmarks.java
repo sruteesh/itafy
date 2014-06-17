@@ -352,7 +352,7 @@ public class GenderDetectionBenchmarks extends MongoClientData {
 	private static String normalize(String name) {
 		name = name.toLowerCase();
 		name = NormalizeHelper.normalizeVowels(name);
-		name = NormalizeHelper.normaliceAsciiChars(name);
+		name = NormalizeHelper.normalizeAsciiChars(name);
 
 		// comment this line to measure the improvement of remove non alphabetic
 		// chars

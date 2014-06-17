@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 import play.Application;
 import play.GlobalSettings;
 import play.Logger;
@@ -6,6 +8,7 @@ import scala.concurrent.duration.Duration;
 import utils.TwitterConnectionHandler;
 import akka.actor.ActorRef;
 import akka.actor.Props;
+import controllers.scheduler.CategorizerActor;
 import controllers.scheduler.StreamingWatcher;
 
 public class Global extends GlobalSettings {
@@ -15,6 +18,7 @@ public class Global extends GlobalSettings {
 		initializeTwitterConnectionHandler();
 
 		initializeTwitterStreaming();
+		initializeCategorizer();
 	}
 
 	@Override
@@ -36,13 +40,28 @@ public class Global extends GlobalSettings {
 				new Props(StreamingWatcher.class));
 
 		Akka.system()
-		.scheduler()
-		.scheduleOnce(
-				Duration.Zero(),
-				// Duration.create(10, TimeUnit.MINUTES),
-				twitterStreamingWatcherActor,
-				"twitter_streaming_watcher_actor",
-				Akka.system().dispatcher()
+				.scheduler()
+				.scheduleOnce(
+						Duration.Zero(),
+						// Duration.create(10, TimeUnit.MINUTES),
+						twitterStreamingWatcherActor,
+						"twitter_streaming_watcher_actor",
+						Akka.system().dispatcher()
+				);
+	}
+
+	private void initializeCategorizer() {
+		ActorRef categorizerActor = Akka.system().actorOf(
+				new Props(CategorizerActor.class));
+
+		Akka.system()
+				.scheduler()
+				.schedule(
+						Duration.Zero(),
+						Duration.create(30, TimeUnit.SECONDS),
+						categorizerActor,
+						"categorizer_actor",
+						Akka.system().dispatcher()
 				);
 	}
 }

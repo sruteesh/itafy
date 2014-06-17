@@ -38,7 +38,7 @@ import controllers.db.DbNames;
 import controllers.db.MongoDBHandler;
 
 /**
- *
+ * 
  * @author manutero, raulmarcosl
  */
 public class StreamingListener implements StatusListener {
@@ -143,7 +143,7 @@ public class StreamingListener implements StatusListener {
 	/**
 	 * Called from <code>StreamingListener.onStatus</code>: create a saves a
 	 * geoTweet to DB
-	 *
+	 * 
 	 * @param twitterId
 	 * @param location
 	 * @return Mongo's id as a String
@@ -206,7 +206,7 @@ public class StreamingListener implements StatusListener {
 	/**
 	 * Called from <code>StreamingListener.onStatus</code>: save each hashtag to
 	 * DB
-	 *
+	 * 
 	 * @param hashtagEntities
 	 * @param location
 	 * @return void
@@ -224,7 +224,7 @@ public class StreamingListener implements StatusListener {
 
 	/**
 	 * Called from <code>StreamingListener.onStatus</code>: save each link to DB
-	 *
+	 * 
 	 * @param urlEntities
 	 * @param location
 	 * @param tweetId
@@ -244,7 +244,7 @@ public class StreamingListener implements StatusListener {
 	/**
 	 * Called from <code>StreamingListener.onStatus</code>: create and saves the
 	 * user to DB.
-	 *
+	 * 
 	 * @param twitterUser
 	 * @param location
 	 * @return Mongo id as String

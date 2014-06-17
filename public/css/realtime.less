@@ -1,15 +1,22 @@
+@twitter-turquoise: #009999;
+@grey-light: #A3A3A3;
+@grey: #909090;
+
 body {
     margin: 0;
     padding: 0;
+    overflow-y:hidden;
+    overflow-x:hidden;
 
     #tweets-count {
         position: absolute;
         width: 350px;
         left: 0px;
         text-align: center;
-        color: #009999;
+        color: @grey;
 
         #claim {
+            color: @grey;
             margin-top: 30px;
             padding: 0 20px;
 
@@ -22,17 +29,17 @@ body {
             }
         }
 
-        input {
-            font-size: 20px;
+        label {
+            font-size: 18px;
             font-weight: 700;
             margin: 10px;
         }
 
         .btn-default {
-            margin-top: 10px;
-            border-color: #A3A3A3;
+            margin-top: 12px;
+            border-color: @twitter-turquoise;
             color: #FFF;
-            background-color: #A3A3A3;
+            background-color: @twitter-turquoise;
         }
 
         hr {
@@ -56,6 +63,7 @@ body {
         height: 350px;
         left: 0px;
         bottom: 0px;
+        margin-bottom: -12px;
         // overflow: scroll;
     }
 
@@ -86,7 +94,7 @@ body {
             h3.screen-name {
                 margin-left: 60px;
                 margin-top: -10px;
-                color: #009999;
+                color: @twitter-turquoise;
                 font-weight: 300;
             }
 
@@ -103,7 +111,7 @@ body {
             }
 
             .tweet-text a {
-                color: #009999;
+                color: @twitter-turquoise;
             }
         }
     }

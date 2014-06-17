@@ -37,6 +37,8 @@ public class Tweet {
 	private TwitterUser user;
 	private ArrayList<String> userMentionEntities;
 
+	private String category;
+
 	public Tweet() {
 
 	}
@@ -179,5 +181,13 @@ public class Tweet {
 
 	public String getId() {
 		return id;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }

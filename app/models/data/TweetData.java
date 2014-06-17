@@ -1,6 +1,9 @@
 package models.data;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 
 import models.entities.Tweet;
 import models.entities.TwitterUser;
@@ -16,6 +19,7 @@ import controllers.db.DbNames;
 
 public class TweetData extends MongoClientData {
 	private static final MongoCollection tweetsCollection = jongoItafy.getCollection(DbNames.TWEETS);
+	private static final MongoCollection usersCollection = jongoItafy.getCollection(DbNames.USERS);
 
 	public static Tweet saveTweet(Status status) {
 
@@ -40,7 +44,6 @@ public class TweetData extends MongoClientData {
 
 		tweet.setRetweetCount(status.getRetweetCount());
 		tweet.setPossiblySensitive(status.isPossiblySensitive());
-
 		tweet.setUser(createUser(status.getUser()));
 
 		tweetsCollection.save(tweet);
@@ -83,6 +86,7 @@ public class TweetData extends MongoClientData {
 		twitterUser.setTranslator(user.isTranslator());
 		twitterUser.setListedCount(user.getListedCount());
 		twitterUser.setFollowRequestSent(user.isFollowRequestSent());
+		usersCollection.save(twitterUser);
 
 		return twitterUser;
 	}
@@ -171,6 +175,48 @@ public class TweetData extends MongoClientData {
 
 	private static String extractSource(Status status) {
 		return status.getSource().replaceAll("</?a(|\\s+[^>]+)>", "");
+	}
+
+	public static Iterable<Tweet> getTweetsWithoutCategory(int limit) {
+		if (limit < 0) {
+			limit = 200;
+		}
+
+		return tweetsCollection
+				.find("{category: null}")
+				.sort("{_id: -1}")
+				.limit(limit)
+				.as(Tweet.class);
+	}
+
+	public static void setCategory(Tweet tweet, String category) {
+		tweet.setCategory(category);
+		tweetsCollection.save(tweet);
+	}
+
+	public static HashMap<String, Object> getPerMinutes() {
+		HashMap<String, Object> response = new HashMap<String, Object>();
+		ArrayList<Long> countList = new ArrayList<Long>();
+		Date now = new Date();
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.HOUR, -24);
+		calendar.set(Calendar.MILLISECOND, 0);
+		calendar.set(Calendar.SECOND, 0);
+		Date startDate = new Date(calendar.getTimeInMillis());
+
+		while (startDate.before(now)) {
+			calendar.add(Calendar.MINUTE, 1);
+			Date endDate = new Date(calendar.getTimeInMillis());
+
+			long tweetCount = tweetsCollection
+					.count("{createdAt: {$gt: #, $lte: #}}", startDate, endDate);
+			countList.add(tweetCount);
+
+			startDate = endDate;
+		}
+		response.put("tweets", countList);
+
+		return response;
 	}
 	//
 	// /** No need to instanciate a <code>TweetData</code> object */

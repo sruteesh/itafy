@@ -1,10 +1,12 @@
 package controllers.api;
 
-import play.mvc.Controller;
+import java.util.HashMap;
+
+import models.data.TweetData;
 import play.mvc.Result;
+import controllers.BaseController;
 
-
-public class TweetController extends Controller {
+public class TweetController extends BaseController {
 
 	public static Result index() {
 		return TODO;
@@ -14,4 +16,9 @@ public class TweetController extends Controller {
 		return TODO;
 	}
 
+	public static Result perMinutes() {
+		HashMap<String, Object> response = TweetData.getPerMinutes();
+
+		return generateResultFromHashMapResponse(response);
+	}
 }

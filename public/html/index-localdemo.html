@@ -31,7 +31,7 @@
     <div id='cssmenu'>
         <ul>
            <li class='active'><a href='index-localdemo.html'><span>Tiempo Real</span></a></li>
-           <li><a href='layout-test.html'><span>Dashboard</span></a></li>
+           <li><a href='dashboard.html'><span>Dashboard</span></a></li>
            <li><a href='#'><span>Documentación</span></a></li>
            <li class='last'><a href='#'><span>About</span></a></li>
         </ul>
@@ -50,17 +50,17 @@
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" id="gender-male" checked="checked"> Hombre</input>
+                        <input type="checkbox" id="gender-male" checked="checked"> Hombres</input>
                     </label>
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" id="gender-female" checked="checked"> Mujer</input>
+                        <input type="checkbox" id="gender-female" checked="checked"> Mujeres</input>
                     </label>
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" id="gender-unknown" checked="checked"> Otro</input>
+                        <input type="checkbox" id="gender-unknown" checked="checked"> Otros</input>
                     </label>
                 </div>
             </div>
@@ -101,7 +101,6 @@
                 if (pauseSystem) return 0;
 
                 var tweet = JSON.parse(event.data);
-                // $("#tweets-feed").append('<p>' + tweet.gender + '</p>');
                 if (tweet.gender === 'male' && maleEnabled) {
                     maleCount++;
                     markerColor = maleColor;
