@@ -38,10 +38,10 @@
 <body>
     <div id='cssmenu'>
         <ul>
-           <li><a href='index-localdemo.html'><span>Tiempo Real</span></a></li>
-           <li class='active'><a href='layout-test.html'><span>Dashboard</span></a></li>
-           <li><a href='#'><span>Documentación</span></a></li>
-           <li class='last'><a href='#'><span>About</span></a></li>
+           <li><a href='/'><span>Tiempo Real</span></a></li>
+           <li class='active last'><a href='#'><span>Dashboard</span></a></li>
+           <!-- <li><a href='#'><span>Documentación</span></a></li>
+           <li class='last'><a href='#'><span>About</span></a></li> -->
         </ul>
     </div>
 
@@ -114,8 +114,8 @@
             // }
 
             var loadedData = [];
-            $.get('../html/data.txt', function(data) {
-            // $.get('http://www.itafy.com/api/tweets/per-minutes', function(data) {
+            // $.get('../html/data.txt', function(data) {
+            $.get('http://www.itafy.com/api/tweets/per-minutes', function(data) {
             // var updateTweetsChart = function(data) {
                 loadedData = jQuery.parseJSON(data).tweets;
 

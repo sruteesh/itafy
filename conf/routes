@@ -1,6 +1,6 @@
 # Home page
 # =========
-GET  /                    controllers.Assets.at(path="/public/html", file="index-localdemo.html")
+GET  /                    controllers.Assets.at(path="/public/html", file="home.html")
 GET  /onlive              controllers.TwitterController.onLive()
 GET  /dashboard           controllers.Assets.at(path="/public/html", file="dashboard.html")
 
