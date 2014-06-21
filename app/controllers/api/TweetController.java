@@ -16,8 +16,8 @@ public class TweetController extends BaseController {
 		return TODO;
 	}
 
-	public static Result perMinutes() {
-		HashMap<String, Object> response = TweetData.getPerMinutes();
+	public static Result perMinute() {
+		HashMap<String, Object> response = TweetData.getPerMinute();
 
 		return generateResultFromHashMapResponse(response);
 	}

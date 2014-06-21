@@ -194,7 +194,7 @@ public class TweetData extends MongoClientData {
 		tweetsCollection.save(tweet);
 	}
 
-	public static HashMap<String, Object> getPerMinutes() {
+	public static HashMap<String, Object> getPerMinute() {
 		HashMap<String, Object> response = new HashMap<String, Object>();
 		ArrayList<Long> countList = new ArrayList<Long>();
 		Date now = new Date();
