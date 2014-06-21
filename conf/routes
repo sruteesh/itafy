@@ -2,13 +2,14 @@
 # =========
 GET  /                    controllers.Assets.at(path="/public/html", file="index-localdemo.html")
 GET  /onlive              controllers.TwitterController.onLive()
-GET  /dashboard                controllers.Assets.at(path="/public/html", file="dashboard.html")
+GET  /dashboard           controllers.Assets.at(path="/public/html", file="dashboard.html")
 
 # Javascript routing & map static resources
 # =========
 GET /img/*file               controllers.Assets.at(path="/public/img", file)
 GET /css/*file              controllers.Assets.at(path="/public/css", file)
 GET /js/*file               controllers.Assets.at(path="/public/js", file)
+GET /html/*file             controllers.Assets.at(path="/public/html", file)
 
 
 # API
@@ -46,6 +47,10 @@ GET  /api/words/:id       controllers.api.WordController.show(id: String)
 # Tweet
 # -----
 GET  /api/tweets/               controllers.api.TweetController.index()
-GET  /api/tweets/per-minutes    controllers.api.TweetController.perMinutes()
 GET  /api/tweets/:id            controllers.api.TweetController.show(id: String)
+
+GET  /api/tweets/per-minutes    controllers.api.TweetController.perMinutes()
+GET  /api/tweets/categories-percentage      controllers.api.TweetController.getCategoriesPerPercentage()
+GET  /api/tweets/tweets/gender-percentage   controllers.api.TweetController.getGendersPerPercentage()
+
 

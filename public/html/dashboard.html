@@ -16,18 +16,21 @@
 
     <script src='http://code.jquery.com/jquery-2.0.3.min.js' type="text/javascript"></script>
     <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
-    <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
 
     <style type="text/css">
+        body {
+            background-color: #ddd;
+        }
+
         .odd {
-            background-color: pink;
-            height: 250px;
+            /*background-color: pink;*/
+            /*height: 550px;*/
             padding: 10px;
         }
 
         .even {
-            background-color: yellow;
-            height: 250px;
+            /*background-color: yellow;*/
+            /*height: 550px;*/
             padding: 10px;
         }
     </style>
@@ -42,42 +45,81 @@
         </ul>
     </div>
 
-    <div class="row">
+    <div class="test">
+        <div class="col-md-9 box even">
+            <div id="per-minute-tweets" style="min-width: 310px; height: 400px"></div>
+        </div>
+            <div class="col-md-3 box odd">
+            <div id="by-category" style="min-width: 220px; height: 400px"></div>
+        </div>
+
+    <div class="test">
         <div class="col-md-3 box odd">
-            B
+            <div id="by-gender" style="min-width: 220px; height: 400px"></div>
         </div>
-        <div class="col-md-3 box even">
-            B
-        </div>
-        <div class="col-md-3 box odd">
-            B
-        </div>
-        <div class="col-md-3 box even">
+        <div class="col-md-9 box even">
             B
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-3 box even">
-            B
-        </div>
-
-        <div id="container" class="col-md-6 box odd" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-        <div class="col-md-3 box even">
-            B
-        </div>
-    </div>
-
 
     <script type="text/javascript">
         $(function () {
 
-            var loadedData = [];
+            $('#by-category').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Categoría de los tweets por género'
+                },
+                xAxis: {
+                    categories: ['Mujeres', 'Hombres', 'Todos']
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Porcentaje'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+                    shared: true
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'percent'
+                    }
+                },
+                    series: [{
+                    name: 'Categoría desconocida',
+                        color: '#ddd',
+                        data: [8.2, 7.4, 7.8]
+                }, {
+                    name: 'Política',
+                    color: '#9cff00',
+                    data: [1.3, 1, 1.1]
+                }, {
+                    name: 'Deportes',
+                    color: '#ff9900',
+                    data: [0.5, 1.6, 1.1]
+                }]
+            });
 
-            $.get('../html/data.html', function(data) {
+            // var gender = $('#container').highcharts();
+
+            // if (gender != null) {
+            //     gender.setOptions({
+            //             colors: ['#DDD', '#9CFF00', '#FF9900']
+            //     });
+            // }
+
+            var loadedData = [];
+            $.get('../html/data.txt', function(data) {
             // $.get('http://www.itafy.com/api/tweets/per-minutes', function(data) {
+            // var updateTweetsChart = function(data) {
                 loadedData = jQuery.parseJSON(data).tweets;
 
-                $('#container').highcharts({
+                $('#per-minute-tweets').highcharts({
                     chart: {
                         zoomType: 'x'
                     },
@@ -131,8 +173,65 @@
                         data: loadedData
                     }]
                 });
-            });
+            // };
+        });
 
+            // $.ajax({
+            //     type: 'GET',
+            //     url: 'http://www.itafy.com/api/tweets/per-minutes',
+            //     crossDomain: true,
+            //     cache: false,
+            //     dataType: 'jsonp',
+            //     success: function (data) {
+            //         console.log(data);
+            //         updateTweetsChart(data);
+            //     },
+            //     error: function(jqXHR, textStatus, errorThrown) {
+            //         console.log('jqXHR: ', jqXHR);
+            //         console.log('textStatus: ', textStatus);
+            //         console.log('err: ', errorThrown);
+            //     }
+            // });
+
+            $('#by-gender').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Tweets por género'
+                },
+                xAxis: {
+                    categories: ['Tweets']
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Porcentaje'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+                    shared: true
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'percent'
+                    }
+                },
+                    series: [{
+                    name: 'Género desconocido',
+                    color: '#A3A3A3',
+                    data: [295768]
+                }, {
+                    name: 'Hombres',
+                    color: '#ACD1E9',
+                    data: [321051]
+                }, {
+                    name: 'Mujeres',
+                    color: '#FFBAD2',
+                    data: [265694]
+                }]
+            });
         });
     </script>
 </body>

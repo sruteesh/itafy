@@ -21,4 +21,13 @@ public class TweetController extends BaseController {
 
 		return generateResultFromHashMapResponse(response);
 	}
+
+	public static Result getCategoriesPerPercentage() {
+		return TODO;
+	}
+
+	public static Result getGendersPerPercentage() {
+		return TODO;
+	}
+
 }
