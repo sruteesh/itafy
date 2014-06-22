@@ -40,14 +40,12 @@ public class User {
 	private boolean verified;
 	private int followersCount;
 	private int friendsCount;
-	private String genre;
+	private String gender;
 	private double latitude;
 	private double longitude;
 
 	private Date createdAt;
 	private Date updatedAt;
-
-	private String gender;
 
 	@JsonCreator
 	public User() {
@@ -59,7 +57,7 @@ public class User {
 		this.userName = name;
 		this.userId = id;
 		this.verified = false;
-		this.genre = null;
+		this.gender = null;
 		this.createdAt = new Date();
 		this.updatedAt = createdAt;
 	}
@@ -70,7 +68,7 @@ public class User {
 		this.verified = false;
 		this.latitude = geo.getLatitude();
 		this.longitude = geo.getLongitude();
-		this.genre = null;
+		this.gender = null;
 		this.createdAt = new Date();
 		this.updatedAt = createdAt;
 	}
@@ -102,7 +100,7 @@ public class User {
 
 	// FIXME genre as enum instead of String
 	public void setGenre(String genre) {
-		this.genre = genre;
+		this.gender = genre;
 		this.updatedAt = new Date();
 	}
 
@@ -167,7 +165,7 @@ public class User {
 
 	@JsonProperty("genre")
 	public String getGenre() {
-		return genre;
+		return gender;
 	}
 
 	@JsonProperty("_id")

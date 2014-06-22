@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import models.categories.AvaibleCategories;
+import play.Logger;
 import utils.helpers.CollectionHelper;
 
 /**
@@ -290,18 +291,24 @@ public class LuceneEvaluator {
 	public String evaluate(HashMap<String, ArrayList<Float>> distribution) {
 		evaluableData = distribution;
 		HashMap<String, Double> possibleCategories = new HashMap<String, Double>();
-		for (Entry<String, ArrayList<Float>> entry : evaluableData.entrySet()) {
-			String key = entry.getKey();
-			ArrayList<Float> distributionForOneCategory = entry.getValue();
-			distributionForOneCategory = removeSuperLowEntries(distributionForOneCategory);
-			if (areAtLeastAMinimumOfDocuments(distributionForOneCategory)) {
-				double sum = CollectionHelper.sumValues(distributionForOneCategory);
-				sum += updateSumAccordingToNumberOfDocuments(distributionForOneCategory.size());
-				if (sum > M) {
-					possibleCategories.put(key, Double.valueOf(sum));
+		try {
+
+			for (Entry<String, ArrayList<Float>> entry : evaluableData.entrySet()) {
+				String key = entry.getKey();
+				ArrayList<Float> distributionForOneCategory = entry.getValue();
+				distributionForOneCategory = removeSuperLowEntries(distributionForOneCategory);
+				if (areAtLeastAMinimumOfDocuments(distributionForOneCategory)) {
+					double sum = CollectionHelper.sumValues(distributionForOneCategory);
+					sum += updateSumAccordingToNumberOfDocuments(distributionForOneCategory.size());
+					if (sum > M) {
+						possibleCategories.put(key, Double.valueOf(sum));
+					}
 				}
 			}
+		} catch (Exception e) {
+			Logger.warn("Exception LuceneEvaluator.evaluate()");
 		}
+
 		return hungerGames(possibleCategories);
 	}
 
