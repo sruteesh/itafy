@@ -67,8 +67,6 @@
 
             $.get('/api/tweets/categories-percentage', function(data) {
                 console.log('categories: ', data);
-                data = jQuery.parseJSON(data);
-                console.log('categories: ', data);
                 console.log(data.tweets);
                 $('#by-category').highcharts({
                     chart: {
@@ -128,6 +126,8 @@
                 var jsonData = jQuery.parseJSON(data);
                 loadedData = jsonData.tweets;
                 startDate = jsonData.start_date;
+
+                console.log('genders: ', loadedData);
 
                 $('#per-minute-tweets').highcharts({
                     chart: {
