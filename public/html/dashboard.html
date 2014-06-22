@@ -65,7 +65,6 @@
     <script type="text/javascript">
         $(function () {
 
-
             $.get('/api/tweets/categories-percentage', function(data) {
 
                 console.log('categories: ', data);
@@ -181,7 +180,7 @@
                         data: loadedData
                     }]
                 });
-            // };
+            });
 
             $.get('/api/tweets/genders-percentage', function(data) {
                 console.log('genders: ', data);
@@ -226,23 +225,6 @@
                 });
             });
         });
-
-            // $.ajax({
-            //     type: 'GET',
-            //     url: 'http://www.itafy.com/api/tweets/per-minutes',
-            //     crossDomain: true,
-            //     cache: false,
-            //     dataType: 'jsonp',
-            //     success: function (data) {
-            //         console.log(data);
-            //         updateTweetsChart(data);
-            //     },
-            //     error: function(jqXHR, textStatus, errorThrown) {
-            //         console.log('jqXHR: ', jqXHR);
-            //         console.log('textStatus: ', textStatus);
-            //         console.log('err: ', errorThrown);
-            //     }
-            // });
     </script>
 </body>
 </html>
