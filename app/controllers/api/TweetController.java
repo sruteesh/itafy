@@ -9,6 +9,8 @@ import controllers.BaseController;
 
 public class TweetController extends BaseController {
 
+	private static final int TEN_MINUTES_IN_SECONDS = 60 * 10;
+
 	public static Result index() {
 		return TODO;
 	}
@@ -21,7 +23,7 @@ public class TweetController extends BaseController {
 		HashMap<String, Object> cachedTweets = (HashMap<String, Object>) Cache.get("tweets.per-minute");
 		if (cachedTweets == null) {
 			cachedTweets = TweetData.getPerMinute();
-			Cache.set("tweets.per-minute", cachedTweets, 120);
+			Cache.set("tweets.per-minute", cachedTweets, TEN_MINUTES_IN_SECONDS);
 		}
 
 		return generateResultFromHashMapResponse(cachedTweets);
@@ -32,7 +34,7 @@ public class TweetController extends BaseController {
 
 		if (cachedCategories == null) {
 			cachedCategories = TweetData.getCategoriesPerPercentage();
-			Cache.set("categories.per-percentage", cachedCategories, 120);
+			Cache.set("categories.per-percentage", cachedCategories, TEN_MINUTES_IN_SECONDS);
 		}
 
 		return generateResultFromHashMapResponse(cachedCategories);
@@ -43,7 +45,7 @@ public class TweetController extends BaseController {
 
 		if (cachedGenders == null) {
 			cachedGenders = TweetData.getGendersPerPercentage();
-			Cache.set("genders.per-percentage", cachedGenders, 120);
+			Cache.set("genders.per-percentage", cachedGenders, TEN_MINUTES_IN_SECONDS);
 		}
 
 		return generateResultFromHashMapResponse(cachedGenders);
