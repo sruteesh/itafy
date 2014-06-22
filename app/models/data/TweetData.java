@@ -21,7 +21,7 @@ public class TweetData extends MongoClientData {
 	private static final MongoCollection tweetsCollection = jongoItafy.getCollection(DbNames.TWEETS);
 	private static final MongoCollection usersCollection = jongoItafy.getCollection(DbNames.USERS);
 
-	public static Tweet saveTweet(Status status) {
+	public static Tweet saveTweet(Status status, String userGender) {
 
 		Tweet tweet = new Tweet();
 
@@ -45,6 +45,8 @@ public class TweetData extends MongoClientData {
 		tweet.setRetweetCount(status.getRetweetCount());
 		tweet.setPossiblySensitive(status.isPossiblySensitive());
 		tweet.setUser(createUser(status.getUser()));
+
+		tweet.setGender(userGender);
 
 		tweetsCollection.save(tweet);
 
@@ -86,6 +88,7 @@ public class TweetData extends MongoClientData {
 		twitterUser.setTranslator(user.isTranslator());
 		twitterUser.setListedCount(user.getListedCount());
 		twitterUser.setFollowRequestSent(user.isFollowRequestSent());
+
 		usersCollection.save(twitterUser);
 
 		return twitterUser;
@@ -203,10 +206,12 @@ public class TweetData extends MongoClientData {
 		calendar.set(Calendar.MILLISECOND, 0);
 		calendar.set(Calendar.SECOND, 0);
 		Date startDate = new Date(calendar.getTimeInMillis());
+		response.put("start_date", startDate);
+		Date endDate = null;
 
 		while (startDate.before(now)) {
 			calendar.add(Calendar.MINUTE, 1);
-			Date endDate = new Date(calendar.getTimeInMillis());
+			endDate = new Date(calendar.getTimeInMillis());
 
 			long tweetCount = tweetsCollection
 					.count("{createdAt: {$gt: #, $lte: #}}", startDate, endDate);
@@ -214,129 +219,29 @@ public class TweetData extends MongoClientData {
 
 			startDate = endDate;
 		}
+		response.put("end_date", endDate);
 		response.put("tweets", countList);
 
 		return response;
 	}
-	//
-	// /** No need to instanciate a <code>TweetData</code> object */
-	// private TweetData() {}
-	//
-	// /**
-	// * Create: saves the tweet into the DB
-	// *
-	// * @param tweet
-	// * @return Mongo's ObjectId as String
-	// */
-	// public static String savetweet(Tweet tweet) {
-	// tweetsCollection.save(tweet);
-	// return tweet.getId();
-	// }
-	//
-	// /**
-	// * Create: creates and saves a new tweet instance into the DB
-	// *
-	// * @param text the tweet itself
-	// * @param geoTweet Mongo's id as a String
-	// * @param user Mongo's id as a String
-	// * @return Mongo's ObjectId as String
-	// */
-	// public static String savetweet(String text, String geoTweet, String user)
-	// {
-	// Tweet tweet = Tweet.createTweetWithGeoTweetAndUser(text, geoTweet, user);
-	// tweetsCollection.save(tweet);
-	// return tweet.getId();
-	// }
-	//
-	// /**
-	// * Read: returns all the tweets in the DB as generic <code>Object</code>
-	// * instances; casting expected.
-	// *
-	// * @return tweets or empty list otherwise.
-	// */
-	// public static ArrayList<Object> getTweets() {
-	// Iterable<Tweet> records = tweetsCollection.find().as(Tweet.class);
-	// return CollectionHelper.asArrayList(records);
-	// }
-	//
-	// /**
-	// * Read: tweets with the selected link
-	// *
-	// * @param id Mongo's id as a String
-	// * @return array of tweets with the selected link or empty list otherwise.
-	// */
-	// public static ArrayList<Object> getTweetsWithLink(String id) {
-	// String query = "{link_ids: #}}";
-	// Iterable<Tweet> records = tweetsCollection
-	// .find(query, new ObjectId(id))
-	// .as(Tweet.class);
-	// return CollectionHelper.asArrayList(records);
-	// }
-	//
-	// /**
-	// * Read: tweets with the selected word
-	// *
-	// * @param id Mongo's id as a String
-	// * @return array of tweets with the selected link or empty list otherwise.
-	// */
-	// public static ArrayList<Object> getTweetsWithWord(String id) {
-	// String query = "{word_ids: #}}";
-	// Iterable<Tweet> records = tweetsCollection
-	// .find(query, new ObjectId(id))
-	// .as(Tweet.class);
-	// return CollectionHelper.asArrayList(records);
-	// }
-	//
-	// /**
-	// * Read: tweets with the selected hashtag
-	// *
-	// * @param id Mongo's id as a String
-	// * @return array of tweets with the selected link or empty list otherwise.
-	// */
-	// public static ArrayList<Object> getTweetsWithHashtag(String id) {
-	// String query = "{hashtag_ids: #}}";
-	// Iterable<Tweet> records = tweetsCollection
-	// .find(query, new ObjectId(id))
-	// .as(Tweet.class);
-	// return CollectionHelper.asArrayList(records);
-	// }
-	//
-	// /**
-	// * Read: tweets from the selected user
-	// *
-	// * @param twitterUserId
-	// * @return array of tweets with the selected user or empty list otherwise.
-	// */
-	// public static ArrayList<Object> getTweetsFromUser(long twitterUserId) {
-	// User user = UserData.findUser(twitterUserId);
-	// System.out.println("User: " + user.getId());
-	// String query = "{user_id: #}";
-	// Iterable<Tweet> tweets = tweetsCollection
-	// .find(query, new ObjectId("53453a50300402c4735397a4"))
-	// .as(Tweet.class);
-	// return CollectionHelper.asArrayList(tweets);
-	//
-	// }
-	//
-	// /**
-	// * Read: returns tweet by id
-	// *
-	// * @param id Mongo's ObjectId as a String.
-	// * @return found tweet or null otherwise.
-	// */
-	// public static Tweet findTweet(String id) {
-	// Tweet tweet = tweetsCollection.findOne(new ObjectId(id)).as(Tweet.class);
-	// return tweet;
-	// }
-	//
-	// /**
-	// * Destroy: remove a tweet from the DB.
-	// *
-	// * @param id Mongo's ObjectId as String.
-	// */
-	// public static void destroyTweet(String id) {
-	// tweetsCollection.remove(new ObjectId(id));
-	// return;
-	// }
+
+	public static HashMap<String, Object> getCategoriesPerPercentage() {
+		HashMap<String, Object> response = new HashMap<String, Object>();
+
+		long totalTweets = tweetsCollection.count();
+		long sportsTweets = tweetsCollection.count("{category: #}", "DEPORTES");
+
+		response.put("tweets", totalTweets);
+		response.put("sports_tweets", sportsTweets);
+		response.put("sports_percentage", sportsTweets * 100 / totalTweets);
+
+		return response;
+	}
+
+	public static HashMap<String, Object> getGendersPerPercentage() {
+		HashMap<String, Object> response = new HashMap<String, Object>();
+
+		return response;
+	}
 
 }

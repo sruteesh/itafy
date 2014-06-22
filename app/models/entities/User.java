@@ -47,6 +47,8 @@ public class User {
 	private Date createdAt;
 	private Date updatedAt;
 
+	private String gender;
+
 	@JsonCreator
 	public User() {
 		this.createdAt = new Date();

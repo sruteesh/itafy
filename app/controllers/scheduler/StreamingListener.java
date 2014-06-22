@@ -80,8 +80,10 @@ public class StreamingListener implements StatusListener {
 		// saveTwitterName(status);
 
 		if (status.getGeoLocation() != null) {
-			sendTweetToWebSocket(status);
-			saveStatusToDB(status);
+			String userGender = GenderDetector
+					.detectUser(status.getUser().getName(), status.getUser().getDescription());
+			sendTweetToWebSocket(status, userGender);
+			saveStatusToDB(status, userGender);
 		}
 	}
 
@@ -129,9 +131,9 @@ public class StreamingListener implements StatusListener {
 	 * <li>words
 	 * </ul>
 	 */
-	private void saveStatusToDB(twitter4j.Status status) {
+	private void saveStatusToDB(twitter4j.Status status, String userGender) {
 		GeoLocation location = status.getGeoLocation();
-		Tweet tweet = TweetData.saveTweet(status);
+		Tweet tweet = TweetData.saveTweet(status, userGender);
 		String tweetId = tweet.getId();
 		// String userId = saveUser(status.getUser(), location);
 
@@ -156,7 +158,7 @@ public class StreamingListener implements StatusListener {
 	}
 
 	/** Note: avoid auto boxing (Effective Java Item 49) */
-	private void sendTweetToWebSocket(twitter4j.Status status) {
+	private void sendTweetToWebSocket(twitter4j.Status status, String userGender) {
 		HashMap<String, Object> webSocketData = new HashMap<String, Object>();
 		GeoLocation geoLocation = status.getGeoLocation();
 		if (geoLocation != null) {
@@ -166,7 +168,7 @@ public class StreamingListener implements StatusListener {
 			webSocketData.put("screen_name", user.getScreenName());
 			webSocketData.put("real_name", user.getName());
 			webSocketData.put("profile_url", user.getProfileImageURL());
-			webSocketData.put("gender", GenderDetector.detectUser(user.getName(), user.getDescription()));
+			webSocketData.put("gender", userGender);
 
 			MediaEntity[] mediaEntities = status.getMediaEntities();
 			boolean hasMediaEntities;

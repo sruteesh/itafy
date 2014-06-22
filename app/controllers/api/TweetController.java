@@ -21,14 +21,21 @@ public class TweetController extends BaseController {
 		HashMap<String, Object> cachedTweets = (HashMap<String, Object>) Cache.get("tweets.per-minute");
 		if (cachedTweets == null) {
 			cachedTweets = TweetData.getPerMinute();
-			Cache.set("tweets.per-minute", cachedTweets);
+			Cache.set("tweets.per-minute", cachedTweets, 120);
 		}
 
 		return generateResultFromHashMapResponse(cachedTweets);
 	}
 
 	public static Result getCategoriesPerPercentage() {
-		return TODO;
+		HashMap<String, Object> cachedCategories = (HashMap<String, Object>) Cache.get("categories.per-percentage");
+
+		if (cachedCategories == null) {
+			cachedCategories = TweetData.getCategoriesPerPercentage();
+			Cache.set("categories.per-percentage", cachedCategories, 120);
+		}
+
+		return generateResultFromHashMapResponse(cachedCategories);
 	}
 
 	public static Result getGendersPerPercentage() {

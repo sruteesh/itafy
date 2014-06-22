@@ -38,6 +38,7 @@ public class Tweet {
 	private ArrayList<String> userMentionEntities;
 
 	private String category;
+	private String gender;
 
 	public Tweet() {
 
@@ -189,5 +190,13 @@ public class Tweet {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 }
