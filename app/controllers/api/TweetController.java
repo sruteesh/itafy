@@ -39,7 +39,14 @@ public class TweetController extends BaseController {
 	}
 
 	public static Result getGendersPerPercentage() {
-		return TODO;
+		HashMap<String, Object> cachedGenders = (HashMap<String, Object>) Cache.get("genders.per-percentage");
+
+		if (cachedGenders == null) {
+			cachedGenders = TweetData.getGendersPerPercentage();
+			Cache.set("genders.per-percentage", cachedGenders, 120);
+		}
+
+		return generateResultFromHashMapResponse(cachedGenders);
 	}
 
 }
