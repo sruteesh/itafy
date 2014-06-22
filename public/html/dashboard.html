@@ -66,8 +66,10 @@
         $(function () {
 
             $.get('/api/tweets/categories-percentage', function(data) {
-
                 console.log('categories: ', data);
+                data = jQuery.parseJSON(data);
+                console.log('categories: ', data);
+                console.log(data.tweets);
                 $('#by-category').highcharts({
                     chart: {
                         type: 'column'
@@ -96,15 +98,17 @@
                         series: [{
                         name: 'Categoría desconocida',
                             color: '#ddd',
-                            data: [8.2, 7.4, 7.8]
+                            data: [data.tweets - data.sports_tweets]
+                            // data: [8.2, 7.4, 7.8]
                     }, {
-                        name: 'Política',
-                        color: '#9cff00',
-                        data: [1.3, 1, 1.1]
-                    }, {
+                    //     name: 'Política',
+                    //     color: '#9cff00',
+                    //     data: [1.3, 1, 1.1]
+                    // }, {
                         name: 'Deportes',
                         color: '#ff9900',
-                        data: [0.5, 1.6, 1.1]
+                        data: [data.sports_tweets]
+                        // data: [0.5, 1.6, 1.1]
                     }]
                 });
             });

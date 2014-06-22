@@ -48,7 +48,7 @@ GET  /api/words/:id                         controllers.api.WordController.show(
 # -----
 GET  /api/tweets/per-minute                 controllers.api.TweetController.perMinute()
 GET  /api/tweets/categories-percentage      controllers.api.TweetController.getCategoriesPerPercentage()
-GET  /api/tweets/gender-percentage          controllers.api.TweetController.getGendersPerPercentage()
+GET  /api/tweets/genders-percentage         controllers.api.TweetController.getGendersPerPercentage()
 
 GET  /api/tweets/                           controllers.api.TweetController.index()
 GET  /api/tweets/:id                        controllers.api.TweetController.show(id: String)
