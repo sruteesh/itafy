@@ -18,7 +18,7 @@ public class Global extends GlobalSettings {
 		initializeTwitterConnectionHandler();
 
 		initializeTwitterStreaming();
-		initializeCategorizer();
+		// initializeCategorizer();
 	}
 
 	@Override
