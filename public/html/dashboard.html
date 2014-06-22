@@ -96,7 +96,7 @@
                         series: [{
                         name: 'Categoría desconocida',
                             color: '#ddd',
-                            data: [data.tweets - data.sports_tweets]
+                            data: [data.tweets - data.sports_tweets, data.tweets - data.sports_tweets, data.tweets - data.sports_tweets]
                             // data: [8.2, 7.4, 7.8]
                     }, {
                     //     name: 'Política',
@@ -105,7 +105,7 @@
                     // }, {
                         name: 'Deportes',
                         color: '#ff9900',
-                        data: [data.sports_tweets]
+                        data: [data.sports_tweets, data.sports_tweets, data.sports_tweets]
                         // data: [0.5, 1.6, 1.1]
                     }]
                 });
@@ -123,6 +123,7 @@
 
             $.get('/api/tweets/per-minute', function(data) {
             // var updateTweetsChart = function(data) {
+                console.log('genders data: ', data);
                 var jsonData = jQuery.parseJSON(data);
                 loadedData = jsonData.tweets;
                 startDate = jsonData.start_date;
