@@ -120,15 +120,8 @@
             // }
 
             var loadedData = [];
-
             $.get('/api/tweets/per-minute', function(data) {
-            // var updateTweetsChart = function(data) {
-                console.log('genders data: ', data);
-                var jsonData = jQuery.parseJSON(data);
-                loadedData = jsonData.tweets;
-                startDate = jsonData.start_date;
-
-                console.log('genders: ', loadedData);
+                console.log('per minute: ', loadedData);
 
                 $('#per-minute-tweets').highcharts({
                     chart: {
@@ -181,8 +174,8 @@
                         name: 'Tweets',
                         pointInterval: 60 * 1000,
                         // timezone offset is in minutes, and it's necessary to substract it!
-                        pointStart: Number(startDate - new Date().getTimezoneOffset() * 60 * 1000),
-                        data: loadedData
+                        pointStart: Number(data.start_date - new Date().getTimezoneOffset() * 60 * 1000),
+                        data: data.tweets
                     }]
                 });
             });
