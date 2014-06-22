@@ -8,6 +8,7 @@ import scala.concurrent.duration.Duration;
 import utils.TwitterConnectionHandler;
 import akka.actor.ActorRef;
 import akka.actor.Props;
+import controllers.scheduler.CacheWarmerActor;
 import controllers.scheduler.CategorizerActor;
 import controllers.scheduler.StreamingWatcher;
 
@@ -18,6 +19,7 @@ public class Global extends GlobalSettings {
 		initializeTwitterConnectionHandler();
 
 		initializeTwitterStreaming();
+		initializeCacheWarmer();
 		// initializeCategorizer();
 	}
 
@@ -30,7 +32,6 @@ public class Global extends GlobalSettings {
 	 * Initialize the Twitter library in order to be able to use the Twitter API
 	 * Rest and the Twitter Streaming
 	 */
-	@SuppressWarnings("unused")
 	private void initializeTwitterConnectionHandler() {
 		new TwitterConnectionHandler();
 	}
@@ -46,6 +47,21 @@ public class Global extends GlobalSettings {
 						// Duration.create(10, TimeUnit.MINUTES),
 						twitterStreamingWatcherActor,
 						"twitter_streaming_watcher_actor",
+						Akka.system().dispatcher()
+				);
+	}
+
+	private void initializeCacheWarmer() {
+		ActorRef cacheWarmer = Akka.system().actorOf(
+				new Props(CacheWarmerActor.class));
+
+		Akka.system()
+				.scheduler()
+				.schedule(
+						Duration.Zero(),
+						Duration.create(1, TimeUnit.MINUTES),
+						cacheWarmer,
+						"categorizer_actor",
 						Akka.system().dispatcher()
 				);
 	}

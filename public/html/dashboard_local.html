@@ -66,9 +66,9 @@
         $(function () {
 
 
-            $.get('/api/tweets/categories-percentage', function(data) {
+            // http://itafy.com/api/tweets/categories-percentage
+            $.get('../html/gender-data.txt', function(data) {
 
-                console.log('categories: ', data);
                 $('#by-category').highcharts({
                     chart: {
                         type: 'column'
@@ -119,8 +119,8 @@
             // }
 
             var loadedData = [];
-
-            $.get('/api/tweets/per-minute', function(data) {
+            $.get('../html/data.txt', function(data) {
+            // $.get('/api/tweets/per-minute', function(data) {
             // var updateTweetsChart = function(data) {
                 var jsonData = jQuery.parseJSON(data);
                 loadedData = jsonData.tweets;
@@ -182,49 +182,6 @@
                     }]
                 });
             // };
-
-            $.get('/api/tweets/genders-percentage', function(data) {
-                console.log('genders: ', data);
-                $('#by-gender').highcharts({
-                    chart: {
-                        type: 'column'
-                    },
-                    title: {
-                        text: 'Tweets por género'
-                    },
-                    xAxis: {
-                        categories: ['Tweets']
-                    },
-                    yAxis: {
-                        min: 0,
-                        title: {
-                            text: 'Porcentaje'
-                        }
-                    },
-                    tooltip: {
-                        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
-                        shared: true
-                    },
-                    plotOptions: {
-                        column: {
-                            stacking: 'percent'
-                        }
-                    },
-                        series: [{
-                        name: 'Género desconocido',
-                        color: '#A3A3A3',
-                        data: [295768]
-                    }, {
-                        name: 'Hombres',
-                        color: '#ACD1E9',
-                        data: [321051]
-                    }, {
-                        name: 'Mujeres',
-                        color: '#FFBAD2',
-                        data: [265694]
-                    }]
-                });
-            });
         });
 
             // $.ajax({
@@ -243,6 +200,47 @@
             //         console.log('err: ', errorThrown);
             //     }
             // });
+
+            $('#by-gender').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Tweets por género'
+                },
+                xAxis: {
+                    categories: ['Tweets']
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Porcentaje'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+                    shared: true
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'percent'
+                    }
+                },
+                    series: [{
+                    name: 'Género desconocido',
+                    color: '#A3A3A3',
+                    data: [295768]
+                }, {
+                    name: 'Hombres',
+                    color: '#ACD1E9',
+                    data: [321051]
+                }, {
+                    name: 'Mujeres',
+                    color: '#FFBAD2',
+                    data: [265694]
+                }]
+            });
+        });
     </script>
 </body>
 </html>

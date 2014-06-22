@@ -241,7 +241,14 @@ public class TweetData extends MongoClientData {
 	public static HashMap<String, Object> getGendersPerPercentage() {
 		HashMap<String, Object> response = new HashMap<String, Object>();
 
+		long totalTweets = tweetsCollection.count();
+		long femaleTweets = tweetsCollection.count("{gender: #}", "female");
+		long maleTweets = tweetsCollection.count("{gender: #}", "male");
+
+		response.put("tweets", totalTweets);
+		response.put("female_tweets", femaleTweets);
+		response.put("male_tweets", maleTweets);
+
 		return response;
 	}
-
 }
