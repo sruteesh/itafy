@@ -59,7 +59,7 @@ public class Global extends GlobalSettings {
 				.scheduler()
 				.schedule(
 						Duration.Zero(),
-						Duration.create(5, TimeUnit.MINUTES),
+						Duration.create(2, TimeUnit.MINUTES),
 						cacheWarmer,
 						"categorizer_actor",
 						Akka.system().dispatcher()
