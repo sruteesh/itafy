@@ -22,17 +22,10 @@
             background-color: #ddd;
         }
 
-        .odd {
-            /*background-color: pink;*/
-            /*height: 550px;*/
+        .box {
             padding: 10px;
         }
 
-        .even {
-            /*background-color: yellow;*/
-            /*height: 550px;*/
-            padding: 10px;
-        }
     </style>
 </head>
 <body>
@@ -46,16 +39,17 @@
     </div>
 
     <div class="test">
-        <div class="col-md-9 box even">
+        <div class="col-md-12 box">
             <div id="per-minute-tweets" style="min-width: 310px; height: 400px"></div>
         </div>
-        <div class="col-md-3 box odd">
-            <div id="by-category" style="min-width: 220px; height: 400px"></div>
-        </div>
+
 
     <div class="test">
-        <div class="col-md-3 box odd">
+        <div class="col-md-3 box">
             <div id="by-gender" style="min-width: 220px; height: 400px"></div>
+        </div>
+        <div class="col-md-3 box">
+            <div id="by-category" style="min-width: 220px; height: 400px"></div>
         </div>
     </div>
 
