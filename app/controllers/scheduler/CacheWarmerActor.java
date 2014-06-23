@@ -7,9 +7,8 @@ public class CacheWarmerActor extends UntypedActor {
 
 	@Override
 	public void onReceive(Object arg0) throws Exception {
-		TweetController.perMinute();
-		TweetController.getCategoriesPerPercentage();
-		TweetController.getGendersPerPercentage();
+		TweetController.warmTweetsCache();
+		TweetController.warmGendersCache();
+		TweetController.warmCategoriesCache();
 	}
-
 }
