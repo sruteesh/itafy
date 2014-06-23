@@ -228,10 +228,12 @@ public class TweetData extends MongoClientData {
 	public static HashMap<String, Object> getCategoriesPerPercentage() {
 		HashMap<String, Object> response = new HashMap<String, Object>();
 
-		long totalTweets = tweetsCollection.count();
+		long unknownTweets = tweetsCollection.count("{category: #}", "");
 		long sportsTweets = tweetsCollection.count("{category: #}", "DEPORTES");
+		long politicsTweets = tweetsCollection.count("{category: #}", "ACTUALIDAD");
 
-		response.put("tweets", totalTweets);
+		long totalTweets = unknownTweets + politicsTweets;
+		response.put("other_tweets", totalTweets);
 		response.put("sports_tweets", sportsTweets);
 		response.put("sports_percentage", sportsTweets * 100 / totalTweets);
 
