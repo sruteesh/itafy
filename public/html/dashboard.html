@@ -61,10 +61,11 @@
                         type: 'column'
                     },
                     title: {
-                        text: 'Categoría de los tweets por género'
+                        text: 'Tweets por categoría'
                     },
                     xAxis: {
-                        categories: ['Mujeres', 'Hombres', 'Todos']
+                        // categories: ['Mujeres', 'Hombres', 'Todos']
+                        categories: ['Tweets']
                     },
                     yAxis: {
                         min: 0,
@@ -84,7 +85,7 @@
                         series: [{
                         name: 'Categoría desconocida',
                             color: '#ddd',
-                            data: [data.tweets - data.sports_tweets, data.tweets - data.sports_tweets, data.tweets - data.sports_tweets]
+                            data: [data.tweets - data.sports_tweets]
                             // data: [8.2, 7.4, 7.8]
                     }, {
                     //     name: 'Política',
@@ -93,7 +94,7 @@
                     // }, {
                         name: 'Deportes',
                         color: '#ff9900',
-                        data: [data.sports_tweets, data.sports_tweets, data.sports_tweets]
+                        data: [data.sports_tweets]
                         // data: [0.5, 1.6, 1.1]
                     }]
                 });
