@@ -295,10 +295,12 @@
 
                 // slice(0) is used to make a clone of an array
                 auxMarkers = maleMarkers.slice(0);
-                unknownMarkers = [];
+
                 auxMarkers.forEach(function(marker) {
                     map.removeLayer(marker);
                 });
+
+                maleMarkers = [];
             }
 
             if (!femaleEnabled) {
@@ -306,10 +308,11 @@
                 femaleCount = 0;
 
                 auxMarkers = femaleMarkers.slice(0);
-                unknownMarkers = [];
                 auxMarkers.forEach(function(marker) {
                     map.removeLayer(marker);
                 });
+
+                femaleMarkers = [];
             }
 
             if (!unknownEnabled) {
@@ -317,10 +320,12 @@
                 unknownCount = 0;
 
                 auxMarkers = unknownMarkers.slice(0);
-                unknownMarkers = [];
+
                 auxMarkers.forEach(function(marker) {
                     map.removeLayer(marker);
                 });
+
+                unknownMarkers = [];
             }
 
             totalTweets = newTotalTweets;
