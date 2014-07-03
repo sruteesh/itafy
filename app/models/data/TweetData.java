@@ -235,6 +235,7 @@ public class TweetData extends MongoClientData {
 		long totalTweets = unknownTweets + politicsTweets;
 		response.put("other_tweets", totalTweets);
 		response.put("sports_tweets", sportsTweets);
+		response.put("politics_tweets", politicsTweets);
 		response.put("sports_percentage", sportsTweets * 100 / totalTweets);
 
 		return response;
